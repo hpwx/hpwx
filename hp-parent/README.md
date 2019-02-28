@@ -1,4 +1,4 @@
-项目名称：HP惠普项目
+项目名称：HP惠普项目222222
 架构选型：微服务架构（分布式 + 集群）
 技术选型： Spring Boot + Spring Cloud + Mybatis + Redis + RabbitMQ + MySQL + (MyCat) + MongoDB + Nginx + (Docker)
 页面交互：Vue 2.x + Element + Bootstrap + HTML5 + CSS3
