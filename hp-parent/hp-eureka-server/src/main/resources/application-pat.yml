@@ -1,0 +1,17 @@
+server:
+  port: 8761
+security:
+  user:
+    name: admin
+    password: ymadmin
+eureka:
+  instance:
+    hostname: pat
+  server:
+    enable-self-preservation: false
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:${server.port}/eureka
+jasypt:
+  encryptor:
+    password: xxxxx

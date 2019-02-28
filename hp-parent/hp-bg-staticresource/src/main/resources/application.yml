@@ -1,0 +1,11 @@
+server:
+  tomcat:
+    uri-encoding: UTF-8
+    max-threads: 1000
+    min-spare-threads: 30
+  port: 8051
+spring:
+  application:
+    name:  hp-bg-staticresource
+  profiles:
+    active: dev

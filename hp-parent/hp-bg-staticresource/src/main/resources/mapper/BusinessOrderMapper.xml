@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ym.sale.mapper.BusinessOrderMapper" >
+  <resultMap id="BaseResultMap" type="com.ym.sale.entity.BusinessOrder" >
+    <id column="order_code" property="orderCode" jdbcType="VARCHAR" />
+    <result column="business_code" property="businessCode" jdbcType="VARCHAR" />
+    <result column="order_no" property="orderNo" jdbcType="VARCHAR" />
+    <result column="order_status" property="orderStatus" jdbcType="INTEGER" />
+    <result column="order_type" property="orderType" jdbcType="INTEGER" />
+    <result column="post_address" property="postAddress" jdbcType="VARCHAR" />
+    <result column="receiver_name" property="receiverName" jdbcType="VARCHAR" />
+    <result column="receiver_phone" property="receiverPhone" jdbcType="VARCHAR" />
+    <result column="address_details" property="addressDetails" jdbcType="VARCHAR" />
+    <result column="pay_amount" property="payAmount" jdbcType="DECIMAL" />
+    <result column="product_count" property="productCount" jdbcType="INTEGER" />
+    <result column="product_color" property="productColor" jdbcType="INTEGER" />
+    <result column="is_send_out" property="isSendOut" jdbcType="BIT" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    order_code, business_code, order_no, order_status, order_type, post_address, receiver_name, 
+    receiver_phone, address_details, pay_amount, product_count, product_color, is_send_out, 
+    update_time, create_time
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from business_order
+    where order_code = #{orderCode,jdbcType=VARCHAR}
+  </select>
+  
+  <select id="selectByorderNo" resultMap="BaseResultMap"   >
+    select 
+    <include refid="Base_Column_List" />
+    from business_order
+    where order_no = #{OrderNo,jdbcType=VARCHAR}
+  </select>
+  
+   <select id="getOrderList" resultMap="BaseResultMap"   >
+    select 
+    <include refid="Base_Column_List" />
+    from business_order
+    where   
+    1=1  and order_status=2  and  order_type=2
+    <if test="businessCode!=null">
+      and   business_code=#{businessCode,jdbcType=VARCHAR}
+    </if>
+    
+     order by   create_time  desc
+  </select>
+  
+  
+  
+  
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from business_order
+    where order_code = #{orderCode,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.ym.sale.entity.BusinessOrder" >
+    insert into business_order (order_code, business_code, order_no, 
+      order_status, order_type, post_address, 
+      receiver_name, receiver_phone, address_details, 
+      pay_amount, product_count, product_color, 
+      is_send_out, update_time, create_time
+      )
+    values (#{orderCode,jdbcType=VARCHAR}, #{businessCode,jdbcType=VARCHAR}, #{orderNo,jdbcType=VARCHAR}, 
+      #{orderStatus,jdbcType=INTEGER}, #{orderType,jdbcType=INTEGER}, #{postAddress,jdbcType=VARCHAR}, 
+      #{receiverName,jdbcType=VARCHAR}, #{receiverPhone,jdbcType=VARCHAR}, #{addressDetails,jdbcType=VARCHAR}, 
+      #{payAmount,jdbcType=DECIMAL}, #{productCount,jdbcType=INTEGER}, #{productColor,jdbcType=INTEGER}, 
+      #{isSendOut,jdbcType=BIT}, #{updateTime,jdbcType=TIMESTAMP}, #{createTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.ym.sale.entity.BusinessOrder" >
+    insert into business_order
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="orderCode != null" >
+        order_code,
+      </if>
+      <if test="businessCode != null" >
+        business_code,
+      </if>
+      <if test="orderNo != null" >
+        order_no,
+      </if>
+      <if test="orderStatus != null" >
+        order_status,
+      </if>
+      <if test="orderType != null" >
+        order_type,
+      </if>
+      <if test="postAddress != null" >
+        post_address,
+      </if>
+      <if test="receiverName != null" >
+        receiver_name,
+      </if>
+      <if test="receiverPhone != null" >
+        receiver_phone,
+      </if>
+      <if test="addressDetails != null" >
+        address_details,
+      </if>
+      <if test="payAmount != null" >
+        pay_amount,
+      </if>
+      <if test="productCount != null" >
+        product_count,
+      </if>
+      <if test="productColor != null" >
+        product_color,
+      </if>
+      <if test="isSendOut != null" >
+        is_send_out,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="orderCode != null" >
+        #{orderCode,jdbcType=VARCHAR},
+      </if>
+      <if test="businessCode != null" >
+        #{businessCode,jdbcType=VARCHAR},
+      </if>
+      <if test="orderNo != null" >
+        #{orderNo,jdbcType=VARCHAR},
+      </if>
+      <if test="orderStatus != null" >
+        #{orderStatus,jdbcType=INTEGER},
+      </if>
+      <if test="orderType != null" >
+        #{orderType,jdbcType=INTEGER},
+      </if>
+      <if test="postAddress != null" >
+        #{postAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="receiverName != null" >
+        #{receiverName,jdbcType=VARCHAR},
+      </if>
+      <if test="receiverPhone != null" >
+        #{receiverPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="addressDetails != null" >
+        #{addressDetails,jdbcType=VARCHAR},
+      </if>
+      <if test="payAmount != null" >
+        #{payAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="productCount != null" >
+        #{productCount,jdbcType=INTEGER},
+      </if>
+      <if test="productColor != null" >
+        #{productColor,jdbcType=INTEGER},
+      </if>
+      <if test="isSendOut != null" >
+        #{isSendOut,jdbcType=BIT},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ym.sale.entity.BusinessOrder" >
+    update business_order
+    <set >
+      <if test="businessCode != null" >
+        business_code = #{businessCode,jdbcType=VARCHAR},
+      </if>
+      <if test="orderNo != null" >
+        order_no = #{orderNo,jdbcType=VARCHAR},
+      </if>
+      <if test="orderStatus != null" >
+        order_status = #{orderStatus,jdbcType=INTEGER},
+      </if>
+      <if test="orderType != null" >
+        order_type = #{orderType,jdbcType=INTEGER},
+      </if>
+      <if test="postAddress != null" >
+        post_address = #{postAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="receiverName != null" >
+        receiver_name = #{receiverName,jdbcType=VARCHAR},
+      </if>
+      <if test="receiverPhone != null" >
+        receiver_phone = #{receiverPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="addressDetails != null" >
+        address_details = #{addressDetails,jdbcType=VARCHAR},
+      </if>
+      <if test="payAmount != null" >
+        pay_amount = #{payAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="productCount != null" >
+        product_count = #{productCount,jdbcType=INTEGER},
+      </if>
+      <if test="productColor != null" >
+        product_color = #{productColor,jdbcType=INTEGER},
+      </if>
+      <if test="isSendOut != null" >
+        is_send_out = #{isSendOut,jdbcType=BIT},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where order_code = #{orderCode,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ym.sale.entity.BusinessOrder" >
+    update business_order
+    set business_code = #{businessCode,jdbcType=VARCHAR},
+      order_no = #{orderNo,jdbcType=VARCHAR},
+      order_status = #{orderStatus,jdbcType=INTEGER},
+      order_type = #{orderType,jdbcType=INTEGER},
+      post_address = #{postAddress,jdbcType=VARCHAR},
+      receiver_name = #{receiverName,jdbcType=VARCHAR},
+      receiver_phone = #{receiverPhone,jdbcType=VARCHAR},
+      address_details = #{addressDetails,jdbcType=VARCHAR},
+      pay_amount = #{payAmount,jdbcType=DECIMAL},
+      product_count = #{productCount,jdbcType=INTEGER},
+      product_color = #{productColor,jdbcType=INTEGER},
+      is_send_out = #{isSendOut,jdbcType=BIT},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      create_time = #{createTime,jdbcType=TIMESTAMP}
+    where order_code = #{orderCode,jdbcType=VARCHAR}
+  </update>
+  
+   <update id="updateOrderStatus">    
+    update business_order  set 
+         order_status=#{orderStatus }
+       where  order_no=#{orderId }
+  </update>
+</mapper>

@@ -1,0 +1,53 @@
+spring:
+  application:
+    name: zuul-proxy
+  profiles:
+    active: dev
+security:
+  user:
+    name: admin
+    password: admin
+  basic:
+    enabled: true
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 60000
+ribbon:
+  ConnectTimeout: 3000
+  ReadTimeout: 60000
+zuul:
+      #忽略所有的服务，除了routes定义的服务
+  ignored-services: '*'
+  routes:
+     
+    api-a:
+      path: /page/**
+      serviceId: hp-bg-staticresource
+                  #开启自定义head信息，可以向下传递cookie信息，默认false
+      customSensitiveHeaders: true
+                  #关闭重试机制，默认是ture
+      retryable: false
+     api-b:
+      path: /bg/**
+      serviceId: hp-bg-api
+                  #开启自定义head信息，可以向下传递cookie信息，默认false
+      customSensitiveHeaders: true
+                  #关闭重试机制，默认是ture
+      retryable: false
+     api-c:
+      path: /wx/**
+      serviceId: hp-wx-api
+                  #开启自定义head信息，可以向下传递cookie信息，默认false
+      customSensitiveHeaders: true
+                  #关闭重试机制，默认是ture
+      retryable: false
+logging:
+    level:
+        com.ym.zuul: DEBUG
+    file: ./logs/zuul.log
+    root: INFO
+ 

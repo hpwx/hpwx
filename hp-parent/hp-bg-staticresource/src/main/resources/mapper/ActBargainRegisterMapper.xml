@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ym.sale.mapper.ActBargainRegisterMapper">
+	<resultMap id="BaseResultMap"
+		type="com.ym.sale.entity.ActBargainRegister">
+		<id column="bargain_register_code" property="bargainRegisterCode"
+			jdbcType="VARCHAR" />
+		<result column="act_bargain_code" property="actBargainCode"
+			jdbcType="VARCHAR" />
+		<result column="bargain_join_token" property="bargainJoinToken"
+			jdbcType="VARCHAR" />
+		<result column="bargain_join_nc" property="bargainJoinNc"
+			jdbcType="VARCHAR" />
+		<result column="act_product_price" property="actProductPrice"
+			jdbcType="DECIMAL" />
+		<result column="act_product_color" property="actProductColor"
+			jdbcType="INTEGER" />
+		<result column="after_bargain_price"
+			property="afterBargainPrice" jdbcType="DECIMAL" />
+		<result column="act_end_time" property="actEndTime"
+			jdbcType="TIMESTAMP" />
+		<result column="create_time" property="createTime"
+			jdbcType="TIMESTAMP" />
+		<result column="update_time" property="updateTime"
+			jdbcType="TIMESTAMP" />
+		<result column="status_code" property="statusCode"
+			jdbcType="INTEGER" />
+		<result column="bigger_bargain_num" property="biggerBargainNum"
+			jdbcType="INTEGER" />
+		<result column="bigger_bargain_price"
+			property="biggerBargainPrice" jdbcType="DECIMAL" />
+		<result column="bargain_max_join_num"
+			property="bargainMaxJoinNum" jdbcType="INTEGER" />
+		<result column="bargain_num" property="bargainNum"
+			jdbcType="INTEGER" />
+		<result column="is_self_bargain" property="isSelfBargain"
+			jdbcType="BIT" />
+		<result column="bargain_list" property="bargainList"
+			jdbcType="VARCHAR" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		bargain_register_code, act_bargain_code, bargain_join_token, bargain_join_nc,
+		act_product_price,
+		act_product_color, after_bargain_price, act_end_time, create_time, update_time,
+		status_code,
+		bigger_bargain_num, bigger_bargain_price, bargain_max_join_num, bargain_num,
+		is_self_bargain ,bargain_list
+	</sql>
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap"
+		parameterType="java.lang.String">
+		select
+		<include refid="Base_Column_List" />
+		from act_bargain_register
+		where bargain_register_code = #{bargainRegisterCode,jdbcType=VARCHAR}
+	</select>
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+		delete from act_bargain_register
+		where bargain_register_code = #{bargainRegisterCode,jdbcType=VARCHAR}
+	</delete>
+	<insert id="insert"
+		parameterType="com.ym.sale.entity.ActBargainRegister">
+		insert into act_bargain_register (bargain_register_code, act_bargain_code,
+		bargain_join_token, bargain_join_nc, act_product_price,
+		act_product_color, after_bargain_price, act_end_time,
+		create_time, update_time, status_code,
+		bigger_bargain_num, bargain_max_join_num, bargain_num,
+		is_self_bargain)
+		values (#{bargainRegisterCode,jdbcType=VARCHAR},
+		#{actBargainCode,jdbcType=VARCHAR},
+		#{bargainJoinToken,jdbcType=VARCHAR},
+		#{bargainJoinNc,jdbcType=VARCHAR},
+		#{actProductPrice,jdbcType=DECIMAL},
+		#{actProductColor,jdbcType=INTEGER},
+		#{afterBargainPrice,jdbcType=DECIMAL},
+		#{actEndTime,jdbcType=TIMESTAMP},
+		#{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{statusCode,jdbcType=INTEGER},
+		#{biggerBargainNum,jdbcType=INTEGER},
+		#{bargainMaxJoinNum,jdbcType=INTEGER}, #{bargainNum,jdbcType=INTEGER},
+		#{isSelfBargain,jdbcType=BIT})
+	</insert>
+	<insert id="insertSelective"
+		parameterType="com.ym.sale.entity.ActBargainRegister">
+		insert into act_bargain_register
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="bargainRegisterCode != null">
+				bargain_register_code,
+			</if>
+			<if test="actBargainCode != null">
+				act_bargain_code,
+			</if>
+			<if test="bargainJoinToken != null">
+				bargain_join_token,
+			</if>
+			<if test="bargainJoinNc != null">
+				bargain_join_nc,
+			</if>
+			<if test="actProductPrice != null">
+				act_product_price,
+			</if>
+			<if test="actProductColor != null">
+				act_product_color,
+			</if>
+			<if test="afterBargainPrice != null">
+				after_bargain_price,
+			</if>
+			<if test="actEndTime != null">
+				act_end_time,
+			</if>
+			<if test="createTime != null">
+				create_time,
+			</if>
+			<if test="updateTime != null">
+				update_time,
+			</if>
+			<if test="statusCode != null">
+				status_code,
+			</if>
+			<if test="biggerBargainNum != null">
+				bigger_bargain_num,
+			</if>
+			<if test="biggerBargainPrice !=null">
+				bigger_bargain_price,
+			</if>
+			<if test="bargainMaxJoinNum != null">
+				bargain_max_join_num,
+			</if>
+			<if test="bargainNum != null">
+				bargain_num,
+			</if>
+			<if test="isSelfBargain != null">
+				is_self_bargain,
+			</if>
+			<if test="bargainList != null">
+				bargain_list,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="bargainRegisterCode != null">
+				#{bargainRegisterCode,jdbcType=VARCHAR},
+			</if>
+			<if test="actBargainCode != null">
+				#{actBargainCode,jdbcType=VARCHAR},
+			</if>
+			<if test="bargainJoinToken != null">
+				#{bargainJoinToken,jdbcType=VARCHAR},
+			</if>
+			<if test="bargainJoinNc != null">
+				#{bargainJoinNc,jdbcType=VARCHAR},
+			</if>
+			<if test="actProductPrice != null">
+				#{actProductPrice,jdbcType=DECIMAL},
+			</if>
+			<if test="actProductColor != null">
+				#{actProductColor,jdbcType=INTEGER},
+			</if>
+			<if test="afterBargainPrice != null">
+				#{afterBargainPrice,jdbcType=DECIMAL},
+			</if>
+			<if test="actEndTime != null">
+				#{actEndTime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="createTime != null">
+				#{createTime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="updateTime != null">
+				#{updateTime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="statusCode != null">
+				#{statusCode,jdbcType=INTEGER},
+			</if>
+			<if test="biggerBargainNum != null">
+				#{biggerBargainNum,jdbcType=INTEGER},
+			</if>
+			<if test="biggerBargainPrice != null">
+				#{biggerBargainPrice,jdbcType=DECIMAL},
+			</if>
+			<if test="bargainMaxJoinNum != null">
+				#{bargainMaxJoinNum,jdbcType=INTEGER},
+			</if>
+			<if test="bargainNum != null">
+				#{bargainNum,jdbcType=INTEGER},
+			</if>
+			<if test="isSelfBargain != null">
+				#{isSelfBargain,jdbcType=BIT},
+			</if>
+			<if test="bargainList != null">
+				#{bargainList,jdbcType=VARCHAR},
+			</if>
+		</trim>
+	</insert>
+	<update id="updateByPrimaryKeySelective"
+		parameterType="com.ym.sale.entity.ActBargainRegister">
+		update act_bargain_register
+		<set>
+			<if test="actBargainCode != null">
+				act_bargain_code = #{actBargainCode,jdbcType=VARCHAR},
+			</if>
+			<if test="bargainJoinToken != null">
+				bargain_join_token = #{bargainJoinToken,jdbcType=VARCHAR},
+			</if>
+			<if test="bargainJoinNc != null">
+				bargain_join_nc = #{bargainJoinNc,jdbcType=VARCHAR},
+			</if>
+			<if test="actProductPrice != null">
+				act_product_price = #{actProductPrice,jdbcType=DECIMAL},
+			</if>
+			<if test="actProductColor != null">
+				act_product_color = #{actProductColor,jdbcType=INTEGER},
+			</if>
+			<if test="afterBargainPrice != null">
+				after_bargain_price = #{afterBargainPrice,jdbcType=DECIMAL},
+			</if>
+			<if test="actEndTime != null">
+				act_end_time = #{actEndTime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="createTime != null">
+				create_time = #{createTime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="updateTime != null">
+				update_time = #{updateTime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="statusCode != null">
+				status_code = #{statusCode,jdbcType=INTEGER},
+			</if>
+			<if test="biggerBargainNum != null">
+				bigger_bargain_num = #{biggerBargainNum,jdbcType=INTEGER},
+			</if>
+			<if test="biggerBargainPrice != null">
+				bigger_bargain_price = #{biggerBargainPrice,jdbcType=DECIMAL},
+			</if>
+			<if test="bargainMaxJoinNum != null">
+				bargain_max_join_num = #{bargainMaxJoinNum,jdbcType=INTEGER},
+			</if>
+			<if test="bargainNum != null">
+				bargain_num = #{bargainNum,jdbcType=INTEGER},
+			</if>
+			<if test="isSelfBargain != null">
+				is_self_bargain = #{isSelfBargain,jdbcType=BIT},
+			</if>
+			<if test="bargainList != null">
+				bargain_list = #{bargainList,jdbcType=VARCHAR},
+			</if>
+		</set>
+		where bargain_register_code = #{bargainRegisterCode,jdbcType=VARCHAR}
+	</update>
+	<update id="updateByPrimaryKey"
+		parameterType="com.ym.sale.entity.ActBargainRegister">
+		update act_bargain_register
+		set act_bargain_code = #{actBargainCode,jdbcType=VARCHAR},
+		bargain_join_token = #{bargainJoinToken,jdbcType=VARCHAR},
+		bargain_join_nc = #{bargainJoinNc,jdbcType=VARCHAR},
+		act_product_price = #{actProductPrice,jdbcType=DECIMAL},
+		act_product_color = #{actProductColor,jdbcType=INTEGER},
+		after_bargain_price = #{afterBargainPrice,jdbcType=DECIMAL},
+		act_end_time = #{actEndTime,jdbcType=TIMESTAMP},
+		create_time = #{createTime,jdbcType=TIMESTAMP},
+		update_time = #{updateTime,jdbcType=TIMESTAMP},
+		status_code = #{statusCode,jdbcType=INTEGER},
+		bigger_bargain_num = #{biggerBargainNum,jdbcType=INTEGER},
+		bargain_max_join_num = #{bargainMaxJoinNum,jdbcType=INTEGER},
+		bargain_num = #{bargainNum,jdbcType=INTEGER},
+		is_self_bargain = #{isSelfBargain,jdbcType=BIT}
+		where bargain_register_code = #{bargainRegisterCode,jdbcType=VARCHAR}
+	</update>
+	<select id="selectActBargainRegisterInfoByActBargainCode"
+		resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from act_bargain_register
+		where bargain_join_token = #{openId,jdbcType=VARCHAR} and act_bargain_code
+		= #{actBargainCode,jdbcType=VARCHAR} and  <![CDATA[ status_code <> 2 ]]>
+		and  <![CDATA[ status_code <> 4 ]]>
+		order by create_time DESC
+	</select>
+
+	<select id="selectBargainRegisterByStatus"
+		resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from act_bargain_register
+		where bargain_join_token = #{openId,jdbcType=VARCHAR} and
+		status_code in
+	     <foreach collection="list" index="index" item="item" open="("
+			separator="," close=")">
+			#{item}
+		</foreach>
+		order by create_time DESC
+	</select>
+
+</mapper>

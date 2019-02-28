@@ -1,0 +1,18 @@
+server:
+  port: 11000
+security:
+  user:
+    name: admin
+    password: admin
+  basic:
+    enabled: true
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://admin:admin@localhost:8761/eureka
+  instance:
+    preferIpAddress: true
+    instance-id: ${spring.cloud.client.ipAddress}:${server.port}  
+#jasypt:
+#  encryptor:
+#    password: xxx

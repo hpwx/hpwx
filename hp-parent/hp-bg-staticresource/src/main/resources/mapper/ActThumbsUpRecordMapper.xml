@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ym.sale.mapper.ActThumbsUpRecordMapper">
+  <resultMap id="BaseResultMap" type="com.ym.sale.entity.ActThumbsUpRecord">
+    <id column="thumbs_up_record_code" jdbcType="VARCHAR" property="thumbsUpRecordCode" />
+    <result column="thumbs_up_user_token" jdbcType="VARCHAR" property="thumbsUpUserToken" />
+    <result column="thumbs_up_user_nc" jdbcType="VARCHAR" property="thumbsUpUserNc" />
+    <result column="thumbs_up_price" jdbcType="DECIMAL" property="thumbsUpPrice" />
+    <result column="after_thumbs_up_price" jdbcType="DECIMAL" property="afterThumbsUpPrice" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="thumbs_up_register_code" jdbcType="VARCHAR" property="thumbsUpRegisterCode" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    thumbs_up_record_code, thumbs_up_user_token, thumbs_up_user_nc, thumbs_up_price, 
+    after_thumbs_up_price, create_time, thumbs_up_register_code
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from act_thumbs_up_record
+    where thumbs_up_record_code = #{thumbsUpRecordCode,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from act_thumbs_up_record
+    where thumbs_up_record_code = #{thumbsUpRecordCode,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.ym.sale.entity.ActThumbsUpRecord">
+    insert into act_thumbs_up_record (thumbs_up_record_code, thumbs_up_user_token, 
+      thumbs_up_user_nc, thumbs_up_price, after_thumbs_up_price, 
+      create_time, thumbs_up_register_code)
+    values (#{thumbsUpRecordCode,jdbcType=VARCHAR}, #{thumbsUpUserToken,jdbcType=VARCHAR}, 
+      #{thumbsUpUserNc,jdbcType=VARCHAR}, #{thumbsUpPrice,jdbcType=DECIMAL}, #{afterThumbsUpPrice,jdbcType=DECIMAL}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{thumbsUpRegisterCode,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.ym.sale.entity.ActThumbsUpRecord">
+    insert into act_thumbs_up_record
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="thumbsUpRecordCode != null">
+        thumbs_up_record_code,
+      </if>
+      <if test="thumbsUpUserToken != null">
+        thumbs_up_user_token,
+      </if>
+      <if test="thumbsUpUserNc != null">
+        thumbs_up_user_nc,
+      </if>
+      <if test="thumbsUpPrice != null">
+        thumbs_up_price,
+      </if>
+      <if test="afterThumbsUpPrice != null">
+        after_thumbs_up_price,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="thumbsUpRegisterCode != null">
+        thumbs_up_register_code,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="thumbsUpRecordCode != null">
+        #{thumbsUpRecordCode,jdbcType=VARCHAR},
+      </if>
+      <if test="thumbsUpUserToken != null">
+        #{thumbsUpUserToken,jdbcType=VARCHAR},
+      </if>
+      <if test="thumbsUpUserNc != null">
+        #{thumbsUpUserNc,jdbcType=VARCHAR},
+      </if>
+      <if test="thumbsUpPrice != null">
+        #{thumbsUpPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="afterThumbsUpPrice != null">
+        #{afterThumbsUpPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="thumbsUpRegisterCode != null">
+        #{thumbsUpRegisterCode,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ym.sale.entity.ActThumbsUpRecord">
+    update act_thumbs_up_record
+    <set>
+      <if test="thumbsUpUserToken != null">
+        thumbs_up_user_token = #{thumbsUpUserToken,jdbcType=VARCHAR},
+      </if>
+      <if test="thumbsUpUserNc != null">
+        thumbs_up_user_nc = #{thumbsUpUserNc,jdbcType=VARCHAR},
+      </if>
+      <if test="thumbsUpPrice != null">
+        thumbs_up_price = #{thumbsUpPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="afterThumbsUpPrice != null">
+        after_thumbs_up_price = #{afterThumbsUpPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="thumbsUpRegisterCode != null">
+        thumbs_up_register_code = #{thumbsUpRegisterCode,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where thumbs_up_record_code = #{thumbsUpRecordCode,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ym.sale.entity.ActThumbsUpRecord">
+    update act_thumbs_up_record
+    set thumbs_up_user_token = #{thumbsUpUserToken,jdbcType=VARCHAR},
+      thumbs_up_user_nc = #{thumbsUpUserNc,jdbcType=VARCHAR},
+      thumbs_up_price = #{thumbsUpPrice,jdbcType=DECIMAL},
+      after_thumbs_up_price = #{afterThumbsUpPrice,jdbcType=DECIMAL},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      thumbs_up_register_code = #{thumbsUpRegisterCode,jdbcType=VARCHAR}
+    where thumbs_up_record_code = #{thumbsUpRecordCode,jdbcType=VARCHAR}
+  </update>
+</mapper>

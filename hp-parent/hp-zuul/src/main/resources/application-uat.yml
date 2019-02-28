@@ -1,0 +1,15 @@
+server:
+  port: 9001
+security:
+  user:
+    name: admin
+    password: ymadmin
+  basic:
+    enabled: true
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://${security.user.name}:${security.user.password}@39.104.181.176:8759/eureka
+  instance:
+    preferIpAddress: true
+    

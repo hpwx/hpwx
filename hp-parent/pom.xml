@@ -1,0 +1,77 @@
+﻿<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.hp</groupId>
+  <artifactId>hp-parent</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>pom</packaging>
+  
+  	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>1.5.4.RELEASE</version>
+	</parent>
+	
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<java.version>1.8</java.version>
+		<mybatis.spring.boot.version>1.3.0</mybatis.spring.boot.version>
+		<druid.version>1.0.28</druid.version>
+		<quartz.version>2.3.0</quartz.version>
+		<swagger.version>2.6.1</swagger.version>
+		<commons.lang.version>2.6</commons.lang.version>
+		<commons.fileupload.version>1.3.1</commons.fileupload.version>
+		<commons.io.version>2.5</commons.io.version>
+		<commons.codec.version>1.10</commons.codec.version>
+		<commons.configuration.version>1.10</commons.configuration.version>
+	</properties>
+
+	<dependencies>
+
+		<!-- 加密解密jar begin -->
+		<dependency>
+			<groupId>com.github.ulisesbocchio</groupId>
+			<artifactId>jasypt-spring-boot</artifactId>
+			<version>1.14</version>
+		</dependency>
+		<dependency>
+			<groupId>com.github.ulisesbocchio</groupId>
+			<artifactId>jasypt-spring-boot-starter</artifactId>
+			<version>1.14</version>
+		</dependency>
+		<!-- 加密解密jar end -->
+	</dependencies>
+
+
+
+	<modules>
+  		<module>common-auth-bg</module>
+  		<module>common-mg-bg</module>
+  		<module>hp-common-db</module>
+  		<module>hp-common-ms</module> 
+  		<module>hp-common-utils</module> 
+  		 <module>hp-common-rabbitMq</module> 
+  		 <module>hp-common-hpdb</module>  
+  		  <module>hp-eureka-server</module> 
+  		  <module>hp-bg-staticresource</module> 
+ 		<module>hp-wx-api</module>  
+  		   <module>hp-bg-auth</module> 
+  		   <module>hp-zuul</module>
+  		   <module>hp-bg-api</module>
+	</modules>
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-dependencies</artifactId>
+				<version>Camden.SR7</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+
+		</dependencies>
+	</dependencyManagement>
+	
+  
+  	
+   
+</project>
