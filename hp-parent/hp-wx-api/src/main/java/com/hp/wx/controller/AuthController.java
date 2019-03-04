@@ -15,13 +15,12 @@ import com.ym.ms.entity.Result;
 public class AuthController {
 @Autowired
 	IwebChatService  webchageService;
-	@GetMapping("createAuthToken")
-	public Result createAuthToken(String code, String rawData) {
+	@GetMapping("onLogin")
+	public Result onLogin(String code, String rawData) {
 	   Map<String,Object> map= new HashMap<>();
 		JSONObject  jsonobjet=	webchageService.getSessionKey(code ,rawData);
 		map.put("openid", jsonobjet.get("openid")) ; 
 		map.put("sessionkey", jsonobjet.get("skey")) ; 
-		return    Result.ok(map);
-            
+		return    Result.ok(map);    
  	}
 }

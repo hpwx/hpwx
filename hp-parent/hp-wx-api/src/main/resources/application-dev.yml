@@ -1,28 +1,17 @@
 spring:
-  application:
+    application:
        name: hp-wx-api
-  datasource:
-    # 驱动配置信息
-    type: com.alibaba.druid.pool.DruidDataSource
-    url:  jdbc:mysql://120.27.147.104:3306/wx?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&useSSL=true
-    username:  root
-    password:  Quanhe_2018
-    driverClassName: com.mysql.jdbc.Driver
-    #连接池的配置信息
-    initialSize: 5
-    minIdle: 5
-    maxActive: 20
-    maxWait: 60000
-    timeBetweenEvictionRunsMillis: 60000
-    minEvictableIdleTimeMillis: 300000
-    validationQuery: SELECT 1 FROM DUAL
-    testWhileIdle: true
-    testOnBorrow: false
-    testOnReturn: false
-    poolPreparedStatements: true
-    maxPoolPreparedStatementPerConnectionSize: 20
-    filters: stat,wall,log4j
-    connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+    datasource:
+        type: com.alibaba.druid.pool.DruidDataSource
+        driverClassName: com.mysql.jdbc.Driver
+        url: jdbc:mysql://120.27.147.104:3306/wx?useUnicode=true&characterEncoding=UTF-8 
+        username: root
+        password: Quanhe_2018 
+        dbcp2:
+	      　　min-idle: 5         #数据库连接池的最小维持连接数
+	      　　initial-size: 5     #初始化提供的连接数
+	      　　max-total: 10          #最大的连接数
+	      　　max-wait-millis: 500000        #等待连接获取的最大超时时间  
 eureka:
   client:
     serviceUrl:
@@ -30,7 +19,3 @@ eureka:
   instance:
     preferIpAddress: true
     instance-id: ${spring.cloud.client.ipAddress}:${server.port}
-
-
-
-    

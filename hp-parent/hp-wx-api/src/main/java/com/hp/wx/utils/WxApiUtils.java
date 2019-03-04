@@ -25,10 +25,10 @@ public class WxApiUtils {
 	@Autowired
 
 	private static RedisUtils redisUtils;
-	@Value("${appid}")
-	private  static String APPID;
-	@Value("${APPSekerety}")
-	private static String APPSekerety;
+	@Value("${auth.wechat.appId}")
+	private  static String appId;
+	@Value("${auth.wechat.secret}")
+	private static  String secret;
 
 	private static final Logger Log = LoggerFactory.getLogger(WxApiUtils.class);
 
@@ -46,7 +46,7 @@ public class WxApiUtils {
 		}
 
 		String respdatastring = restTemplete.getForEntity(
-				"https://api.weixin.qq.com/sns/jscode2session?appid="+APPID+"&secret="+APPSekerety+"&js_code="+code+"&grant_type=authorization_code",
+				"https://api.weixin.qq.com/sns/jscode2session?appid="+appId+"&secret="+secret+"&js_code="+code+"&grant_type=authorization_code",
 				String.class).getBody();
 
 		JSONObject jsonobjt = JSONObject.parseObject(respdatastring);

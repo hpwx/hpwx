@@ -10213,3 +10213,512 @@ com.netflix.discovery.shared.transport.TransportException: Cannot execute reques
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) [na:1.8.0_201]
 	at java.lang.Thread.run(Unknown Source) [na:1.8.0_201]
 
+2019-03-04 15:20:28.742  INFO 1634540 --- [main] com.hp.wx.WxApplication                  : The following profiles are active: dev
+2019-03-04 15:20:28.758  INFO 1634540 --- [main] ationConfigEmbeddedWebApplicationContext : Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@4c398c80: startup date [Mon Mar 04 15:20:28 CST 2019]; parent: org.springframework.context.annotation.AnnotationConfigApplicationContext@f5ac9e4
+2019-03-04 15:20:29.411  WARN 1634540 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.hp.wx]' package. Please check your configuration.
+2019-03-04 15:20:29.452  INFO 1634540 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-03-04 15:20:29.779  INFO 1634540 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=9acf4780-6cde-3ea4-8fd9-6b90f7644c87
+2019-03-04 15:20:29.814  INFO 1634540 --- [main] ptablePropertiesBeanFactoryPostProcessor : Post-processing PropertySource instances
+2019-03-04 15:20:29.903  INFO 1634540 --- [main] ptablePropertiesBeanFactoryPostProcessor : Converting PropertySource servletConfigInitParams [org.springframework.core.env.PropertySource$StubPropertySource] to EncryptablePropertySourceWrapper
+2019-03-04 15:20:29.906  INFO 1634540 --- [main] ptablePropertiesBeanFactoryPostProcessor : Converting PropertySource servletContextInitParams [org.springframework.core.env.PropertySource$StubPropertySource] to EncryptablePropertySourceWrapper
+2019-03-04 15:20:29.906  INFO 1634540 --- [main] ptablePropertiesBeanFactoryPostProcessor : Converting PropertySource systemProperties [org.springframework.core.env.MapPropertySource] to EncryptableMapPropertySourceWrapper
+2019-03-04 15:20:29.906  INFO 1634540 --- [main] ptablePropertiesBeanFactoryPostProcessor : Converting PropertySource systemEnvironment [org.springframework.core.env.SystemEnvironmentPropertySource] to EncryptableMapPropertySourceWrapper
+2019-03-04 15:20:29.907  INFO 1634540 --- [main] ptablePropertiesBeanFactoryPostProcessor : Converting PropertySource random [org.springframework.boot.context.config.RandomValuePropertySource] to EncryptablePropertySourceWrapper
+2019-03-04 15:20:29.907  INFO 1634540 --- [main] ptablePropertiesBeanFactoryPostProcessor : Converting PropertySource applicationConfig: [classpath:/application-dev.yml] [org.springframework.core.env.MapPropertySource] to EncryptableMapPropertySourceWrapper
+2019-03-04 15:20:29.907  INFO 1634540 --- [main] ptablePropertiesBeanFactoryPostProcessor : Converting PropertySource applicationConfig: [classpath:/application.yml] [org.springframework.core.env.MapPropertySource] to EncryptableMapPropertySourceWrapper
+2019-03-04 15:20:29.907  INFO 1634540 --- [main] ptablePropertiesBeanFactoryPostProcessor : Converting PropertySource springCloudClientHostInfo [org.springframework.core.env.MapPropertySource] to EncryptableMapPropertySourceWrapper
+2019-03-04 15:20:29.909  INFO 1634540 --- [main] ptablePropertiesBeanFactoryPostProcessor : Converting PropertySource defaultProperties [org.springframework.core.env.MapPropertySource] to EncryptableMapPropertySourceWrapper
+2019-03-04 15:20:29.929  INFO 1634540 --- [main] f.a.AutowiredAnnotationBeanPostProcessor : JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2019-03-04 15:20:30.000  INFO 1634540 --- [main] c.u.j.r.DefaultLazyPropertyResolver      : Property Resolver custom Bean not found with name 'encryptablePropertyResolver'. Initializing Default Property Resolver
+2019-03-04 15:20:30.005  INFO 1634540 --- [main] c.u.j.d.DefaultLazyPropertyDetector      : Property Detector custom Bean not found with name 'encryptablePropertyDetector'. Initializing Default Property Detector
+2019-03-04 15:20:30.158  INFO 1634540 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$cc8ced70] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-03-04 15:20:30.241  INFO 1634540 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$e8a6f06d] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-03-04 15:20:30.801  INFO 1634540 --- [main] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat initialized with port(s): 8052 (http)
+2019-03-04 15:20:30.817  INFO 1634540 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-03-04 15:20:30.818  INFO 1634540 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.15
+2019-03-04 15:20:31.009  INFO 1634540 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-03-04 15:20:31.010  INFO 1634540 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2252 ms
+2019-03-04 15:20:31.173  INFO 1634540 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Mapping servlet: 'dispatcherServlet' to [/]
+2019-03-04 15:20:31.178  INFO 1634540 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2019-03-04 15:20:31.179  INFO 1634540 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2019-03-04 15:20:31.180  INFO 1634540 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2019-03-04 15:20:31.181  INFO 1634540 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2019-03-04 15:20:31.264  WARN 1634540 --- [main] ationConfigEmbeddedWebApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'authController': Unsatisfied dependency expressed through field 'webchageService'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'webChatServiceImpl': Unsatisfied dependency expressed through field 'restTemplate'; nested exception is org.springframework.beans.factory.NoUniqueBeanDefinitionException: No qualifying bean of type 'org.springframework.web.client.RestTemplate' available: expected single matching bean but found 2: getRestTemplete,getRestTemplate
+2019-03-04 15:20:31.267  INFO 1634540 --- [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2019-03-04 15:20:31.302  WARN 1634540 --- [localhost-startStop-1] o.a.c.loader.WebappClassLoaderBase       : The web application [ROOT] appears to have started a thread named [Abandoned connection cleanup thread] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Object.wait(Native Method)
+ java.lang.ref.ReferenceQueue.remove(Unknown Source)
+ com.mysql.jdbc.AbandonedConnectionCleanupThread.run(AbandonedConnectionCleanupThread.java:43)
+2019-03-04 15:20:31.317  INFO 1634540 --- [main] utoConfigurationReportLoggingInitializer : 
+
+Error starting ApplicationContext. To display the auto-configuration report re-run your application with 'debug' enabled.
+2019-03-04 15:20:31.324 ERROR 1634540 --- [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Field restTemplate in com.hp.wx.service.impl.WebChatServiceImpl required a single bean, but 2 were found:
+	- getRestTemplete: defined by method 'getRestTemplete' in class path resource [com/hp/wx/utils/RefreshAcessToken.class]
+	- getRestTemplate: defined by method 'getRestTemplate' in com.hp.wx.WxApplication
+
+
+Action:
+
+Consider marking one of the beans as @Primary, updating the consumer to accept multiple beans, or using @Qualifier to identify the bean that should be consumed
+
+2019-03-04 15:22:31.870  INFO 1273716 --- [main] com.hp.wx.WxApplication                  : The following profiles are active: dev
+2019-03-04 15:22:31.886  INFO 1273716 --- [main] ationConfigEmbeddedWebApplicationContext : Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@4c398c80: startup date [Mon Mar 04 15:22:31 CST 2019]; parent: org.springframework.context.annotation.AnnotationConfigApplicationContext@f5ac9e4
+2019-03-04 15:22:32.481  WARN 1273716 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.hp.wx]' package. Please check your configuration.
+2019-03-04 15:22:32.516  INFO 1273716 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-03-04 15:22:32.803  INFO 1273716 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=9acf4780-6cde-3ea4-8fd9-6b90f7644c87
+2019-03-04 15:22:32.829  INFO 1273716 --- [main] ptablePropertiesBeanFactoryPostProcessor : Post-processing PropertySource instances
+2019-03-04 15:22:32.892  INFO 1273716 --- [main] ptablePropertiesBeanFactoryPostProcessor : Converting PropertySource servletConfigInitParams [org.springframework.core.env.PropertySource$StubPropertySource] to EncryptablePropertySourceWrapper
+2019-03-04 15:22:32.895  INFO 1273716 --- [main] ptablePropertiesBeanFactoryPostProcessor : Converting PropertySource servletContextInitParams [org.springframework.core.env.PropertySource$StubPropertySource] to EncryptablePropertySourceWrapper
+2019-03-04 15:22:32.895  INFO 1273716 --- [main] ptablePropertiesBeanFactoryPostProcessor : Converting PropertySource systemProperties [org.springframework.core.env.MapPropertySource] to EncryptableMapPropertySourceWrapper
+2019-03-04 15:22:32.896  INFO 1273716 --- [main] ptablePropertiesBeanFactoryPostProcessor : Converting PropertySource systemEnvironment [org.springframework.core.env.SystemEnvironmentPropertySource] to EncryptableMapPropertySourceWrapper
+2019-03-04 15:22:32.896  INFO 1273716 --- [main] ptablePropertiesBeanFactoryPostProcessor : Converting PropertySource random [org.springframework.boot.context.config.RandomValuePropertySource] to EncryptablePropertySourceWrapper
+2019-03-04 15:22:32.896  INFO 1273716 --- [main] ptablePropertiesBeanFactoryPostProcessor : Converting PropertySource applicationConfig: [classpath:/application-dev.yml] [org.springframework.core.env.MapPropertySource] to EncryptableMapPropertySourceWrapper
+2019-03-04 15:22:32.896  INFO 1273716 --- [main] ptablePropertiesBeanFactoryPostProcessor : Converting PropertySource applicationConfig: [classpath:/application.yml] [org.springframework.core.env.MapPropertySource] to EncryptableMapPropertySourceWrapper
+2019-03-04 15:22:32.896  INFO 1273716 --- [main] ptablePropertiesBeanFactoryPostProcessor : Converting PropertySource springCloudClientHostInfo [org.springframework.core.env.MapPropertySource] to EncryptableMapPropertySourceWrapper
+2019-03-04 15:22:32.896  INFO 1273716 --- [main] ptablePropertiesBeanFactoryPostProcessor : Converting PropertySource defaultProperties [org.springframework.core.env.MapPropertySource] to EncryptableMapPropertySourceWrapper
+2019-03-04 15:22:32.912  INFO 1273716 --- [main] f.a.AutowiredAnnotationBeanPostProcessor : JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2019-03-04 15:22:32.981  INFO 1273716 --- [main] c.u.j.r.DefaultLazyPropertyResolver      : Property Resolver custom Bean not found with name 'encryptablePropertyResolver'. Initializing Default Property Resolver
+2019-03-04 15:22:32.986  INFO 1273716 --- [main] c.u.j.d.DefaultLazyPropertyDetector      : Property Detector custom Bean not found with name 'encryptablePropertyDetector'. Initializing Default Property Detector
+2019-03-04 15:22:33.135  INFO 1273716 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$cc8ced70] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-03-04 15:22:33.184  INFO 1273716 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$e8a6f06d] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-03-04 15:22:33.636  INFO 1273716 --- [main] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat initialized with port(s): 8052 (http)
+2019-03-04 15:22:33.646  INFO 1273716 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-03-04 15:22:33.648  INFO 1273716 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.15
+2019-03-04 15:22:33.818  INFO 1273716 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-03-04 15:22:33.818  INFO 1273716 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1932 ms
+2019-03-04 15:22:33.999  INFO 1273716 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Mapping servlet: 'dispatcherServlet' to [/]
+2019-03-04 15:22:34.008  INFO 1273716 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2019-03-04 15:22:34.010  INFO 1273716 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2019-03-04 15:22:34.010  INFO 1273716 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2019-03-04 15:22:34.010  INFO 1273716 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2019-03-04 15:22:34.089  WARN 1273716 --- [main] ationConfigEmbeddedWebApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'authController': Unsatisfied dependency expressed through field 'webchageService'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'webChatServiceImpl': Unsatisfied dependency expressed through field 'restTemplate'; nested exception is org.springframework.beans.factory.NoUniqueBeanDefinitionException: No qualifying bean of type 'org.springframework.web.client.RestTemplate' available: expected single matching bean but found 2: getRestTemplete,getRestTemplate
+2019-03-04 15:22:34.091  INFO 1273716 --- [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2019-03-04 15:22:34.116  WARN 1273716 --- [localhost-startStop-1] o.a.c.loader.WebappClassLoaderBase       : The web application [ROOT] appears to have started a thread named [Abandoned connection cleanup thread] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Object.wait(Native Method)
+ java.lang.ref.ReferenceQueue.remove(Unknown Source)
+ com.mysql.jdbc.AbandonedConnectionCleanupThread.run(AbandonedConnectionCleanupThread.java:43)
+2019-03-04 15:22:34.129  INFO 1273716 --- [main] utoConfigurationReportLoggingInitializer : 
+
+Error starting ApplicationContext. To display the auto-configuration report re-run your application with 'debug' enabled.
+2019-03-04 15:22:34.136 ERROR 1273716 --- [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Field restTemplate in com.hp.wx.service.impl.WebChatServiceImpl required a single bean, but 2 were found:
+	- getRestTemplete: defined by method 'getRestTemplete' in class path resource [com/hp/wx/utils/RefreshAcessToken.class]
+	- getRestTemplate: defined by method 'getRestTemplate' in com.hp.wx.WxApplication
+
+
+Action:
+
+Consider marking one of the beans as @Primary, updating the consumer to accept multiple beans, or using @Qualifier to identify the bean that should be consumed
+
+2019-03-04 15:23:43.488  INFO 1633416 --- [main] com.hp.wx.WxApplication                  : The following profiles are active: dev
+2019-03-04 15:23:43.503  INFO 1633416 --- [main] ationConfigEmbeddedWebApplicationContext : Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@4c398c80: startup date [Mon Mar 04 15:23:43 CST 2019]; parent: org.springframework.context.annotation.AnnotationConfigApplicationContext@f5ac9e4
+2019-03-04 15:23:44.167  WARN 1633416 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.hp.wx]' package. Please check your configuration.
+2019-03-04 15:23:44.213  INFO 1633416 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-03-04 15:23:44.466  INFO 1633416 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=9acf4780-6cde-3ea4-8fd9-6b90f7644c87
+2019-03-04 15:23:44.480  INFO 1633416 --- [main] ptablePropertiesBeanFactoryPostProcessor : Post-processing PropertySource instances
+2019-03-04 15:23:44.531  INFO 1633416 --- [main] ptablePropertiesBeanFactoryPostProcessor : Converting PropertySource servletConfigInitParams [org.springframework.core.env.PropertySource$StubPropertySource] to EncryptablePropertySourceWrapper
+2019-03-04 15:23:44.533  INFO 1633416 --- [main] ptablePropertiesBeanFactoryPostProcessor : Converting PropertySource servletContextInitParams [org.springframework.core.env.PropertySource$StubPropertySource] to EncryptablePropertySourceWrapper
+2019-03-04 15:23:44.534  INFO 1633416 --- [main] ptablePropertiesBeanFactoryPostProcessor : Converting PropertySource systemProperties [org.springframework.core.env.MapPropertySource] to EncryptableMapPropertySourceWrapper
+2019-03-04 15:23:44.534  INFO 1633416 --- [main] ptablePropertiesBeanFactoryPostProcessor : Converting PropertySource systemEnvironment [org.springframework.core.env.SystemEnvironmentPropertySource] to EncryptableMapPropertySourceWrapper
+2019-03-04 15:23:44.534  INFO 1633416 --- [main] ptablePropertiesBeanFactoryPostProcessor : Converting PropertySource random [org.springframework.boot.context.config.RandomValuePropertySource] to EncryptablePropertySourceWrapper
+2019-03-04 15:23:44.534  INFO 1633416 --- [main] ptablePropertiesBeanFactoryPostProcessor : Converting PropertySource applicationConfig: [classpath:/application-dev.yml] [org.springframework.core.env.MapPropertySource] to EncryptableMapPropertySourceWrapper
+2019-03-04 15:23:44.534  INFO 1633416 --- [main] ptablePropertiesBeanFactoryPostProcessor : Converting PropertySource applicationConfig: [classpath:/application.yml] [org.springframework.core.env.MapPropertySource] to EncryptableMapPropertySourceWrapper
+2019-03-04 15:23:44.534  INFO 1633416 --- [main] ptablePropertiesBeanFactoryPostProcessor : Converting PropertySource springCloudClientHostInfo [org.springframework.core.env.MapPropertySource] to EncryptableMapPropertySourceWrapper
+2019-03-04 15:23:44.534  INFO 1633416 --- [main] ptablePropertiesBeanFactoryPostProcessor : Converting PropertySource defaultProperties [org.springframework.core.env.MapPropertySource] to EncryptableMapPropertySourceWrapper
+2019-03-04 15:23:44.546  INFO 1633416 --- [main] f.a.AutowiredAnnotationBeanPostProcessor : JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2019-03-04 15:23:44.592  INFO 1633416 --- [main] c.u.j.r.DefaultLazyPropertyResolver      : Property Resolver custom Bean not found with name 'encryptablePropertyResolver'. Initializing Default Property Resolver
+2019-03-04 15:23:44.595  INFO 1633416 --- [main] c.u.j.d.DefaultLazyPropertyDetector      : Property Detector custom Bean not found with name 'encryptablePropertyDetector'. Initializing Default Property Detector
+2019-03-04 15:23:44.694  INFO 1633416 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$cc8ced70] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-03-04 15:23:44.752  INFO 1633416 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$e8a6f06d] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-03-04 15:23:45.290  INFO 1633416 --- [main] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat initialized with port(s): 8052 (http)
+2019-03-04 15:23:45.301  INFO 1633416 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-03-04 15:23:45.302  INFO 1633416 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.15
+2019-03-04 15:23:45.447  INFO 1633416 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-03-04 15:23:45.447  INFO 1633416 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1944 ms
+2019-03-04 15:23:45.593  INFO 1633416 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Mapping servlet: 'dispatcherServlet' to [/]
+2019-03-04 15:23:45.597  INFO 1633416 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2019-03-04 15:23:45.598  INFO 1633416 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2019-03-04 15:23:45.598  INFO 1633416 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2019-03-04 15:23:45.598  INFO 1633416 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2019-03-04 15:23:45.651  WARN 1633416 --- [main] ationConfigEmbeddedWebApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'authController': Unsatisfied dependency expressed through field 'webchageService'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'webChatServiceImpl': Unsatisfied dependency expressed through field 'restTemplate'; nested exception is org.springframework.beans.factory.NoUniqueBeanDefinitionException: No qualifying bean of type 'org.springframework.web.client.RestTemplate' available: expected single matching bean but found 2: getRestTemplete,getRestTemplate
+2019-03-04 15:23:45.652  INFO 1633416 --- [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2019-03-04 15:23:45.676  WARN 1633416 --- [localhost-startStop-1] o.a.c.loader.WebappClassLoaderBase       : The web application [ROOT] appears to have started a thread named [Abandoned connection cleanup thread] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Object.wait(Native Method)
+ java.lang.ref.ReferenceQueue.remove(Unknown Source)
+ com.mysql.jdbc.AbandonedConnectionCleanupThread.run(AbandonedConnectionCleanupThread.java:43)
+2019-03-04 15:23:45.689  INFO 1633416 --- [main] utoConfigurationReportLoggingInitializer : 
+
+Error starting ApplicationContext. To display the auto-configuration report re-run your application with 'debug' enabled.
+2019-03-04 15:23:45.696 ERROR 1633416 --- [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Field restTemplate in com.hp.wx.service.impl.WebChatServiceImpl required a single bean, but 2 were found:
+	- getRestTemplete: defined by method 'getRestTemplete' in class path resource [com/hp/wx/utils/RefreshAcessToken.class]
+	- getRestTemplate: defined by method 'getRestTemplate' in com.hp.wx.WxApplication
+
+
+Action:
+
+Consider marking one of the beans as @Primary, updating the consumer to accept multiple beans, or using @Qualifier to identify the bean that should be consumed
+
+2019-03-04 15:24:41.435  INFO 1631032 --- [main] com.hp.wx.WxApplication                  : The following profiles are active: dev
+2019-03-04 15:24:41.458  INFO 1631032 --- [main] ationConfigEmbeddedWebApplicationContext : Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@6e98fd10: startup date [Mon Mar 04 15:24:41 CST 2019]; parent: org.springframework.context.annotation.AnnotationConfigApplicationContext@28babeca
+2019-03-04 15:24:42.212  WARN 1631032 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.hp.wx]' package. Please check your configuration.
+2019-03-04 15:24:42.259  INFO 1631032 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-03-04 15:24:42.681  INFO 1631032 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=71426f3f-2570-37e6-8703-7d033330b0c4
+2019-03-04 15:24:42.699  INFO 1631032 --- [main] ptablePropertiesBeanFactoryPostProcessor : Post-processing PropertySource instances
+2019-03-04 15:24:42.791  INFO 1631032 --- [main] ptablePropertiesBeanFactoryPostProcessor : Converting PropertySource servletConfigInitParams [org.springframework.core.env.PropertySource$StubPropertySource] to EncryptablePropertySourceWrapper
+2019-03-04 15:24:42.797  INFO 1631032 --- [main] ptablePropertiesBeanFactoryPostProcessor : Converting PropertySource servletContextInitParams [org.springframework.core.env.PropertySource$StubPropertySource] to EncryptablePropertySourceWrapper
+2019-03-04 15:24:42.798  INFO 1631032 --- [main] ptablePropertiesBeanFactoryPostProcessor : Converting PropertySource systemProperties [org.springframework.core.env.MapPropertySource] to EncryptableMapPropertySourceWrapper
+2019-03-04 15:24:42.798  INFO 1631032 --- [main] ptablePropertiesBeanFactoryPostProcessor : Converting PropertySource systemEnvironment [org.springframework.core.env.SystemEnvironmentPropertySource] to EncryptableMapPropertySourceWrapper
+2019-03-04 15:24:42.798  INFO 1631032 --- [main] ptablePropertiesBeanFactoryPostProcessor : Converting PropertySource random [org.springframework.boot.context.config.RandomValuePropertySource] to EncryptablePropertySourceWrapper
+2019-03-04 15:24:42.798  INFO 1631032 --- [main] ptablePropertiesBeanFactoryPostProcessor : Converting PropertySource applicationConfig: [classpath:/application-dev.yml] [org.springframework.core.env.MapPropertySource] to EncryptableMapPropertySourceWrapper
+2019-03-04 15:24:42.799  INFO 1631032 --- [main] ptablePropertiesBeanFactoryPostProcessor : Converting PropertySource applicationConfig: [classpath:/application.yml] [org.springframework.core.env.MapPropertySource] to EncryptableMapPropertySourceWrapper
+2019-03-04 15:24:42.799  INFO 1631032 --- [main] ptablePropertiesBeanFactoryPostProcessor : Converting PropertySource springCloudClientHostInfo [org.springframework.core.env.MapPropertySource] to EncryptableMapPropertySourceWrapper
+2019-03-04 15:24:42.799  INFO 1631032 --- [main] ptablePropertiesBeanFactoryPostProcessor : Converting PropertySource defaultProperties [org.springframework.core.env.MapPropertySource] to EncryptableMapPropertySourceWrapper
+2019-03-04 15:24:42.817  INFO 1631032 --- [main] f.a.AutowiredAnnotationBeanPostProcessor : JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2019-03-04 15:24:42.878  INFO 1631032 --- [main] c.u.j.r.DefaultLazyPropertyResolver      : Property Resolver custom Bean not found with name 'encryptablePropertyResolver'. Initializing Default Property Resolver
+2019-03-04 15:24:42.887  INFO 1631032 --- [main] c.u.j.d.DefaultLazyPropertyDetector      : Property Detector custom Bean not found with name 'encryptablePropertyDetector'. Initializing Default Property Detector
+2019-03-04 15:24:43.056  INFO 1631032 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$e0d63156] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-03-04 15:24:43.117  INFO 1631032 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$fcf03453] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-03-04 15:24:43.814  INFO 1631032 --- [main] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat initialized with port(s): 8052 (http)
+2019-03-04 15:24:43.831  INFO 1631032 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-03-04 15:24:43.832  INFO 1631032 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.15
+2019-03-04 15:24:44.036  INFO 1631032 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-03-04 15:24:44.036  INFO 1631032 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2578 ms
+2019-03-04 15:24:44.203  INFO 1631032 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Mapping servlet: 'dispatcherServlet' to [/]
+2019-03-04 15:24:44.208  INFO 1631032 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2019-03-04 15:24:44.209  INFO 1631032 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2019-03-04 15:24:44.209  INFO 1631032 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2019-03-04 15:24:44.209  INFO 1631032 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2019-03-04 15:24:44.317  WARN 1631032 --- [main] ationConfigEmbeddedWebApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'refreshAcessToken': Injection of autowired dependencies failed; nested exception is java.lang.IllegalArgumentException: Could not resolve placeholder 'Appid' in value "${Appid}"
+2019-03-04 15:24:44.319  INFO 1631032 --- [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2019-03-04 15:24:44.353  WARN 1631032 --- [localhost-startStop-1] o.a.c.loader.WebappClassLoaderBase       : The web application [ROOT] appears to have started a thread named [Abandoned connection cleanup thread] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Object.wait(Native Method)
+ java.lang.ref.ReferenceQueue.remove(Unknown Source)
+ com.mysql.jdbc.AbandonedConnectionCleanupThread.run(AbandonedConnectionCleanupThread.java:43)
+2019-03-04 15:24:44.367  INFO 1631032 --- [main] utoConfigurationReportLoggingInitializer : 
+
+Error starting ApplicationContext. To display the auto-configuration report re-run your application with 'debug' enabled.
+2019-03-04 15:24:44.378 ERROR 1631032 --- [main] o.s.boot.SpringApplication               : Application startup failed
+
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'refreshAcessToken': Injection of autowired dependencies failed; nested exception is java.lang.IllegalArgumentException: Could not resolve placeholder 'Appid' in value "${Appid}"
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessPropertyValues(AutowiredAnnotationBeanPostProcessor.java:372) ~[spring-beans-4.3.9.RELEASE.jar:4.3.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1264) ~[spring-beans-4.3.9.RELEASE.jar:4.3.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:553) ~[spring-beans-4.3.9.RELEASE.jar:4.3.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:483) ~[spring-beans-4.3.9.RELEASE.jar:4.3.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306) ~[spring-beans-4.3.9.RELEASE.jar:4.3.9.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230) ~[spring-beans-4.3.9.RELEASE.jar:4.3.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302) ~[spring-beans-4.3.9.RELEASE.jar:4.3.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:197) ~[spring-beans-4.3.9.RELEASE.jar:4.3.9.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:761) ~[spring-beans-4.3.9.RELEASE.jar:4.3.9.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:867) ~[spring-context-4.3.9.RELEASE.jar:4.3.9.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:543) ~[spring-context-4.3.9.RELEASE.jar:4.3.9.RELEASE]
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.refresh(EmbeddedWebApplicationContext.java:122) ~[spring-boot-1.5.4.RELEASE.jar:1.5.4.RELEASE]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:693) [spring-boot-1.5.4.RELEASE.jar:1.5.4.RELEASE]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:360) [spring-boot-1.5.4.RELEASE.jar:1.5.4.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:303) [spring-boot-1.5.4.RELEASE.jar:1.5.4.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1118) [spring-boot-1.5.4.RELEASE.jar:1.5.4.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1107) [spring-boot-1.5.4.RELEASE.jar:1.5.4.RELEASE]
+	at com.hp.wx.WxApplication.main(WxApplication.java:18) [classes/:na]
+Caused by: java.lang.IllegalArgumentException: Could not resolve placeholder 'Appid' in value "${Appid}"
+	at org.springframework.util.PropertyPlaceholderHelper.parseStringValue(PropertyPlaceholderHelper.java:174) ~[spring-core-4.3.9.RELEASE.jar:4.3.9.RELEASE]
+	at org.springframework.util.PropertyPlaceholderHelper.replacePlaceholders(PropertyPlaceholderHelper.java:126) ~[spring-core-4.3.9.RELEASE.jar:4.3.9.RELEASE]
+	at org.springframework.core.env.AbstractPropertyResolver.doResolvePlaceholders(AbstractPropertyResolver.java:236) ~[spring-core-4.3.9.RELEASE.jar:4.3.9.RELEASE]
+	at org.springframework.core.env.AbstractPropertyResolver.resolveRequiredPlaceholders(AbstractPropertyResolver.java:210) ~[spring-core-4.3.9.RELEASE.jar:4.3.9.RELEASE]
+	at org.springframework.context.support.PropertySourcesPlaceholderConfigurer$2.resolveStringValue(PropertySourcesPlaceholderConfigurer.java:172) ~[spring-context-4.3.9.RELEASE.jar:4.3.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.resolveEmbeddedValue(AbstractBeanFactory.java:831) ~[spring-beans-4.3.9.RELEASE.jar:4.3.9.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1086) ~[spring-beans-4.3.9.RELEASE.jar:4.3.9.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1066) ~[spring-beans-4.3.9.RELEASE.jar:4.3.9.RELEASE]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:585) ~[spring-beans-4.3.9.RELEASE.jar:4.3.9.RELEASE]
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:88) ~[spring-beans-4.3.9.RELEASE.jar:4.3.9.RELEASE]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessPropertyValues(AutowiredAnnotationBeanPostProcessor.java:366) ~[spring-beans-4.3.9.RELEASE.jar:4.3.9.RELEASE]
+	... 17 common frames omitted
+
+2019-03-04 15:25:28.296  INFO 1634644 --- [main] com.hp.wx.WxApplication                  : The following profiles are active: dev
+2019-03-04 15:25:28.313  INFO 1634644 --- [main] ationConfigEmbeddedWebApplicationContext : Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@4c398c80: startup date [Mon Mar 04 15:25:28 CST 2019]; parent: org.springframework.context.annotation.AnnotationConfigApplicationContext@f5ac9e4
+2019-03-04 15:25:29.091  WARN 1634644 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.hp.wx]' package. Please check your configuration.
+2019-03-04 15:25:29.139  INFO 1634644 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-03-04 15:25:29.410  INFO 1634644 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=71426f3f-2570-37e6-8703-7d033330b0c4
+2019-03-04 15:25:29.432  INFO 1634644 --- [main] ptablePropertiesBeanFactoryPostProcessor : Post-processing PropertySource instances
+2019-03-04 15:25:29.505  INFO 1634644 --- [main] ptablePropertiesBeanFactoryPostProcessor : Converting PropertySource servletConfigInitParams [org.springframework.core.env.PropertySource$StubPropertySource] to EncryptablePropertySourceWrapper
+2019-03-04 15:25:29.508  INFO 1634644 --- [main] ptablePropertiesBeanFactoryPostProcessor : Converting PropertySource servletContextInitParams [org.springframework.core.env.PropertySource$StubPropertySource] to EncryptablePropertySourceWrapper
+2019-03-04 15:25:29.509  INFO 1634644 --- [main] ptablePropertiesBeanFactoryPostProcessor : Converting PropertySource systemProperties [org.springframework.core.env.MapPropertySource] to EncryptableMapPropertySourceWrapper
+2019-03-04 15:25:29.509  INFO 1634644 --- [main] ptablePropertiesBeanFactoryPostProcessor : Converting PropertySource systemEnvironment [org.springframework.core.env.SystemEnvironmentPropertySource] to EncryptableMapPropertySourceWrapper
+2019-03-04 15:25:29.510  INFO 1634644 --- [main] ptablePropertiesBeanFactoryPostProcessor : Converting PropertySource random [org.springframework.boot.context.config.RandomValuePropertySource] to EncryptablePropertySourceWrapper
+2019-03-04 15:25:29.510  INFO 1634644 --- [main] ptablePropertiesBeanFactoryPostProcessor : Converting PropertySource applicationConfig: [classpath:/application-dev.yml] [org.springframework.core.env.MapPropertySource] to EncryptableMapPropertySourceWrapper
+2019-03-04 15:25:29.510  INFO 1634644 --- [main] ptablePropertiesBeanFactoryPostProcessor : Converting PropertySource applicationConfig: [classpath:/application.yml] [org.springframework.core.env.MapPropertySource] to EncryptableMapPropertySourceWrapper
+2019-03-04 15:25:29.510  INFO 1634644 --- [main] ptablePropertiesBeanFactoryPostProcessor : Converting PropertySource springCloudClientHostInfo [org.springframework.core.env.MapPropertySource] to EncryptableMapPropertySourceWrapper
+2019-03-04 15:25:29.514  INFO 1634644 --- [main] ptablePropertiesBeanFactoryPostProcessor : Converting PropertySource defaultProperties [org.springframework.core.env.MapPropertySource] to EncryptableMapPropertySourceWrapper
+2019-03-04 15:25:29.531  INFO 1634644 --- [main] f.a.AutowiredAnnotationBeanPostProcessor : JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2019-03-04 15:25:29.590  INFO 1634644 --- [main] c.u.j.r.DefaultLazyPropertyResolver      : Property Resolver custom Bean not found with name 'encryptablePropertyResolver'. Initializing Default Property Resolver
+2019-03-04 15:25:29.594  INFO 1634644 --- [main] c.u.j.d.DefaultLazyPropertyDetector      : Property Detector custom Bean not found with name 'encryptablePropertyDetector'. Initializing Default Property Detector
+2019-03-04 15:25:29.736  INFO 1634644 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$cc8ced70] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-03-04 15:25:29.820  INFO 1634644 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$e8a6f06d] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-03-04 15:25:30.465  INFO 1634644 --- [main] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat initialized with port(s): 8052 (http)
+2019-03-04 15:25:30.475  INFO 1634644 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-03-04 15:25:30.478  INFO 1634644 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.15
+2019-03-04 15:25:30.625  INFO 1634644 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-03-04 15:25:30.625  INFO 1634644 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2312 ms
+2019-03-04 15:25:30.809  INFO 1634644 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Mapping servlet: 'dispatcherServlet' to [/]
+2019-03-04 15:25:30.818  INFO 1634644 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2019-03-04 15:25:30.819  INFO 1634644 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2019-03-04 15:25:30.820  INFO 1634644 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2019-03-04 15:25:30.820  INFO 1634644 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2019-03-04 15:25:30.935  WARN 1634644 --- [main] ationConfigEmbeddedWebApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'refreshAcessToken': Injection of autowired dependencies failed; nested exception is java.lang.IllegalArgumentException: Could not resolve placeholder 'Appid' in value "${Appid}"
+2019-03-04 15:25:30.937  INFO 1634644 --- [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2019-03-04 15:25:30.967  WARN 1634644 --- [localhost-startStop-1] o.a.c.loader.WebappClassLoaderBase       : The web application [ROOT] appears to have started a thread named [Abandoned connection cleanup thread] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Object.wait(Native Method)
+ java.lang.ref.ReferenceQueue.remove(Unknown Source)
+ com.mysql.jdbc.AbandonedConnectionCleanupThread.run(AbandonedConnectionCleanupThread.java:43)
+2019-03-04 15:25:30.983  INFO 1634644 --- [main] utoConfigurationReportLoggingInitializer : 
+
+Error starting ApplicationContext. To display the auto-configuration report re-run your application with 'debug' enabled.
+2019-03-04 15:25:31.000 ERROR 1634644 --- [main] o.s.boot.SpringApplication               : Application startup failed
+
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'refreshAcessToken': Injection of autowired dependencies failed; nested exception is java.lang.IllegalArgumentException: Could not resolve placeholder 'Appid' in value "${Appid}"
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessPropertyValues(AutowiredAnnotationBeanPostProcessor.java:372) ~[spring-beans-4.3.9.RELEASE.jar:4.3.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1264) ~[spring-beans-4.3.9.RELEASE.jar:4.3.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:553) ~[spring-beans-4.3.9.RELEASE.jar:4.3.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:483) ~[spring-beans-4.3.9.RELEASE.jar:4.3.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306) ~[spring-beans-4.3.9.RELEASE.jar:4.3.9.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230) ~[spring-beans-4.3.9.RELEASE.jar:4.3.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302) ~[spring-beans-4.3.9.RELEASE.jar:4.3.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:197) ~[spring-beans-4.3.9.RELEASE.jar:4.3.9.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:761) ~[spring-beans-4.3.9.RELEASE.jar:4.3.9.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:867) ~[spring-context-4.3.9.RELEASE.jar:4.3.9.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:543) ~[spring-context-4.3.9.RELEASE.jar:4.3.9.RELEASE]
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.refresh(EmbeddedWebApplicationContext.java:122) ~[spring-boot-1.5.4.RELEASE.jar:1.5.4.RELEASE]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:693) [spring-boot-1.5.4.RELEASE.jar:1.5.4.RELEASE]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:360) [spring-boot-1.5.4.RELEASE.jar:1.5.4.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:303) [spring-boot-1.5.4.RELEASE.jar:1.5.4.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1118) [spring-boot-1.5.4.RELEASE.jar:1.5.4.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1107) [spring-boot-1.5.4.RELEASE.jar:1.5.4.RELEASE]
+	at com.hp.wx.WxApplication.main(WxApplication.java:18) [classes/:na]
+Caused by: java.lang.IllegalArgumentException: Could not resolve placeholder 'Appid' in value "${Appid}"
+	at org.springframework.util.PropertyPlaceholderHelper.parseStringValue(PropertyPlaceholderHelper.java:174) ~[spring-core-4.3.9.RELEASE.jar:4.3.9.RELEASE]
+	at org.springframework.util.PropertyPlaceholderHelper.replacePlaceholders(PropertyPlaceholderHelper.java:126) ~[spring-core-4.3.9.RELEASE.jar:4.3.9.RELEASE]
+	at org.springframework.core.env.AbstractPropertyResolver.doResolvePlaceholders(AbstractPropertyResolver.java:236) ~[spring-core-4.3.9.RELEASE.jar:4.3.9.RELEASE]
+	at org.springframework.core.env.AbstractPropertyResolver.resolveRequiredPlaceholders(AbstractPropertyResolver.java:210) ~[spring-core-4.3.9.RELEASE.jar:4.3.9.RELEASE]
+	at org.springframework.context.support.PropertySourcesPlaceholderConfigurer$2.resolveStringValue(PropertySourcesPlaceholderConfigurer.java:172) ~[spring-context-4.3.9.RELEASE.jar:4.3.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.resolveEmbeddedValue(AbstractBeanFactory.java:831) ~[spring-beans-4.3.9.RELEASE.jar:4.3.9.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1086) ~[spring-beans-4.3.9.RELEASE.jar:4.3.9.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1066) ~[spring-beans-4.3.9.RELEASE.jar:4.3.9.RELEASE]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:585) ~[spring-beans-4.3.9.RELEASE.jar:4.3.9.RELEASE]
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:88) ~[spring-beans-4.3.9.RELEASE.jar:4.3.9.RELEASE]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessPropertyValues(AutowiredAnnotationBeanPostProcessor.java:366) ~[spring-beans-4.3.9.RELEASE.jar:4.3.9.RELEASE]
+	... 17 common frames omitted
+
+2019-03-04 15:26:26.832  INFO 1633560 --- [main] com.hp.wx.WxApplication                  : The following profiles are active: dev
+2019-03-04 15:26:26.848  INFO 1633560 --- [main] ationConfigEmbeddedWebApplicationContext : Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@4c398c80: startup date [Mon Mar 04 15:26:26 CST 2019]; parent: org.springframework.context.annotation.AnnotationConfigApplicationContext@f5ac9e4
+2019-03-04 15:26:27.505  WARN 1633560 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.hp.wx]' package. Please check your configuration.
+2019-03-04 15:26:27.551  INFO 1633560 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-03-04 15:26:27.815  INFO 1633560 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=71426f3f-2570-37e6-8703-7d033330b0c4
+2019-03-04 15:26:27.832  INFO 1633560 --- [main] ptablePropertiesBeanFactoryPostProcessor : Post-processing PropertySource instances
+2019-03-04 15:26:27.878  INFO 1633560 --- [main] ptablePropertiesBeanFactoryPostProcessor : Converting PropertySource servletConfigInitParams [org.springframework.core.env.PropertySource$StubPropertySource] to EncryptablePropertySourceWrapper
+2019-03-04 15:26:27.880  INFO 1633560 --- [main] ptablePropertiesBeanFactoryPostProcessor : Converting PropertySource servletContextInitParams [org.springframework.core.env.PropertySource$StubPropertySource] to EncryptablePropertySourceWrapper
+2019-03-04 15:26:27.881  INFO 1633560 --- [main] ptablePropertiesBeanFactoryPostProcessor : Converting PropertySource systemProperties [org.springframework.core.env.MapPropertySource] to EncryptableMapPropertySourceWrapper
+2019-03-04 15:26:27.881  INFO 1633560 --- [main] ptablePropertiesBeanFactoryPostProcessor : Converting PropertySource systemEnvironment [org.springframework.core.env.SystemEnvironmentPropertySource] to EncryptableMapPropertySourceWrapper
+2019-03-04 15:26:27.881  INFO 1633560 --- [main] ptablePropertiesBeanFactoryPostProcessor : Converting PropertySource random [org.springframework.boot.context.config.RandomValuePropertySource] to EncryptablePropertySourceWrapper
+2019-03-04 15:26:27.882  INFO 1633560 --- [main] ptablePropertiesBeanFactoryPostProcessor : Converting PropertySource applicationConfig: [classpath:/application-dev.yml] [org.springframework.core.env.MapPropertySource] to EncryptableMapPropertySourceWrapper
+2019-03-04 15:26:27.883  INFO 1633560 --- [main] ptablePropertiesBeanFactoryPostProcessor : Converting PropertySource applicationConfig: [classpath:/application.yml] [org.springframework.core.env.MapPropertySource] to EncryptableMapPropertySourceWrapper
+2019-03-04 15:26:27.883  INFO 1633560 --- [main] ptablePropertiesBeanFactoryPostProcessor : Converting PropertySource springCloudClientHostInfo [org.springframework.core.env.MapPropertySource] to EncryptableMapPropertySourceWrapper
+2019-03-04 15:26:27.883  INFO 1633560 --- [main] ptablePropertiesBeanFactoryPostProcessor : Converting PropertySource defaultProperties [org.springframework.core.env.MapPropertySource] to EncryptableMapPropertySourceWrapper
+2019-03-04 15:26:27.897  INFO 1633560 --- [main] f.a.AutowiredAnnotationBeanPostProcessor : JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2019-03-04 15:26:27.949  INFO 1633560 --- [main] c.u.j.r.DefaultLazyPropertyResolver      : Property Resolver custom Bean not found with name 'encryptablePropertyResolver'. Initializing Default Property Resolver
+2019-03-04 15:26:27.955  INFO 1633560 --- [main] c.u.j.d.DefaultLazyPropertyDetector      : Property Detector custom Bean not found with name 'encryptablePropertyDetector'. Initializing Default Property Detector
+2019-03-04 15:26:28.079  INFO 1633560 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$cc8ced70] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-03-04 15:26:28.122  INFO 1633560 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$e8a6f06d] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-03-04 15:26:28.558  INFO 1633560 --- [main] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat initialized with port(s): 8052 (http)
+2019-03-04 15:26:28.567  INFO 1633560 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-03-04 15:26:28.569  INFO 1633560 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.15
+2019-03-04 15:26:28.729  INFO 1633560 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-03-04 15:26:28.729  INFO 1633560 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1881 ms
+2019-03-04 15:26:28.911  INFO 1633560 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Mapping servlet: 'dispatcherServlet' to [/]
+2019-03-04 15:26:28.916  INFO 1633560 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2019-03-04 15:26:28.916  INFO 1633560 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2019-03-04 15:26:28.916  INFO 1633560 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2019-03-04 15:26:28.917  INFO 1633560 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2019-03-04 15:26:29.007  WARN 1633560 --- [main] ationConfigEmbeddedWebApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'refreshAcessToken': Injection of autowired dependencies failed; nested exception is java.lang.IllegalArgumentException: Could not resolve placeholder 'Appid' in value "${Appid}"
+2019-03-04 15:26:29.010  INFO 1633560 --- [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2019-03-04 15:26:29.042  WARN 1633560 --- [localhost-startStop-1] o.a.c.loader.WebappClassLoaderBase       : The web application [ROOT] appears to have started a thread named [Abandoned connection cleanup thread] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Object.wait(Native Method)
+ java.lang.ref.ReferenceQueue.remove(Unknown Source)
+ com.mysql.jdbc.AbandonedConnectionCleanupThread.run(AbandonedConnectionCleanupThread.java:43)
+2019-03-04 15:26:29.056  INFO 1633560 --- [main] utoConfigurationReportLoggingInitializer : 
+
+Error starting ApplicationContext. To display the auto-configuration report re-run your application with 'debug' enabled.
+2019-03-04 15:26:29.065 ERROR 1633560 --- [main] o.s.boot.SpringApplication               : Application startup failed
+
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'refreshAcessToken': Injection of autowired dependencies failed; nested exception is java.lang.IllegalArgumentException: Could not resolve placeholder 'Appid' in value "${Appid}"
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessPropertyValues(AutowiredAnnotationBeanPostProcessor.java:372) ~[spring-beans-4.3.9.RELEASE.jar:4.3.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1264) ~[spring-beans-4.3.9.RELEASE.jar:4.3.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:553) ~[spring-beans-4.3.9.RELEASE.jar:4.3.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:483) ~[spring-beans-4.3.9.RELEASE.jar:4.3.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306) ~[spring-beans-4.3.9.RELEASE.jar:4.3.9.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230) ~[spring-beans-4.3.9.RELEASE.jar:4.3.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302) ~[spring-beans-4.3.9.RELEASE.jar:4.3.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:197) ~[spring-beans-4.3.9.RELEASE.jar:4.3.9.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:761) ~[spring-beans-4.3.9.RELEASE.jar:4.3.9.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:867) ~[spring-context-4.3.9.RELEASE.jar:4.3.9.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:543) ~[spring-context-4.3.9.RELEASE.jar:4.3.9.RELEASE]
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.refresh(EmbeddedWebApplicationContext.java:122) ~[spring-boot-1.5.4.RELEASE.jar:1.5.4.RELEASE]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:693) [spring-boot-1.5.4.RELEASE.jar:1.5.4.RELEASE]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:360) [spring-boot-1.5.4.RELEASE.jar:1.5.4.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:303) [spring-boot-1.5.4.RELEASE.jar:1.5.4.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1118) [spring-boot-1.5.4.RELEASE.jar:1.5.4.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1107) [spring-boot-1.5.4.RELEASE.jar:1.5.4.RELEASE]
+	at com.hp.wx.WxApplication.main(WxApplication.java:18) [classes/:na]
+Caused by: java.lang.IllegalArgumentException: Could not resolve placeholder 'Appid' in value "${Appid}"
+	at org.springframework.util.PropertyPlaceholderHelper.parseStringValue(PropertyPlaceholderHelper.java:174) ~[spring-core-4.3.9.RELEASE.jar:4.3.9.RELEASE]
+	at org.springframework.util.PropertyPlaceholderHelper.replacePlaceholders(PropertyPlaceholderHelper.java:126) ~[spring-core-4.3.9.RELEASE.jar:4.3.9.RELEASE]
+	at org.springframework.core.env.AbstractPropertyResolver.doResolvePlaceholders(AbstractPropertyResolver.java:236) ~[spring-core-4.3.9.RELEASE.jar:4.3.9.RELEASE]
+	at org.springframework.core.env.AbstractPropertyResolver.resolveRequiredPlaceholders(AbstractPropertyResolver.java:210) ~[spring-core-4.3.9.RELEASE.jar:4.3.9.RELEASE]
+	at org.springframework.context.support.PropertySourcesPlaceholderConfigurer$2.resolveStringValue(PropertySourcesPlaceholderConfigurer.java:172) ~[spring-context-4.3.9.RELEASE.jar:4.3.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.resolveEmbeddedValue(AbstractBeanFactory.java:831) ~[spring-beans-4.3.9.RELEASE.jar:4.3.9.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1086) ~[spring-beans-4.3.9.RELEASE.jar:4.3.9.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1066) ~[spring-beans-4.3.9.RELEASE.jar:4.3.9.RELEASE]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:585) ~[spring-beans-4.3.9.RELEASE.jar:4.3.9.RELEASE]
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:88) ~[spring-beans-4.3.9.RELEASE.jar:4.3.9.RELEASE]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessPropertyValues(AutowiredAnnotationBeanPostProcessor.java:366) ~[spring-beans-4.3.9.RELEASE.jar:4.3.9.RELEASE]
+	... 17 common frames omitted
+
+2019-03-04 15:28:49.767  INFO 1633356 --- [main] com.hp.wx.WxApplication                  : The following profiles are active: dev
+2019-03-04 15:28:49.785  INFO 1633356 --- [main] ationConfigEmbeddedWebApplicationContext : Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@4c398c80: startup date [Mon Mar 04 15:28:49 CST 2019]; parent: org.springframework.context.annotation.AnnotationConfigApplicationContext@f5ac9e4
+2019-03-04 15:28:50.485  WARN 1633356 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.hp.wx]' package. Please check your configuration.
+2019-03-04 15:28:50.526  INFO 1633356 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-03-04 15:28:50.783  INFO 1633356 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=71426f3f-2570-37e6-8703-7d033330b0c4
+2019-03-04 15:28:50.803  INFO 1633356 --- [main] ptablePropertiesBeanFactoryPostProcessor : Post-processing PropertySource instances
+2019-03-04 15:28:50.859  INFO 1633356 --- [main] ptablePropertiesBeanFactoryPostProcessor : Converting PropertySource servletConfigInitParams [org.springframework.core.env.PropertySource$StubPropertySource] to EncryptablePropertySourceWrapper
+2019-03-04 15:28:50.861  INFO 1633356 --- [main] ptablePropertiesBeanFactoryPostProcessor : Converting PropertySource servletContextInitParams [org.springframework.core.env.PropertySource$StubPropertySource] to EncryptablePropertySourceWrapper
+2019-03-04 15:28:50.861  INFO 1633356 --- [main] ptablePropertiesBeanFactoryPostProcessor : Converting PropertySource systemProperties [org.springframework.core.env.MapPropertySource] to EncryptableMapPropertySourceWrapper
+2019-03-04 15:28:50.861  INFO 1633356 --- [main] ptablePropertiesBeanFactoryPostProcessor : Converting PropertySource systemEnvironment [org.springframework.core.env.SystemEnvironmentPropertySource] to EncryptableMapPropertySourceWrapper
+2019-03-04 15:28:50.861  INFO 1633356 --- [main] ptablePropertiesBeanFactoryPostProcessor : Converting PropertySource random [org.springframework.boot.context.config.RandomValuePropertySource] to EncryptablePropertySourceWrapper
+2019-03-04 15:28:50.863  INFO 1633356 --- [main] ptablePropertiesBeanFactoryPostProcessor : Converting PropertySource applicationConfig: [classpath:/application-dev.yml] [org.springframework.core.env.MapPropertySource] to EncryptableMapPropertySourceWrapper
+2019-03-04 15:28:50.864  INFO 1633356 --- [main] ptablePropertiesBeanFactoryPostProcessor : Converting PropertySource applicationConfig: [classpath:/application.yml] [org.springframework.core.env.MapPropertySource] to EncryptableMapPropertySourceWrapper
+2019-03-04 15:28:50.865  INFO 1633356 --- [main] ptablePropertiesBeanFactoryPostProcessor : Converting PropertySource springCloudClientHostInfo [org.springframework.core.env.MapPropertySource] to EncryptableMapPropertySourceWrapper
+2019-03-04 15:28:50.865  INFO 1633356 --- [main] ptablePropertiesBeanFactoryPostProcessor : Converting PropertySource defaultProperties [org.springframework.core.env.MapPropertySource] to EncryptableMapPropertySourceWrapper
+2019-03-04 15:28:50.883  INFO 1633356 --- [main] f.a.AutowiredAnnotationBeanPostProcessor : JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2019-03-04 15:28:50.952  INFO 1633356 --- [main] c.u.j.r.DefaultLazyPropertyResolver      : Property Resolver custom Bean not found with name 'encryptablePropertyResolver'. Initializing Default Property Resolver
+2019-03-04 15:28:50.956  INFO 1633356 --- [main] c.u.j.d.DefaultLazyPropertyDetector      : Property Detector custom Bean not found with name 'encryptablePropertyDetector'. Initializing Default Property Detector
+2019-03-04 15:28:51.089  INFO 1633356 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$cc8ced70] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-03-04 15:28:51.133  INFO 1633356 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$e8a6f06d] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-03-04 15:28:51.568  INFO 1633356 --- [main] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat initialized with port(s): 8052 (http)
+2019-03-04 15:28:51.584  INFO 1633356 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-03-04 15:28:51.586  INFO 1633356 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.15
+2019-03-04 15:28:51.759  INFO 1633356 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-03-04 15:28:51.760  INFO 1633356 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1975 ms
+2019-03-04 15:28:51.946  INFO 1633356 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Mapping servlet: 'dispatcherServlet' to [/]
+2019-03-04 15:28:51.955  INFO 1633356 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2019-03-04 15:28:51.956  INFO 1633356 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2019-03-04 15:28:51.956  INFO 1633356 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2019-03-04 15:28:51.956  INFO 1633356 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2019-03-04 15:28:52.685  INFO 1633356 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@4c398c80: startup date [Mon Mar 04 15:28:49 CST 2019]; parent: org.springframework.context.annotation.AnnotationConfigApplicationContext@f5ac9e4
+2019-03-04 15:28:52.797  INFO 1633356 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/onLogin],methods=[GET]}" onto public com.ym.ms.entity.Result com.hp.wx.controller.AuthController.onLogin(java.lang.String,java.lang.String)
+2019-03-04 15:28:52.802  INFO 1633356 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2019-03-04 15:28:52.805  INFO 1633356 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2019-03-04 15:28:52.886  INFO 1633356 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2019-03-04 15:28:52.886  INFO 1633356 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2019-03-04 15:28:52.996  INFO 1633356 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2019-03-04 15:28:54.005  WARN 1633356 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2019-03-04 15:28:54.005  INFO 1633356 --- [main] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2019-03-04 15:28:54.012  WARN 1633356 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2019-03-04 15:28:54.012  INFO 1633356 --- [main] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2019-03-04 15:28:54.131  INFO 1633356 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2019-03-04 15:28:54.134  INFO 1633356 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Bean with name 'dataSource' has been autodetected for JMX exposure
+2019-03-04 15:28:54.140  INFO 1633356 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Bean with name 'environmentManager' has been autodetected for JMX exposure
+2019-03-04 15:28:54.141  INFO 1633356 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Bean with name 'configurationPropertiesRebinder' has been autodetected for JMX exposure
+2019-03-04 15:28:54.142  INFO 1633356 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Bean with name 'refreshScope' has been autodetected for JMX exposure
+2019-03-04 15:28:54.144  INFO 1633356 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Located managed bean 'environmentManager': registering with JMX server as MBean [org.springframework.cloud.context.environment:name=environmentManager,type=EnvironmentManager]
+2019-03-04 15:28:54.158  INFO 1633356 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Located managed bean 'refreshScope': registering with JMX server as MBean [org.springframework.cloud.context.scope.refresh:name=refreshScope,type=RefreshScope]
+2019-03-04 15:28:54.170  INFO 1633356 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Located managed bean 'configurationPropertiesRebinder': registering with JMX server as MBean [org.springframework.cloud.context.properties:name=configurationPropertiesRebinder,context=4c398c80,type=ConfigurationPropertiesRebinder]
+2019-03-04 15:28:54.176  INFO 1633356 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Located MBean 'dataSource': registering with JMX server as MBean [com.alibaba.druid.pool:name=dataSource,type=DruidDataSource]
+2019-03-04 15:28:54.310  INFO 1633356 --- [main] o.s.c.support.DefaultLifecycleProcessor  : Starting beans in phase 0
+2019-03-04 15:28:54.319  INFO 1633356 --- [main] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2019-03-04 15:28:54.783  INFO 1633356 --- [main] c.n.d.provider.DiscoveryJerseyProvider   : Using JSON encoding codec LegacyJacksonJson
+2019-03-04 15:28:54.784  INFO 1633356 --- [main] c.n.d.provider.DiscoveryJerseyProvider   : Using JSON decoding codec LegacyJacksonJson
+2019-03-04 15:28:54.888  INFO 1633356 --- [main] c.n.d.provider.DiscoveryJerseyProvider   : Using XML encoding codec XStreamXml
+2019-03-04 15:28:54.888  INFO 1633356 --- [main] c.n.d.provider.DiscoveryJerseyProvider   : Using XML decoding codec XStreamXml
+2019-03-04 15:28:55.196  INFO 1633356 --- [main] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2019-03-04 15:28:55.323  INFO 1633356 --- [main] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2019-03-04 15:28:55.323  INFO 1633356 --- [main] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2019-03-04 15:28:55.323  INFO 1633356 --- [main] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2019-03-04 15:28:55.323  INFO 1633356 --- [main] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2019-03-04 15:28:55.323  INFO 1633356 --- [main] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2019-03-04 15:28:55.323  INFO 1633356 --- [main] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
+2019-03-04 15:28:55.323  INFO 1633356 --- [main] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2019-03-04 15:28:55.620  INFO 1633356 --- [main] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2019-03-04 15:28:55.621  INFO 1633356 --- [main] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 30
+2019-03-04 15:28:55.625  INFO 1633356 --- [main] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
+2019-03-04 15:28:55.627  INFO 1633356 --- [main] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1551684535627 with initial instances count: 0
+2019-03-04 15:28:55.674  INFO 1633356 --- [main] c.n.e.EurekaDiscoveryClientConfiguration : Registering application hp-wx-api with eureka with status UP
+2019-03-04 15:28:55.678  INFO 1633356 --- [main] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1551684535678, current=UP, previous=STARTING]
+2019-03-04 15:28:55.687  INFO 1633356 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_HP-WX-API/192.168.10.104:8052: registering service...
+2019-03-04 15:28:55.995  INFO 1633356 --- [main] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat started on port(s): 8052 (http)
+2019-03-04 15:28:55.998  INFO 1633356 --- [main] c.n.e.EurekaDiscoveryClientConfiguration : Updating port to 8052
+2019-03-04 15:28:56.004  INFO 1633356 --- [main] com.hp.wx.WxApplication                  : Started WxApplication in 7.7 seconds (JVM running for 8.235)
+2019-03-04 15:28:56.004  INFO 1633356 --- [main] com.hp.wx.WxApplication                  : 微信前台业务服务已启动.......
+2019-03-04 15:28:56.153  INFO 1633356 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_HP-WX-API/192.168.10.104:8052 - registration status: 204
+2019-03-04 15:29:25.622  INFO 1633356 --- [DiscoveryClient-CacheRefreshExecutor-0] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2019-03-04 15:29:25.622  INFO 1633356 --- [DiscoveryClient-CacheRefreshExecutor-0] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2019-03-04 15:29:25.622  INFO 1633356 --- [DiscoveryClient-CacheRefreshExecutor-0] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2019-03-04 15:29:25.622  INFO 1633356 --- [DiscoveryClient-CacheRefreshExecutor-0] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2019-03-04 15:29:25.622  INFO 1633356 --- [DiscoveryClient-CacheRefreshExecutor-0] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2019-03-04 15:29:25.622  INFO 1633356 --- [DiscoveryClient-CacheRefreshExecutor-0] com.netflix.discovery.DiscoveryClient    : Application version is -1: false
+2019-03-04 15:29:25.622  INFO 1633356 --- [DiscoveryClient-CacheRefreshExecutor-0] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2019-03-04 15:29:25.659  INFO 1633356 --- [DiscoveryClient-CacheRefreshExecutor-0] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2019-03-04 15:33:55.326  INFO 1633356 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2019-03-04 15:38:55.327  INFO 1633356 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2019-03-04 15:43:55.328  INFO 1633356 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2019-03-04 15:48:55.330  INFO 1633356 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2019-03-04 15:53:55.331  INFO 1633356 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2019-03-04 15:58:55.339  INFO 1633356 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2019-03-04 16:03:55.340  INFO 1633356 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2019-03-04 16:08:55.342  INFO 1633356 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2019-03-04 16:13:55.344  INFO 1633356 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2019-03-04 16:18:55.346  INFO 1633356 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2019-03-04 16:23:55.349  INFO 1633356 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2019-03-04 16:28:55.353  INFO 1633356 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2019-03-04 16:33:55.357  INFO 1633356 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2019-03-04 16:38:55.363  INFO 1633356 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2019-03-04 16:43:55.368  INFO 1633356 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2019-03-04 16:48:55.371  INFO 1633356 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2019-03-04 16:53:55.378  INFO 1633356 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2019-03-04 16:58:55.380  INFO 1633356 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2019-03-04 17:03:55.381  INFO 1633356 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2019-03-04 17:08:55.384  INFO 1633356 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2019-03-04 17:13:55.388  INFO 1633356 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2019-03-04 17:18:55.390  INFO 1633356 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2019-03-04 17:23:55.395  INFO 1633356 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2019-03-04 17:28:55.401  INFO 1633356 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2019-03-04 17:33:55.403  INFO 1633356 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2019-03-04 17:38:55.406  INFO 1633356 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2019-03-04 17:43:55.410  INFO 1633356 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2019-03-04 17:48:55.412  INFO 1633356 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2019-03-04 17:53:55.416  INFO 1633356 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2019-03-04 17:58:55.418  INFO 1633356 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2019-03-04 18:03:55.420  INFO 1633356 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2019-03-04 18:08:55.424  INFO 1633356 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2019-03-04 18:13:55.426  INFO 1633356 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2019-03-04 18:18:55.428  INFO 1633356 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2019-03-04 18:23:55.429  INFO 1633356 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration

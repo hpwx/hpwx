@@ -20,8 +20,7 @@ import com.ym.ms.exception.SysException;
 @Service
 public class WebChatServiceImpl implements IwebChatService {
 
-	@Value("${auth.wechat.sessionHost}")
-	private String sessionHost;
+ 
 	@Value("${auth.wechat.appId}")
 	private String appId;
 	@Value("${auth.wechat.secret}")
