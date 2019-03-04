@@ -26,7 +26,6 @@ public class BgApplication extends SpringBootServletInitializer {
 		SpringApplication.run(BgApplication.class, args);
 		Log.info("微信后台服务已启动......");
 	}
-
 	@Override
 	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
 		return application.sources(BgApplication.class);

@@ -22,7 +22,6 @@ public class WxStaticResoucepplication  extends WebMvcConfigurerAdapter{
 		
 		   Log.info("静态资源服务已启动.......");
 	}
-    
 	  
 	 @Override
 	    public void addViewControllers(ViewControllerRegistry registry) {

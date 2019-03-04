@@ -19,32 +19,40 @@ hystrix:
 ribbon:
   ConnectTimeout: 3000
   ReadTimeout: 60000
+
 zuul:
       #忽略所有的服务，除了routes定义的服务
   ignored-services: '*'
   routes:
-     
     api-a:
-      path: /page/**
-      serviceId: hp-bg-staticresource
-                  #开启自定义head信息，可以向下传递cookie信息，默认false
-      customSensitiveHeaders: true
-                  #关闭重试机制，默认是ture
-      retryable: false
-     api-b:
-      path: /bg/**
+      path: /bgapi/**
       serviceId: hp-bg-api
                   #开启自定义head信息，可以向下传递cookie信息，默认false
       customSensitiveHeaders: true
                   #关闭重试机制，默认是ture
       retryable: false
-     api-c:
-      path: /wx/**
+    api-b:
+      path: /wxapi/**
       serviceId: hp-wx-api
                   #开启自定义head信息，可以向下传递cookie信息，默认false
       customSensitiveHeaders: true
                   #关闭重试机制，默认是ture
       retryable: false
+    api-c:
+      path: /staticresouce/**
+      serviceId: hp-bg-staticresource
+                  #开启自定义head信息，可以向下传递cookie信息，默认false
+      customSensitiveHeaders: true
+                  #关闭重试机制，默认是ture
+      retryable: false
+    api-d:
+      path: /wxsale/**
+      serviceId: wx-api-sale
+                  #开启自定义head信息，可以向下传递cookie信息，默认false
+      customSensitiveHeaders: true
+                  #关闭重试机制，默认是ture
+      retryable: false
+    
 logging:
     level:
         com.ym.zuul: DEBUG
