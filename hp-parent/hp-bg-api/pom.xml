@@ -5,7 +5,7 @@
     <artifactId>hp-parent</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
-  <artifactId>hp-wx-api</artifactId>
+  <artifactId>hp-bg-api</artifactId>
   <description>后台api </description>
   
   	<properties>
