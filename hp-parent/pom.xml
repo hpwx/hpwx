@@ -44,7 +44,7 @@
 
 
 	<modules>
-  		<module>common-auth-bg</module>
+  	 <module>hp-common-redis</module>
   		<module>common-mg-bg</module>
   		<module>hp-common-db</module>
   		<module>hp-common-ms</module> 
@@ -53,10 +53,11 @@
   		 <module>hp-common-hpdb</module>  
   		  <module>hp-eureka-server</module> 
   		  <module>hp-bg-staticresource</module> 
- 		<module>hp-wx-api</module>  
+ 		  <module>hp-wx-api</module>  
   		   <module>hp-bg-auth</module> 
   		   <module>hp-zuul</module>
   		   <module>hp-bg-api</module>
+  		   <module>wx-token-api</module>
 	</modules>
 	<dependencyManagement>
 		<dependencies>

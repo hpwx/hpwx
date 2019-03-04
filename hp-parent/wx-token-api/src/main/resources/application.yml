@@ -1,0 +1,13 @@
+server:
+  port: 8052
+spring:
+  application:
+    name:  wx-tokne-api
+    
+    
+    
+#  配置信息   
+
+wx:
+  token:XXXXXX
+  appsecret:xxxxxxxxxxxss

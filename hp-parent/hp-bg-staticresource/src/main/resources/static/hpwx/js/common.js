@@ -4,7 +4,7 @@ $.jgrid.defaults.responsive = true;
 $.jgrid.defaults.styleUI = 'Bootstrap';
 
 
-var baseURL = "http://localhost:8010/";
+var baseURL = "https://120.27.147.104:8010/hpwxapitest/";
 //工具集合Tools
 window.T = {};
 

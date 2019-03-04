@@ -7,7 +7,6 @@
   </parent>
   <artifactId>hp-bg-staticresource</artifactId>
   <description>后台静态资源</description>
-  
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
