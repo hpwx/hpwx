@@ -1,12 +1,24 @@
 $(function () {
     $("#jqGrid").jqGrid({
-        url: baseURL + 'sys/role/list',
+        url: baseURL + 'sys/questionnaire/list',
         datatype: "json",
         colModel: [			
-			{ label: '问卷标题', name: 'roleId', index: "role_id", width: 45, key: true },
-			{ label: '问卷是否重复作答', name: 'roleName', index: "role_name", width: 75 },
-			{ label: '问卷是否转发', name: 'roleName', index: "role_name", width: 75 },
-			{ label: '问卷是否置顶', name: 'roleName', index: "role_name", width: 75 },
+			{ label: '问卷标题', name: 'title', index: "title", width: 45, key: true },
+			{ label: '问卷是否重复作答', name: 'repeatedAnswer', width: 75 ,formatter: function(value, options, row){
+                    return value === 0 ?
+                        '<span class="label label-danger">否</span>' :
+                        '<span class="label label-success">是</span>';
+                }},
+			{ label: '问卷是否转发', name: 'forward', index: "forward", width: 75,formatter: function(value, options, row){
+                    return value === 0 ?
+                        '<span class="label label-danger">否</span>' :
+                        '<span class="label label-success">是</span>';
+                } },
+			{ label: '问卷是否置顶', name: 'top', index: "top", width: 75,formatter: function(value, options, row){
+                    return value === 0 ?
+                        '<span class="label label-danger">否</span>' :
+                        '<span class="label label-success">是</span>';
+                } },
 			{ label: '创建时间', name: 'createTime', index: "create_time", width: 80}
         ],
 		viewrecords: true,
