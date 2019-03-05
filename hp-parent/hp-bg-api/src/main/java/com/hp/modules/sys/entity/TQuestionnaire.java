@@ -1,17 +1,8 @@
 package com.hp.modules.sys.entity;
 
-import com.baomidou.mybatisplus.annotations.TableId;
-import com.baomidou.mybatisplus.annotations.TableName;
-
-import java.io.Serializable;
 import java.util.Date;
 
-@TableName("t_questionnaire")
-public class TQuestionnaire implements Serializable{
-
-    private static final long serialVersionUID = 1L;
-
-    @TableId
+public class TQuestionnaire {
     private Long objectId;
 
     private Date createTime;
@@ -22,17 +13,15 @@ public class TQuestionnaire implements Serializable{
 
     private String updateUser;
 
-    private int deleted;
+    private Byte deleted;
 
-    private int anonymous;
+    private Byte anonymous;
 
-    private int forward;
+    private Byte forward;
 
-    private int top;
+    private Byte repeatedAnswer;
 
-    private int repeatedAnswer;
-
-    private int answerCount;
+    private Short answerCount;
 
     private String title;
 
@@ -42,7 +31,7 @@ public class TQuestionnaire implements Serializable{
 
     private String cover;
 
-    private int enable;
+    private Byte enable;
 
     public Long getObjectId() {
         return objectId;
@@ -65,7 +54,7 @@ public class TQuestionnaire implements Serializable{
     }
 
     public void setCreateUser(String createUser) {
-        this.createUser = createUser;
+        this.createUser = createUser == null ? null : createUser.trim();
     }
 
     public Date getUpdateTime() {
@@ -81,54 +70,46 @@ public class TQuestionnaire implements Serializable{
     }
 
     public void setUpdateUser(String updateUser) {
-        this.updateUser = updateUser;
+        this.updateUser = updateUser == null ? null : updateUser.trim();
     }
 
-    public int getDeleted() {
+    public Byte getDeleted() {
         return deleted;
     }
 
-    public void setDeleted(int deleted) {
+    public void setDeleted(Byte deleted) {
         this.deleted = deleted;
     }
 
-    public int getAnonymous() {
+    public Byte getAnonymous() {
         return anonymous;
     }
 
-    public void setAnonymous(int anonymous) {
+    public void setAnonymous(Byte anonymous) {
         this.anonymous = anonymous;
     }
 
-    public int getForward() {
+    public Byte getForward() {
         return forward;
     }
 
-    public void setForward(int forward) {
+    public void setForward(Byte forward) {
         this.forward = forward;
     }
 
-    public int getTop() {
-        return top;
-    }
-
-    public void setTop(int top) {
-        this.top = top;
-    }
-
-    public int getRepeatedAnswer() {
+    public Byte getRepeatedAnswer() {
         return repeatedAnswer;
     }
 
-    public void setRepeatedAnswer(int repeatedAnswer) {
+    public void setRepeatedAnswer(Byte repeatedAnswer) {
         this.repeatedAnswer = repeatedAnswer;
     }
 
-    public int getAnswerCount() {
+    public Short getAnswerCount() {
         return answerCount;
     }
 
-    public void setAnswerCount(int answerCount) {
+    public void setAnswerCount(Short answerCount) {
         this.answerCount = answerCount;
     }
 
@@ -137,7 +118,7 @@ public class TQuestionnaire implements Serializable{
     }
 
     public void setTitle(String title) {
-        this.title = title;
+        this.title = title == null ? null : title.trim();
     }
 
     public String getQuestionnaireDesc() {
@@ -145,7 +126,7 @@ public class TQuestionnaire implements Serializable{
     }
 
     public void setQuestionnaireDesc(String questionnaireDesc) {
-        this.questionnaireDesc = questionnaireDesc;
+        this.questionnaireDesc = questionnaireDesc == null ? null : questionnaireDesc.trim();
     }
 
     public String getIcon() {
@@ -153,7 +134,7 @@ public class TQuestionnaire implements Serializable{
     }
 
     public void setIcon(String icon) {
-        this.icon = icon;
+        this.icon = icon == null ? null : icon.trim();
     }
 
     public String getCover() {
@@ -161,36 +142,14 @@ public class TQuestionnaire implements Serializable{
     }
 
     public void setCover(String cover) {
-        this.cover = cover;
+        this.cover = cover == null ? null : cover.trim();
     }
 
-    public int getEnable() {
+    public Byte getEnable() {
         return enable;
     }
 
-    public void setEnable(int enable) {
+    public void setEnable(Byte enable) {
         this.enable = enable;
-    }
-
-    @Override
-    public String toString() {
-        return "TQuestionnaire{" +
-                "objectId=" + objectId +
-                ", createTime=" + createTime +
-                ", createUser='" + createUser + '\'' +
-                ", updateTime=" + updateTime +
-                ", updateUser='" + updateUser + '\'' +
-                ", deleted=" + deleted +
-                ", anonymous=" + anonymous +
-                ", forward=" + forward +
-                ", top=" + top +
-                ", repeatedAnswer=" + repeatedAnswer +
-                ", answerCount=" + answerCount +
-                ", title='" + title + '\'' +
-                ", questionnaireDesc='" + questionnaireDesc + '\'' +
-                ", icon='" + icon + '\'' +
-                ", cover='" + cover + '\'' +
-                ", enable=" + enable +
-                '}';
     }
 }
