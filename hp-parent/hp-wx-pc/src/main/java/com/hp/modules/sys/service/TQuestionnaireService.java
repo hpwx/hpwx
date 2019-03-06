@@ -16,4 +16,6 @@ public interface TQuestionnaireService extends IService<TQuestionnaire> {
 
     void deleteBatch(Long[] ids);
 
+    void deleteByIds(Long[] ids);
+
 }

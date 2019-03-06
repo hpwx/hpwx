@@ -1,5 +1,6 @@
 package com.hp.modules.sys.controller;
 
+import com.hp.common.utils.Constant;
 import com.hp.common.utils.PageUtils;
 import com.hp.common.utils.R;
 import com.hp.common.validator.ValidatorUtils;
@@ -10,6 +11,7 @@ import com.hp.modules.sys.service.TQuestionnaireService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Date;
 import java.util.Map;
 
 @RestController
@@ -31,6 +33,10 @@ public class TQuestionnaireController extends AbstractController{
     @GetMapping("/add")
     public R add(@RequestBody TQuestionnaire tQuestionnaire){
 
+        tQuestionnaire.setCreateTime(new Date());
+        tQuestionnaire.setCreateUser(getUserId()==null ? null : getUserId().toString());
+        tQuestionnaire.setEnable(Constant.YES);
+
         ValidatorUtils.validateEntity(tQuestionnaire, AddGroup.class);
         //获取用户
         tQuestionnaire.setCreateUser(getUserId().toString());
@@ -42,6 +48,10 @@ public class TQuestionnaireController extends AbstractController{
 
     @GetMapping("/update")
     public R update(@RequestBody TQuestionnaire tQuestionnaire){
+
+        tQuestionnaire.setCreateTime(new Date());
+        tQuestionnaire.setCreateUser(getUserId()==null ? null : getUserId().toString());
+        tQuestionnaire.setEnable(Constant.YES);
 
         ValidatorUtils.validateEntity(tQuestionnaire, UpdateGroup.class);
         //获取用户
@@ -55,7 +65,9 @@ public class TQuestionnaireController extends AbstractController{
     //@SysLog("删除问卷")  先不记录日志
     @PostMapping("/delete")
     public R delete(@RequestBody Long[] ids){
-        tQuestionnaireService.deleteBatch(ids);
+        //进行逻辑删除
+        tQuestionnaireService.deleteByIds(ids);
+
         return R.ok();
     }
 
