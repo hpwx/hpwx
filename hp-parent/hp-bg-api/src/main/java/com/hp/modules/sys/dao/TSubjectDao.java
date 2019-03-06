@@ -1,11 +1,13 @@
-package com.hp.wx.mapper;
+package com.hp.modules.sys.dao;
 
-import com.hp.wx.entity.TSubject;
+import com.baomidou.mybatisplus.mapper.BaseMapper;
+import com.hp.modules.sys.entity.TSubject;
+import org.apache.ibatis.annotations.Mapper;
 
-public interface TSubjectMapper {
+@Mapper
+public interface TSubjectDao extends BaseMapper<TSubject> {
     int deleteByPrimaryKey(Long objectId);
 
-    int insert(TSubject record);
 
     int insertSelective(TSubject record);
 

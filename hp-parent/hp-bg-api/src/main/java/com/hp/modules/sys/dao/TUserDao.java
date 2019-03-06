@@ -1,11 +1,12 @@
 package com.hp.modules.sys.dao;
 
+import com.baomidou.mybatisplus.mapper.BaseMapper;
 import com.hp.modules.sys.entity.TUser;
+import org.apache.ibatis.annotations.Mapper;
 
-public interface TUserMapper {
+@Mapper
+public interface TUserDao extends BaseMapper<TUser> {
     int deleteByPrimaryKey(Long objectId);
-
-    int insert(TUser record);
 
     int insertSelective(TUser record);
 

@@ -1,11 +1,13 @@
 package com.hp.modules.sys.dao;
 
+import com.baomidou.mybatisplus.mapper.BaseMapper;
+import com.hp.modules.sys.entity.TUserAnswer;
 import com.hp.modules.sys.entity.TUserAnswerDetail;
+import org.apache.ibatis.annotations.Mapper;
 
-public interface TUserAnswerDetailMapper {
+@Mapper
+public interface TUserAnswerDetailDao extends BaseMapper<TUserAnswerDetail> {
     int deleteByPrimaryKey(Long objectId);
-
-    int insert(TUserAnswerDetail record);
 
     int insertSelective(TUserAnswerDetail record);
 

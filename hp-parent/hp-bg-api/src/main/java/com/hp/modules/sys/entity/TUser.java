@@ -27,6 +27,8 @@ public class TUser {
 
     private Byte sex;
 
+    private String questionnaireIds;
+
     public Long getObjectId() {
         return objectId;
     }
@@ -121,5 +123,13 @@ public class TUser {
 
     public void setSex(Byte sex) {
         this.sex = sex;
+    }
+
+    public String getQuestionnaireIds() {
+        return questionnaireIds;
+    }
+
+    public void setQuestionnaireIds(String questionnaireIds) {
+        this.questionnaireIds = questionnaireIds == null ? null : questionnaireIds.trim();
     }
 }

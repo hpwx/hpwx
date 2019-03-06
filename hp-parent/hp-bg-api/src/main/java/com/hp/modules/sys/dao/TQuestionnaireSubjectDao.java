@@ -1,8 +1,10 @@
 package com.hp.modules.sys.dao;
 
 import com.hp.modules.sys.entity.TQuestionnaireSubject;
+import org.apache.ibatis.annotations.Mapper;
 
-public interface TQuestionnaireSubjectMapper {
+@Mapper
+public interface TQuestionnaireSubjectDao {
     int deleteByPrimaryKey(Long objectId);
 
     int insert(TQuestionnaireSubject record);
