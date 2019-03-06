@@ -2,6 +2,9 @@ package com.hp.modules.sys.entity;
 
 import com.baomidou.mybatisplus.annotations.TableId;
 import com.baomidou.mybatisplus.annotations.TableName;
+import com.hp.common.validator.group.AddGroup;
+import com.hp.common.validator.group.UpdateGroup;
+import org.hibernate.validator.constraints.NotBlank;
 
 import java.util.Date;
 
@@ -21,14 +24,18 @@ public class TQuestionnaire {
 
     private Byte deleted;
 
+    @NotBlank(message="是否匿名不能为空", groups = {AddGroup.class, UpdateGroup.class})
     private Byte anonymous;
 
+    @NotBlank(message="是否转发不能为空", groups = {AddGroup.class, UpdateGroup.class})
     private Byte forward;
 
+    @NotBlank(message="是否重复作答不能为空", groups = {AddGroup.class, UpdateGroup.class})
     private Byte repeatedAnswer;
 
     private Short answerCount;
 
+    @NotBlank(message="标题不能为空", groups = {AddGroup.class, UpdateGroup.class})
     private String title;
 
     private String questionnaireDesc;
@@ -37,7 +44,10 @@ public class TQuestionnaire {
 
     private String cover;
 
+    //目前不用
     private Byte enable;
+
+    private String backColor;
 
     public Long getObjectId() {
         return objectId;
@@ -157,5 +167,13 @@ public class TQuestionnaire {
 
     public void setEnable(Byte enable) {
         this.enable = enable;
+    }
+
+    public String getBackColor() {
+        return backColor;
+    }
+
+    public void setBackColor(String backColor) {
+        this.backColor = backColor == null ? null : backColor.trim();
     }
 }

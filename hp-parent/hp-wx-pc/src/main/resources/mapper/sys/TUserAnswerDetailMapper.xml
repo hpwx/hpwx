@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hp.modules.sys.dao.TUserAnswerDetailDao" >
+  <resultMap id="BaseResultMap" type="com.hp.modules.sys.entity.TUserAnswerDetail" >
+    <id column="object_id" property="objectId" jdbcType="BIGINT" />
+    <result column="t_user_answer_id" property="tUserAnswerId" jdbcType="BIGINT" />
+    <result column="subject_id" property="subjectId" jdbcType="BIGINT" />
+    <result column="subject_name" property="subjectName" jdbcType="VARCHAR" />
+    <result column="answer_result" property="answerResult" jdbcType="VARCHAR" />
+    <result column="answer_score" property="answerScore" jdbcType="INTEGER" />
+    <result column="correct_result" property="correctResult" jdbcType="VARCHAR" />
+    <result column="subject_type" property="subjectType" jdbcType="TINYINT" />
+    <result column="answer_time" property="answerTime" jdbcType="DATE" />
+    <result column="questionnaire_name" property="questionnaireName" jdbcType="VARCHAR" />
+    <result column="questionnaire_id" property="questionnaireId" jdbcType="BIGINT" />
+    <result column="open_id" property="openId" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    object_id, t_user_answer_id, subject_id, subject_name, answer_result, answer_score, 
+    correct_result, subject_type, answer_time, questionnaire_name, questionnaire_id, 
+    open_id
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_user_answer_detail
+    where object_id = #{objectId,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from t_user_answer_detail
+    where object_id = #{objectId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.hp.modules.sys.entity.TUserAnswerDetail" >
+    insert into t_user_answer_detail (object_id, t_user_answer_id, subject_id, 
+      subject_name, answer_result, answer_score, 
+      correct_result, subject_type, answer_time, 
+      questionnaire_name, questionnaire_id, open_id
+      )
+    values (#{objectId,jdbcType=BIGINT}, #{tUserAnswerId,jdbcType=BIGINT}, #{subjectId,jdbcType=BIGINT}, 
+      #{subjectName,jdbcType=VARCHAR}, #{answerResult,jdbcType=VARCHAR}, #{answerScore,jdbcType=INTEGER}, 
+      #{correctResult,jdbcType=VARCHAR}, #{subjectType,jdbcType=TINYINT}, #{answerTime,jdbcType=DATE}, 
+      #{questionnaireName,jdbcType=VARCHAR}, #{questionnaireId,jdbcType=BIGINT}, #{openId,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.hp.modules.sys.entity.TUserAnswerDetail" >
+    insert into t_user_answer_detail
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="objectId != null" >
+        object_id,
+      </if>
+      <if test="tUserAnswerId != null" >
+        t_user_answer_id,
+      </if>
+      <if test="subjectId != null" >
+        subject_id,
+      </if>
+      <if test="subjectName != null" >
+        subject_name,
+      </if>
+      <if test="answerResult != null" >
+        answer_result,
+      </if>
+      <if test="answerScore != null" >
+        answer_score,
+      </if>
+      <if test="correctResult != null" >
+        correct_result,
+      </if>
+      <if test="subjectType != null" >
+        subject_type,
+      </if>
+      <if test="answerTime != null" >
+        answer_time,
+      </if>
+      <if test="questionnaireName != null" >
+        questionnaire_name,
+      </if>
+      <if test="questionnaireId != null" >
+        questionnaire_id,
+      </if>
+      <if test="openId != null" >
+        open_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="objectId != null" >
+        #{objectId,jdbcType=BIGINT},
+      </if>
+      <if test="tUserAnswerId != null" >
+        #{tUserAnswerId,jdbcType=BIGINT},
+      </if>
+      <if test="subjectId != null" >
+        #{subjectId,jdbcType=BIGINT},
+      </if>
+      <if test="subjectName != null" >
+        #{subjectName,jdbcType=VARCHAR},
+      </if>
+      <if test="answerResult != null" >
+        #{answerResult,jdbcType=VARCHAR},
+      </if>
+      <if test="answerScore != null" >
+        #{answerScore,jdbcType=INTEGER},
+      </if>
+      <if test="correctResult != null" >
+        #{correctResult,jdbcType=VARCHAR},
+      </if>
+      <if test="subjectType != null" >
+        #{subjectType,jdbcType=TINYINT},
+      </if>
+      <if test="answerTime != null" >
+        #{answerTime,jdbcType=DATE},
+      </if>
+      <if test="questionnaireName != null" >
+        #{questionnaireName,jdbcType=VARCHAR},
+      </if>
+      <if test="questionnaireId != null" >
+        #{questionnaireId,jdbcType=BIGINT},
+      </if>
+      <if test="openId != null" >
+        #{openId,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.hp.modules.sys.entity.TUserAnswerDetail" >
+    update t_user_answer_detail
+    <set >
+      <if test="tUserAnswerId != null" >
+        t_user_answer_id = #{tUserAnswerId,jdbcType=BIGINT},
+      </if>
+      <if test="subjectId != null" >
+        subject_id = #{subjectId,jdbcType=BIGINT},
+      </if>
+      <if test="subjectName != null" >
+        subject_name = #{subjectName,jdbcType=VARCHAR},
+      </if>
+      <if test="answerResult != null" >
+        answer_result = #{answerResult,jdbcType=VARCHAR},
+      </if>
+      <if test="answerScore != null" >
+        answer_score = #{answerScore,jdbcType=INTEGER},
+      </if>
+      <if test="correctResult != null" >
+        correct_result = #{correctResult,jdbcType=VARCHAR},
+      </if>
+      <if test="subjectType != null" >
+        subject_type = #{subjectType,jdbcType=TINYINT},
+      </if>
+      <if test="answerTime != null" >
+        answer_time = #{answerTime,jdbcType=DATE},
+      </if>
+      <if test="questionnaireName != null" >
+        questionnaire_name = #{questionnaireName,jdbcType=VARCHAR},
+      </if>
+      <if test="questionnaireId != null" >
+        questionnaire_id = #{questionnaireId,jdbcType=BIGINT},
+      </if>
+      <if test="openId != null" >
+        open_id = #{openId,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where object_id = #{objectId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.hp.modules.sys.entity.TUserAnswerDetail" >
+    update t_user_answer_detail
+    set t_user_answer_id = #{tUserAnswerId,jdbcType=BIGINT},
+      subject_id = #{subjectId,jdbcType=BIGINT},
+      subject_name = #{subjectName,jdbcType=VARCHAR},
+      answer_result = #{answerResult,jdbcType=VARCHAR},
+      answer_score = #{answerScore,jdbcType=INTEGER},
+      correct_result = #{correctResult,jdbcType=VARCHAR},
+      subject_type = #{subjectType,jdbcType=TINYINT},
+      answer_time = #{answerTime,jdbcType=DATE},
+      questionnaire_name = #{questionnaireName,jdbcType=VARCHAR},
+      questionnaire_id = #{questionnaireId,jdbcType=BIGINT},
+      open_id = #{openId,jdbcType=VARCHAR}
+    where object_id = #{objectId,jdbcType=BIGINT}
+  </update>
+</mapper>

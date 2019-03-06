@@ -11,6 +11,10 @@ public class Constant {
 	/** 超级管理员ID */
 	public static final int SUPER_ADMIN = 1;
 
+	public static final byte NO = 0;
+
+    public static final byte YES = 1;
+
 	/**
 	 * 菜单类型
 	 * 

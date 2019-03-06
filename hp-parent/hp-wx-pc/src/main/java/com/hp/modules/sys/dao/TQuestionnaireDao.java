@@ -8,6 +8,7 @@ import org.apache.ibatis.annotations.Mapper;
 public interface TQuestionnaireDao extends BaseMapper<TQuestionnaire> {
     int deleteByPrimaryKey(Long objectId);
 
+
     int insertSelective(TQuestionnaire record);
 
     TQuestionnaire selectByPrimaryKey(Long objectId);

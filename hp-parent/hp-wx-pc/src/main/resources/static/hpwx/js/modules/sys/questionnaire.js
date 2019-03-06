@@ -82,6 +82,7 @@ var vm = new Vue({
 			vm.reload();
 		},
 		add: function(){
+			alert(4);
 			vm.showList = false;
 			vm.title = "新增";
 			vm.role = {};
@@ -106,7 +107,7 @@ var vm = new Vue({
 			confirm('确定要删除选中的记录？', function(){
 				$.ajax({
 					type: "POST",
-				    url: baseURL + "sys/role/delete",
+				    url: baseURL + "sys/questionnaire/delete",
                     contentType: "application/json",
 				    data: JSON.stringify(roleIds),
 				    success: function(r){
