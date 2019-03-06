@@ -26,6 +26,8 @@ public class UserInfo {
     private String nick;
 
     private String headIcon;
+    
+   
 
     public Long getObjectId() {
         return objectId;
