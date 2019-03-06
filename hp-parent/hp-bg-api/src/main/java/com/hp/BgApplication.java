@@ -13,8 +13,8 @@ import org.springframework.context.annotation.Import;
 
 import com.hp.datasources.DynamicDataSourceConfig;
 
-@EnableEurekaClient
-@EnableDiscoveryClient
+//@EnableEurekaClient
+//@EnableDiscoveryClient
 @SpringBootApplication(exclude={DataSourceAutoConfiguration.class})
 @Import({DynamicDataSourceConfig.class})
 public class BgApplication extends SpringBootServletInitializer {

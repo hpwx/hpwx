@@ -3,7 +3,7 @@ server:
     uri-encoding: UTF-8
     max-threads: 1000
     min-spare-threads: 30
-  port: 8051
+  port: 8001
 spring:
   application:
     name: hp-bg-staticresource
