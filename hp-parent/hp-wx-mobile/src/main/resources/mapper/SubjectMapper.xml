@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hp.mobile.mapper.SubjectMapper">
+  <resultMap id="BaseResultMap" type="com.hp.mobile.entity.Subject">
+    <id column="object_id" jdbcType="BIGINT" property="objectId" />
+    <result column="create_user" jdbcType="VARCHAR" property="createUser" />
+    <result column="create_time" jdbcType="DATE" property="createTime" />
+    <result column="update_user" jdbcType="VARCHAR" property="updateUser" />
+    <result column="update_time" jdbcType="DATE" property="updateTime" />
+    <result column="deleted" jdbcType="TINYINT" property="deleted" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="type_id" jdbcType="INTEGER" property="typeId" />
+    <result column="subject_answer" jdbcType="BIGINT" property="subjectAnswer" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    object_id, create_user, create_time, update_user, update_time, deleted, name, type_id, 
+    subject_answer
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_subject
+    where object_id = #{objectId,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from t_subject
+    where object_id = #{objectId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.hp.mobile.entity.Subject">
+    insert into t_subject (object_id, create_user, create_time, 
+      update_user, update_time, deleted, 
+      name, type_id, subject_answer
+      )
+    values (#{objectId,jdbcType=BIGINT}, #{createUser,jdbcType=VARCHAR}, #{createTime,jdbcType=DATE}, 
+      #{updateUser,jdbcType=VARCHAR}, #{updateTime,jdbcType=DATE}, #{deleted,jdbcType=TINYINT}, 
+      #{name,jdbcType=VARCHAR}, #{typeId,jdbcType=INTEGER}, #{subjectAnswer,jdbcType=BIGINT}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.hp.mobile.entity.Subject">
+    insert into t_subject
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="objectId != null">
+        object_id,
+      </if>
+      <if test="createUser != null">
+        create_user,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateUser != null">
+        update_user,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="deleted != null">
+        deleted,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="typeId != null">
+        type_id,
+      </if>
+      <if test="subjectAnswer != null">
+        subject_answer,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="objectId != null">
+        #{objectId,jdbcType=BIGINT},
+      </if>
+      <if test="createUser != null">
+        #{createUser,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=DATE},
+      </if>
+      <if test="updateUser != null">
+        #{updateUser,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=DATE},
+      </if>
+      <if test="deleted != null">
+        #{deleted,jdbcType=TINYINT},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="typeId != null">
+        #{typeId,jdbcType=INTEGER},
+      </if>
+      <if test="subjectAnswer != null">
+        #{subjectAnswer,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.hp.mobile.entity.Subject">
+    update t_subject
+    <set>
+      <if test="createUser != null">
+        create_user = #{createUser,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=DATE},
+      </if>
+      <if test="updateUser != null">
+        update_user = #{updateUser,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=DATE},
+      </if>
+      <if test="deleted != null">
+        deleted = #{deleted,jdbcType=TINYINT},
+      </if>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="typeId != null">
+        type_id = #{typeId,jdbcType=INTEGER},
+      </if>
+      <if test="subjectAnswer != null">
+        subject_answer = #{subjectAnswer,jdbcType=BIGINT},
+      </if>
+    </set>
+    where object_id = #{objectId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.hp.mobile.entity.Subject">
+    update t_subject
+    set create_user = #{createUser,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=DATE},
+      update_user = #{updateUser,jdbcType=VARCHAR},
+      update_time = #{updateTime,jdbcType=DATE},
+      deleted = #{deleted,jdbcType=TINYINT},
+      name = #{name,jdbcType=VARCHAR},
+      type_id = #{typeId,jdbcType=INTEGER},
+      subject_answer = #{subjectAnswer,jdbcType=BIGINT}
+    where object_id = #{objectId,jdbcType=BIGINT}
+  </update>
+</mapper>

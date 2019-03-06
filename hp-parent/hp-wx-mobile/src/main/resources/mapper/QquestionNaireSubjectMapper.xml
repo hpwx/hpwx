@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hp.mobile.mapper.QquestionNaireSubjectMapper">
+  <resultMap id="BaseResultMap" type="com.hp.mobile.entity.QquestionNaireSubject">
+    <id column="object_id" jdbcType="BIGINT" property="objectId" />
+    <result column="create_user" jdbcType="VARCHAR" property="createUser" />
+    <result column="update_date" jdbcType="DATE" property="updateDate" />
+    <result column="update_user" jdbcType="VARCHAR" property="updateUser" />
+    <result column="update_time" jdbcType="DATE" property="updateTime" />
+    <result column="questionnaire_id" jdbcType="BIGINT" property="questionnaireId" />
+    <result column="subject_id" jdbcType="BIGINT" property="subjectId" />
+    <result column="must_answer" jdbcType="TINYINT" property="mustAnswer" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    object_id, create_user, update_date, update_user, update_time, questionnaire_id, 
+    subject_id, must_answer
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_questionnaire_subject
+    where object_id = #{objectId,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from t_questionnaire_subject
+    where object_id = #{objectId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.hp.mobile.entity.QquestionNaireSubject">
+    insert into t_questionnaire_subject (object_id, create_user, update_date, 
+      update_user, update_time, questionnaire_id, 
+      subject_id, must_answer)
+    values (#{objectId,jdbcType=BIGINT}, #{createUser,jdbcType=VARCHAR}, #{updateDate,jdbcType=DATE}, 
+      #{updateUser,jdbcType=VARCHAR}, #{updateTime,jdbcType=DATE}, #{questionnaireId,jdbcType=BIGINT}, 
+      #{subjectId,jdbcType=BIGINT}, #{mustAnswer,jdbcType=TINYINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.hp.mobile.entity.QquestionNaireSubject">
+    insert into t_questionnaire_subject
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="objectId != null">
+        object_id,
+      </if>
+      <if test="createUser != null">
+        create_user,
+      </if>
+      <if test="updateDate != null">
+        update_date,
+      </if>
+      <if test="updateUser != null">
+        update_user,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="questionnaireId != null">
+        questionnaire_id,
+      </if>
+      <if test="subjectId != null">
+        subject_id,
+      </if>
+      <if test="mustAnswer != null">
+        must_answer,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="objectId != null">
+        #{objectId,jdbcType=BIGINT},
+      </if>
+      <if test="createUser != null">
+        #{createUser,jdbcType=VARCHAR},
+      </if>
+      <if test="updateDate != null">
+        #{updateDate,jdbcType=DATE},
+      </if>
+      <if test="updateUser != null">
+        #{updateUser,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=DATE},
+      </if>
+      <if test="questionnaireId != null">
+        #{questionnaireId,jdbcType=BIGINT},
+      </if>
+      <if test="subjectId != null">
+        #{subjectId,jdbcType=BIGINT},
+      </if>
+      <if test="mustAnswer != null">
+        #{mustAnswer,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.hp.mobile.entity.QquestionNaireSubject">
+    update t_questionnaire_subject
+    <set>
+      <if test="createUser != null">
+        create_user = #{createUser,jdbcType=VARCHAR},
+      </if>
+      <if test="updateDate != null">
+        update_date = #{updateDate,jdbcType=DATE},
+      </if>
+      <if test="updateUser != null">
+        update_user = #{updateUser,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=DATE},
+      </if>
+      <if test="questionnaireId != null">
+        questionnaire_id = #{questionnaireId,jdbcType=BIGINT},
+      </if>
+      <if test="subjectId != null">
+        subject_id = #{subjectId,jdbcType=BIGINT},
+      </if>
+      <if test="mustAnswer != null">
+        must_answer = #{mustAnswer,jdbcType=TINYINT},
+      </if>
+    </set>
+    where object_id = #{objectId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.hp.mobile.entity.QquestionNaireSubject">
+    update t_questionnaire_subject
+    set create_user = #{createUser,jdbcType=VARCHAR},
+      update_date = #{updateDate,jdbcType=DATE},
+      update_user = #{updateUser,jdbcType=VARCHAR},
+      update_time = #{updateTime,jdbcType=DATE},
+      questionnaire_id = #{questionnaireId,jdbcType=BIGINT},
+      subject_id = #{subjectId,jdbcType=BIGINT},
+      must_answer = #{mustAnswer,jdbcType=TINYINT}
+    where object_id = #{objectId,jdbcType=BIGINT}
+  </update>
+</mapper>
