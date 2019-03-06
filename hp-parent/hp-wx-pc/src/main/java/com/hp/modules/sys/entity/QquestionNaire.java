@@ -1,4 +1,4 @@
-package com.hp.mobile.entity;
+package com.hp.modules.sys.entity;
 
 import java.util.Date;
 

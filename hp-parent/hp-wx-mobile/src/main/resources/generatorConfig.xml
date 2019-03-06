@@ -38,8 +38,6 @@
     <table tableName="t_subject" domainObjectName="Subject" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
  
     <table tableName="t_user_answer_detail" domainObjectName="UserAnswerDeatil" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
-   
-   
-   
+  
     </context>
 </generatorConfiguration>

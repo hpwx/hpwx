@@ -18,27 +18,27 @@
             <property name="forceBigDecimals" value="false"/>
         </javaTypeResolver>
         <!-- 生成模型的包名和位置-->
-        <javaModelGenerator targetPackage="com.hp.mobile.entity" targetProject="hp-wx-mobile/src/main/java">
+        <javaModelGenerator targetPackage="com.hp.modules.sys.entity" targetProject="hp-wx-pc/src/main/java">
             <property name="enableSubPackages" value="false" />
 			<!-- 从数据库返回的值被清理前后的空格 -->
 			<property name="trimStrings" value="true" />
 
         </javaModelGenerator>
         <!-- 生成映射文件的包名和位置-->
-        <sqlMapGenerator targetPackage="mapper" targetProject="hp-wx-mobile/src/main/resources">
+        <sqlMapGenerator targetPackage="mapper.sys" targetProject="hp-wx-pc/src/main/resources">
             <property name="enableSubPackages" value="true"/>
         </sqlMapGenerator>
         <!-- 生成DAO的包名和位置-->
-        <javaClientGenerator type="XMLMAPPER" targetPackage="com.hp.mobile.mapper" targetProject="hp-wx-mobile/src/main/java">
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.hp.modules.sys.dao" targetProject="hp-wx-pc/src/main/java">
             <property name="t_user_answer_detailenableSubPackages" value="true"/>
         </javaClientGenerator>
         <!-- 要生成的表 tableName是数据库中的表名或视图名 domainObjectName是实体类名-->
-        
+       <!--  
          <table tableName="t_user_answer_detail" domainObjectName="UserAnswerDeatil" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
         <table tableName="t_questionnaire" domainObjectName="QquestionNaire" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
     <table tableName="t_questionnaire_subject" domainObjectName="QquestionNaireSubject" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
     <table tableName="t_subject" domainObjectName="Subject" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
- 
+  -->
     <table tableName="t_user_answer_detail" domainObjectName="UserAnswerDeatil" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
    
     </context>

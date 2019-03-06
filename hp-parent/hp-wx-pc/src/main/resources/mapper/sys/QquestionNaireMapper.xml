@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.hp.mobile.mapper.QquestionNaireMapper">
-  <resultMap id="BaseResultMap" type="com.hp.mobile.entity.QquestionNaire">
+<mapper namespace="com.hp.modules.sys.dao.QquestionNaireMapper">
+  <resultMap id="BaseResultMap" type="com.hp.modules.sys.entity.QquestionNaire">
     <id column="object_id" jdbcType="BIGINT" property="objectId" />
     <result column="create_time" jdbcType="DATE" property="createTime" />
     <result column="create_user" jdbcType="VARCHAR" property="createUser" />
@@ -34,7 +34,7 @@
     delete from t_questionnaire
     where object_id = #{objectId,jdbcType=BIGINT}
   </delete>
-  <insert id="insert" parameterType="com.hp.mobile.entity.QquestionNaire">
+  <insert id="insert" parameterType="com.hp.modules.sys.entity.QquestionNaire">
     insert into t_questionnaire (object_id, create_time, create_user, 
       update_time, update_user, deleted, 
       anonymous, forward, repeated_answer, 
@@ -48,7 +48,7 @@
       #{icon,jdbcType=VARCHAR}, #{cover,jdbcType=VARCHAR}, #{enable,jdbcType=TINYINT}, 
       #{backColor,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.hp.mobile.entity.QquestionNaire">
+  <insert id="insertSelective" parameterType="com.hp.modules.sys.entity.QquestionNaire">
     insert into t_questionnaire
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="objectId != null">
@@ -151,7 +151,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.hp.mobile.entity.QquestionNaire">
+  <update id="updateByPrimaryKeySelective" parameterType="com.hp.modules.sys.entity.QquestionNaire">
     update t_questionnaire
     <set>
       <if test="createTime != null">
@@ -202,7 +202,7 @@
     </set>
     where object_id = #{objectId,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.hp.mobile.entity.QquestionNaire">
+  <update id="updateByPrimaryKey" parameterType="com.hp.modules.sys.entity.QquestionNaire">
     update t_questionnaire
     set create_time = #{createTime,jdbcType=DATE},
       create_user = #{createUser,jdbcType=VARCHAR},
