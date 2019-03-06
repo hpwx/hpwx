@@ -2,6 +2,7 @@ package com.hp.wx.mapper;
 
 import com.hp.wx.entity.QuestionNaire;
 
+
 public interface QuestionNaireMapper {
     int deleteByPrimaryKey(Long objectId);
 

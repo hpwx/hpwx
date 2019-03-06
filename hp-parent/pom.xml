@@ -49,15 +49,15 @@
   		<module>hp-common-db</module>
   		<module>hp-common-ms</module> 
   		<module>hp-common-utils</module> 
-  		 <module>hp-common-rabbitMq</module> 
+ 
   		 <module>hp-common-hpdb</module>  
-  		  <module>hp-eureka-server</module> 
+  		 
   		  <module>hp-bg-staticresource</module> 
  		  <module>hp-wx-api</module>  
-  		   <module>hp-bg-auth</module> 
-  		   <module>hp-zuul</module>
   		   <module>hp-bg-api</module>
   		   <module>wx-token-api</module>
+  		   <module>hp-wx-pc</module>
+  		   <module>hp-wx-mobile</module>
 	</modules>
 	<dependencyManagement>
 		<dependencies>
