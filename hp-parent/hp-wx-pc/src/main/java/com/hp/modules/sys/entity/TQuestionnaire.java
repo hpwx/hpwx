@@ -39,6 +39,8 @@ public class TQuestionnaire {
 
     private Byte enable;
 
+    private String backColor;
+
     public Long getObjectId() {
         return objectId;
     }
@@ -157,5 +159,13 @@ public class TQuestionnaire {
 
     public void setEnable(Byte enable) {
         this.enable = enable;
+    }
+
+    public String getBackColor() {
+        return backColor;
+    }
+
+    public void setBackColor(String backColor) {
+        this.backColor = backColor == null ? null : backColor.trim();
     }
 }

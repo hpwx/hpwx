@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hp.modules.sys.dao.TUserDao" >
+  <resultMap id="BaseResultMap" type="com.hp.modules.sys.entity.TUser" >
+    <id column="object_id" property="objectId" jdbcType="BIGINT" />
+    <result column="phone" property="phone" jdbcType="VARCHAR" />
+    <result column="email" property="email" jdbcType="VARCHAR" />
+    <result column="address" property="address" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="DATE" />
+    <result column="pull_black" property="pullBlack" jdbcType="TINYINT" />
+    <result column="deleted" property="deleted" jdbcType="TINYINT" />
+    <result column="open_id" property="openId" jdbcType="VARCHAR" />
+    <result column="nick" property="nick" jdbcType="VARCHAR" />
+    <result column="head_icon" property="headIcon" jdbcType="VARCHAR" />
+    <result column="city" property="city" jdbcType="VARCHAR" />
+    <result column="sex" property="sex" jdbcType="TINYINT" />
+    <result column="questionnaire_ids" property="questionnaireIds" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    object_id, phone, email, address, create_time, pull_black, deleted, open_id, nick, 
+    head_icon, city, sex, questionnaire_ids
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_user
+    where object_id = #{objectId,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from t_user
+    where object_id = #{objectId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.hp.modules.sys.entity.TUser" >
+    insert into t_user (object_id, phone, email, 
+      address, create_time, pull_black, 
+      deleted, open_id, nick, 
+      head_icon, city, sex, 
+      questionnaire_ids)
+    values (#{objectId,jdbcType=BIGINT}, #{phone,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
+      #{address,jdbcType=VARCHAR}, #{createTime,jdbcType=DATE}, #{pullBlack,jdbcType=TINYINT}, 
+      #{deleted,jdbcType=TINYINT}, #{openId,jdbcType=VARCHAR}, #{nick,jdbcType=VARCHAR}, 
+      #{headIcon,jdbcType=VARCHAR}, #{city,jdbcType=VARCHAR}, #{sex,jdbcType=TINYINT}, 
+      #{questionnaireIds,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.hp.modules.sys.entity.TUser" >
+    insert into t_user
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="objectId != null" >
+        object_id,
+      </if>
+      <if test="phone != null" >
+        phone,
+      </if>
+      <if test="email != null" >
+        email,
+      </if>
+      <if test="address != null" >
+        address,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="pullBlack != null" >
+        pull_black,
+      </if>
+      <if test="deleted != null" >
+        deleted,
+      </if>
+      <if test="openId != null" >
+        open_id,
+      </if>
+      <if test="nick != null" >
+        nick,
+      </if>
+      <if test="headIcon != null" >
+        head_icon,
+      </if>
+      <if test="city != null" >
+        city,
+      </if>
+      <if test="sex != null" >
+        sex,
+      </if>
+      <if test="questionnaireIds != null" >
+        questionnaire_ids,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="objectId != null" >
+        #{objectId,jdbcType=BIGINT},
+      </if>
+      <if test="phone != null" >
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null" >
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null" >
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=DATE},
+      </if>
+      <if test="pullBlack != null" >
+        #{pullBlack,jdbcType=TINYINT},
+      </if>
+      <if test="deleted != null" >
+        #{deleted,jdbcType=TINYINT},
+      </if>
+      <if test="openId != null" >
+        #{openId,jdbcType=VARCHAR},
+      </if>
+      <if test="nick != null" >
+        #{nick,jdbcType=VARCHAR},
+      </if>
+      <if test="headIcon != null" >
+        #{headIcon,jdbcType=VARCHAR},
+      </if>
+      <if test="city != null" >
+        #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null" >
+        #{sex,jdbcType=TINYINT},
+      </if>
+      <if test="questionnaireIds != null" >
+        #{questionnaireIds,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.hp.modules.sys.entity.TUser" >
+    update t_user
+    <set >
+      <if test="phone != null" >
+        phone = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null" >
+        email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null" >
+        address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=DATE},
+      </if>
+      <if test="pullBlack != null" >
+        pull_black = #{pullBlack,jdbcType=TINYINT},
+      </if>
+      <if test="deleted != null" >
+        deleted = #{deleted,jdbcType=TINYINT},
+      </if>
+      <if test="openId != null" >
+        open_id = #{openId,jdbcType=VARCHAR},
+      </if>
+      <if test="nick != null" >
+        nick = #{nick,jdbcType=VARCHAR},
+      </if>
+      <if test="headIcon != null" >
+        head_icon = #{headIcon,jdbcType=VARCHAR},
+      </if>
+      <if test="city != null" >
+        city = #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null" >
+        sex = #{sex,jdbcType=TINYINT},
+      </if>
+      <if test="questionnaireIds != null" >
+        questionnaire_ids = #{questionnaireIds,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where object_id = #{objectId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.hp.modules.sys.entity.TUser" >
+    update t_user
+    set phone = #{phone,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR},
+      address = #{address,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=DATE},
+      pull_black = #{pullBlack,jdbcType=TINYINT},
+      deleted = #{deleted,jdbcType=TINYINT},
+      open_id = #{openId,jdbcType=VARCHAR},
+      nick = #{nick,jdbcType=VARCHAR},
+      head_icon = #{headIcon,jdbcType=VARCHAR},
+      city = #{city,jdbcType=VARCHAR},
+      sex = #{sex,jdbcType=TINYINT},
+      questionnaire_ids = #{questionnaireIds,jdbcType=VARCHAR}
+    where object_id = #{objectId,jdbcType=BIGINT}
+  </update>
+</mapper>
