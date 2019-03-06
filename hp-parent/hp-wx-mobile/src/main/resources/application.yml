@@ -5,7 +5,9 @@ server:
         min-spare-threads: 30
         context-path: /hpwxmobile  #  根路径
     port: 8002
-
-    
-    
- 
+spring:
+  application:
+    name: hp-wx-mobile
+  profiles:
+    active: dev
+  
