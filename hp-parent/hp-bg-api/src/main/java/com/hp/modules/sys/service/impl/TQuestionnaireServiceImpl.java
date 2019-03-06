@@ -6,15 +6,10 @@ import com.baomidou.mybatisplus.service.impl.ServiceImpl;
 import com.hp.common.utils.PageUtils;
 import com.hp.common.utils.Query;
 import com.hp.modules.sys.dao.TQuestionnaireDao;
-import com.hp.modules.sys.entity.SysUserEntity;
 import com.hp.modules.sys.entity.TQuestionnaire;
 import com.hp.modules.sys.service.TQuestionnaireService;
-import org.apache.commons.lang.RandomStringUtils;
-import org.apache.commons.lang.StringUtils;
-import org.apache.shiro.crypto.hash.Sha256Hash;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
 import java.util.Arrays;
 import java.util.Date;
 import java.util.Map;

@@ -1,11 +1,12 @@
 package com.hp.modules.sys.dao;
 
+import com.baomidou.mybatisplus.mapper.BaseMapper;
 import com.hp.modules.sys.entity.TSurveyAnswers;
+import org.apache.ibatis.annotations.Mapper;
 
-public interface TSurveyAnswersMapper {
+@Mapper
+public interface TSurveyAnswersDao extends BaseMapper<TSurveyAnswers> {
     int deleteByPrimaryKey(Long objectId);
-
-    int insert(TSurveyAnswers record);
 
     int insertSelective(TSurveyAnswers record);
 
