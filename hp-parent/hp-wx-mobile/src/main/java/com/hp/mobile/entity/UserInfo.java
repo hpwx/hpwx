@@ -27,6 +27,8 @@ public class UserInfo {
 
     private Byte sex;
     
+   
+    
     private String  questionnaireids;
 
     public String getQuestionnaireids() {

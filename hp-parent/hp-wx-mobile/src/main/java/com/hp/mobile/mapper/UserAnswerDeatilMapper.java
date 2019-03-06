@@ -14,4 +14,6 @@ public interface UserAnswerDeatilMapper {
     int updateByPrimaryKeySelective(UserAnswerDeatil record);
 
     int updateByPrimaryKey(UserAnswerDeatil record);
+    
+      
 }
