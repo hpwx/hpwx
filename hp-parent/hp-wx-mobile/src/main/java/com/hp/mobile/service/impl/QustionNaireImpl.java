@@ -33,7 +33,7 @@ public class QustionNaireImpl implements IQuestionNaire {
   public Map<String, Object> getUserQustionNarie(String openId) {
    
     UserInfo  userinfo= userSerice.getUserByOpenId(openId);
-     if ( userinfo==null) {
+     if ( userinfo.get==null) {
        throw  new SysException("没有可做的问卷");
      }
    
