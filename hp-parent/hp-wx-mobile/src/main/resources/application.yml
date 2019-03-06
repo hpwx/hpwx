@@ -3,11 +3,15 @@ server:
         uri-encoding: UTF-8
         max-threads: 1000
         min-spare-threads: 30
-        context-path: /hpwxmobile  #  根路径
-    port: 8002
+    context-path: /hpwxmobile  #  根路径
+    port: 5001    # 8002 
 spring:
   application:
     name: hp-wx-mobile
   profiles:
-    active: dev
+    active: test
+wx:
+  appId:  wx4a3b6b45307b519a
+  secret: 5ad83af888bab46327bddb0e2df5d7c 
+  token: wx1234
   

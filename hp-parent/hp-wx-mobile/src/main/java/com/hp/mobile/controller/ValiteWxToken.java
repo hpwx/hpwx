@@ -17,7 +17,7 @@ import com.hp.mobile.utils.SecrutiyUtil;
  
 
  @RestController
-@RequestMapping("/valitetoken")
+@RequestMapping("/token")
 public class ValiteWxToken {
 
 	@Value(value="${wx.token}")
@@ -47,7 +47,7 @@ public class ValiteWxToken {
 		LOG.info("====》接收到的参数nonce为:{}",nonce);
 		LOG.info("====》接收到的参数echostr为:{}",echostr);
 		
-	   boolean  issucess=	SecrutiyUtil.checkSignature(signature, timestamp, nonce);
+	   boolean  issucess=	SecrutiyUtil.checkSignature(TOKEN,signature, timestamp, nonce);
 	   
 	   if (!issucess) {
 		   

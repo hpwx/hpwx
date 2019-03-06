@@ -18,18 +18,17 @@ import com.hp.datasources.DynamicDataSourceConfig;
  
 @SpringBootApplication(exclude={DataSourceAutoConfiguration.class})
 @Import({DynamicDataSourceConfig.class})
-public class BgApplication  extends SpringBootServletInitializer {
+public class PcApplication  extends SpringBootServletInitializer {
 
-	
-	private     final static   Logger  Log=  LoggerFactory.getLogger(BgApplication.class);
+	private     final static   Logger  Log=  LoggerFactory.getLogger(PcApplication.class);
 	public static void main(String[] args) {
-		SpringApplication.run(BgApplication.class, args);
+		SpringApplication.run(PcApplication.class, args);
 		Log.info("微信后台服务已启动......");
 	}
 	
 	@Override
 	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-		return application.sources(BgApplication.class);
+		return application.sources(PcApplication.class);
 	}
 	
 	 
