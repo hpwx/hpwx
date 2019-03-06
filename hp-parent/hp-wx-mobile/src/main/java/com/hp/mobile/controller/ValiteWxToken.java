@@ -17,7 +17,7 @@ import com.hp.mobile.utils.SecrutiyUtil;
  
 
  @RestController
-@RequestMapping("/hpwxapi")
+@RequestMapping("/valitetoken")
 public class ValiteWxToken {
 
 	@Value(value="${wx.token}")
