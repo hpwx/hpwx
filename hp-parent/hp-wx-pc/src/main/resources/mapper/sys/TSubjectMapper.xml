@@ -16,6 +16,37 @@
     object_id, create_user, create_time, update_user, update_time, deleted, name, type_id, 
     subject_answer
   </sql>
+
+  <select id="selectSubjectsByQID" resultType="com.hp.modules.sys.entity.TSubject" parameterType="java.lang.Long" >
+    SELECT
+      t2.object_id objectId,
+      t2.name name,
+      t2.type_id typeId
+    FROM
+    t_questionnaire_subject t1
+    LEFT JOIN t_subject t2 ON t1.subject_id = t2.object_id
+
+    WHERE
+    t2.deleted = 0 AND
+    t1.questionnaire_id = #{objectId}
+  </select>
+
+  <select id="selectAnswersByQID" resultType="map" parameterType="java.lang.Long" >
+    SELECT
+      t2.object_id objectId,
+      t2.name name,
+      t2.type_id typeId,
+	  t3.object_id answerId
+    FROM
+    t_questionnaire_subject t1
+    LEFT JOIN t_subject t2 ON t1.subject_id = t2.object_id
+		left join t_survey_answers t3 on t3.question_id = t2.object_id
+    WHERE
+		t2.deleted = 0 AND
+		t3.deleted = 0 AND
+    t1.questionnaire_id = #{objectId}
+  </select>
+
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
     select 
     <include refid="Base_Column_List" />

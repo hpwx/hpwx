@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:v-bind="http://www.w3.org/1999/xhtml">
 <head>
 <title>文件上传</title>
 <meta charset="UTF-8">
@@ -22,6 +22,7 @@
 <script src="../../plugins/jqgrid/jquery.jqGrid.min.js"></script>
 <script src="../../plugins/ztree/jquery.ztree.all.min.js"></script>
 <script src="../../js/common.js"></script>
+	<script src="../../js/baseURL.js"></script>
 </head>
 <style>
 	.layui-upload-drag{
@@ -75,7 +76,7 @@
 <div id="rrapp" v-cloak>
 	<div v-show="showList">
 		<div class="grid-btn">
-			<a class="btn btn-danger" @click="addConfig" style="background:#337ab7;color:#fff;border:none;"><i class="fa fa-sun-o"></i>&nbsp;新建问卷</a>
+			<a id="addConfig" class="btn btn-danger" style="background:#337ab7;color:#fff;border:none;"><i class="fa fa-sun-o"></i>&nbsp;新建问卷</a>
 		</div>
 	    <table id="jqGrid"></table>
 	    <div id="jqGridPager"></div>
@@ -87,8 +88,8 @@
 		<div class="conetent">
 				<div class="flex flex-row" style="width:100%;margin-bottom:10px;">
 					<div>
-						<div style="margin-bottom:10px;">问卷标题：<input class="txt" type="text" placeholder="请填写内容"></div>
-						<div>问卷描述：<input type="text" class="txt" placeholder="请填写内容"></div>
+						<div style="margin-bottom:10px;">问卷标题：<input class="txt" type="text" placeholder="请填写内容" id="biaoti"></div>
+						<div>问卷描述：<input type="text" class="txt" placeholder="请填写内容" id="content"></div>
 					</div>
 					<div style="margin:0 20px;">
 						<div class="flex align-start">问卷背景：
@@ -113,6 +114,7 @@
 					</div>
 					<div>
 						<div class="flex align-start">问卷封面设置：
+
 							<!-- <div class="layui-upload-drag" id="imgupload" style="padding: 5px 0;">
 								<i class="layui-icon layui-icon-add-1"></i>
 								<p>点击上传，或将文件拖拽到此处</p>
@@ -135,28 +137,28 @@
 					<div class="flex flex-row">
 						是否记名:
 						<div class="mar">
-							<input type="radio" name="names" value="" title="匿名" checked>匿名
+							<input type="radio" name="names" value="1" title="匿名"  checked>匿名
 						</div>
 						<div>
-								<input type="radio" name="names" value="" title="记名">记名
+								<input type="radio" name="names" value="0" title="记名" >记名
 						</div>			
 					</div>
 					<div class="flex flex-row">
 						重复答题:
 						<div class="mar">
-								<input type="radio" name="Support" checked>不支持
+								<input type="radio" value="1" name="support" checked="checked">不支持
 						</div>
 						<div>
-								<input type="radio" name="Support">支持
+								<input type="radio" value="0" name="support" >支持
 						</div>			
 					</div>
 					<div class="flex flex-row">
 							禁止转发:
 						<div class="mar">
-								<input type="radio" name="prohibit" checked>不禁止
+								<input type="radio" value="1" name="prohibit" checked="checked">不禁止
 						</div>
 						<div>
-								<input type="radio" name="prohibit">禁止
+								<input type="radio" value="0" name="prohibit">禁止
 						</div>			
 					</div>
 				</div>

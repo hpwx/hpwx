@@ -2,6 +2,9 @@ package com.hp.modules.sys.entity;
 
 import com.baomidou.mybatisplus.annotations.TableId;
 import com.baomidou.mybatisplus.annotations.TableName;
+import com.hp.common.validator.group.AddGroup;
+import com.hp.common.validator.group.UpdateGroup;
+import org.hibernate.validator.constraints.NotBlank;
 
 import java.util.Date;
 
@@ -21,8 +24,10 @@ public class TSubject {
 
     private Byte deleted;
 
+    @NotBlank(message="是否匿名不能为空", groups = {AddGroup.class, UpdateGroup.class})
     private String name;
 
+    @NotBlank(message="是否匿名不能为空", groups = {AddGroup.class, UpdateGroup.class})
     private Integer typeId;
 
     private Long subjectAnswer;

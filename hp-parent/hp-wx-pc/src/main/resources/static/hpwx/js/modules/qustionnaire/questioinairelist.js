@@ -32,20 +32,26 @@ $(function () {
         	$("#jqGrid").closest(".ui-jqgrid-bdiv").css({ "overflow-x" : "hidden" }); 
         }
     });
+
     layui.use('upload', function(){
         var $ = layui.jquery
         ,upload = layui.upload;
          //问卷背景
-        var uploadInst = upload.render({
+        upload.render({
             elem: '#backupload',
-            url: '/upload/',
+            url: baseURL+'sys/questionnaire/upload',
             before: function(obj){
                 //预读本地文件示例，不支持ie8
                 obj.preview(function(index, file, result){
-                    $('#backuploadpreview').attr('src', result); //图片链接（base64）
+                    $('#backuploadpreview').attr('src',result); //图片链接（base64）
+                    var src = $('#backuploadpreview')[0].src;
+                    console.log(src);
                 });
             },
             done: function(res){
+                // vm.from.src = res.url;
+                // alert(res.url)
+                // $('#backuploadpreview').attr('src', res.url);
                 //如果上传失败
                 if(res.code > 0){
                     return layer.msg('上传失败');
@@ -62,13 +68,14 @@ $(function () {
             }
         });
         //问卷封面
-        var uploadInst = upload.render({
+        upload.render({
             elem: '#imgupload',
-            url: '/upload/',
+            url: baseURL+'sys/questionnaire/upload',
             before: function(obj){
                 //预读本地文件示例，不支持ie8
                 obj.preview(function(index, file, result){
                     $('#imguploadpreview').attr('src', result); //图片链接（base64）
+                    var src_img = $('#imguploadpreview')[0].src;
                 });
             },
             done: function(res){
@@ -82,6 +89,47 @@ $(function () {
                 //演示失败状态，并实现重传
             }
         });
+        var obj = new Object();
+        obj.title = $('#biaoti').val();
+        obj.content = $('#content').val();
+        obj.names = $('input[name="names"]:checked').val();
+        obj.support = $('input[name="support"]:checked').val();
+        obj.prohibit = $('input[name="prohibit"]:checked').val();
+        obj.src = $('#backuploadpreview')[0].src;
+        obj.src_img = $('#imguploadpreview')[0].src;
+        $('#addConfig').click(function () {
+            layer.open({
+                type: 1,
+                skin: 'layui-layer-molv',
+                title: "新建问卷",
+                area: ['700px', '388px'],
+                shadeClose: false,
+                content: jQuery("#addquest"),
+                btn: ['保存','取消'],
+                btn1: function (index) {
+                    console.log(obj);
+                    $.ajax({
+                        type: "POST",
+                        url: baseURL + "sys/questionnaire/add",
+                        dataType: "json",
+                        contentType: "application/json",
+                        data: JSON.stringify(obj),
+                        success: function(r){
+                            if(r.code == 0){
+                                layer.close(index);
+                                layer.alert('修改成功', function(){
+                                    location.reload();
+                                });
+                            }else{
+                                layer.alert(r.msg);
+                            }
+                        }
+                    });
+                }
+            });
+        })
+
+
     });    
 });
 
@@ -90,7 +138,17 @@ var vm = new Vue({
 	data:{
 		showList: true,
 		title: null,
-        config: {}
+        config: {},
+        // form:{
+        //     title:'',
+        //     questionnaireDesc:'',
+        //     anonymous:'',
+        //     forward:'',
+        //     repeatedAnswer:'',
+        //     cover:'',
+        //     src:'',
+        //     imgs:''
+        // },
 	},
     created: function(){
         this.getConfig();
@@ -104,36 +162,36 @@ var vm = new Vue({
 				vm.config = r.config;
             });
         },
-		addConfig: function(){
-            layer.open({
-				type: 1,
-				skin: 'layui-layer-molv',
-				title: "新建问卷",
-				area: ['700px', '388px'],
-				shadeClose: false,
-				content: jQuery("#addquest"),
-				btn: ['保存','取消'],
-				btn1: function (index) {
-					$.ajax({
-						type: "POST",
-					    url: baseURL + "sys/user/password",
-					    dataType: "json",
-                        contentType: "application/json",
-                        data: JSON.stringify(vm.form),
-					    success: function(r){
-							if(r.code == 0){
-								layer.close(index);
-								layer.alert('修改成功', function(){
-									location.reload();
-								});
-							}else{
-								layer.alert(r.msg);
-							}
-						}
-					});
-	            }
-			});
-		},
+		// addConfig: function(){
+            // layer.open({
+			// 	type: 1,
+			// 	skin: 'layui-layer-molv',
+			// 	title: "新建问卷",
+			// 	area: ['700px', '388px'],
+			// 	shadeClose: false,
+			// 	content: jQuery("#addquest"),
+			// 	btn: ['保存','取消'],
+			// 	btn1: function (index) {
+			// 		$.ajax({
+			// 			type: "POST",
+			// 		    url: baseURL + "sys/questionnaire/add",
+			// 		    dataType: "json",
+             //            contentType: "application/json",
+             //            data: JSON.stringify(vm.form),
+			// 		    success: function(r){
+			// 				if(r.code == 0){
+			// 					layer.close(index);
+			// 					layer.alert('修改成功', function(){
+			// 						location.reload();
+			// 					});
+			// 				}else{
+			// 					layer.alert(r.msg);
+			// 				}
+			// 			}
+			// 		});
+	         //    }
+			// });
+		// },
 		saveOrUpdate: function () {
 			var url = baseURL + "sys/oss/saveConfig";
 			$.ajax({

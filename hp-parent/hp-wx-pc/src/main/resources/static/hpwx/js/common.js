@@ -75,7 +75,6 @@ window.alert = function(msg, callback){
 		}
 	});
 }
-
 //重写confirm式样框
 window.confirm = function(msg, callback){
 	parent.layer.confirm(msg, {btn: ['确定','取消']},
