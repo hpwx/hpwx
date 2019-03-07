@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>文件上传</title>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+<link rel="stylesheet" href="../../css/bootstrap.min.css">
+<link rel="stylesheet" href="../../css/font-awesome.min.css">
+<link rel="stylesheet" href="../../plugins/jqgrid/ui.jqgrid-bootstrap.css">
+<link rel="stylesheet" href="../../plugins/ztree/css/metroStyle/metroStyle.css">
+<link rel="stylesheet" href="../../plugins/jqgrid/ui.jqgrid-bootstrap.css">
+<link rel="stylesheet" href="../../plugins/layui-v2.4.5/layui/css/layui.css">
+<link rel="stylesheet" href="../../css/main.css">
+<link rel="stylesheet" href="../../css/public.css">
+<script src="../../libs/jquery.min.js"></script>
+<script src="../../plugins/layer/layer.js"></script>
+<script src="../../plugins/layui-v2.4.5/layui/layui.js"></script>
+<script src="../../libs/bootstrap.min.js"></script>
+<script src="../../libs/vue.min.js"></script>
+<script src="../../plugins/jqgrid/grid.locale-cn.js"></script>
+<script src="../../plugins/jqgrid/jquery.jqGrid.min.js"></script>
+<script src="../../plugins/ztree/jquery.ztree.all.min.js"></script>
+<script src="../../js/common.js"></script>
+</head>
+<style>
+	.layui-upload-drag{
+		padding: 0;
+	}
+	.layui-upload-img{
+		width: 92px;
+		height: 92px;
+	}
+	.layui-layer-molv .layui-layer-title{
+		background: #337ab7;
+	}
+	.conetent{
+		padding: 20px;
+	}
+	.layui-upload{
+		cursor: pointer;
+	}
+	.layui-upload-list{
+		margin: 0;
+		position: relative;
+	}
+	.layui-icon-add-1{
+		position: absolute;
+		left: 27%;
+		top: 27%;
+		font-size: 40px;
+		color: #ccc;
+	}
+	.txt{
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+	}
+	.mar{
+		margin: 0 10px;
+	}
+</style>
+<body>
+<div id="rrapp" v-cloak>
+	<div v-show="showList">
+		<div class="grid-btn">
+			<a class="btn btn-danger" @click="addConfig" style="background:#337ab7;color:#fff;border:none;"><i class="fa fa-sun-o"></i>&nbsp;新建问卷</a>
+		</div>
+	    <table id="jqGrid"></table>
+	    <div id="jqGridPager"></div>
+    </div>
+	<div id="addquest" style="display:none;">
+		<!-- <div class="title">
+			<i class="fa fa-sun-o"></i>&nbsp;新建问卷
+		</div> -->
+		<div class="conetent">
+				<div class="flex flex-row" style="width:100%;margin-bottom:10px;">
+					<div>
+						<div style="margin-bottom:10px;">问卷标题：<input class="txt" type="text" placeholder="请填写内容"></div>
+						<div>问卷描述：<input type="text" class="txt" placeholder="请填写内容"></div>
+					</div>
+					<div style="margin:0 20px;">
+						<div class="flex align-start">问卷背景：
+							<!-- <div class="layui-upload-drag" id="backupload" style="padding: 5px;">
+								<i class="layui-icon layui-icon-add-1"></i>
+								<p>点击上传，或将文件拖拽到此处</p>
+							</div>
+							<div class="layui-upload-list" >
+								<img class="layui-upload-img" id="backuploadpreview" style="width:50px;height:50px;">
+								<p id="demoText"></p>
+							</div> -->
+							<div class="layui-upload">
+								<!-- <button type="button" class="layui-btn" >上传图片</button> -->
+								<div class="layui-upload-list" id="backupload">
+									<i class="layui-icon layui-icon-add-1"></i>
+									<img class="layui-upload-img" id="backuploadpreview">
+								</div>
+							</div> 
+							
+							
+						</div>
+					</div>
+					<div>
+						<div class="flex align-start">问卷封面设置：
+							<!-- <div class="layui-upload-drag" id="imgupload" style="padding: 5px 0;">
+								<i class="layui-icon layui-icon-add-1"></i>
+								<p>点击上传，或将文件拖拽到此处</p>
+							</div>
+							<div class="layui-upload-list">
+								<img class="layui-upload-img" id="imguploadpreview">
+							</div> -->
+							<div class="layui-upload">
+								<!-- <button type="button" class="layui-btn" >上传图片</button> -->
+								<div class="layui-upload-list" id="imgupload">
+									<i class="layui-icon layui-icon-add-1"></i>
+									<img class="layui-upload-img" id="imguploadpreview">
+								</div>
+							</div> 
+							
+						</div>
+					</div>
+				</div>
+				<div class="radios flex flex-row justify-between" style="padding: 10px 0;">
+					<div class="flex flex-row">
+						是否记名:
+						<div class="mar">
+							<input type="radio" name="names" value="" title="匿名" checked>匿名
+						</div>
+						<div>
+								<input type="radio" name="names" value="" title="记名">记名
+						</div>			
+					</div>
+					<div class="flex flex-row">
+						重复答题:
+						<div class="mar">
+								<input type="radio" name="Support" checked>不支持
+						</div>
+						<div>
+								<input type="radio" name="Support">支持
+						</div>			
+					</div>
+					<div class="flex flex-row">
+							禁止转发:
+						<div class="mar">
+								<input type="radio" name="prohibit" checked>不禁止
+						</div>
+						<div>
+								<input type="radio" name="prohibit">禁止
+						</div>			
+					</div>
+				</div>
+				
+		</div>
+	</div>
+</div>
+<script src="../../js/modules/qustionnaire/questioinairelist.js"></script>
+</body>
+</html>
+<!-- var val = $('input[name="names"]:checked').val();  -->

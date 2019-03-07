@@ -85,7 +85,6 @@ window.confirm = function(msg, callback){
 		}
 	});
 }
-
 //选择一条记录
 function getSelectedRow() {
     var grid = $("#jqGrid");
