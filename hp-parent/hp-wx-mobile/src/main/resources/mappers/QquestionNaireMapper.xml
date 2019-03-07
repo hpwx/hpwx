@@ -18,11 +18,17 @@
     <result column="cover" jdbcType="VARCHAR" property="cover" />
     <result column="enable" jdbcType="TINYINT" property="enable" />
     <result column="back_color" jdbcType="VARCHAR" property="backColor" />
+    
+       <result column="is_public" jdbcType="TINYINT" property="isPubic" />
+         <result column="start_time" jdbcType="DATE" property="startTime" />
+           <result column="end_time" jdbcType="DATE" property="endTime" />
+   
+    
   </resultMap>
   <sql id="Base_Column_List">
     object_id, create_time, create_user, update_time, update_user, deleted, anonymous, 
     forward, repeated_answer, answer_count, title, questionnaire_desc, icon, cover, enable, 
-    back_color
+    back_color,is_public, start_time,end_time
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
     select 

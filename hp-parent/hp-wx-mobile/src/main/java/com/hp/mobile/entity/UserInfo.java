@@ -29,14 +29,14 @@ public class UserInfo {
     
    
     
-    private String  questionnaireids;
+    private String  questionnaireIds;
 
-    public String getQuestionnaireids() {
-      return questionnaireids;
+    public String getQuestionnaireIds() {
+      return questionnaireIds;
     }
 
-    public void setQuestionnaireids(String questionnaireids) {
-      this.questionnaireids = questionnaireids;
+    public void setQuestionnaireids(String questionnaireIds) {
+      this.questionnaireIds = questionnaireIds;
     }
 
     public Long getObjectId() {

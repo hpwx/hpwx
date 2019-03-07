@@ -1,7 +1,10 @@
 package com.hp.mobile.mapper;
 
+import java.util.List;
+import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 import com.hp.mobile.entity.Subject;
-
+@Mapper
 public interface SubjectMapper {
     int deleteByPrimaryKey(Long objectId);
 
@@ -14,4 +17,8 @@ public interface SubjectMapper {
     int updateByPrimaryKeySelective(Subject record);
 
     int updateByPrimaryKey(Subject record);
+    
+    List<Subject> selectListBySubjectId(@Param("list")  List<Long> list);
+    
+    
 }

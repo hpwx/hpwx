@@ -34,6 +34,34 @@ public class QquestionNaire {
     private Byte enable;
 
     private String backColor;
+    
+    public Long getIspublic() {
+      return isPubic;
+    }
+
+    public void setIspublic(Long ispublic) {
+      this.isPubic = ispublic;
+    }
+
+    public Date getStartTime() {
+      return startTime;
+    }
+
+    public void setStartTime(Date startTime) {
+      this.startTime = startTime;
+    }
+
+    public Date getEndTime() {
+      return endTime;
+    }
+
+    public void setEndTime(Date endTime) {
+      this.endTime = endTime;
+    }
+
+    private  Long   isPubic;
+    private  Date   startTime;
+    private  Date   endTime;
 
     public Long getObjectId() {
         return objectId;

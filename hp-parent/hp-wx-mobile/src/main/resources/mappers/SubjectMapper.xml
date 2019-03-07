@@ -22,6 +22,24 @@
     from t_subject
     where object_id = #{objectId,jdbcType=BIGINT}
   </select>
+  
+  
+    <select id="selectListBySubjectId"   resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_subject
+    where object_id  in 
+    <foreach collection="list" item="id" index="index" open="(" close=")" separator=",">
+　　　　　　#{id}
+　　　　</foreach>
+    
+  </select>
+  
+  
+  
+  
+  
+  
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
     delete from t_subject
     where object_id = #{objectId,jdbcType=BIGINT}

@@ -10,6 +10,14 @@ spring:
     name: hp-wx-mobile
   profiles:
     active: test
+    
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+  time-zone: GMT+8
+mybatis:
+  type-aliases-package: com.hp.mobile.entity
+  mapper-locations: classpath:mappers/*.xml
+  
 wx:
   appId:  wx4a3b6b45307b519a
   secret: 5ad83af888bab46327bddb0e2df5d7c 

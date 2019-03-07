@@ -11,16 +11,28 @@
     <result column="subject_id" jdbcType="BIGINT" property="subjectId" />
     <result column="must_answer" jdbcType="TINYINT" property="mustAnswer" />
   </resultMap>
-  <sql id="Base_Column_List">
+  <sql id="Base_Column_List"   >
     object_id, create_user, update_date, update_user, update_time, questionnaire_id, 
     subject_id, must_answer
   </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+ 
+  
+ <!--  <select id="selectQuestionIdsByQuestionNaireId" 
+   parameterType="java.lang.Long" resultMap="java.util.List">
+ 		select  subject_id
+    from t_questionnaire_subject
+    where object_id = #{questionnaire_id,jdbcType=BIGINT}
+  </select> -->
+ 
+ <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
-    from t_questionnaire_subject
-    where object_id = #{objectId,jdbcType=BIGINT}
+    from t_subject
+    where object_id = #{questionNaireId,jdbcType=BIGINT}
   </select>
+  
+   
+ 
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
     delete from t_questionnaire_subject
     where object_id = #{objectId,jdbcType=BIGINT}

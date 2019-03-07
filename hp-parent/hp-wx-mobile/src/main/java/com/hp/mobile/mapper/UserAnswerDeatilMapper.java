@@ -1,7 +1,8 @@
 package com.hp.mobile.mapper;
 
+import org.apache.ibatis.annotations.Mapper;
 import com.hp.mobile.entity.UserAnswerDeatil;
-
+@Mapper
 public interface UserAnswerDeatilMapper {
     int deleteByPrimaryKey(Long objectId);
 

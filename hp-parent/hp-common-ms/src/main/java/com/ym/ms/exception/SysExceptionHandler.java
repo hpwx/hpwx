@@ -4,6 +4,7 @@ import java.sql.SQLException;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.web.bind.MissingServletRequestParameterException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
@@ -37,18 +38,27 @@ public class SysExceptionHandler {
 		LOG.error(e.getMessage(),e);
 		return Result.error("数据库SQL异常");
 	}
-	
 	@ExceptionHandler(RuntimeException.class)
 	public Result handlerRuntimeException(RuntimeException e) {
 		LOG.error(e.getMessage(),e);
 		return Result.error("运行时异常了");
 	}
 	
+	@ExceptionHandler(MissingServletRequestParameterException.class)
+    public Result MissingParamhandlerRuntimeException(RuntimeException e) {
+        LOG.error(e.getMessage(),e);
+        return Result.error("参数传递异常");
+    }
+    
+	
+	
 	@ExceptionHandler(AuthorzationException.class)
 	public Result handlerAuthorizationException(AuthorzationException e) {
 		LOG.error(e.getMessage(),e);
 		return Result.error("没有权限，请联系管理员");
 	}
+	
+	
 	
 	@ExceptionHandler(Exception.class)
 	public Result handlerException(Exception e) {

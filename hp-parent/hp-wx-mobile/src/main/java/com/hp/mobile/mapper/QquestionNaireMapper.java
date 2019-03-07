@@ -1,7 +1,8 @@
 package com.hp.mobile.mapper;
 
+import org.apache.ibatis.annotations.Mapper;
 import com.hp.mobile.entity.QquestionNaire;
-
+@Mapper
 public interface QquestionNaireMapper {
     int deleteByPrimaryKey(Long objectId);
 

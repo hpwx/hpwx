@@ -18,5 +18,5 @@ public interface UserInfoMapper {
 
     int updateByPrimaryKey(UserInfo record);
     UserInfo selectUserByOpenId(String openId);
-    int  updateByopenid( @Param("openId") String openId);
+    int  updateByopenid(   @Param("openid") String openId);
 }
