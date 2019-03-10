@@ -89,6 +89,18 @@ public class TQuestionnaireController extends AbstractController{
     }
 
     /*
+     *  查询所有题目答案
+     * */
+    @GetMapping("/statistics")
+    public R statistics(@RequestParam Map<String, Object> params){
+
+        //获取所有问卷集合
+        PageUtils subjectList = tQuestionnaireService.selectStatistics(params);
+
+        return R.ok().put("page", subjectList);
+    }
+
+    /*
     *  查询所有题目答案
     * */
     @GetMapping("/answers/{questionnaireId}")

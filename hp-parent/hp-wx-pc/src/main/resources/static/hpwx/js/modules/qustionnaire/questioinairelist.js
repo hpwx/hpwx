@@ -90,7 +90,7 @@ $(function () {
             }
         });
         var obj = new Object();
-        obj.title = $('#biaoti').val();
+        obj.title = $('#biaoti').text();
         obj.content = $('#content').val();
         obj.names = $('input[name="names"]:checked').val();
         obj.support = $('input[name="support"]:checked').val();

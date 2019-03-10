@@ -1,24 +1,19 @@
 $(function () {
     $("#jqGrid").jqGrid({
-        url: baseURL + 'sys/questionnaire/list',
+        url: baseURL + 'sys/subject/list',
         datatype: "json",
         colModel: [
-            { label: '问卷编号', name: 'objectId', index: "objectId", width: 45, key: true },
-			{ label: '问卷标题', name: 'title', index: "title", width: 45 },
-			{ label: '问卷是否重复作答', name: 'repeatedAnswer', width: 75 ,formatter: function(value, options, row){
-                    return value === 0 ?
-                        '<span class="label label-danger">否</span>' :
-                        '<span class="label label-success">是</span>';
-                }},
-			{ label: '问卷是否转发', name: 'forward', index: "forward", width: 75,formatter: function(value, options, row){
-                    return value === 0 ?
-                        '<span class="label label-danger">否</span>' :
-                        '<span class="label label-success">是</span>';
-                } },
-			{ label: '问卷是否置顶', name: 'top', index: "top", width: 75,formatter: function(value, options, row){
-                    return value === 0 ?
-                        '<span class="label label-danger">否</span>' :
-                        '<span class="label label-success">是</span>';
+            { label: '题目编号', name: 'objectId', index: "object_id", width: 45, key: true },
+			{ label: '题目名称', name: 'name', index: "name", width: 45 },
+            { label: '题目类型', name: 'typeId', index: "type_id", width: 45,formatter: function(value, options, row){
+                    if(value == 1)
+                       return '<span class="label label-danger">单选题</span>';
+                    if(value == 2)
+                       return '<span class="label label-success">多选题</span>';
+                    if(value == 3)
+                       return  '<span class="label label-success">填空题</span>';
+                    if(value == 4)
+                       return '<span class="label label-success">问答题</span>';
                 } },
 			{ label: '创建时间', name: 'createTime', index: "create_time", width: 80}
         ],

@@ -19,6 +19,73 @@
     <result column="enable" property="enable" jdbcType="TINYINT" />
     <result column="back_color" property="backColor" jdbcType="VARCHAR" />
   </resultMap>
+
+
+    <select id="selectStatistics"  resultType="map" parameterType="Map" >
+        SELECT
+        t.title title,
+        t.create_time createTime,
+        t.end_time endTime,
+        ( CASE WHEN now( ) <![CDATA[>=]]> t.end_time THEN '已截止' WHEN now( ) <![CDATA[<]]> t.end_time THEN '未截止' END ) isEnd,
+        count( t2.object_id ) subjectCounts,
+        count(DISTINCT t3.userId) userCounts,
+        (case t.answer_count WHEN NULL THEN '无限制' ELSE t.answer_count end) answerCount
+        FROM
+        t_questionnaire t
+        LEFT JOIN t_questionnaire_subject t2 ON t.object_id = t2.questionnaire_id 	AND t2.deleted = 0
+        LEFT JOIN t_user_answer t3 on t.object_id = t3.questionnaire_id AND t3.deleted = 0
+        WHERE
+        t.deleted = 0
+        GROUP BY
+        t.object_id
+        ORDER  BY
+      <choose>
+        <when test="params.sidx != null and params.sidx != ''">
+          <choose>
+            <when test="params.sidx == 'subjectCounts' or params.sidx == 'userCounts' or params.sidx == 'answerCount' or params.sidx == 'isEnd'">
+              ${params.sidx} ${params.order}
+            </when>
+            <otherwise>
+              t.${params.sidx} ${params.order}
+            </otherwise>
+          </choose>
+        </when>
+        <otherwise>
+          t.object_id ${params.order}
+        </otherwise>
+      </choose>
+
+        LIMIT ${params.currentCounts},${params.limit}
+    </select>
+
+    <select id="selectCountStatistics" resultType="int" parameterType="map" >
+        SELECT
+        count(*)
+        FROM
+        t_questionnaire t
+        LEFT JOIN t_questionnaire_subject t2 ON t.object_id = t2.questionnaire_id 	AND t2.deleted = 0
+        LEFT JOIN t_user_answer t3 on t.object_id = t3.questionnaire_id AND t3.deleted = 0
+        WHERE
+        t.deleted = 0
+    </select>
+
+
+
+  <select id="selectSubjectsByQID" resultType="com.hp.modules.sys.entity.TSubject" parameterType="java.lang.Long" >
+    SELECT
+    t2.object_id objectId,
+    t2.name name,
+    t2.type_id typeId
+    FROM
+    t_questionnaire_subject t1
+    LEFT JOIN t_subject t2 ON t1.subject_id = t2.object_id
+
+    WHERE
+    t2.deleted = 0 AND
+    t1.questionnaire_id = #{objectId}
+  </select>
+
+
   <sql id="Base_Column_List" >
     object_id, create_time, create_user, update_time, update_user, deleted, anonymous, 
     forward, repeated_answer, answer_count, title, questionnaire_desc, icon, cover, enable, 
