@@ -25,6 +25,8 @@
   
    <resultMap id="choceitem" type="com.hp.mobile.entity.TSurveyAnswers" >
    
+     <result column="object_id" property="objectId" jdbcType="BIGINT" />
+   
     <result column="question_id" property="questionId" jdbcType="BIGINT" />
     <result column="choice_text" property="choiceText" jdbcType="VARCHAR" />
     <result column="name" property="name" jdbcType="VARCHAR" />
@@ -58,6 +60,8 @@
    
   <select id="getAllChoiceitemBySubjectIds" resultMap="choceitem"   >
    			select
+   			
+   			     t_survey_answers.object_id ,
        			 t_survey_answers.question_id,
        			 t_survey_answers.choice_text,
        			 t_subject.`name`,

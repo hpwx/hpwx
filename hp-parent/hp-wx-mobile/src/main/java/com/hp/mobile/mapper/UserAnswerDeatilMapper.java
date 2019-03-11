@@ -1,6 +1,9 @@
 package com.hp.mobile.mapper;
 
+import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
+import com.hp.mobile.entity.UserAnswer;
 import com.hp.mobile.entity.UserAnswerDeatil;
 @Mapper
 public interface UserAnswerDeatilMapper {
@@ -15,6 +18,9 @@ public interface UserAnswerDeatilMapper {
     int updateByPrimaryKeySelective(UserAnswerDeatil record);
 
     int updateByPrimaryKey(UserAnswerDeatil record);
+    
+    
+    List<UserAnswerDeatil>   getAnserSubjectList(@Param("openid") String openid,  @Param("serialnum") String serialnum,@Param("questionId") Long questionId);
     
       
 }

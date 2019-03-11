@@ -42,7 +42,7 @@
 		select
 		<include refid="Base_Column_List" />
 		from t_user
-		where open_id=#{openid}
+		where open_id=#{openId,jdbcType=VARCHAR}
 	</select>
 
 
@@ -145,6 +145,53 @@
 			</if>
 		</trim>
 	</insert>
+	
+	
+	
+	
+	
+	<update id="updatebyOpenid"
+		parameterType="com.hp.mobile.entity.UserInfo">
+		update t_user
+		<set>
+			<if test="phone != null">
+				phone = #{phone,jdbcType=VARCHAR},
+			</if>
+			<if test="email != null">
+				email = #{email,jdbcType=VARCHAR},
+			</if>
+			<if test="address != null">
+				address = #{address,jdbcType=VARCHAR},
+			</if>
+			<if test="createTime != null">
+				create_time = #{createTime,jdbcType=DATE},
+			</if>
+			<if test="pullBlack != null">
+				pull_black = #{pullBlack,jdbcType=TINYINT},
+			</if>
+			<if test="deleted != null">
+				deleted = #{deleted,jdbcType=TINYINT},
+			</if>
+			<if test="openId != null">
+				open_id = #{openId,jdbcType=VARCHAR},
+			</if>
+			<if test="nick != null">
+				nick = #{nick,jdbcType=VARCHAR},
+			</if>
+			<if test="headIcon != null">
+				head_icon = #{headIcon,jdbcType=VARCHAR},
+			</if>
+			<if test="city != null">
+				city = #{city,jdbcType=VARCHAR},
+			</if>
+			<if test="sex != null">
+				sex = #{sex,jdbcType=TINYINT},
+			</if>
+		</set>
+		where  	open_id = #{openId,jdbcType=VARCHAR}
+	</update>
+	
+	
 	<update id="updateByPrimaryKeySelective"
 		parameterType="com.hp.mobile.entity.UserInfo">
 		update t_user
@@ -203,18 +250,5 @@
 	</update>
 
 
-	<update id="updateByopenid" parameterType="java.lang.String">
-		update t_user
-		set phone = #{phone,jdbcType=VARCHAR},
-		email = #{email,jdbcType=VARCHAR},
-		address = #{address,jdbcType=VARCHAR},
-		create_time = #{createTime,jdbcType=DATE},
-		pull_black = #{pullBlack,jdbcType=TINYINT},
-		deleted = #{deleted,jdbcType=TINYINT},
-		nick = #{nick,jdbcType=VARCHAR},
-		head_icon = #{headIcon,jdbcType=VARCHAR},
-		city = #{city,jdbcType=VARCHAR},
-		sex = #{sex,jdbcType=TINYINT}
-		where open_id = #{openId,jdbcType=VARCHAR}
-	</update>
+	 
 </mapper>

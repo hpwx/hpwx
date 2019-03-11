@@ -20,7 +20,7 @@ public class Subject {
 
     private Integer typeId;
 
-    private Long subjectAnswer;
+    private String subjectAnswer;
     
     
    
@@ -99,11 +99,11 @@ public class Subject {
         this.typeId = typeId;
     }
 
-    public Long getSubjectAnswer() {
+    public String getSubjectAnswer() {
         return subjectAnswer;
     }
 
-    public void setSubjectAnswer(Long subjectAnswer) {
+    public void setSubjectAnswer(String subjectAnswer) {
         this.subjectAnswer = subjectAnswer;
     }
 }

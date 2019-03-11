@@ -43,11 +43,11 @@ public class PoJoSubjectInfo {
     this.ispublic = ispublic;
   }
 
-  public Long getName() {
+  public String getName() {
     return name;
   }
 
-  public void setName(Long name) {
+  public void setName(String name) {
     this.name = name;
   }
 
@@ -144,7 +144,7 @@ public class PoJoSubjectInfo {
  
   private  String backcolor;
   private  Long ispublic;
-  private  Long name;
+  private  String name;
   private  Byte typeid;
 
   
@@ -183,6 +183,16 @@ public class PoJoSubjectInfo {
 
   public void setList(List<Map<String, Object>> list) {
     this.list = list;
+  }
+  
+  private   Map<String,Object>    resultinfo ;
+ 
+  public Map<String, Object> getResultinfo() {
+    return resultinfo;
+  }
+
+  public void setResultinfo(Map<String, Object> resultinfo) {
+    this.resultinfo = resultinfo;
   }
   private  List<Map<String,Object>> list;
   

@@ -18,7 +18,7 @@ public interface SubjectMapper {
 
     int updateByPrimaryKey(Subject record);
     
-    List<Subject> selectListBySubjectId(@Param("list")  List<Long> list);
+    List<Subject> selectListBySubjectId(@Param("list")  List<String> list);
     
     
 }

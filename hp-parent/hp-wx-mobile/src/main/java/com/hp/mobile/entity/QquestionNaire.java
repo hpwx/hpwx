@@ -35,6 +35,16 @@ public class QquestionNaire {
 
     private String backColor;
     
+    public Long getIsPubic() {
+      return isPubic;
+    }
+
+    public void setIsPubic(Long isPubic) {
+      this.isPubic = isPubic;
+    }
+
+    private  Long  ispublic;
+    
     public Long getIspublic() {
       return isPubic;
     }

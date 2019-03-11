@@ -4,6 +4,10 @@ import com.baomidou.mybatisplus.mapper.BaseMapper;
 import com.hp.modules.sys.entity.TQuestionnaire;
 import com.hp.modules.sys.entity.TSubject;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
+import java.util.Map;
 
 @Mapper
 public interface TSubjectDao extends BaseMapper<TSubject> {
@@ -16,4 +20,8 @@ public interface TSubjectDao extends BaseMapper<TSubject> {
     int updateByPrimaryKeySelective(TSubject record);
 
     int updateByPrimaryKey(TSubject record);
+
+    List<TSubject> selectSubjectsByQID(@Param("objectId") Long objectId);
+
+    List<Map<String,Object>> selectAnswersByQID(@Param("objectId") Long objectId);
 }

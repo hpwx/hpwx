@@ -1,5 +1,6 @@
 package com.hp.mobile.utils;
 
+import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Arrays;
@@ -84,4 +85,38 @@ public class SecrutiyUtil {
         String s=new String(tempArr);
         return s;
     }
+    
+    
+    /**
+     *  
+     * @Author yuruyi
+     * @Description    shal 签名
+     * @Date   2019年3月10日
+     * @Param  
+     * @return  
+     *
+     */
+    
+     public  static   String  shal(String encrptdata) {
+
+       String signature=null;
+       try
+       {
+           MessageDigest crypt = MessageDigest.getInstance("SHA-1");
+           crypt.reset();
+           crypt.update(encrptdata.getBytes("UTF-8"));
+           signature = byteToStr(crypt.digest());
+       }
+       catch (NoSuchAlgorithmException e)
+       {
+           e.printStackTrace();
+       }
+       catch (UnsupportedEncodingException e)
+       {
+           e.printStackTrace();
+       }
+  
+       return signature;
+       
+     }
 }

@@ -9,16 +9,18 @@
     <result column="answer_result" jdbcType="VARCHAR" property="answerResult" />
     <result column="answer_score" jdbcType="INTEGER" property="answerScore" />
     <result column="correct_result" jdbcType="VARCHAR" property="correctResult" />
-    <result column="subject_type" jdbcType="TINYINT" property="subjectType" />
+    <result column="subject_type" jdbcType="INTEGER"      property="subjectType" />
     <result column="answer_time" jdbcType="DATE" property="answerTime" />
     <result column="questionnaire_name" jdbcType="VARCHAR" property="questionnaireName" />
     <result column="questionnaire_id" jdbcType="BIGINT" property="questionnaireId" />
     <result column="open_id" jdbcType="VARCHAR" property="openId" />
+    <result column="serialnum" jdbcType="VARCHAR" property="serialnum" />
+    
   </resultMap>
   <sql id="Base_Column_List">
     object_id, t_user_answer_id, subject_id, subject_name, answer_result, answer_score, 
     correct_result, subject_type, answer_time, questionnaire_name, questionnaire_id, 
-    open_id
+    open_id,serialnum
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
     select 
@@ -26,6 +28,17 @@
     from t_user_answer_detail
     where object_id = #{objectId,jdbcType=BIGINT}
   </select>
+ 
+ 
+ 
+ <select id="getAnserSubjectList"  resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_user_answer_detail
+    where open_id = #{openid} and serialnum =#{serialnum} and questionnaire_id=#{questionId}
+  </select>
+ 
+ 
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
     delete from t_user_answer_detail
     where object_id = #{objectId,jdbcType=BIGINT}

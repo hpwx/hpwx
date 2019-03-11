@@ -10,7 +10,7 @@
     <result column="deleted" jdbcType="TINYINT" property="deleted" />
     <result column="name" jdbcType="VARCHAR" property="name" />
     <result column="type_id" jdbcType="INTEGER" property="typeId" />
-    <result column="subject_answer" jdbcType="BIGINT" property="subjectAnswer" />
+    <result column="subject_answer" jdbcType="VARCHAR" property="subjectAnswer" />
   </resultMap>
   <sql id="Base_Column_List">
     object_id, create_user, create_time, update_user, update_time, deleted, name, type_id, 
