@@ -1,6 +1,7 @@
 package com.hp.mobile.entity;
 
 import java.util.Date;
+import java.util.List;
 
 public class Subject {
     private Long objectId;
@@ -19,7 +20,20 @@ public class Subject {
 
     private Integer typeId;
 
-    private Long subjectAnswer;
+    private String subjectAnswer;
+    
+    
+   
+
+    private  List<TSurveyAnswers> surveyanswerlist;
+    
+    public List<TSurveyAnswers> getSurveyanswerlist() {
+      return surveyanswerlist;
+    }
+
+    public void setSurveyanswerlist(List<TSurveyAnswers> surveyanswerlist) {
+      this.surveyanswerlist = surveyanswerlist;
+    }
 
     public Long getObjectId() {
         return objectId;
@@ -85,11 +99,11 @@ public class Subject {
         this.typeId = typeId;
     }
 
-    public Long getSubjectAnswer() {
+    public String getSubjectAnswer() {
         return subjectAnswer;
     }
 
-    public void setSubjectAnswer(Long subjectAnswer) {
+    public void setSubjectAnswer(String subjectAnswer) {
         this.subjectAnswer = subjectAnswer;
     }
 }

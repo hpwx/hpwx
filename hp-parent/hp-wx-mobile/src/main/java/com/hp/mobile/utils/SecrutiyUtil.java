@@ -1,12 +1,18 @@
 package com.hp.mobile.utils;
 
+import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Arrays;
-
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.jackson.JsonComponent;
+import org.springframework.stereotype.Component;
+@Component
 public class SecrutiyUtil {
-private static String  token="XXXXXX";
-    
+  
+ 
+  
     /**
      * 传入三个参数以及微信的token（静态自己设定）验证，
      * @param signature 签名用来核实最后的结果是否一致        
@@ -14,7 +20,7 @@ private static String  token="XXXXXX";
      * @param nonce 随机数字标记
      * @return 一个布尔值确定最后加密得到的是否与signature一致
      */
-    public static boolean checkSignature(String signature,
+    public static boolean checkSignature( String token,String signature,
             String timestamp,String nonce){
         //将传入参数变成一个String数组然后进行字典排序
         String[] arr=new String[]{token,timestamp,nonce};
@@ -79,4 +85,38 @@ private static String  token="XXXXXX";
         String s=new String(tempArr);
         return s;
     }
+    
+    
+    /**
+     *  
+     * @Author yuruyi
+     * @Description    shal 签名
+     * @Date   2019年3月10日
+     * @Param  
+     * @return  
+     *
+     */
+    
+     public  static   String  shal(String encrptdata) {
+
+       String signature=null;
+       try
+       {
+           MessageDigest crypt = MessageDigest.getInstance("SHA-1");
+           crypt.reset();
+           crypt.update(encrptdata.getBytes("UTF-8"));
+           signature = byteToStr(crypt.digest());
+       }
+       catch (NoSuchAlgorithmException e)
+       {
+           e.printStackTrace();
+       }
+       catch (UnsupportedEncodingException e)
+       {
+           e.printStackTrace();
+       }
+  
+       return signature;
+       
+     }
 }

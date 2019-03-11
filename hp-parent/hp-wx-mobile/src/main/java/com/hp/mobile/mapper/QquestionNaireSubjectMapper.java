@@ -1,7 +1,10 @@
 package com.hp.mobile.mapper;
 
+import java.util.List;
+import org.apache.ibatis.annotations.Mapper;
 import com.hp.mobile.entity.QquestionNaireSubject;
 
+@Mapper
 public interface QquestionNaireSubjectMapper {
     int deleteByPrimaryKey(Long objectId);
 
@@ -14,4 +17,9 @@ public interface QquestionNaireSubjectMapper {
     int updateByPrimaryKeySelective(QquestionNaireSubject record);
 
     int updateByPrimaryKey(QquestionNaireSubject record);
+     
+   // List<Long>  selectQuestionIdsByQuestionNaireId( Long questionNaireId); 
+    
+    
+    
 }

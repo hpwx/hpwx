@@ -8,9 +8,9 @@ spring:
   redis: 
     open: false
     database: 0
-    host: 120.
+    host: 127.0.0.1
     port: 6379
-    password: hp123
+    password: hp1234
     timeout: 6000
     pool:
       max-active: 100
@@ -18,6 +18,7 @@ spring:
       max-idle: 10
       min-idle: 5
 wx:
-  appId:  wx4a3b6b45307b519a
-  secret: 5ad83af888bab46327bddb0e2df5d7c 
+  appId: wx0e938c00ca8232a9
+  secret: 667f391fe45f6b97d3c206f83f3a3958 
   token: wx1234
+

@@ -5,7 +5,7 @@ $.jgrid.defaults.styleUI = 'Bootstrap';
 
 
 //var baseURL = "https://120.27.147.104:8010/hpwxapitest/";
-var baseURL = "http://192.168.10.104:8001/hpwxpc/";
+//var baseURL = "http://localhost:8001/hpwxpc/";
 //工具集合Tools
 window.T = {};
 
@@ -75,7 +75,6 @@ window.alert = function(msg, callback){
 		}
 	});
 }
-
 //重写confirm式样框
 window.confirm = function(msg, callback){
 	parent.layer.confirm(msg, {btn: ['确定','取消']},
@@ -85,7 +84,6 @@ window.confirm = function(msg, callback){
 		}
 	});
 }
-
 //选择一条记录
 function getSelectedRow() {
     var grid = $("#jqGrid");

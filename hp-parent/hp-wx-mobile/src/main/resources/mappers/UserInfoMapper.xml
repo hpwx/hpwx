@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hp.mobile.mapper.UserInfoMapper">
+	<resultMap id="BaseResultMap"
+		type="com.hp.mobile.entity.UserInfo">
+		<id column="object_id" jdbcType="BIGINT" property="objectId" />
+		<result column="phone" jdbcType="VARCHAR" property="phone" />
+		<result column="email" jdbcType="VARCHAR" property="email" />
+		<result column="address" jdbcType="VARCHAR" property="address" />
+		<result column="create_time" jdbcType="DATE"
+			property="createTime" />
+		<result column="pull_black" jdbcType="TINYINT"
+			property="pullBlack" />
+		<result column="deleted" jdbcType="TINYINT" property="deleted" />
+		<result column="open_id" jdbcType="VARCHAR" property="openId" />
+		<result column="nick" jdbcType="VARCHAR" property="nick" />
+		<result column="head_icon" jdbcType="VARCHAR"
+			property="headIcon" />
+		<result column="city" jdbcType="VARCHAR" property="city" />
+		<result column="sex" jdbcType="TINYINT" property="sex" />
+		<result column="sex" jdbcType="TINYINT" property="sex" />
+		<result column="questionnaire_ids" jdbcType="TINYINT"
+			property="questionnaireIds" />
+
+	</resultMap>
+	<sql id="Base_Column_List">
+		object_id, phone, email, address, create_time, pull_black, deleted, open_id,
+		nick,
+		head_icon, city, sex,questionnaire_ids
+	</sql>
+	<select id="selectByPrimaryKey" parameterType="java.lang.Long"
+		resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from t_user
+		where object_id = #{objectId,jdbcType=BIGINT}
+	</select>
+
+
+	<select id="selectUserByOpenId" parameterType="java.lang.String"
+		resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from t_user
+		where open_id=#{openId,jdbcType=VARCHAR}
+	</select>
+
+
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+		delete from t_user
+		where object_id = #{objectId,jdbcType=BIGINT}
+	</delete>
+	<insert id="insert"
+		parameterType="com.hp.mobile.entity.UserInfo">
+		insert into t_user (object_id, phone, email,
+		address, create_time, pull_black,
+		deleted, open_id, nick,
+		head_icon, city, sex
+		)
+		values (#{objectId,jdbcType=BIGINT}, #{phone,jdbcType=VARCHAR},
+		#{email,jdbcType=VARCHAR},
+		#{address,jdbcType=VARCHAR}, #{createTime,jdbcType=DATE}, #{pullBlack,jdbcType=TINYINT},
+		#{deleted,jdbcType=TINYINT}, #{openId,jdbcType=VARCHAR},
+		#{nick,jdbcType=VARCHAR},
+		#{headIcon,jdbcType=VARCHAR}, #{city,jdbcType=VARCHAR}, #{sex,jdbcType=TINYINT}
+		)
+	</insert>
+	<insert id="insertSelective"
+		parameterType="com.hp.mobile.entity.UserInfo">
+		insert into t_user
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="objectId != null">
+				object_id,
+			</if>
+			<if test="phone != null">
+				phone,
+			</if>
+			<if test="email != null">
+				email,
+			</if>
+			<if test="address != null">
+				address,
+			</if>
+			<if test="createTime != null">
+				create_time,
+			</if>
+			<if test="pullBlack != null">
+				pull_black,
+			</if>
+			<if test="deleted != null">
+				deleted,
+			</if>
+			<if test="openId != null">
+				open_id,
+			</if>
+			<if test="nick != null">
+				nick,
+			</if>
+			<if test="headIcon != null">
+				head_icon,
+			</if>
+			<if test="city != null">
+				city,
+			</if>
+			<if test="sex != null">
+				sex,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="objectId != null">
+				#{objectId,jdbcType=BIGINT},
+			</if>
+			<if test="phone != null">
+				#{phone,jdbcType=VARCHAR},
+			</if>
+			<if test="email != null">
+				#{email,jdbcType=VARCHAR},
+			</if>
+			<if test="address != null">
+				#{address,jdbcType=VARCHAR},
+			</if>
+			<if test="createTime != null">
+				#{createTime,jdbcType=DATE},
+			</if>
+			<if test="pullBlack != null">
+				#{pullBlack,jdbcType=TINYINT},
+			</if>
+			<if test="deleted != null">
+				#{deleted,jdbcType=TINYINT},
+			</if>
+			<if test="openId != null">
+				#{openId,jdbcType=VARCHAR},
+			</if>
+			<if test="nick != null">
+				#{nick,jdbcType=VARCHAR},
+			</if>
+			<if test="headIcon != null">
+				#{headIcon,jdbcType=VARCHAR},
+			</if>
+			<if test="city != null">
+				#{city,jdbcType=VARCHAR},
+			</if>
+			<if test="sex != null">
+				#{sex,jdbcType=TINYINT},
+			</if>
+		</trim>
+	</insert>
+	
+	
+	
+	
+	
+	<update id="updatebyOpenid"
+		parameterType="com.hp.mobile.entity.UserInfo">
+		update t_user
+		<set>
+			<if test="phone != null">
+				phone = #{phone,jdbcType=VARCHAR},
+			</if>
+			<if test="email != null">
+				email = #{email,jdbcType=VARCHAR},
+			</if>
+			<if test="address != null">
+				address = #{address,jdbcType=VARCHAR},
+			</if>
+			<if test="createTime != null">
+				create_time = #{createTime,jdbcType=DATE},
+			</if>
+			<if test="pullBlack != null">
+				pull_black = #{pullBlack,jdbcType=TINYINT},
+			</if>
+			<if test="deleted != null">
+				deleted = #{deleted,jdbcType=TINYINT},
+			</if>
+			<if test="openId != null">
+				open_id = #{openId,jdbcType=VARCHAR},
+			</if>
+			<if test="nick != null">
+				nick = #{nick,jdbcType=VARCHAR},
+			</if>
+			<if test="headIcon != null">
+				head_icon = #{headIcon,jdbcType=VARCHAR},
+			</if>
+			<if test="city != null">
+				city = #{city,jdbcType=VARCHAR},
+			</if>
+			<if test="sex != null">
+				sex = #{sex,jdbcType=TINYINT},
+			</if>
+		</set>
+		where  	open_id = #{openId,jdbcType=VARCHAR}
+	</update>
+	
+	
+	<update id="updateByPrimaryKeySelective"
+		parameterType="com.hp.mobile.entity.UserInfo">
+		update t_user
+		<set>
+			<if test="phone != null">
+				phone = #{phone,jdbcType=VARCHAR},
+			</if>
+			<if test="email != null">
+				email = #{email,jdbcType=VARCHAR},
+			</if>
+			<if test="address != null">
+				address = #{address,jdbcType=VARCHAR},
+			</if>
+			<if test="createTime != null">
+				create_time = #{createTime,jdbcType=DATE},
+			</if>
+			<if test="pullBlack != null">
+				pull_black = #{pullBlack,jdbcType=TINYINT},
+			</if>
+			<if test="deleted != null">
+				deleted = #{deleted,jdbcType=TINYINT},
+			</if>
+			<if test="openId != null">
+				open_id = #{openId,jdbcType=VARCHAR},
+			</if>
+			<if test="nick != null">
+				nick = #{nick,jdbcType=VARCHAR},
+			</if>
+			<if test="headIcon != null">
+				head_icon = #{headIcon,jdbcType=VARCHAR},
+			</if>
+			<if test="city != null">
+				city = #{city,jdbcType=VARCHAR},
+			</if>
+			<if test="sex != null">
+				sex = #{sex,jdbcType=TINYINT},
+			</if>
+		</set>
+		where object_id = #{objectId,jdbcType=BIGINT}
+	</update>
+	<update id="updateByPrimaryKey"
+		parameterType="com.hp.mobile.entity.UserInfo">
+		update t_user
+		set phone = #{phone,jdbcType=VARCHAR},
+		email = #{email,jdbcType=VARCHAR},
+		address = #{address,jdbcType=VARCHAR},
+		create_time = #{createTime,jdbcType=DATE},
+		pull_black = #{pullBlack,jdbcType=TINYINT},
+		deleted = #{deleted,jdbcType=TINYINT},
+		open_id = #{openId,jdbcType=VARCHAR},
+		nick = #{nick,jdbcType=VARCHAR},
+		head_icon = #{headIcon,jdbcType=VARCHAR},
+		city = #{city,jdbcType=VARCHAR},
+		sex = #{sex,jdbcType=TINYINT}
+		where object_id = #{objectId,jdbcType=BIGINT}
+	</update>
+
+
+	 
+</mapper>

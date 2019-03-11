@@ -17,7 +17,7 @@ public class UserAnswerDeatil {
 
     private String correctResult;
 
-    private Byte subjectType;
+    private Integer subjectType;
 
     private Date answerTime;
 
@@ -26,6 +26,16 @@ public class UserAnswerDeatil {
     private Long questionnaireId;
 
     private String openId;
+    
+    public String getSerialnum() {
+      return serialnum;
+    }
+
+    public void setSerialnum(String serialnum) {
+      this.serialnum = serialnum;
+    }
+
+    private String serialnum;
 
     public Long getObjectId() {
         return objectId;
@@ -83,11 +93,11 @@ public class UserAnswerDeatil {
         this.correctResult = correctResult == null ? null : correctResult.trim();
     }
 
-    public Byte getSubjectType() {
+    public Integer getSubjectType() {
         return subjectType;
     }
 
-    public void setSubjectType(Byte subjectType) {
+    public void setSubjectType(Integer subjectType) {
         this.subjectType = subjectType;
     }
 

@@ -3,12 +3,12 @@ server:
         uri-encoding: UTF-8
         max-threads: 1000
         min-spare-threads: 30
-    port: 8001
+    port: 5000    # 8001
     connection-timeout: 5000
     context-path: /hpwxpc
 spring:
     profiles:
-        active: dev
+        active: test
     # jackson时间格式化
     jackson:
         time-zone: GMT+8

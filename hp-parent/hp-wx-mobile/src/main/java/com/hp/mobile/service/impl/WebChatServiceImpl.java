@@ -9,16 +9,19 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
 import org.springframework.web.client.RestTemplate;
 
 import com.alibaba.fastjson.JSONObject;
 import com.hp.mobile.entity.UserInfo;
 import com.hp.mobile.mapper.UserInfoMapper;
+import com.hp.mobile.service.IuserService;
 import com.hp.mobile.service.IwebChatService;
+import com.hp.mobile.utils.SecrutiyUtil;
 import com.hp.mobile.utils.WxApiUtils;
 import com.hp.redis.utils.RedisUtils;
-
+@Transactional
 @Service
 public class WebChatServiceImpl implements IwebChatService {
 
@@ -29,6 +32,8 @@ public class WebChatServiceImpl implements IwebChatService {
 	private String secret;
 	@Autowired
 	private RestTemplate restTemplate;
+	
+	
 	private final Logger LOG = LoggerFactory.getLogger(userSericeimpl.class);
 
 	@Autowired
@@ -36,7 +41,7 @@ public class WebChatServiceImpl implements IwebChatService {
 	@Override
 	public JSONObject getSessionKey(String code, String rawData) {
 
-		JSONObject jsonobject = new JSONObject();
+		JSONObject retobjson = new JSONObject();
 
 		// TODO Auto-generated method stub
 		LOG.info("获取前台请求的Code：" + code);
@@ -44,73 +49,58 @@ public class WebChatServiceImpl implements IwebChatService {
 		Map<String, Object> map = null;
 		try {
 			map = WxApiUtils.getSessionKeyAndOropenid(code);
+			
+			 if (map != null && !StringUtils.isEmpty(map.get("openid")) && !StringUtils.isEmpty(map.get("session_key"))) {
+
+	            String openid = map.get("openid").toString();
+	            String session_key = map.get("session_key").toString();
+	            JSONObject      rawDataJson =  JSONObject.parseObject(rawData);
+	            retobjson.put("userinfo", rawDataJson.toJSONString());
+	            retobjson.put("openid",map.get("openid").toString());
+	             retobjson.put("sessionkey", session_key) ;
+	            String nickName = rawDataJson.getString("nickName");
+                String avatarUrl = rawDataJson.getString("avatarUrl");
+                Byte gender =  Byte.valueOf(rawDataJson.get("gender").toString())  ;
+                String city = rawDataJson.getString("city");
+
+	            // 根据 openid 查找 数据库 是否已经存在 ,如果已存在 则 更新数据库 。
+	            UserInfo userinfo = userInfoMapper.selectUserByOpenId(openid)  ;
+	            if (userinfo == null) {
+	                // 插入用户信息 ;
+	                userinfo=new  UserInfo();
+	                userinfo.setOpenId((openid));
+	                userinfo.setHeadIcon(avatarUrl);
+	                userinfo.setSex(gender);
+	                userinfo.setCity(city);
+	                userinfo.setNick(nickName);
+	                userinfo.setCreateTime(new Date());
+	               userInfoMapper.insert(userinfo);
+	              
+	            }else {
+	              userinfo.setNick(nickName);
+	              userinfo.setCity(city);
+	              userinfo.setOpenId(openid);
+	              userinfo.setCreateTime(new Date());
+	              userinfo.setHeadIcon(avatarUrl);
+	              userinfo.setSex(gender);
+	              userInfoMapper.updatebyOpenid(userinfo) ;
+	            }
+	            
+			 } else {
+	            LOG.info("获取 微信 sessionkey失败 ！！");
+	        }
+		
+
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			
+		LOG.info(e.getMessage());
 		}
-
 		// 判断是否为空值
-		if (map != null && !StringUtils.isEmpty(map.get("openid")) && !StringUtils.isEmpty(map.get("session_key"))) {
-
-			String openid = map.get("openid").toString();
-			String session_key = map.get("session_key").toString();
-
-			// 根据 openid 查找 数据库 是否已经存在 ,如果已存在 则 更新数据库 。
-			UserInfo userinfo = getUserInfoByOpenId(openid);
-			JSONObject rawDataJson = JSONObject.parseObject(rawData);
-			rawDataJson.put("openid", "openid");
-			if (userinfo == null) {
-				
-				String nickName = rawDataJson.getString("nickName");
-				String avatarUrl = rawDataJson.getString("avatarUrl");
-				Byte gender =  Byte.valueOf(rawDataJson.get("gender").toString())  ;
-				String city = rawDataJson.getString("city");
-				String country = rawDataJson.getString("country");
-				// 插入用户信息 ;
-				userinfo=new  UserInfo();
-				userinfo.setHeadIcon(avatarUrl);
-				userinfo.setSex(gender);
-				userinfo.setCity(city);
-				userinfo.setCreateTime(new Date());
-				userinfo.setNick(nickName);
-			  int resut=	userInfoMapper.insert(userinfo);
-			  if (resut==0) {
-				  LOG.info(" 调用方法 :getSessionKey（）===== 用户信息数据写入失败！！");
-			  }
-			}else {
-				// 更新用户信息 
-				userInfoMapper.updateByopenid(userinfo.getOpenId());
-			}
-			String skey = WxApiUtils.shal(openid + session_key);
-			// 记录到 缓存中 。。
-			UUID.randomUUID().toString().replace("-", "");
-			RedisUtils redisutils = new RedisUtils();
-			if (!StringUtils.isEmpty(redisutils.get(skey))) {
-				redisutils.delete(skey);
-			}
-			JSONObject sessionObj = new JSONObject();
-			sessionObj.put("openId", openid);
-			sessionObj.put("sessionkey", session_key);
-			redisutils.set(skey, sessionObj.toJSONString());
-
-			JSONObject retuvalue = new JSONObject();
-
-			retuvalue.put("skey", skey);
-			retuvalue.put("openid", openid);
-			retuvalue.put("userinfo", rawDataJson);
-			return retuvalue;
-		} else {
-			LOG.info("获取 微信 sessionkey失败 ！！");
-
-		}
-
-		return null;
-
+		return retobjson;
 	}
 
-	private UserInfo getUserInfoByOpenId(String openid) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
 
 }
