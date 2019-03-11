@@ -4,7 +4,7 @@
 页面交互：Vue 2.x + Element + Bootstrap + HTML5 + CSS3
  
       参考：
-  Spring Cloud         Spring Boot
+  Spring Cloud          Spring Boot
   Finchley            兼容Spring Boot 2.0.x,不兼容Spring Boot 1.5.x
   Dalston和Edgware     兼容Spring Boot 1.5.x, 不兼容Spring Boot 2.0.x
   Camden              兼容Spring Boot 1.4.x， 也兼容Spring Boot 1.5.x   采用本技术
