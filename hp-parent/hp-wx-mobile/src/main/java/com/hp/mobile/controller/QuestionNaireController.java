@@ -37,11 +37,20 @@ public class QuestionNaireController {
   public Result getQuestionNaireByOpenId(@RequestParam("openid") String openid) {
 
     Map<String, Object> map = questionNaire.getUserQustionNarie(openid);
-
-
     return Result.ok(map);
   }
 
+  
+  
+  /**
+   * 
+   * @Author yuruyi
+   * @Description    用戶提交答卷
+   * @Date   2019年3月11日
+   * @Param  
+   * @return  
+   *
+   */
 
   @RequestMapping("/commitQustionNaire")
   public Result commitQustionNaire(@RequestParam Map<String, Object> map) {

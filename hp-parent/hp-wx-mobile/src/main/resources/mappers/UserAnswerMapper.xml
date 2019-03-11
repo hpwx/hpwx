@@ -10,10 +10,12 @@
     <result column="openid" jdbcType="VARCHAR" property="openid" />
     <result column="subjectids" jdbcType="VARCHAR" property="subjectids" />
      <result column="answerserialnum" jdbcType="VARCHAR" property="answerSerialNum" />
+      <result column="qustion_naire_name" jdbcType="VARCHAR" property="qustionNaireName" />
+     
     
   </resultMap>
   <sql id="Base_Column_List">
-    object_id, create_time, userId, questionnaire_id, deleted, openid, subjectids,answerserialnum
+    object_id, create_time, userId, questionnaire_id, deleted, openid, subjectids,answerserialnum,qustion_naire_name
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
     select 
@@ -29,16 +31,12 @@
     where openid = #{openid} and answerserialnum =#{serialnum}  and questionnaire_id=#{questionId}
   </select>
   
-    <select id="getAnserQuestionNaireListByeOpenid"   resultMap="BaseResultMap">
+   <select id="getAnserQuestionNaireListByeOpenid"   resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
     from t_user_answer
     where openid = #{openid}      
   </select>
-  
-  
-  
-  
   
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
     delete from t_user_answer
@@ -76,6 +74,9 @@
       <if test="subjectids != null">
         subjectids,
       </if>
+       <if test="qustionNaireName != null">
+        qustion_naire_name,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="objectId != null">
@@ -99,6 +100,11 @@
       <if test="subjectids != null">
         #{subjectids,jdbcType=VARCHAR},
       </if>
+      
+       <if test="qustionNaireName != null">
+        #{qustionNaireName,jdbcType=VARCHAR} 
+      </if>
+      
     </trim>
   </insert>
   <update id="updateByPrimaryKeySelective" parameterType="com.hp.mobile.entity.UserAnswer">

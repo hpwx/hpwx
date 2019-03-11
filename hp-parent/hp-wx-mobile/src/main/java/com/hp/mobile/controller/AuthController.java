@@ -30,11 +30,9 @@ public class AuthController {
 	IwebChatService  webchageService;
     
 	@GetMapping("/onLogin")
-	public Result onLogin( @RequestParam  Map<String,Object> req) {
-	      
-	  
-	  LOG.info("获取 code:"+  req.get("code"));
-	  LOG.info("获取 rawData:"+  req.get("rawData").toString());
+	  public Result onLogin( @RequestParam  Map<String,Object> req) {
+	    LOG.info("获取 code:"+  req.get("code"));
+	    LOG.info("获取 rawData:"+  req.get("rawData").toString());
 	  //String code, String rawData
 	   Map<String,Object> map= new HashMap<>();
 		JSONObject  jsonobjet=	webchageService.getSessionKey(req.get("code").toString() ,req.get("rawData").toString());

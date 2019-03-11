@@ -17,7 +17,15 @@ public class UserAnswer {
 
   private String subjectids;
   
-  
+  public String getQustionNaireName() {
+    return qustionNaireName;
+  }
+
+  public void setQustionNaireName(String qustionNaireName) {
+    this.qustionNaireName = qustionNaireName;
+  }
+
+  private String  qustionNaireName;
 
   public String getAnswerSerialNum() {
     return answerSerialNum;

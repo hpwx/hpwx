@@ -20,7 +20,7 @@ public interface UserAnswerMapper {
     
     
     UserAnswer   getAnserQustionaire(@Param("openid") String openid,  @Param("serialnum") String serialnum,@Param("questionId") Long questionId);
-   List<UserAnswer>  getAnserQuestionNaireListByeOpenid(String openid);
+   List<UserAnswer>  getAnserQuestionNaireListByeOpenid( @Param("openid") String openid);
 
 
 }
