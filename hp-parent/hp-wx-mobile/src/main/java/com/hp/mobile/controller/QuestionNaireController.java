@@ -88,41 +88,39 @@ public class QuestionNaireController {
    *
    */
   @RequestMapping("/shareSubject")
-  public Result ShareSubject( HttpServletRequest req , HttpServletResponse resp) {
- 
-    
-    String strUrl = "https://www.queriestech.com/"       //换成安全域名
-        + req.getContextPath()   //项目名称  
-        + req.getServletPath()   //请求页面或其他地址  
-        + "?" + (req.getQueryString()); //参数  
- 
-        String acesstoken=  WxApiUtils.getAcessToken();
-       
-        String  jsapi_ticket= WxApiUtils.getJsTiket(acesstoken);
-        
-      Map<String ,String> retdata=    WxApiUtils.getSignatureData(jsapi_ticket, strUrl);
-      return   Result.ok(retdata);
-    }
- 
-  
- 
-  
-  
+  public Result ShareSubject(HttpServletRequest req, HttpServletResponse resp) {
+
+
+    String strUrl = "https://www.queriestech.com/" // 换成安全域名
+        + req.getContextPath() // 项目名称
+        + req.getServletPath() // 请求页面或其他地址
+        + "?" + (req.getQueryString()); // 参数
+
+    String acesstoken = WxApiUtils.getAcessToken();
+
+    String jsapi_ticket = WxApiUtils.getJsTiket(acesstoken);
+
+    Map<String, String> retdata = WxApiUtils.getSignatureData(jsapi_ticket, strUrl);
+    return Result.ok(retdata);
+  }
+
+
+
   /***
    * 
    * @Author yuruyi
-   * @Description    获取用户以做的的题目
-   * @Date   2019年3月10日
-   * @Param  
-   * @return  
+   * @Description 获取用户以做的的题目
+   * @Date 2019年3月10日
+   * @Param
+   * @return
    *
    */
   @RequestMapping("/getAnserQuestioNaireList")
-  public  Result getSubjectList(@RequestParam  Map<String,Object>map) {
-    
-       String  openid=   map.get("openid").toString();
-                   List<UserAnswer>   list= questionNaire.getQuestionNaireList(openid);
-                   return Result.ok(list);
+  public Result getSubjectList(@RequestParam Map<String, Object> map) {
+
+    String openid = map.get("openid").toString();
+    List<UserAnswer> list = questionNaire.getQuestionNaireList(openid);
+    return Result.ok(list);
   }
-   
+
 }
