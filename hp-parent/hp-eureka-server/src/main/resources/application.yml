@@ -1,5 +1,0 @@
-spring:
-  application:
-    name: hp-eureka-server
-  profiles:
-    active: dev
