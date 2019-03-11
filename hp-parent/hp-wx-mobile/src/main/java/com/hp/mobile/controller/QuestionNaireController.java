@@ -122,12 +122,7 @@ public class QuestionNaireController {
     
        String  openid=   map.get("openid").toString();
                    List<UserAnswer>   list= questionNaire.getQuestionNaireList(openid);
-           
-                   
                    return Result.ok(list);
   }
- 
-  
-
-  
+   
 }
