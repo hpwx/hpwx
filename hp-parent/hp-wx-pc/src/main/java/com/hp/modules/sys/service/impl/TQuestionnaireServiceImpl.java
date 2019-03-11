@@ -14,6 +14,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Arrays;
 import java.util.Date;
+import java.util.List;
 import java.util.Map;
 
 @Service("tQuestionnaireService")
@@ -58,5 +59,20 @@ public class TQuestionnaireServiceImpl extends ServiceImpl<TQuestionnaireDao, TQ
                     new EntityWrapper<TQuestionnaire>().eq("object_id", ids[i]));
         }
 
+    }
+
+    @Override
+    public PageUtils selectStatistics(Map<String, Object> params) {
+
+        int currentPage =Integer.parseInt(params.get("page").toString());
+        int limit = Integer.parseInt(params.get("limit").toString());
+        params.put("currentCounts",(currentPage-1)*limit);
+
+        List<Map<String, Object>> list = baseMapper.selectStatistics(params);
+        int counts = baseMapper.selectCountStatistics(params);
+
+        PageUtils pageUtils = new PageUtils(list,counts,limit,currentPage);
+
+        return pageUtils;
     }
 }

@@ -1,15 +1,25 @@
 $(function () {
     $("#jqGrid").jqGrid({
-        url: baseURL + 'sys/questionnaire/statistics',
+        url: baseURL + 'sys/tUser/list',
         datatype: "json",
-        colModel: [			
-			{ label: '标题', name: 'title', index: "title", width: 45, key: true },
-			{ label: '是否截止', name: 'isEnd', width: 75 },
-			{ label: '题目数量', name: 'subjectCounts', index:"subjectCounts", width: 100 },
-            { label: '用户数量', name: 'userCounts',index:"userCounts", width: 100 },
-            { label: '回答次数', name: 'answerCount', width: 100 },
-			{ label: '创建时间', name: 'createTime', index: "create_time", width: 80},
-            { label: '截止时间', name: 'endTime', index: "end_Time", width: 80}
+        colModel: [
+            { label: '题目编号', name: 'objectId', index: "object_id", width: 45, key: true },
+			{ label: '题目名称', name: 'phone', index: "phone", width: 45 },
+			{ label: '地址', name: 'address', index: "address", width: 80},
+            { label: '是否拉黑', name: 'pullBlack', index: "pull_black", width: 80,formatter: function(value, options, row){
+                    return value === 0 ?
+                        '<span class="label label-danger">否</span>' :
+                        '<span class="label label-success">是</span>';
+                }},
+            { label: 'openId', name: 'openId', index: "open_id", width: 80},
+            { label: '昵称', name: 'nick', index: "nick", width: 80},
+            { label: '城市', name: 'city', index: "city", width: 80},
+            { label: '性别', name: 'sex', index: "sex", width: 80,formatter: function(value, options, row){
+                    return value === 0 ?
+                        '<span class="label label-danger">女</span>' :
+                        '<span class="label label-success">男</span>';
+                }},
+            { label: '创建时间', name: 'email', index: "email", width: 80}
         ],
 		viewrecords: true,
         height: 385,
@@ -72,6 +82,7 @@ var vm = new Vue({
 			vm.reload();
 		},
 		add: function(){
+			alert(4);
 			vm.showList = false;
 			vm.title = "新增";
 			vm.role = {};
@@ -96,7 +107,7 @@ var vm = new Vue({
 			confirm('确定要删除选中的记录？', function(){
 				$.ajax({
 					type: "POST",
-				    url: baseURL + "sys/role/delete",
+				    url: baseURL + "sys/questionnaire/delete",
                     contentType: "application/json",
 				    data: JSON.stringify(roleIds),
 				    success: function(r){

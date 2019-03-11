@@ -5,12 +5,12 @@ import com.baomidou.mybatisplus.plugins.Page;
 import com.baomidou.mybatisplus.service.impl.ServiceImpl;
 import com.hp.common.utils.PageUtils;
 import com.hp.common.utils.Query;
-import com.hp.modules.sys.dao.TQuestionnaireDao;
 import com.hp.modules.sys.dao.TSubjectDao;
-import com.hp.modules.sys.entity.TQuestionnaire;
+import com.hp.modules.sys.dao.TUserDao;
 import com.hp.modules.sys.entity.TSubject;
+import com.hp.modules.sys.entity.TUser;
 import com.hp.modules.sys.service.TSubjectService;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.hp.modules.sys.service.TUserService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -19,29 +19,29 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
-@Service("tSubjectService")
-public class TSubjectServiceImpl extends ServiceImpl<TSubjectDao, TSubject> implements TSubjectService {
+@Service("tUser")
+public class TUserServiceImpl extends ServiceImpl<TUserDao, TUser> implements TUserService {
 
     @Override
     public PageUtils getAll(Map<String, Object> params) {
-        Page<TSubject> page = this.selectPage(new Query<TSubject>(params).getPage(), new EntityWrapper<TSubject>().eq("deleted", 0));
+        Page<TUser> page = this.selectPage(new Query<TUser>(params).getPage(), new EntityWrapper<TUser>().eq("deleted", 0));
 
         return new PageUtils(page);
     }
 
     @Override
     @Transactional
-    public void save(TSubject tSubject) {
-        tSubject.setCreateTime(new Date());
-        this.insert(tSubject);
+    public void save(TUser tUser) {
+        tUser.setCreateTime(new Date());
+        this.insert(tUser);
     }
 
 
     @Override
     @Transactional
-    public void update(TSubject tSubject) {
+    public void update(TUser tUser) {
 
-        this.updateById(tSubject);
+        this.updateById(tUser);
 
     }
 
@@ -50,13 +50,6 @@ public class TSubjectServiceImpl extends ServiceImpl<TSubjectDao, TSubject> impl
         this.deleteBatchIds(Arrays.asList(userId));
     }
 
-    @Override
-    public List<TSubject> selectSubjectsByQID(Long objectId) {
-        return baseMapper.selectSubjectsByQID(objectId);
-    }
 
-    @Override
-    public List<Map<String, Object>> selectAnswersByQID(Long objectId) {
-        return baseMapper.selectAnswersByQID(objectId);
-    }
+
 }
