@@ -44,7 +44,7 @@
 
 
 	<modules>
-  	   <module>hp-common-redis</module>
+  	   <module>hp-common-redis </module>
   		<module>hp-common-db</module>
   		<module>hp-common-ms</module> 
   		<module>hp-common-utils</module> 
