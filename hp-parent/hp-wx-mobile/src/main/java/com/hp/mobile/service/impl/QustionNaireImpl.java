@@ -205,7 +205,7 @@ public class QustionNaireImpl implements IQuestionNaire {
     uerAnswer.setQustionNaireName(questionnaire.getTitle());
      String   serialnum= TokenGenerator.generateValue() ;
       uerAnswer.setAnswerSerialNum(serialnum);
-     int result=  userAnswerMapper.insert(uerAnswer);
+     int result=  userAnswerMapper.insertSelective(uerAnswer);
     
     
       if (result>0) {

@@ -51,7 +51,6 @@ public class QuestionNaireController {
    * @return  
    *
    */
-
   @RequestMapping("/commitQustionNaire")
   public Result commitQustionNaire(@RequestParam Map<String, Object> map) {
 

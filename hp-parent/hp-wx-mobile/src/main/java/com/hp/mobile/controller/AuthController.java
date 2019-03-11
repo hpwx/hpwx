@@ -24,7 +24,7 @@ import com.ym.ms.entity.Result;
 @RestController
 @RequestMapping("/auth")
 public class AuthController {
-  
+     
   private final Logger LOG = LoggerFactory.getLogger(AuthController.class);
     @Autowired
 	IwebChatService  webchageService;
