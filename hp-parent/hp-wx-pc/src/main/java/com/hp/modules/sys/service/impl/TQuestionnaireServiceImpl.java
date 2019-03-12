@@ -9,16 +9,17 @@ import com.hp.common.utils.Query;
 import com.hp.modules.sys.dao.TQuestionnaireDao;
 import com.hp.modules.sys.entity.TQuestionnaire;
 import com.hp.modules.sys.service.TQuestionnaireService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.Arrays;
-import java.util.Date;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Service("tQuestionnaireService")
 public class TQuestionnaireServiceImpl extends ServiceImpl<TQuestionnaireDao, TQuestionnaire> implements TQuestionnaireService {
+
+    @Autowired
+    private TQuestionnaireDao tQuestionnaireDao;
 
     @Override
     public PageUtils getAll(Map<String, Object> params) {
@@ -74,5 +75,15 @@ public class TQuestionnaireServiceImpl extends ServiceImpl<TQuestionnaireDao, TQ
         PageUtils pageUtils = new PageUtils(list,counts,limit,currentPage);
 
         return pageUtils;
+    }
+
+    @Override
+    public Map statisticsOnResult(Map<String, Object> params) {
+        Map map = new HashMap<String,Object>();
+        List<Map<String,Object>> trueMap = tQuestionnaireDao.StatisticsOnTrue(params);
+        List<Map<String,Object>> allMap =  tQuestionnaireDao.StatisticsOnAll(params);
+        map.put("all",allMap);
+        map.put("true",trueMap);
+        return map;
     }
 }

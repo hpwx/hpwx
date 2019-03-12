@@ -8,6 +8,7 @@ import com.hp.modules.sys.entity.TQuestionnaire;
 import com.hp.modules.sys.entity.TSubject;
 import com.hp.modules.sys.service.TQuestionnaireService;
 import com.hp.modules.sys.service.TSubjectService;
+import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
@@ -35,6 +36,26 @@ public class TQuestionnaireController extends AbstractController{
     @Value("${spring.tomcat.home}")
     private String tomcat_home;
 
+
+
+    /*
+     *  查询所有答案统计结果
+     *  @tQuestionnaireId
+     *  @subjectType
+     *  @result Map
+     * */
+    @PostMapping("/statisticsOnResult")
+    public R statisticsOnResult(@RequestParam Map<String, Object> params){
+
+        if(StringUtils.isBlank(params.get("tQuestionnaireId").toString()) || StringUtils.isBlank(params.get("subjectType").toString())){
+            return R.error("请求参数缺失！");
+        }
+
+        //获取所有问卷集合
+         Map subjectList = tQuestionnaireService.statisticsOnResult(params);
+
+        return R.ok().put("page", subjectList);
+    }
 
 
     /*
@@ -93,6 +114,18 @@ public class TQuestionnaireController extends AbstractController{
      * */
     @GetMapping("/statistics")
     public R statistics(@RequestParam Map<String, Object> params){
+
+        //获取所有问卷集合
+        PageUtils subjectList = tQuestionnaireService.selectStatistics(params);
+
+        return R.ok().put("page", subjectList);
+    }
+
+    /*
+     *  查询所有题目答案
+     * */
+    @PostMapping("/statisticsOnSubject")
+    public R statisticsOnSubject(@RequestParam Map<String, Object> params){
 
         //获取所有问卷集合
         PageUtils subjectList = tQuestionnaireService.selectStatistics(params);
