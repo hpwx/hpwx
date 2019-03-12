@@ -22,4 +22,6 @@ public interface TQuestionnaireService extends IService<TQuestionnaire> {
 
     PageUtils selectStatistics(Map<String, Object> params);
 
+    Map<String,Object> statisticsOnResult(Map<String, Object> params);
+
 }

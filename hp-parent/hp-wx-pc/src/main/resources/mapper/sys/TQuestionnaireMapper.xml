@@ -20,6 +20,50 @@
     <result column="back_color" property="backColor" jdbcType="VARCHAR" />
   </resultMap>
 
+  <select id="StatisticsOnAll"  resultType="map" parameterType="Map" >
+   select tt3.*,tt4.choice_text from t_survey_answers tt4 ,
+(
+select
+	tt1.subjectId subjectId,
+	tt1.answerResult,
+	tt1.count count,
+	tt2.totalcount totalcount
+	,CASE WHEN tt2.totalcount=0 then '0%' else ROUND(tt1.count*100/(tt2.totalcount),1) end resultPercentage
+from
+(SELECT
+ t2.object_id subjectId,
+	t1.answer_result answerResult,
+	count(t1.answer_result) count
+FROM
+	t_user_answer_detail t1
+	LEFT JOIN t_subject t2 ON t1.subject_id = t2.object_id
+	left join t_user_answer t3 on t1.t_user_answer_id = t3.object_id
+	where t2.type_id = ${params.subjectType} and t3.questionnaire_id = ${params.tQuestionnaireId}
+	GROUP BY t1.answer_result,t1.subject_id) tt1 left join
+		(select t4.subject_id subjectId,count(t4.subject_id) totalcount from t_user_answer_detail t4
+		 left join t_user_answer t5 on t4.t_user_answer_id = t5.object_id
+		  left join t_subject t6 on t6.object_id = t4.subject_id where t6.type_id = ${params.subjectType} and t5.questionnaire_id = ${params.tQuestionnaireId}
+		   GROUP BY t4.subject_id)  tt2 on tt1.subjectId = tt2.subjectId
+		) tt3 where tt4.object_id in (tt3.answerResult)
+  </select>
+
+  <select id="StatisticsOnTrue"  resultType="map" parameterType="Map" >
+  SELECT
+    t4.object_id subjectId,
+    t4.subject_answer trueResult,
+	  CASE WHEN count(t2.object_id)=0 then '0%' else	ROUND(sum(case when t4.subject_answer = t2.answer_result then 1 else 0 end) *100/count(t4.object_id),1)  end truePercentage
+  FROM
+		t_user_answer_detail t2
+	LEFT JOIN t_user_answer t1 ON t1.object_id = t2.t_user_answer_id
+	left join t_questionnaire t3 on t1.questionnaire_id = t3.object_id
+	left join t_subject t4 on t4.object_id = t2.subject_id
+	WHERE
+	t1.questionnaire_id = ${params.tQuestionnaireId}
+	AND t4.type_id = ${params.subjectType}
+	GROUP BY t4.object_id
+
+  </select>
+
 
     <select id="selectStatistics"  resultType="map" parameterType="Map" >
         SELECT
@@ -87,12 +131,12 @@
 
 
   <sql id="Base_Column_List" >
-    object_id, create_time, create_user, update_time, update_user, deleted, anonymous, 
-    forward, repeated_answer, answer_count, title, questionnaire_desc, icon, cover, enable, 
+    object_id, create_time, create_user, update_time, update_user, deleted, anonymous,
+    forward, repeated_answer, answer_count, title, questionnaire_desc, icon, cover, enable,
     back_color
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
-    select 
+    select
     <include refid="Base_Column_List" />
     from t_questionnaire
     where object_id = #{objectId,jdbcType=BIGINT}
@@ -102,17 +146,17 @@
     where object_id = #{objectId,jdbcType=BIGINT}
   </delete>
   <insert id="insert" parameterType="com.hp.modules.sys.entity.TQuestionnaire" >
-    insert into t_questionnaire (object_id, create_time, create_user, 
-      update_time, update_user, deleted, 
-      anonymous, forward, repeated_answer, 
-      answer_count, title, questionnaire_desc, 
-      icon, cover, enable, 
+    insert into t_questionnaire (object_id, create_time, create_user,
+      update_time, update_user, deleted,
+      anonymous, forward, repeated_answer,
+      answer_count, title, questionnaire_desc,
+      icon, cover, enable,
       back_color)
-    values (#{objectId,jdbcType=BIGINT}, #{createTime,jdbcType=DATE}, #{createUser,jdbcType=VARCHAR}, 
-      #{updateTime,jdbcType=DATE}, #{updateUser,jdbcType=VARCHAR}, #{deleted,jdbcType=TINYINT}, 
-      #{anonymous,jdbcType=TINYINT}, #{forward,jdbcType=TINYINT}, #{repeatedAnswer,jdbcType=TINYINT}, 
-      #{answerCount,jdbcType=SMALLINT}, #{title,jdbcType=VARCHAR}, #{questionnaireDesc,jdbcType=VARCHAR}, 
-      #{icon,jdbcType=VARCHAR}, #{cover,jdbcType=VARCHAR}, #{enable,jdbcType=TINYINT}, 
+    values (#{objectId,jdbcType=BIGINT}, #{createTime,jdbcType=DATE}, #{createUser,jdbcType=VARCHAR},
+      #{updateTime,jdbcType=DATE}, #{updateUser,jdbcType=VARCHAR}, #{deleted,jdbcType=TINYINT},
+      #{anonymous,jdbcType=TINYINT}, #{forward,jdbcType=TINYINT}, #{repeatedAnswer,jdbcType=TINYINT},
+      #{answerCount,jdbcType=SMALLINT}, #{title,jdbcType=VARCHAR}, #{questionnaireDesc,jdbcType=VARCHAR},
+      #{icon,jdbcType=VARCHAR}, #{cover,jdbcType=VARCHAR}, #{enable,jdbcType=TINYINT},
       #{backColor,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.hp.modules.sys.entity.TQuestionnaire" >
@@ -288,4 +332,6 @@
       back_color = #{backColor,jdbcType=VARCHAR}
     where object_id = #{objectId,jdbcType=BIGINT}
   </update>
+
+
 </mapper>

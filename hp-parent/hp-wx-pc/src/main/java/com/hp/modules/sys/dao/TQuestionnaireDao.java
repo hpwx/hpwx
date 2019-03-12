@@ -4,11 +4,13 @@ import com.baomidou.mybatisplus.mapper.BaseMapper;
 import com.hp.modules.sys.entity.TQuestionnaire;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Map;
 
 @Mapper
+@Repository
 public interface TQuestionnaireDao extends BaseMapper<TQuestionnaire> {
     int deleteByPrimaryKey(Long objectId);
 
@@ -24,4 +26,8 @@ public interface TQuestionnaireDao extends BaseMapper<TQuestionnaire> {
     List<Map<String,Object>> selectStatistics(@Param("params") Map<String, Object> params);
 
     int selectCountStatistics(@Param("params") Map<String, Object> params);
+
+    List<Map<String,Object>> StatisticsOnTrue(@Param("params") Map<String, Object> params);
+
+    List<Map<String,Object>> StatisticsOnAll(@Param("params") Map<String, Object> params);
 }
