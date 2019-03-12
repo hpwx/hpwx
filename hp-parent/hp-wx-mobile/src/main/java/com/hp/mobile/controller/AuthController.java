@@ -39,6 +39,6 @@ public class AuthController {
 		map.put("openid", jsonobjet.get("openid")) ; 
 		map.put("sessionkey", jsonobjet.get("sessionkey"));
 		 map.put("userinfo",  jsonobjet.get("userinfo"));
-	return    Result.ok(map);    
+		 return  Result.ok(map);    
  	}
 }

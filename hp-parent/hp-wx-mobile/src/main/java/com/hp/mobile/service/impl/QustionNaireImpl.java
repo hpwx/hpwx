@@ -169,17 +169,16 @@ public class QustionNaireImpl implements IQuestionNaire {
     */
   public    Map<String,Object>   commitSubject (Map<String ,Object> map) {
     
-    
+     //  openid  
     String openid  =map.get("openId").toString();
     //  问卷ID
-    String questionnaireid =   map.get("questionnaireId").toString();
+    String questionnaireid =map.get("questionnaireId").toString();
      // 题目ID
     String  subjectIds=null;
         if (map.get("subjectIds")!=null) {
           
              subjectIds=map.get("subjectIds").toString();  // 多个用，分割
         }
-    
         //  选项ID 
         String  chociceid =map.get("choiceId").toString();  // 多个用,分割
           // 选项文本
@@ -190,7 +189,7 @@ public class QustionNaireImpl implements IQuestionNaire {
          QquestionNaire   questionnaire=  qustionNaireMapper.selectByPrimaryKey(Long.parseLong(questionnaireid));
      
         // 題目列表
-        List<String> list=   Arrays.asList  (subjectIds.split(",")) ;
+        List<String> list=   Arrays.asList(subjectIds.split(",")) ;
      
         List<Subject> subjectlist= subjectMapper.selectListBySubjectId(list);
       
@@ -203,9 +202,10 @@ public class QustionNaireImpl implements IQuestionNaire {
     uerAnswer.setQuestionnaireId( Long.valueOf(questionnaireid));
     uerAnswer.setSubjectids(subjectIds);
     uerAnswer.setQustionNaireName(questionnaire.getTitle());
+    //  序列  序列  
      String   serialnum= TokenGenerator.generateValue() ;
       uerAnswer.setAnswerSerialNum(serialnum);
-     int result=  userAnswerMapper.insertSelective(uerAnswer);
+     int result= userAnswerMapper.insertSelective(uerAnswer);
     
     
       if (result>0) {
@@ -227,15 +227,26 @@ public class QustionNaireImpl implements IQuestionNaire {
           anserdetail.setAnswerTime(new Date());
           userAnserDetailMapper.insert(anserdetail);
           
-          
         }
       }
-      
-      
       map.put("serialnum", serialnum);
       return map;
   }
    
+  
+   private   void addSubjectInfo(Map<String ,Object> map) {
+     
+     
+           String  openid=  map.get("openid").toString();
+           //  提交的題目id 
+                 List<Long>  subjectIdlist=   (List<Long>)  map.get("subjectIdlist") ;
+           
+           
+                    
+            
+     
+   }
+  
   
   private void setChoiceItems(List<PoJoSubjectInfo> subjectlist, List<TSurveyAnswers> answerlist) {
 
@@ -271,12 +282,9 @@ public class QustionNaireImpl implements IQuestionNaire {
         Map<String,Object> resultMap= new  HashMap<>();
         
         JSONObject subjectobject= new JSONObject();
-         
-        
         
         String openid=  map.get("openid").toString();
         String questionnairId=  map.get("questionnaireid").toString();
-       
         String serialnum= map.get("serialnum").toString();
         
         QquestionNaire  questionnairre=   qustionNaireMapper.selectByPrimaryKey(Long.parseLong(questionnairId)) ;
