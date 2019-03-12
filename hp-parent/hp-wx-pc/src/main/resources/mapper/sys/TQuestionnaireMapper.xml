@@ -21,7 +21,8 @@
   </resultMap>
 
   <select id="StatisticsOnAll"  resultType="map" parameterType="Map" >
-   select tt3.*,tt4.choice_text from t_survey_answers tt4 ,
+
+select tt3.*,tt4.choice_text from t_survey_answers tt4 right join
 (
 select
 	tt1.subjectId subjectId,
@@ -43,8 +44,8 @@ FROM
 		(select t4.subject_id subjectId,count(t4.subject_id) totalcount from t_user_answer_detail t4
 		 left join t_user_answer t5 on t4.t_user_answer_id = t5.object_id
 		  left join t_subject t6 on t6.object_id = t4.subject_id where t6.type_id = ${params.subjectType} and t5.questionnaire_id = ${params.tQuestionnaireId}
-		   GROUP BY t4.subject_id)  tt2 on tt1.subjectId = tt2.subjectId
-		) tt3 where tt4.object_id in (tt3.answerResult)
+		  GROUP BY t4.subject_id)  tt2 on tt1.subjectId = tt2.subjectId
+		) tt3 on tt4.object_id = tt3.answerResult
   </select>
 
   <select id="StatisticsOnTrue"  resultType="map" parameterType="Map" >
