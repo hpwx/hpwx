@@ -126,4 +126,18 @@
       must_answer = #{mustAnswer,jdbcType=TINYINT}
     where object_id = #{objectId,jdbcType=BIGINT}
   </update>
+
+  <insert id="insertBatch" parameterType="java.util.List" useGeneratedKeys="true" keyProperty="objectId">
+    insert into t_questionnaire_subject
+    (object_id, create_user,
+    update_user, update_time, questionnaire_id,
+    subject_id, must_answer,deleted)
+    values
+    <foreach collection="list" item="item" index="index" separator=",">
+      (#{item.objectId,jdbcType=BIGINT}, #{item.createUser,jdbcType=VARCHAR},
+      #{item.updateUser,jdbcType=VARCHAR}, #{item.updateTime,jdbcType=DATE}, #{item.questionnaireId,jdbcType=BIGINT},
+      #{item.subjectId,jdbcType=BIGINT}, #{item.mustAnswer,jdbcType=TINYINT}, #{item.mustAnswer,jdbcType=TINYINT})
+    </foreach>
+  </insert>
+
 </mapper>
