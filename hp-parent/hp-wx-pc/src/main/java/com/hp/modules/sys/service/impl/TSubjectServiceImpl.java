@@ -3,24 +3,27 @@ package com.hp.modules.sys.service.impl;
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.baomidou.mybatisplus.plugins.Page;
 import com.baomidou.mybatisplus.service.impl.ServiceImpl;
+import com.hp.common.utils.Constant;
 import com.hp.common.utils.PageUtils;
 import com.hp.common.utils.Query;
 import com.hp.modules.sys.dao.TQuestionnaireDao;
+import com.hp.modules.sys.dao.TQuestionnaireSubjectDao;
 import com.hp.modules.sys.dao.TSubjectDao;
 import com.hp.modules.sys.entity.TQuestionnaire;
+import com.hp.modules.sys.entity.TQuestionnaireSubject;
 import com.hp.modules.sys.entity.TSubject;
 import com.hp.modules.sys.service.TSubjectService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.Arrays;
-import java.util.Date;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Service("tSubjectService")
 public class TSubjectServiceImpl extends ServiceImpl<TSubjectDao, TSubject> implements TSubjectService {
+
+    @Autowired
+    private TQuestionnaireSubjectDao tQuestionnaireSubjectDao;
 
     @Override
     public PageUtils getAll(Map<String, Object> params) {
@@ -58,5 +61,22 @@ public class TSubjectServiceImpl extends ServiceImpl<TSubjectDao, TSubject> impl
     @Override
     public List<Map<String, Object>> selectAnswersByQID(Long objectId) {
         return baseMapper.selectAnswersByQID(objectId);
+    }
+
+    @Override
+    @Transactional
+    public void insertSubject(List<TSubject> subjects) {
+        baseMapper.insertBatch(subjects);
+        List<TQuestionnaireSubject> list = new ArrayList<>();
+        for(TSubject tSubject : subjects){
+            TQuestionnaireSubject tQuestionnaireSubject = new TQuestionnaireSubject();
+            tQuestionnaireSubject.setSubjectId(tSubject.getObjectId());
+            tQuestionnaireSubject.setQuestionnaireId(tSubject.gettQuestionnaireId());
+            tQuestionnaireSubject.setMustAnswer(tSubject.getMustAnswer());
+            tQuestionnaireSubject.setCreateUser(tSubject.getCreateUser());
+            tQuestionnaireSubject.setDeleted(Constant.NO);
+            list.add(tQuestionnaireSubject);
+        }
+        tQuestionnaireSubjectDao.insertBatch(list);
     }
 }

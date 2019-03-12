@@ -13,8 +13,6 @@ public class TQuestionnaireSubject {
 
     private String createUser;
 
-    private Date updateDate;
-
     private String updateUser;
 
     private Date updateTime;
@@ -24,6 +22,16 @@ public class TQuestionnaireSubject {
     private Long subjectId;
 
     private Byte mustAnswer;
+
+    private byte deleted ;
+
+    public byte getDeleted() {
+        return deleted;
+    }
+
+    public void setDeleted(byte deleted) {
+        this.deleted = deleted;
+    }
 
     public Long getObjectId() {
         return objectId;
@@ -39,14 +47,6 @@ public class TQuestionnaireSubject {
 
     public void setCreateUser(String createUser) {
         this.createUser = createUser == null ? null : createUser.trim();
-    }
-
-    public Date getUpdateDate() {
-        return updateDate;
-    }
-
-    public void setUpdateDate(Date updateDate) {
-        this.updateDate = updateDate;
     }
 
     public String getUpdateUser() {
