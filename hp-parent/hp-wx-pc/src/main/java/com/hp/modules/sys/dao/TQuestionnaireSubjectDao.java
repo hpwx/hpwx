@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Mapper
+@Repository
 public interface TQuestionnaireSubjectDao extends BaseMapper<TQuestionnaireSubject> {
     int deleteByPrimaryKey(Long objectId);
 

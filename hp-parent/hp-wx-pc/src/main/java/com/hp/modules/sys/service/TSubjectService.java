@@ -23,4 +23,6 @@ public interface TSubjectService extends IService<TSubject> {
 
     List<Map<String,Object>> selectAnswersByQID(Long objectId);
 
+    void insertSubject(List<TSubject> subjects);
+
 }

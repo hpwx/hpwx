@@ -5,11 +5,16 @@ import com.baomidou.mybatisplus.annotations.TableName;
 import com.hp.common.validator.group.AddGroup;
 import com.hp.common.validator.group.UpdateGroup;
 import org.hibernate.validator.constraints.NotBlank;
+import org.springframework.data.annotation.Transient;
 
+import javax.validation.constraints.NotNull;
+import java.io.Serializable;
 import java.util.Date;
 
 @TableName("t_subject")
-public class TSubject {
+public class TSubject implements Serializable{
+
+    private static final long serialVersionUID = 1L;
 
     @TableId
     private Long objectId;
@@ -27,10 +32,44 @@ public class TSubject {
     @NotBlank(message="是否匿名不能为空", groups = {AddGroup.class, UpdateGroup.class})
     private String name;
 
-    @NotBlank(message="是否匿名不能为空", groups = {AddGroup.class, UpdateGroup.class})
+    @NotNull(message="问题类型不能为空", groups = {AddGroup.class, UpdateGroup.class})
     private Integer typeId;
 
+
     private Long subjectAnswer;
+
+    @Transient
+    private String tQuestionnaireName;
+
+    @Transient
+    private Long tQuestionnaireId;
+
+    @Transient
+    private Byte mustAnswer;
+
+    public Byte getMustAnswer() {
+        return mustAnswer;
+    }
+
+    public void setMustAnswer(Byte mustAnswer) {
+        this.mustAnswer = mustAnswer;
+    }
+
+    public Long gettQuestionnaireId() {
+        return tQuestionnaireId;
+    }
+
+    public void settQuestionnaireId(Long tQuestionnaireId) {
+        this.tQuestionnaireId = tQuestionnaireId;
+    }
+
+    public String gettQuestionnaireName() {
+        return tQuestionnaireName;
+    }
+
+    public void settQuestionnaireName(String tQuestionnaireName) {
+        this.tQuestionnaireName = tQuestionnaireName;
+    }
 
     public Long getObjectId() {
         return objectId;
