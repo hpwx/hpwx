@@ -1,14 +1,18 @@
 package com.hp.mobile.service.impl;
 
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import org.apache.tomcat.util.buf.StringUtils;
+import org.aspectj.apache.bcel.classfile.Code;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.hp.mobile.entity.PoJoSubjectInfo;
 import com.hp.mobile.entity.QquestionNaire;
@@ -28,11 +32,8 @@ import com.hp.mobile.service.IQuestionNaire;
 import com.hp.mobile.service.IuserService;
 import com.ym.ms.exception.CodeMsgEnum;
 import com.ym.ms.exception.SysException;
-import com.ym.utils.util.TokenGenerator;
 
 @Service
-
-
 @Transactional
 public class QustionNaireImpl implements IQuestionNaire {
   @Autowired
@@ -59,15 +60,20 @@ public class QustionNaireImpl implements IQuestionNaire {
 
   @Autowired
   private TSurveyAnswersMapper surveyAnswersMapper;
-  
-  
-  @Autowired
-  
-  UserAnswerMapper  userAnswerMapper;
-  
-  
 
-  // 获取题目
+
+  @Autowired
+
+  UserAnswerMapper userAnswerMapper;
+
+
+  
+   
+  @Override
+      /***
+       * 获取题目列表
+       * 
+       */
   public Map<String, Object> getUserQustionNarie(String openId) {
 
     Map<String, Object> map = new HashMap<>();
@@ -101,23 +107,22 @@ public class QustionNaireImpl implements IQuestionNaire {
       Byte ienable = qustionnareinfo.getEnable();
       // 是否转发
       Byte isforward = qustionnareinfo.getForward();
-     Long   ispublic = qustionnareinfo.getIspublic();
-     Date   starttime = qustionnareinfo.getStartTime();
-     Date   endttime = qustionnareinfo.getEndTime() ;
-    String icon=  qustionnareinfo.getIcon();
-    Byte isrepeatanswer= qustionnareinfo.getRepeatedAnswer();
+      Long ispublic = qustionnareinfo.getIspublic();
+      Date starttime = qustionnareinfo.getStartTime();
+      Date endttime = qustionnareinfo.getEndTime();
+      String icon = qustionnareinfo.getIcon();
+      Byte isrepeatanswer = qustionnareinfo.getRepeatedAnswer();
+      obj1.put("questionnaireid", qustionnareinfo.getObjectId());
       obj1.put("backimg", backimgurl);
       obj1.put("titile", titile);
       obj1.put("fengmian", fengmianurl);
       obj1.put("isanonymouns", isanonymouns);
       obj1.put("isforward", isforward);
-      obj1.put("ispublic",ispublic );
-      obj1.put( "starttime",starttime);
+      obj1.put("ispublic", ispublic);
+      obj1.put("starttime", starttime);
       obj1.put("enddate", endttime);
-      
       obj1.put("icon", icon);
       obj1.put("isrepeatanswer", isrepeatanswer);
-    
     }
 
     List<PoJoSubjectInfo> subjectlist =
@@ -134,10 +139,18 @@ public class QustionNaireImpl implements IQuestionNaire {
       subjectlistIds.add(subject.getSubjectid());
 
     }
-      List<TSurveyAnswers> items = pojoSubjectMapper.getAllChoiceitemBySubjectIds(subjectlistIds);
+    List<TSurveyAnswers> items = pojoSubjectMapper.getAllChoiceitemBySubjectIds(subjectlistIds);
 
-      setChoiceItems(subjectlist, items);
+    setChoiceItems(subjectlist, items);
+    subjectlist.sort(new Comparator<PoJoSubjectInfo>() {
 
+      @Override
+      public int compare(PoJoSubjectInfo o1, PoJoSubjectInfo o2) {
+        
+        return o1.getTypeid().compareTo(o2.getTypeid());
+      }});
+    
+    
     obj2.put("subjectlist", subjectlist);
     obj1.putAll(obj2);
     obj1.putAll(obj2);
@@ -151,102 +164,175 @@ public class QustionNaireImpl implements IQuestionNaire {
     return map;
   }
 
+
+
+  /**
+   * 
+   * 
+   * @Author yuruyi
+   * @Description 交卷操作
+   * @Date 2019年3月8日
+   * @Param 前端前端传递过来 参数有 ： openId，questionnaireId， subjectId，choiceId， choiceId，
+   * @return
+   *
+   */
+
+  @Override
+  public Map<String, Object> commitSubject(Map<String, Object> map) {
  
-  
-   /**
-    * 
-    * 
-    * @Author yuruyi
-    * @Description     交卷操作
-    * @Date   2019年3月8日
-    * @Param  
-    * 前端前端传递过来 参数有 ：
-    *   openId，questionnaireId，
-    *   subjectId，choiceId，
-    *   choiceId，
-    * @return  
-    *
-    */
-  public    Map<String,Object>   commitSubject (Map<String ,Object> map) {
     
-     //  openid  
-    String openid  =map.get("openId").toString();
-    //  问卷ID
-    String questionnaireid =map.get("questionnaireId").toString();
-     // 题目ID
-    String  subjectIds=null;
-        if (map.get("subjectIds")!=null) {
-          
-             subjectIds=map.get("subjectIds").toString();  // 多个用，分割
-        }
-        //  选项ID 
-        String  chociceid =map.get("choiceId").toString();  // 多个用,分割
-          // 选项文本
-        String  chocicetext =map.get("chocetxt").toString();
-     
-    
-    // 查询问卷
-         QquestionNaire   questionnaire=  qustionNaireMapper.selectByPrimaryKey(Long.parseLong(questionnaireid));
-     
-        // 題目列表
-        List<String> list=   Arrays.asList(subjectIds.split(",")) ;
-     
-        List<Subject> subjectlist= subjectMapper.selectListBySubjectId(list);
-      
-     
-        
-    //  插入 用戶问卷表
-    UserAnswer uerAnswer= new  UserAnswer();
-    uerAnswer.setOpenid(openid);
-    uerAnswer.setCreateTime(new Date());
-    uerAnswer.setQuestionnaireId( Long.valueOf(questionnaireid));
-    uerAnswer.setSubjectids(subjectIds);
-    uerAnswer.setQustionNaireName(questionnaire.getTitle());
-    //  序列  序列  
-     String   serialnum= TokenGenerator.generateValue() ;
-      uerAnswer.setAnswerSerialNum(serialnum);
-     int result= userAnswerMapper.insertSelective(uerAnswer);
-    
-    
-      if (result>0) {
-        for (Subject item : subjectlist) {
-          
-          UserAnswerDeatil  anserdetail= new UserAnswerDeatil();
-           
-          anserdetail.setOpenId(openid);
-          anserdetail.setSubjectId(item.getObjectId());
-          anserdetail.setSubjectName(item.getName()); 
-          anserdetail.setAnswerResult(chociceid); // 回答結果
-          anserdetail.setCorrectResult(item.getSubjectAnswer());// 正确答案
-          anserdetail.setQuestionnaireId(questionnaire.getObjectId()); // 问卷ID
-          anserdetail.setQuestionnaireName(questionnaire.getTitle());// 问卷名称
-          anserdetail.setSubjectType(item.getTypeId()); // 题型
-          anserdetail.settUserAnswerId(null); // 回答问卷表的ID
-          anserdetail.setSerialnum(serialnum); // 流水号 关联 useranswer 表的     
-          anserdetail.setAnswerScore(null);
-          anserdetail.setAnswerTime(new Date());
-          userAnserDetailMapper.insert(anserdetail);
-          
-        }
+    Map<String, Object> respmap = new HashMap<String, Object>();
+    String openid = map.get("openid").toString();
+    String questionnairid = map.get("questionnairid").toString();
+    String questionnairName = map.get("questionnairName").toString();
+    // 提交的題目信息
+    JSONArray JSONArray = JSON.parseArray(map.get("subjectlist").toString());
+    UserAnswer useranser = new UserAnswer();
+    useranser.setOpenid(openid);
+    useranser.setQuestionnaireId(Long.parseLong(questionnairid));
+    useranser.setQustionNaireName(questionnairName);
+    useranser.setCreateTime(new Date());
+    Integer  commitId = userAnswerMapper.insertSelective(useranser);
+
+    for (int i = 0; i < JSONArray.size(); i++) {
+
+      JSONObject curentobj = JSONArray.getJSONObject(i);
+      String subjectid = curentobj.get("subjectid").toString();
+      String typeid = curentobj.get("typeid").toString();
+      String subjectname = curentobj.get("subjectname").toString();
+
+      // 回答问答题结果 填空題 、打分題結果
+      String answertext =
+          curentobj.get("answertext") == null ? "" : curentobj.get("answertext").toString();
+
+      // 1：单选题 2：多选题 3：填空题 4.打分 5. 选择题
+      JSONArray choiclist = JSON.parseArray(curentobj.get("choicelist").toString());
+
+      Subject subjectinfo = subjectMapper.selectByPrimaryKey(Long.valueOf(subjectid));
+
+
+      UserAnswerDeatil anserdetail = new UserAnswerDeatil();
+      anserdetail.setOpenId(openid);
+      anserdetail.setQuestionnaireId(Long.parseLong(questionnairid));
+      anserdetail.setSubjectId(Long.parseLong(subjectid));
+      anserdetail.setSubjectType(Integer.parseInt(typeid));
+
+      anserdetail.setSerialnum(null);
+      anserdetail.settUserAnswerId(Long.parseLong(commitId.toString()));
+      anserdetail.setQuestionnaireName(questionnairName);
+      anserdetail.setSubjectName(subjectname);
+      anserdetail.setAnswerTime(new Date());
+
+      // 1：单选题 2：多选题 5. 选择题
+      if (typeid == "1" || typeid == "2" || typeid == "5") {
+        String[] arr = (String[]) choiclist.toArray();
+        String anserresultIds = StringUtils.join(arr);
+        anserdetail.setAnswerResult(anserresultIds);
+
+        anserdetail.setCorrectResult(null);
       }
-      map.put("serialnum", serialnum);
-      return map;
+      // 3：填空题 4.打分
+      if (typeid == "3" || typeid == "4") {
+
+        anserdetail.setAnswerResult(answertext);
+        anserdetail.setCorrectResult(subjectinfo.getSubjectAnswer());
+      }
+      userAnserDetailMapper.insertSelective(anserdetail);
+    }
+    respmap.put("questionnaireId",questionnairid);
+    respmap.put("questionnaireName", questionnairName);
+    respmap.put("commitId", commitId);
+ 
+    return respmap;
+  }
+
+
+  
+
+
+  /**
+   * 查詢 試卷题目結果
+   */
+
+  @Override
+  public  Map<String, Object> findSubjectResult(Map<String, Object> map) {
+    Map<String, Object> resultMap = new HashMap<>();
+   // JSONObject subjectobject = new JSONObject();
+
+    String openid = map.get("openid").toString();
+    String questionnairId = map.get("questionnaireid").toString();
+    String commitId = map.get("commitId").toString();   // 对应  T_useranser 表的   objectId
+    QquestionNaire questionnairre =
+        qustionNaireMapper.selectByPrimaryKey(Long.parseLong(questionnairId));
+
+    List<UserAnswerDeatil>  anserdetaillist= userAnserDetailMapper.getAnserSubjectList(openid ,commitId);
+     
+    
+    if (questionnairre==null) {
+      
+      throw new SysException(CodeMsgEnum.ERROR.getCode() ,"问卷信息不存在！");
+    }
+   resultMap.put("backimg", questionnairre.getBackColor());
+   resultMap.put("titile", questionnairre.getTitle());
+   resultMap.put("fengmian", questionnairre.getCover());
+   resultMap.put("isanonymouns", questionnairre.getAnonymous());
+   resultMap.put("isforward", questionnairre.getForward());
+   resultMap.put("ispublic", questionnairre.getIspublic());
+   resultMap.put("starttime", questionnairre.getStartTime());
+   resultMap.put("enddate", questionnairre.getEnable());
+   resultMap.put("icon", questionnairre.getIcon());
+   resultMap.put("isrepeatanswer", questionnairre.getRepeatedAnswer());
+   resultMap.put("count",  questionnairre.getAnswerCount()); // 表示 问卷允许做题次数
+   resultMap.put("description", questionnairre.getQuestionnaireDesc());
+    
+   
+   
+   JSONArray    subjectArrayJson= new JSONArray();
+    for (UserAnswerDeatil userAnswerDeatil : anserdetaillist) {
+      JSONObject  subjectjson= new JSONObject();
+      JSONArray  choicelistjson= new JSONArray();
+      
+        String  subjectype=   userAnswerDeatil.getSubjectType().toString();
+        subjectjson.put("subjectid", userAnswerDeatil.getSubjectId());
+        subjectjson.put("questionnaireid", userAnswerDeatil.getQuestionnaireId());
+        subjectjson.put("name", userAnswerDeatil.getSubjectName());
+        subjectjson.put("typeid", subjectype);
+        subjectjson.put("answerResult",userAnswerDeatil.getAnswerResult() ); // 回答的結果    非填空題    存儲的是 Id 
+        subjectjson.put("correctResult", userAnswerDeatil.getCorrectResult()); // 正確答案結果
+         
+      // 1：单选题 2：多选题 5. 选择题
+      if (subjectype == "1" || subjectype == "2" || subjectype == "5") {
+       // String[] choicelist =userAnswerDeatil.getAnswerResult().split(",")  ;
+        List<TSurveyAnswers> choicelist=  surveyAnswersMapper.selectListBySubjectId(userAnswerDeatil.getSubjectId());
+        choicelistjson.add(choicelist) ;
+      }
+      else {
+        
+      }
+      
+      subjectjson.put("choicelist", choicelistjson);
+     
+      
+      subjectArrayJson.add(subjectjson);
+    }
+    
+    resultMap.put("subjectlist", subjectArrayJson);
+     
+    
+   
+    return resultMap;
   }
    
-  
-   private   void addSubjectInfo(Map<String ,Object> map) {
-     
-     
-           String  openid=  map.get("openid").toString();
-           //  提交的題目id 
-                 List<Long>  subjectIdlist=   (List<Long>)  map.get("subjectIdlist") ;
-           
-           
-                    
-            
-     
-   }
-  
+  /***
+   * 
+   * 获取 用户 做过的问卷问卷列表
+   */
+  @Override
+  public List<UserAnswer> getQuestionNaireList(String openid) {
+    List<UserAnswer> list = userAnswerMapper.getAnserQuestionNaireListByeOpenid(openid);
+    return list;
+
+  }
   
   private void setChoiceItems(List<PoJoSubjectInfo> subjectlist, List<TSurveyAnswers> answerlist) {
 
@@ -254,12 +340,12 @@ public class QustionNaireImpl implements IQuestionNaire {
 
       List<Map<String, Object>> lsit = new ArrayList<>();
       for (TSurveyAnswers sub : answerlist) {
-        if (sub.getQuestionId().equals( subject.getSubjectid())) {
+        if (sub.getQuestionId().equals(subject.getSubjectid())) {
           Map<String, Object> item = new HashMap<>();
           item.put("choiceId", sub.getObjectId());
           item.put("choicetext", sub.getChoiceText());
           item.put("subjectId", sub.getQuestionId());
-             lsit.add(item);
+          lsit.add(item);
         }
         subject.setList(lsit);
       }
@@ -270,116 +356,49 @@ public class QustionNaireImpl implements IQuestionNaire {
 
 
 
-         /**
-          * 查詢 試卷結果
-          */
-  
-  @Override
-  public void findSubjectResult(Map<String, Object> map) {
-    
-    
-    
-        Map<String,Object> resultMap= new  HashMap<>();
-        
-        JSONObject subjectobject= new JSONObject();
-        
-        String openid=  map.get("openid").toString();
-        String questionnairId=  map.get("questionnaireid").toString();
-        String serialnum= map.get("serialnum").toString();
-        
-        QquestionNaire  questionnairre=   qustionNaireMapper.selectByPrimaryKey(Long.parseLong(questionnairId)) ;
-     
-        if (questionnairre==null   ) {
-          return ;
-        }
-          //描述信息
-          String description =  questionnairre.getQuestionnaireDesc();
-          map.put("description", description);
-        //如果是公开的 则显示正确答案 
-          
-             
-            List<UserAnswerDeatil> userAnserDetailList= userAnserDetailMapper.getAnserSubjectList(openid, serialnum, questionnairre.getObjectId()) ;
-           
-            List<PoJoSubjectInfo> subjectlist =    pojoSubjectMapper.getSubjectList( Long.parseLong(  questionnairId ));
-            if (subjectlist == null) {
+  // 获取题目选项
+  private List<TSurveyAnswers> getsubjectitems(List<Long> subjectIdslist) {
 
-              throw new SysException(CodeMsgEnum.ERROR.getCode(), "题目不存在！");
-            }
-
-            List<Long> subjectlistIds = new ArrayList<>();
-
-            for (PoJoSubjectInfo subject : subjectlist) {
-              subjectlistIds.add(subject.getSubjectid());
-            }
-              
-           List<TSurveyAnswers> items =  getsubjectitems(subjectlistIds);
-            
-           for (UserAnswerDeatil userAnswerDeatil : userAnserDetailList) {
-             
-             
-             getAnserSubjectList( userAnswerDeatil ,subjectlist  , items);
-          }
-            resultMap.put("isbulic", questionnairre.getIsPubic());
-            resultMap.put("subjectlist", subjectlist);
-            resultMap.put("isshare", questionnairre.getForward()); 
-    
+    List<TSurveyAnswers> items = pojoSubjectMapper.getAllChoiceitemBySubjectIds(subjectIdslist);
+    return items;
   }
 
-  
-  // 获取题目选项
-    private  List<TSurveyAnswers>  getsubjectitems(  List<Long>   subjectIdslist) {
-      
-      List<TSurveyAnswers> items = pojoSubjectMapper.getAllChoiceitemBySubjectIds(subjectIdslist);
-      return items;
-    }  
-    
-   
-    private  List<PoJoSubjectInfo> getAnserSubjectList(  UserAnswerDeatil  useranserdetail  , List<PoJoSubjectInfo> subjectlist ,List<TSurveyAnswers>  items) {
-      
-      
-        for (PoJoSubjectInfo subject : subjectlist) {
-
-          List<Map<String, Object>> lsit = new ArrayList<>();
-           
-          Map<String,Object> rightresult= new HashMap<>();
-          
-          if(useranserdetail.getCorrectResult().equals(useranserdetail.getAnswerResult()))
-          { 
-            rightresult.put("isright", true); 
-          }
-          else {
-           rightresult.put("isright", false);
-         }
-          rightresult.put("correctresult", useranserdetail.getCorrectResult() );
-          
-          for (TSurveyAnswers sub : items) {
-            if (sub.getQuestionId().equals( subject.getSubjectid())) {
-              Map<String, Object> item = new HashMap<>();
-              item.put("choiceId", sub.getObjectId());
-              item.put("choicetext", sub.getChoiceText());
-              item.put("subjectId", sub.getQuestionId());
-              
-              lsit.add(item);
-            subject.setList(lsit);
-          }
-        }
-          subject.setResultinfo(rightresult); 
-         
-    }
-        
-        return  subjectlist;
-    }
-
  
-   /**
-    *  获取 用户 做过的问卷问卷列表
-    */
-   
-    public  List<UserAnswer>  getQuestionNaireList(String openid) {
-      // 
-     return   userAnswerMapper.getAnserQuestionNaireListByeOpenid(openid);
-                
-       
+  private List<PoJoSubjectInfo> getAnserSubjectList(UserAnswerDeatil useranserdetail,
+      List<PoJoSubjectInfo> subjectlist, List<TSurveyAnswers> items) {
+
+
+    for (PoJoSubjectInfo subject : subjectlist) {
+
+      List<Map<String, Object>> lsit = new ArrayList<>();
+
+      Map<String, Object> rightresult = new HashMap<>();
+
+      if (useranserdetail.getCorrectResult().equals(useranserdetail.getAnswerResult())) {
+        rightresult.put("isright", true);
+      } else {
+        rightresult.put("isright", false);
+      }
+      rightresult.put("correctresult", useranserdetail.getCorrectResult());
+
+      for (TSurveyAnswers sub : items) {
+        if (sub.getQuestionId().equals(subject.getSubjectid())) {
+          Map<String, Object> item = new HashMap<>();
+          item.put("choiceId", sub.getObjectId());
+          item.put("choicetext", sub.getChoiceText());
+          item.put("subjectId", sub.getQuestionId());
+
+          lsit.add(item);
+          subject.setList(lsit);
+        }
+      }
+      subject.setResultinfo(rightresult);
+
     }
+
+    return subjectlist;
+  }
+
+
 
 }

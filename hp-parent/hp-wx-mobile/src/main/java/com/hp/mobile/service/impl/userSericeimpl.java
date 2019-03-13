@@ -16,12 +16,10 @@ public class userSericeimpl implements  IuserService{
   @Override
   public UserInfo getUserByOpenId(String openid) {
     // TODO Auto-generated method stub
-    
      return   userInfoMapper.selectUserByOpenId(openid);
    
   }
 
-	
 
 	
 	

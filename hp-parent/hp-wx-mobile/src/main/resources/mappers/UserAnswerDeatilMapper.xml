@@ -35,7 +35,7 @@
     select 
     <include refid="Base_Column_List" />
     from t_user_answer_detail
-    where open_id = #{openid} and serialnum =#{serialnum} and questionnaire_id=#{questionId}
+    where open_id = #{openid} and t_user_answer_id =#{commitid}    order by  subject_type
   </select>
  
  

@@ -12,6 +12,8 @@ public class UserAnswer {
   private Long questionnaireId;
 
   private Byte deleted;
+  
+ 
 
   private String openid;
 

@@ -20,7 +20,7 @@ public interface UserAnswerDeatilMapper {
     int updateByPrimaryKey(UserAnswerDeatil record);
     
     
-    List<UserAnswerDeatil>   getAnserSubjectList(@Param("openid") String openid,  @Param("serialnum") String serialnum,@Param("questionId") Long questionId);
+    List<UserAnswerDeatil>   getAnserSubjectList(@Param("openid") String openid,  @Param("commitid") String commitid);
     
       
 }

@@ -38,7 +38,7 @@ public class AuthController {
 		JSONObject  jsonobjet=	webchageService.getSessionKey(req.get("code").toString() ,req.get("rawData").toString());
 		map.put("openid", jsonobjet.get("openid")) ; 
 		map.put("sessionkey", jsonobjet.get("sessionkey"));
-		 map.put("userinfo",  jsonobjet.get("userinfo"));
-		 return  Result.ok(map);    
+		map.put("userinfo",  jsonobjet.get("userinfo"));
+		return  Result.ok(map);    
  	}
 }

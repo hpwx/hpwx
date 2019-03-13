@@ -7,9 +7,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import com.hp.mobile.entity.UserAnswer;
+import com.hp.mobile.mapper.SubjectMapper;
 import com.hp.mobile.service.IQuestionNaire;
 import com.hp.mobile.utils.WxApiUtils;
 import com.ym.ms.entity.Result;
@@ -51,17 +53,14 @@ public class QuestionNaireController {
    * @return  
    *
    */
-  @RequestMapping("/commitQustionNaire")
+  @RequestMapping( value="/commitQustionNaire" ,method=RequestMethod.POST)
   public Result commitQustionNaire(@RequestParam Map<String, Object> map) {
-
     if (map == null) {
-
       return Result.error("0002", "参数传递错误！");
     }
     Map<String, Object> resultmap = questionNaire.commitSubject(map);
     return Result.ok(resultmap);
   }
-
 
   /**
    * 
@@ -78,13 +77,9 @@ public class QuestionNaireController {
     if (map == null) {
       return Result.error("0002", "参数传递错误！");
     }
-
-
-    questionNaire.findSubjectResult(map);
-    return Result.ok("提交完成");
+      Map<String,Object> retMap= questionNaire.findSubjectResult(map);
+    return Result.ok(retMap);
   }
-
-
 
   /**
    * 

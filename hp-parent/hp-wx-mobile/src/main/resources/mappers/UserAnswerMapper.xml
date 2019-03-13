@@ -50,7 +50,7 @@
       #{questionnaireId,jdbcType=BIGINT}, #{deleted,jdbcType=TINYINT}, #{openid,jdbcType=VARCHAR}, 
       #{subjectids,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.hp.mobile.entity.UserAnswer">
+<insert id="insertSelective" parameterType="com.hp.mobile.entity.UserAnswer" useGeneratedKeys="true" keyProperty="objectId">
     insert into t_user_answer
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="objectId != null">

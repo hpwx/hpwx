@@ -75,6 +75,7 @@
        					 separator="," close=")">
                 		  #{subjectid}
                 </foreach>
+                 order by  t_subject.type_id
         
   </select>
   
