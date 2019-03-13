@@ -10,7 +10,7 @@ public interface UserAnswerMapper {
 
     int insert(UserAnswer record);
 
-    int insertSelective(UserAnswer record);
+    Long insertSelective(UserAnswer record);
 
     UserAnswer selectByPrimaryKey(Long objectId);
 

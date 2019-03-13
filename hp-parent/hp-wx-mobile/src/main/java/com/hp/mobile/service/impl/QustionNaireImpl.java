@@ -7,7 +7,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import org.apache.tomcat.util.buf.StringUtils;
-import org.aspectj.apache.bcel.classfile.Code;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -20,7 +19,6 @@ import com.hp.mobile.entity.Subject;
 import com.hp.mobile.entity.TSurveyAnswers;
 import com.hp.mobile.entity.UserAnswer;
 import com.hp.mobile.entity.UserAnswerDeatil;
-import com.hp.mobile.entity.UserInfo;
 import com.hp.mobile.mapper.PoJoSubjectInfoMapper;
 import com.hp.mobile.mapper.QquestionNaireMapper;
 import com.hp.mobile.mapper.QquestionNaireSubjectMapper;
@@ -74,24 +72,19 @@ public class QustionNaireImpl implements IQuestionNaire {
        * 获取题目列表
        * 
        */
-  public Map<String, Object> getUserQustionNarie(String openId) {
-
+  public Map<String, Object> getUserQustionNarie(String questionnaireid) {
     Map<String, Object> map = new HashMap<>();
+    
+    QquestionNaire qustionnareinfo=   qustionNaireMapper.selectByPrimaryKey(Long.parseLong(questionnaireid));
+     if ( qustionnareinfo.getAnswerCount()!=null&&  qustionnareinfo.getAnswerpersoncount()!=null) {
+        if (qustionnareinfo.getAnswerpersoncount()>=qustionnareinfo.getAnswerCount()) {
+          throw new  SysException("该问卷作答次数已到 。无法在进行做题！");
+        }
+     }
+     
+     JSONObject obj1 = new JSONObject();
 
-    UserInfo userinfo = userSerice.getUserByOpenId(openId);
-    if (userinfo == null || userinfo.getQuestionnaireIds() == null) {
-      throw new SysException(CodeMsgEnum.ERROR.getCode(), " 没有问卷信息");
-    }
-    // 查询问卷ID
-    String questionnaireid = userinfo.getQuestionnaireIds();
-
-    QquestionNaire qustionnareinfo =
-        qustionNaireMapper.selectByPrimaryKey(Long.parseLong(questionnaireid));
-
-
-    JSONObject obj1 = new JSONObject();
-
-    JSONObject obj2 = new JSONObject();
+     JSONObject obj2 = new JSONObject();
 
     if (qustionnareinfo != null) {
       // 背景图片
@@ -150,7 +143,6 @@ public class QustionNaireImpl implements IQuestionNaire {
         return o1.getTypeid().compareTo(o2.getTypeid());
       }});
     
-    
     obj2.put("subjectlist", subjectlist);
     obj1.putAll(obj2);
     obj1.putAll(obj2);
@@ -186,24 +178,28 @@ public class QustionNaireImpl implements IQuestionNaire {
     String questionnairid = map.get("questionnairid").toString();
     String questionnairName = map.get("questionnairName").toString();
     // 提交的題目信息
-    JSONArray JSONArray = JSON.parseArray(map.get("subjectlist").toString());
+   String  jsonsubjectlist=    JSONObject.toJSONString(map.get("subjectlist"));
+    JSONArray jsonarray = JSONArray.parseArray( jsonsubjectlist);
+    
+    
+//    JSONArray JSONArray = JSON.parseArray(map.get("subjectlist").toString());
     UserAnswer useranser = new UserAnswer();
     useranser.setOpenid(openid);
     useranser.setQuestionnaireId(Long.parseLong(questionnairid));
     useranser.setQustionNaireName(questionnairName);
     useranser.setCreateTime(new Date());
-    Integer  commitId = userAnswerMapper.insertSelective(useranser);
+    userAnswerMapper.insertSelective(useranser);
+    Long  commitId =  useranser.getObjectId();
+    for (int i = 0; i < jsonarray.size(); i++) {
 
-    for (int i = 0; i < JSONArray.size(); i++) {
-
-      JSONObject curentobj = JSONArray.getJSONObject(i);
+      JSONObject curentobj = jsonarray.getJSONObject(i);
       String subjectid = curentobj.get("subjectid").toString();
       String typeid = curentobj.get("typeid").toString();
       String subjectname = curentobj.get("subjectname").toString();
 
       // 回答问答题结果 填空題 、打分題結果
       String answertext =
-          curentobj.get("answertext") == null ? "" : curentobj.get("answertext").toString();
+          curentobj.get("answertext")  == null ? "" : curentobj.get("answertext").toString();
 
       // 1：单选题 2：多选题 3：填空题 4.打分 5. 选择题
       JSONArray choiclist = JSON.parseArray(curentobj.get("choicelist").toString());
@@ -398,6 +394,30 @@ public class QustionNaireImpl implements IQuestionNaire {
 
     return subjectlist;
   }
+
+
+
+  
+   
+  /***
+   *  根据 ID 获取问卷信息
+   */
+  @Override
+   public    List<QquestionNaire>   getActiveQuestionNaireInfo( )  {
+    // TODO Auto-generated method stub
+    
+     List<QquestionNaire>  list= qustionNaireMapper.selectQquestionNaireByEnable(Byte.parseByte("1"));
+    
+       return list; 
+    
+  }
+
+
+
+  
+
+
+ 
 
 
 

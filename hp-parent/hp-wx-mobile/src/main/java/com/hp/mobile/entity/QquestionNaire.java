@@ -35,6 +35,17 @@ public class QquestionNaire {
 
     private String backColor;
     
+    
+    public Short getAnswerpersoncount() {
+      return answerpersoncount;
+    }
+
+    public void setAnswerpersoncount(Short answerpersoncount) {
+      this.answerpersoncount = answerpersoncount;
+    }
+
+    private Short  answerpersoncount;
+    
     public Long getIsPubic() {
       return isPubic;
     }

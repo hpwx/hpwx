@@ -18,6 +18,7 @@
     <result column="cover" jdbcType="VARCHAR" property="cover" />
     <result column="enable" jdbcType="TINYINT" property="enable" />
     <result column="back_color" jdbcType="VARCHAR" property="backColor" />
+     <result column="answer_person_count" jdbcType="SMALLINT" property="answerpersoncount" />
     
        <result column="is_public" jdbcType="TINYINT" property="isPubic" />
          <result column="start_time" jdbcType="DATE" property="startTime" />
@@ -28,7 +29,7 @@
   <sql id="Base_Column_List">
     object_id, create_time, create_user, update_time, update_user, deleted, anonymous, 
     forward, repeated_answer, answer_count, title, questionnaire_desc, icon, cover, enable, 
-    back_color,is_public, start_time,end_time,is_public
+    back_color,is_public, start_time,end_time,is_public,answer_person_count
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
     select 
@@ -36,6 +37,18 @@
     from t_questionnaire
     where object_id = #{objectId,jdbcType=BIGINT}
   </select>
+ 
+ 
+
+   <select id="selectQquestionNaireByEnable" parameterType="java.lang.Byte" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_questionnaire
+    where enable = #{enable,jdbcType=TINYINT}
+  </select>
+ 
+ 
+ 
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
     delete from t_questionnaire
     where object_id = #{objectId,jdbcType=BIGINT}
@@ -227,4 +240,8 @@
       back_color = #{backColor,jdbcType=VARCHAR}
     where object_id = #{objectId,jdbcType=BIGINT}
   </update>
+
+
+
+
 </mapper>
