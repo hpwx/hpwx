@@ -6,18 +6,22 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 <link rel="stylesheet" href="../../css/bootstrap.min.css">
+<link rel="stylesheet" href="../../plugins/layui-v2.4.5/layui/css/layui.css">
 <link rel="stylesheet" href="../../css/font-awesome.min.css">
 <link rel="stylesheet" href="../../plugins/jqgrid/ui.jqgrid-bootstrap.css">
 <link rel="stylesheet" href="../../plugins/ztree/css/metroStyle/metroStyle.css">
 <link rel="stylesheet" href="../../css/main.css">
 <script src="../../libs/jquery.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../plugins/ueditor/ueditor.config.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../plugins/ueditor/ueditor.all.min.js"> </script>
 <script src="../../plugins/layer/layer.js"></script>
+<script src="../../plugins/layui-v2.4.5/layui/layui.js"></script>
 <script src="../../libs/bootstrap.min.js"></script>
 <script src="../../libs/vue.min.js"></script>
 <script src="../../plugins/jqgrid/grid.locale-cn.js"></script>
 <script src="../../plugins/jqgrid/jquery.jqGrid.min.js"></script>
 <script src="../../plugins/ztree/jquery.ztree.all.min.js"></script>
-	<script src="../../js/baseURL.js"></script>
+<script src="../../js/baseURL.js"></script>
 <script src="../../js/common.js"></script>
 </head>
 <body>
@@ -41,54 +45,132 @@
 		<div class="panel-heading">{{title}}</div>
 		<form class="form-horizontal">
 			<div class="form-group">
-			   	<div class="col-sm-2 control-label">问卷标题</div>
+			   	<div class="col-sm-2 control-label">问卷类型</div>
 			   	<div class="col-sm-10">
-			      <input type="text" class="form-control" v-model="role.roleName" placeholder="问卷标题"/>
+			      <!--<input type="text" class="form-control" v-model="role.roleName" placeholder="问卷标题"/>-->
+					<select id="disabledSelect" class="form-control" v-model="questionObj.questionnaire">
+					<option value="-1">请选择</option>
+					<option value="1">滴滴安全问卷</option>
+					<option value="2">美团打车安全问卷</option>
+					</select>
 			    </div>
+			</div>
+
+			<div class="form-group">
+				<div class="col-sm-2 control-label">题目名称</div>
+				<div class="col-sm-10">
+					<!--<input type="text" class="form-control" v-model="role.remark" placeholder="问卷描述"/>-->
+					<div id="editor" style="width:800px;min-height:50px;"></div>
+				</div>
 			</div>
 			<div class="form-group">
-			   	<div class="col-sm-2 control-label">问卷描述</div>
+			   	<div class="col-sm-2 control-label">题目类型</div>
 			   	<div class="col-sm-10">
-			      <input type="text" class="form-control" v-model="role.remark" placeholder="问卷描述"/>
+
+                    <label class="radio-inline" v-for="(item,index) in radioList" @click="questionTypeCheck(item)">
+                    	<input type="radio" name="is_type" v-model="radioValue" :value="item.value"> {{item.text}}
+                    </label>
+
+                    <!--<label class="radio-inline">-->
+                    <!--<input type="radio" name="is_reply"  value="2"> 多选-->
+                    <!--</label>-->
+
+                    <!--<label class="radio-inline">-->
+                    <!--<input type="radio" name="is_reply"  value="2"> 填空-->
+                    <!--</label>-->
+
+                    <!--<label class="radio-inline">-->
+                    <!--<input type="radio" name="is_reply"  value="2"> 打分-->
+                    <!--</label>-->
 			    </div>
 			</div>
+
+			<!--单选区域-->
+			<div class="form-group relativeClass" v-show="showChooseFlag && radioAndCheckBoxFlag">
+				<div v-for="(item,i) of questionObj.questionRadioItems">
+					<div class="col-sm-2 control-label">单选答案{{i+1}}</div>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" v-model="questionObj.questionRadioItems[i]" :key="i" placeholder="请输入答案"/>
+					</div>
+				</div>
+
+				<i class="layui-icon layui-icon-add-2" @click="addRadioInput"></i>
+
+				<i v-if="answerSelect.length > 1" class="glyphicon glyphicon-minus layui-icon-add-3" @click="delRadioInput"></i>
+			</div>
+
+			<!--多选区域-->
+			<div class="form-group relativeClass" v-show="(!showChooseFlag) && radioAndCheckBoxFlag">
+				<div v-for="(item,i) of questionObj.questionCheckboxItems">
+					<div class="col-sm-2 control-label">多选答案{{i+1}}</div>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" v-model="questionObj.questionCheckboxItems[i]" :key="i" placeholder="请输入答案"/>
+					</div>
+				</div>
+
+				<i class="layui-icon layui-icon-add-2" @click="addCheckboxInput"></i>
+				<i v-if="answerSelect.length > 1" class="glyphicon glyphicon-minus layui-icon-add-3" @click="delCheckboxInput"></i>
+			</div>
+
+
+			<div class="form-group" v-show="starShowFlag">
+				<div class="col-sm-2 control-label">题目评分</div>
+				<div class="col-sm-10">
+					<div class="col-sm-5" style="padding-left: 0px">
+						<div class="input-group input-group-lg">
+							<span class="input-group-addon" id="sizing-addon1"><i class="glyphicon glyphicon-star-empty"></i></span>
+							<input type="tel" class="form-control" v-model="questionObj.starNum" placeholder="星评的个数"/>
+						</div>
+					</div>
+					<div class="col-sm-5">
+						<div class="input-group input-group-lg">
+							<span class="input-group-addon">分值</span>
+							<input type="tel" class="form-control" v-model="questionObj.starScore" placeholder="单个星的分值"/>
+						</div>
+
+					</div>
+				</div>
+			</div>
+
+			<!--<div @click="test">test</div>-->
 			
 			<div class="form-group">
-			   	<div class="col-sm-2 control-label">问卷图片</div>
+			   	<div class="col-sm-2 control-label">是否必答</div>
 			   	<div class="col-sm-10">
-			      <input type="text" class="form-control" v-model="role.remark" placeholder="问卷图片"/>
+			      <!--<input type="text" class="form-control" v-model="role.remark" placeholder="是否转发"/>-->
+					<label class="radio-inline" v-for="item in isRequiredRadioList" @click="isRequiredFun(item)">
+						<input type="radio" name="is_required"  :value="item.value" v-model="radioRequiredValue"> {{item.text}}
+					</label>
 			    </div>
 			</div>
-			
-			<div class="form-group">
-			   	<div class="col-sm-2 control-label">是否转发</div>
-			   	<div class="col-sm-10">
-			      <input type="text" class="form-control" v-model="role.remark" placeholder="是否转发"/>
-			    </div>
+
+			<!--单选答案-->
+			<div class="form-group" v-if="answerSelect.length >= 1"  v-show="radioAndCheckBoxFlag && showChooseFlag">
+				<div class="col-sm-2 control-label">单选答案</div>
+				<div class="col-sm-10">
+					<!--<input type="text" class="form-control" v-model="role.roleName" placeholder="问卷标题"/>-->
+					<select id="answer" class="form-control" v-model="questionObj.radioAnswer">
+						<option v-if="item != ''" value="1" v-for="item in answerSelect">{{item}}</option>
+					</select>
+				</div>
+			</div>
+
+			<!--多选答案-->
+			<div class="form-group" v-if="answerSelect.length >=1" v-show="(!showChooseFlag) && radioAndCheckBoxFlag">
+				<div class="col-sm-2 control-label">多选答案</div>
+				<div class="col-sm-10">
+					<label class="radio-inline" v-if="item != ''" v-for="(item,index) in answerSelect" @click="answerCheckBox(item)">
+						<input type="checkbox" name="is_answer" :value="item.value" v-model="questionObj.checkBoxAnswer"> {{item}}
+					</label>
+				</div>
 			</div>
 			
-			<div class="form-group">
-			   	<div class="col-sm-2 control-label">是否重复答题</div>
+			<div class="form-group" v-show="(!radioAndCheckBoxFlag) && !starShowFlag">
+			   	<div class="col-sm-2 control-label">填空答案</div>
 			   	<div class="col-sm-10">
-			      <input type="text" class="form-control" v-model="role.remark" placeholder="是否重复答题"/>
+			      <input type="text" class="form-control" v-model="questionObj.inputAnswer" placeholder="请输入答案"/>
 			    </div>
 			</div>
-			
-			<div class="form-group">
-			   	<div class="col-sm-2 control-label">问卷封面设置</div>
-			   	<div class="col-sm-10">
-			      <input type="text" class="form-control" v-model="role.remark" placeholder="问卷封面设置"/>
-			    </div>
-			</div>
-			
-			<div class="form-group">
-			   	<div class="col-sm-2 control-label">是否匿名</div>
-			   	<div class="col-sm-10">
-			      <input type="text" class="form-control" v-model="role.remark" placeholder="是否匿名"/>
-			    </div>
-			</div>
-			
-			
 			
 			<div class="form-group">
 				<div class="col-sm-2 control-label"></div> 
@@ -98,7 +180,7 @@
 		</form>
 	</div>
 </div>
-   
+
 <script src="../../js/modules/sys/subject.js"></script>
 </body>
 </html>
