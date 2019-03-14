@@ -11,5 +11,11 @@ public class CheckHeathController {
 	  public String  healthcheck() {
 	  
 		  return "OK";
-	  }   
+	  } 
+	
+	@RequestMapping("/getport")
+    public String  getPort() {
+    
+        return "8002";
+    } 
 }

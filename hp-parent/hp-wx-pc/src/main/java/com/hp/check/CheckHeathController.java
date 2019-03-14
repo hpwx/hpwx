@@ -9,4 +9,9 @@ public class CheckHeathController {
   
       return "OK";
   }   
+  
+  @RequestMapping("/getport")
+  public String  getPort() {
+      return "8001";
+  } 
 }
