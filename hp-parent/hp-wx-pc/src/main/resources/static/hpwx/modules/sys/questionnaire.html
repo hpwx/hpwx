@@ -7,11 +7,13 @@
 <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 <link rel="stylesheet" href="../../css/bootstrap.min.css">
 <link rel="stylesheet" href="../../css/font-awesome.min.css">
+<link rel="stylesheet" href="../../plugins/layui-v2.4.5/layui/css/layui.css">
 <link rel="stylesheet" href="../../plugins/jqgrid/ui.jqgrid-bootstrap.css">
 <link rel="stylesheet" href="../../plugins/ztree/css/metroStyle/metroStyle.css">
 <link rel="stylesheet" href="../../css/main.css">
 <script src="../../libs/jquery.min.js"></script>
 <script src="../../plugins/layer/layer.js"></script>
+<script src="../../plugins/layui-v2.4.5/layui/layui.js"></script>
 <script src="../../libs/bootstrap.min.js"></script>
 <script src="../../libs/vue.min.js"></script>
 <script src="../../plugins/jqgrid/grid.locale-cn.js"></script>
@@ -44,51 +46,178 @@
 			   	<div class="col-sm-2 control-label">问卷标题</div>
 			   	<div class="col-sm-10">
 			      <input type="text" class="form-control" v-model="role.roleName" placeholder="问卷标题"/>
+
+					<!--<select id="disabledSelect" class="form-control">-->
+						<!--<option value="">请选择</option>-->
+						<!--<option value="1">滴滴安全问卷</option>-->
+						<!--<option value="2">美团打车安全问卷</option>-->
+					<!--</select>-->
 			    </div>
+			</div>
+
+			<div class="form-group">
+				<div class="col-sm-2 control-label">问卷调查数量</div>
+				<div class="col-sm-10">
+					<input type="tel" class="form-control" v-model="role.roleName" />
+				</div>
 			</div>
 			<div class="form-group">
 			   	<div class="col-sm-2 control-label">问卷描述</div>
 			   	<div class="col-sm-10">
-			      <input type="text" class="form-control" v-model="role.remark" placeholder="问卷描述"/>
+			      <!--<input type="text" class="form-control" v-model="role.remark" placeholder="问卷描述"/>-->
+					<textarea name="description" class="form-control" rows="3"></textarea>
 			    </div>
 			</div>
-			
-			<div class="form-group">
-			   	<div class="col-sm-2 control-label">问卷图片</div>
-			   	<div class="col-sm-10">
-			      <input type="text" class="form-control" v-model="role.remark" placeholder="问卷图片"/>
-			    </div>
-			</div>
-			
+
 			<div class="form-group">
 			   	<div class="col-sm-2 control-label">是否转发</div>
 			   	<div class="col-sm-10">
-			      <input type="text" class="form-control" v-model="role.remark" placeholder="是否转发"/>
+			      <!--<input type="text" class="form-control" v-model="role.remark" placeholder="是否转发"/>-->
+				<label class="radio-inline">
+					<input type="radio" name="inlineRadioOptions" value="1"> 不禁止
+				</label>
+				<label class="radio-inline">
+					<input type="radio" name="inlineRadioOptions" value="2"> 禁止
+				</label>
 			    </div>
 			</div>
 			
 			<div class="form-group">
 			   	<div class="col-sm-2 control-label">是否重复答题</div>
 			   	<div class="col-sm-10">
-			      <input type="text" class="form-control" v-model="role.remark" placeholder="是否重复答题"/>
+			      <!--<input type="text" class="form-control" v-model="role.remark" placeholder="是否重复答题"/>-->
+
+					<label class="radio-inline">
+						<input type="radio" name="is_reply"  value="1"> 支持
+					</label>
+					<label class="radio-inline">
+						<input type="radio" name="is_reply"  value="2"> 不支持
+					</label>
+
 			    </div>
 			</div>
-			
+
 			<div class="form-group">
-			   	<div class="col-sm-2 control-label">问卷封面设置</div>
-			   	<div class="col-sm-10">
-			      <input type="text" class="form-control" v-model="role.remark" placeholder="问卷封面设置"/>
-			    </div>
+				<div class="col-sm-2 control-label">是否置顶</div>
+				<div class="col-sm-10">
+					<!--<input type="text" class="form-control" v-model="role.remark" placeholder="是否重复答题"/>-->
+
+					<label class="radio-inline">
+						<input type="radio" name="is_top"  value="1"> 是
+					</label>
+					<label class="radio-inline">
+						<input type="radio" name="is_top"  value="2"> 否
+					</label>
+
+				</div>
 			</div>
+
+			<div class="form-group">
+				<div class="col-sm-2 control-label">题目翻转样式</div>
+				<div class="col-sm-10">
+					<!--<input type="text" class="form-control" v-model="role.remark" placeholder="是否重复答题"/>-->
+
+					<label class="radio-inline">
+						<input type="radio" name="style_status"  value="1"> 显示所有题目
+					</label>
+					<label class="radio-inline">
+						<input type="radio" name="style_status"  value="2"> 左右滑动
+					</label>
+
+					<label class="radio-inline">
+						<input type="radio" name="style_status"  value="2"> 点击翻动
+					</label>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<div class="col-sm-2 control-label">是否公开</div>
+				<div class="col-sm-10">
+					<!--<input type="text" class="form-control" v-model="role.remark" placeholder="是否重复答题"/>-->
+
+					<label class="radio-inline">
+						<input type="radio" name="is_public"  value="1"> 公开
+					</label>
+					<label class="radio-inline">
+						<input type="radio" name="is_public"  value="2"> 不公开
+					</label>
+				</div>
+			</div>
+
+
+
 			
 			<div class="form-group">
 			   	<div class="col-sm-2 control-label">是否匿名</div>
 			   	<div class="col-sm-10">
-			      <input type="text" class="form-control" v-model="role.remark" placeholder="是否匿名"/>
+			      <!--<input type="text" class="form-control" v-model="role.remark" placeholder="是否匿名"/>-->
+					<label class="radio-inline">
+						<input type="radio" name="is_anonymous"  value="1"> 记名
+					</label>
+					<label class="radio-inline">
+						<input type="radio" name="is_anonymous"  value="2"> 匿名
+					</label>
 			    </div>
 			</div>
-			
-			
+
+			<div class="form-group">
+				<div class="col-sm-2 control-label">问卷图片</div>
+				<div class="col-sm-10">
+					<!--<input type="text" class="form-control" v-model="role.remark" placeholder="问卷图片"/>-->
+
+
+					<div class="layui-upload">
+						<!-- <button type="button" class="layui-btn" >上传图片</button> -->
+						<div class="layui-upload-list" id="imgupload">
+							<i class="layui-icon layui-icon-add-1"></i>
+							<img class="layui-upload-img" id="imguploadpreview">
+						</div>
+					</div>
+
+				</div>
+			</div>
+
+			<div class="form-group">
+				<div class="col-sm-2 control-label">问卷封面设置</div>
+				<div class="col-sm-10">
+					<!--<input type="text" class="form-control" v-model="role.remark" placeholder="问卷封面设置"/>-->
+
+					<div class="layui-upload">
+						<!-- <button type="button" class="layui-btn" >上传图片</button> -->
+						<div class="layui-upload-list" id="backupload">
+							<i class="layui-icon layui-icon-add-1"></i>
+							<img class="layui-upload-img" id="backuploadpreview">
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<div class="col-sm-2 control-label">题目背景</div>
+				<div class="col-sm-10">
+					<div class="layui-upload">
+						<!-- <button type="button" class="layui-btn" >上传图片</button> -->
+						<div class="layui-upload-list" id="questionImgUpload">
+							<i class="layui-icon layui-icon-add-1"></i>
+							<img class="layui-upload-img" id="imguploadpreview">
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<div class="col-sm-2 control-label">活动时间</div>
+				<div class="col-sm-10">
+					<input type="text" class="layui-input" id="startTime" readonly="readonly">
+				</div>
+			</div>
+
+			<!--<div class="form-group">-->
+				<!--<div class="col-sm-2 control-label">截止时间</div>-->
+				<!--<div class="col-sm-10">-->
+					<!--<input type="text" class="layui-input" id="endTime">-->
+				<!--</div>-->
+			<!--</div>-->
 			
 			<div class="form-group">
 				<div class="col-sm-2 control-label"></div> 
