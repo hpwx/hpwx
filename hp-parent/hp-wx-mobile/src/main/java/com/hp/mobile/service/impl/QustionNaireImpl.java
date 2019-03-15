@@ -6,10 +6,11 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import org.apache.tomcat.util.buf.StringUtils;
+ 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.StringUtils;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
@@ -156,8 +157,6 @@ public class QustionNaireImpl implements IQuestionNaire {
     return map;
   }
 
-
-
   /**
    * 
    * 
@@ -197,12 +196,18 @@ public class QustionNaireImpl implements IQuestionNaire {
       String typeid = curentobj.get("typeid").toString();
       String subjectname = curentobj.get("subjectname").toString();
 
+ 
+      
+      
       // 回答问答题结果 填空題 、打分題結果
       String answertext =
-          curentobj.get("answertext")  == null ? "" : curentobj.get("answertext").toString();
+          StringUtils.isEmpty( curentobj.get("answertext")) ? "" : curentobj.get("answertext").toString();
 
       // 1：单选题 2：多选题 3：填空题 4.打分 5. 选择题
-      JSONArray choiclist = JSON.parseArray(curentobj.get("choicelist").toString());
+      
+     
+      
+          String  chocestring=  curentobj.get("choicelist").toString();
 
       Subject subjectinfo = subjectMapper.selectByPrimaryKey(Long.valueOf(subjectid));
 
@@ -220,16 +225,14 @@ public class QustionNaireImpl implements IQuestionNaire {
       anserdetail.setAnswerTime(new Date());
 
       // 1：单选题 2：多选题 5. 选择题
-      if (typeid == "1" || typeid == "2" || typeid == "5") {
-        String[] arr = (String[]) choiclist.toArray();
-        String anserresultIds = StringUtils.join(arr);
-        anserdetail.setAnswerResult(anserresultIds);
-
-        anserdetail.setCorrectResult(null);
+      if ("1".equals( typeid )  ||   "2".equals( typeid )  ||  "5" .equals( typeid) ) {
+//        String[] arr = (String[]) choiclist.toArray();
+//        String anserresultIds = StringUtils.join(arr);
+        anserdetail.setAnswerResult(chocestring);
+        anserdetail.setCorrectResult(subjectinfo.getSubjectAnswer());
       }
       // 3：填空题 4.打分
-      if (typeid == "3" || typeid == "4") {
-
+      if ( "3".equals( typeid )  ||  "4".equals( typeid ) ) {
         anserdetail.setAnswerResult(answertext);
         anserdetail.setCorrectResult(subjectinfo.getSubjectAnswer());
       }
@@ -238,7 +241,6 @@ public class QustionNaireImpl implements IQuestionNaire {
     respmap.put("questionnaireId",questionnairid);
     respmap.put("questionnaireName", questionnairName);
     respmap.put("commitId", commitId);
- 
     return respmap;
   }
 

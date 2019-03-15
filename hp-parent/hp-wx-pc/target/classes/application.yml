@@ -1,11 +1,3 @@
-server:
-    tomcat:
-        uri-encoding: UTF-8
-        max-threads: 1000
-        min-spare-threads: 30
-    port: 5000    # 8001
-    connection-timeout: 5000
-    context-path: /hpwxpc
 spring:
     profiles:
         active: test

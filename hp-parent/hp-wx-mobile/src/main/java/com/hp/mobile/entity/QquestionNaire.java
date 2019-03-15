@@ -35,7 +35,16 @@ public class QquestionNaire {
 
     private String backColor;
     
+    private   Byte questionnairestylestatus;
     
+    public Byte getQuestionnairestylestatus() {
+      return questionnairestylestatus;
+    }
+
+    public void setQuestionnairestylestatus(Byte questionnairestylestatus) {
+      this.questionnairestylestatus = questionnairestylestatus;
+    }
+
     public Short getAnswerpersoncount() {
       return answerpersoncount;
     }
