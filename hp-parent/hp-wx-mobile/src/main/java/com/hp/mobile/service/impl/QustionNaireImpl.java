@@ -6,14 +6,13 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
- 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
-import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
+import com.google.common.base.Joiner;
 import com.hp.mobile.entity.PoJoSubjectInfo;
 import com.hp.mobile.entity.QquestionNaire;
 import com.hp.mobile.entity.Subject;
@@ -67,12 +66,11 @@ public class QustionNaireImpl implements IQuestionNaire {
 
 
   
-   
+  /***
+   * 获取题目列表
+   * 
+   */
   @Override
-      /***
-       * 获取题目列表
-       * 
-       */
   public Map<String, Object> getUserQustionNarie(String questionnaireid) {
     Map<String, Object> map = new HashMap<>();
     
@@ -84,9 +82,7 @@ public class QustionNaireImpl implements IQuestionNaire {
      }
      
      JSONObject obj1 = new JSONObject();
-
      JSONObject obj2 = new JSONObject();
-
     if (qustionnareinfo != null) {
       // 背景图片
       String backimgurl = qustionnareinfo.getBackColor();
@@ -123,12 +119,10 @@ public class QustionNaireImpl implements IQuestionNaire {
         pojoSubjectMapper.getSubjectList(Long.parseLong(questionnaireid));
 
     if (subjectlist == null) {
-
       throw new SysException(CodeMsgEnum.ERROR.getCode(), "题目不存在！");
     }
-
     List<Long> subjectlistIds = new ArrayList<>();
-
+    
     for (PoJoSubjectInfo subject : subjectlist) {
       subjectlistIds.add(subject.getSubjectid());
 
@@ -147,8 +141,6 @@ public class QustionNaireImpl implements IQuestionNaire {
     obj2.put("subjectlist", subjectlist);
     obj1.putAll(obj2);
     obj1.putAll(obj2);
-
-
     map = JSONObject.toJavaObject(obj1, Map.class);
     // 是否修改答案
 
@@ -174,8 +166,11 @@ public class QustionNaireImpl implements IQuestionNaire {
     
     Map<String, Object> respmap = new HashMap<String, Object>();
     String openid = map.get("openid").toString();
-    String questionnairid = map.get("questionnairid").toString();
+                                      
+    String questionnairid = map.get("questionnaireid").toString();
     String questionnairName = map.get("questionnairName").toString();
+    
+    QquestionNaire   questionnaireinfo= qustionNaireMapper.selectByPrimaryKey( Long.parseLong(questionnairid));
     // 提交的題目信息
    String  jsonsubjectlist=    JSONObject.toJSONString(map.get("subjectlist"));
     JSONArray jsonarray = JSONArray.parseArray( jsonsubjectlist);
@@ -195,9 +190,6 @@ public class QustionNaireImpl implements IQuestionNaire {
       String subjectid = curentobj.get("subjectid").toString();
       String typeid = curentobj.get("typeid").toString();
       String subjectname = curentobj.get("subjectname").toString();
-
- 
-      
       
       // 回答问答题结果 填空題 、打分題結果
       String answertext =
@@ -205,9 +197,12 @@ public class QustionNaireImpl implements IQuestionNaire {
 
       // 1：单选题 2：多选题 3：填空题 4.打分 5. 选择题
       
-     
       
-          String  chocestring=  curentobj.get("choicelist").toString();
+             List<Object> choiclist=(List<Object>) curentobj.get("choicelist");
+    //  JSONArray choiclist = JSON.parseArray(curentobj.get("choicelist").toString());
+      
+      
+       //   String  chocestring=    curentobj.get("choicelist").toString();
 
       Subject subjectinfo = subjectMapper.selectByPrimaryKey(Long.valueOf(subjectid));
 
@@ -226,9 +221,9 @@ public class QustionNaireImpl implements IQuestionNaire {
 
       // 1：单选题 2：多选题 5. 选择题
       if ("1".equals( typeid )  ||   "2".equals( typeid )  ||  "5" .equals( typeid) ) {
-//        String[] arr = (String[]) choiclist.toArray();
-//        String anserresultIds = StringUtils.join(arr);
-        anserdetail.setAnswerResult(chocestring);
+                   
+        String ansserresultids=   Joiner.on(",").join(choiclist);
+        anserdetail.setAnswerResult(ansserresultids);
         anserdetail.setCorrectResult(subjectinfo.getSubjectAnswer());
       }
       // 3：填空题 4.打分
@@ -238,6 +233,9 @@ public class QustionNaireImpl implements IQuestionNaire {
       }
       userAnserDetailMapper.insertSelective(anserdetail);
     }
+    
+    respmap.put("isshare", questionnaireinfo.getIsPubic());
+    respmap.put("ispbulic", questionnaireinfo.getIsPubic());
     respmap.put("questionnaireId",questionnairid);
     respmap.put("questionnaireName", questionnairName);
     respmap.put("commitId", commitId);
@@ -398,9 +396,6 @@ public class QustionNaireImpl implements IQuestionNaire {
   }
 
 
-
-  
-   
   /***
    *  根据 ID 获取问卷信息
    */

@@ -177,6 +177,24 @@ public class PoJoSubjectInfo {
    
   private  String choicetext;
   
+  public Integer getGradecount() {
+    return gradecount;
+  }
+
+  public void setGradecount(Integer gradecount) {
+    this.gradecount = gradecount;
+  }
+
+  public String getEverygradescore() {
+    return everygradescore;
+  }
+
+  public void setEverygradescore(String everygradescore) {
+    this.everygradescore = everygradescore;
+  }
+  private  Integer   gradecount;
+  private  String    everygradescore;
+  
   public List<Map<String, Object>> getList() {
     return list;
   }
