@@ -16,7 +16,7 @@ public interface IQuestionNaire {
    List<UserAnswer>  getQuestionNaireList(String openid);
    List<QquestionNaire>      getActiveQuestionNaireInfo( );
    
-   
+     Map<String ,Object> checkQuestionNaireAnswer(String questionnaireid);
    
    
    
