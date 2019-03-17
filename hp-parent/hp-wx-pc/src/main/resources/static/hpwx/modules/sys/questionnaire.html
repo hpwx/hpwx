@@ -27,7 +27,7 @@
 	<div v-show="showList">
 		<div class="grid-btn">
 			<div class="form-group col-sm-2">
-				<input type="text" class="form-control" v-model="q.roleName" @keyup.enter="query" placeholder="角色名称">
+				<input type="text" class="form-control" v-model="q.title" @keyup.enter="query" placeholder="问卷标题搜索">
 			</div>
 			<a class="btn btn-default" @click="query">查询</a>
 			
@@ -45,10 +45,10 @@
 			<div class="form-group">
 			   	<div class="col-sm-2 control-label">问卷标题</div>
 			   	<div class="col-sm-10">
-			      <input type="text" class="form-control" v-model="role.roleName" placeholder="问卷标题"/>
+			      <input type="text" class="form-control" v-model="questionnaire.title" placeholder="问卷标题"/>
 
 					<!--<select id="disabledSelect" class="form-control">-->
-						<!--<option value="">请选择</option>-->
+					<!--<option value="">请选择</option>-->
 						<!--<option value="1">滴滴安全问卷</option>-->
 						<!--<option value="2">美团打车安全问卷</option>-->
 					<!--</select>-->
@@ -58,14 +58,14 @@
 			<div class="form-group">
 				<div class="col-sm-2 control-label">问卷调查数量</div>
 				<div class="col-sm-10">
-					<input type="tel" class="form-control" v-model="role.roleName" />
+					<input type="tel" class="form-control" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')" v-model="questionnaire.answerCount" />
 				</div>
 			</div>
 			<div class="form-group">
 			   	<div class="col-sm-2 control-label">问卷描述</div>
 			   	<div class="col-sm-10">
 			      <!--<input type="text" class="form-control" v-model="role.remark" placeholder="问卷描述"/>-->
-					<textarea name="description" class="form-control" rows="3"></textarea>
+					<textarea name="description" class="form-control" v-model="questionnaire.questionnaireDesc" rows="3"></textarea>
 			    </div>
 			</div>
 
@@ -74,10 +74,10 @@
 			   	<div class="col-sm-10">
 			      <!--<input type="text" class="form-control" v-model="role.remark" placeholder="是否转发"/>-->
 				<label class="radio-inline">
-					<input type="radio" name="inlineRadioOptions" value="1"> 不禁止
+					<input type="radio" name="IsForward" value="0" v-model="questionnaire.forward"> 不禁止
 				</label>
 				<label class="radio-inline">
-					<input type="radio" name="inlineRadioOptions" value="2"> 禁止
+					<input type="radio" name="IsForward" value="1" v-model="questionnaire.forward"> 禁止
 				</label>
 			    </div>
 			</div>
@@ -88,29 +88,30 @@
 			      <!--<input type="text" class="form-control" v-model="role.remark" placeholder="是否重复答题"/>-->
 
 					<label class="radio-inline">
-						<input type="radio" name="is_reply"  value="1"> 支持
+						<input type="radio" name="is_reply"  value="0" v-model="questionnaire.repeatedAnswer"> 不支持
 					</label>
 					<label class="radio-inline">
-						<input type="radio" name="is_reply"  value="2"> 不支持
+						<input type="radio" name="is_reply"  value="1" v-model="questionnaire.repeatedAnswer"> 支持
 					</label>
 
 			    </div>
 			</div>
 
-			<div class="form-group">
-				<div class="col-sm-2 control-label">是否置顶</div>
-				<div class="col-sm-10">
-					<!--<input type="text" class="form-control" v-model="role.remark" placeholder="是否重复答题"/>-->
+			<!--置顶问题-->
+			<!--<div class="form-group">-->
+				<!--<div class="col-sm-2 control-label">是否置顶</div>-->
+				<!--<div class="col-sm-10">-->
+					<!--&lt;!&ndash;<input type="text" class="form-control" v-model="role.remark" placeholder="是否重复答题"/>&ndash;&gt;-->
 
-					<label class="radio-inline">
-						<input type="radio" name="is_top"  value="1"> 是
-					</label>
-					<label class="radio-inline">
-						<input type="radio" name="is_top"  value="2"> 否
-					</label>
+					<!--<label class="radio-inline">-->
+						<!--<input type="radio" name="is_top"  value="0" v-model="questionnaire.questionnaireIsTop"> 否-->
+					<!--</label>-->
+					<!--<label class="radio-inline">-->
+						<!--<input type="radio" name="is_top"  value="1" v-model="questionnaire.questionnaireIsTop"> 是-->
+					<!--</label>-->
 
-				</div>
-			</div>
+				<!--</div>-->
+			<!--</div>-->
 
 			<div class="form-group">
 				<div class="col-sm-2 control-label">题目翻转样式</div>
@@ -118,14 +119,13 @@
 					<!--<input type="text" class="form-control" v-model="role.remark" placeholder="是否重复答题"/>-->
 
 					<label class="radio-inline">
-						<input type="radio" name="style_status"  value="1"> 显示所有题目
+						<input type="radio" name="style_status"  value="0" v-model="questionnaire.questionnaireStyleStatus"> 显示所有题目
 					</label>
 					<label class="radio-inline">
-						<input type="radio" name="style_status"  value="2"> 左右滑动
+						<input type="radio" name="style_status"  value="1" v-model="questionnaire.questionnaireStyleStatus"> 左右滑动
 					</label>
-
 					<label class="radio-inline">
-						<input type="radio" name="style_status"  value="2"> 点击翻动
+						<input type="radio" name="style_status"  value="2" v-model="questionnaire.questionnaireStyleStatus"> 点击翻动
 					</label>
 				</div>
 			</div>
@@ -136,10 +136,10 @@
 					<!--<input type="text" class="form-control" v-model="role.remark" placeholder="是否重复答题"/>-->
 
 					<label class="radio-inline">
-						<input type="radio" name="is_public"  value="1"> 公开
+						<input type="radio" name="is_public"  value="1" v-model="questionnaire.isPublic"> 公开
 					</label>
 					<label class="radio-inline">
-						<input type="radio" name="is_public"  value="2"> 不公开
+						<input type="radio" name="is_public"  value="0" v-model="questionnaire.isPublic"> 不公开
 					</label>
 				</div>
 			</div>
@@ -152,10 +152,10 @@
 			   	<div class="col-sm-10">
 			      <!--<input type="text" class="form-control" v-model="role.remark" placeholder="是否匿名"/>-->
 					<label class="radio-inline">
-						<input type="radio" name="is_anonymous"  value="1"> 记名
+						<input type="radio" name="is_anonymous"  value="0"  v-model="questionnaire.anonymous"> 记名
 					</label>
 					<label class="radio-inline">
-						<input type="radio" name="is_anonymous"  value="2"> 匿名
+						<input type="radio" name="is_anonymous"  value="1" v-model="questionnaire.anonymous"> 匿名
 					</label>
 			    </div>
 			</div>
@@ -170,9 +170,10 @@
 						<!-- <button type="button" class="layui-btn" >上传图片</button> -->
 						<div class="layui-upload-list" id="imgupload">
 							<i class="layui-icon layui-icon-add-1"></i>
-							<img class="layui-upload-img" id="imguploadpreview">
-						</div>
+							<img class="layui-upload-img" id="imguploadpreview1">
 					</div>
+					</div>
+					<input type="hidden" id="imgupload1">
 
 				</div>
 			</div>
@@ -186,9 +187,10 @@
 						<!-- <button type="button" class="layui-btn" >上传图片</button> -->
 						<div class="layui-upload-list" id="backupload">
 							<i class="layui-icon layui-icon-add-1"></i>
-							<img class="layui-upload-img" id="backuploadpreview">
+							<img class="layui-upload-img" id="imguploadpreview2">
 						</div>
 					</div>
+					<input type="hidden" id="imgupload2">
 				</div>
 			</div>
 
@@ -199,9 +201,10 @@
 						<!-- <button type="button" class="layui-btn" >上传图片</button> -->
 						<div class="layui-upload-list" id="questionImgUpload">
 							<i class="layui-icon layui-icon-add-1"></i>
-							<img class="layui-upload-img" id="imguploadpreview">
+							<img class="layui-upload-img" id="imguploadpreview3">
 						</div>
 					</div>
+					<input type="hidden" id="imgupload3">
 				</div>
 			</div>
 
@@ -221,7 +224,7 @@
 			
 			<div class="form-group">
 				<div class="col-sm-2 control-label"></div> 
-				<input type="button" class="btn btn-primary" @click="saveOrUpdate" value="确定"/>
+				<input type="button" class="btn btn-primary" @click="saveOrUpdateQuestionnaire" value="确定"/>
 				&nbsp;&nbsp;<input type="button" class="btn btn-warning" @click="reload" value="返回"/>
 			</div>
 		</form>

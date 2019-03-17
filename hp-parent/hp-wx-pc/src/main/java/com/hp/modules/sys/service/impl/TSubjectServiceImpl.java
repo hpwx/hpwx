@@ -1,3 +1,4 @@
+
 package com.hp.modules.sys.service.impl;
 
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
@@ -71,8 +72,8 @@ public class TSubjectServiceImpl extends ServiceImpl<TSubjectDao, TSubject> impl
         for(TSubject tSubject : subjects){
             TQuestionnaireSubject tQuestionnaireSubject = new TQuestionnaireSubject();
             tQuestionnaireSubject.setSubjectId(tSubject.getObjectId());
-            tQuestionnaireSubject.setQuestionnaireId(tSubject.gettQuestionnaireId());
-            tQuestionnaireSubject.setMustAnswer(tSubject.getMustAnswer());
+//            tQuestionnaireSubject.setQuestionnaireId(tSubject.gettQuestionnaireId());
+//            tQuestionnaireSubject.setMustAnswer(tSubject.getMustAnswer());
             tQuestionnaireSubject.setCreateUser(tSubject.getCreateUser());
             tQuestionnaireSubject.setDeleted(Constant.NO);
             list.add(tQuestionnaireSubject);
@@ -80,3 +81,4 @@ public class TSubjectServiceImpl extends ServiceImpl<TSubjectDao, TSubject> impl
         tQuestionnaireSubjectDao.insertBatch(list);
     }
 }
+ 

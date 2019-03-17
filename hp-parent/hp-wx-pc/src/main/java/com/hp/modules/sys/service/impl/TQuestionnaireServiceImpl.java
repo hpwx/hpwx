@@ -1,14 +1,18 @@
 package com.hp.modules.sys.service.impl;
 
+import com.baomidou.mybatisplus.enums.SqlLike;
+import com.baomidou.mybatisplus.mapper.Condition;
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.baomidou.mybatisplus.plugins.Page;
 import com.baomidou.mybatisplus.service.impl.ServiceImpl;
 import com.hp.common.utils.Constant;
 import com.hp.common.utils.PageUtils;
 import com.hp.common.utils.Query;
+import com.hp.common.utils.R;
 import com.hp.modules.sys.dao.TQuestionnaireDao;
 import com.hp.modules.sys.entity.TQuestionnaire;
 import com.hp.modules.sys.service.TQuestionnaireService;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -23,7 +27,13 @@ public class TQuestionnaireServiceImpl extends ServiceImpl<TQuestionnaireDao, TQ
 
     @Override
     public PageUtils getAll(Map<String, Object> params) {
-        Page<TQuestionnaire> page = this.selectPage(new Query<TQuestionnaire>(params).getPage(), new EntityWrapper<TQuestionnaire>().eq("deleted", 0));
+        Page<TQuestionnaire> page = null;
+
+        if(params.containsKey("title")){
+            page = this.selectPage(new Query<TQuestionnaire>(params).getPage(), new EntityWrapper<TQuestionnaire>().eq("deleted", 0).like(params.containsKey("title"),"title",params.get("title").toString(), SqlLike.RIGHT));
+        }else{
+           page = this.selectPage(new Query<TQuestionnaire>(params).getPage(), new EntityWrapper<TQuestionnaire>().eq("deleted", 0));
+        }
 
         return new PageUtils(page);
     }
@@ -58,6 +68,42 @@ public class TQuestionnaireServiceImpl extends ServiceImpl<TQuestionnaireDao, TQ
             tQuestionnaire.setDeleted(Constant.YES);
             this.update(tQuestionnaire,
                     new EntityWrapper<TQuestionnaire>().eq("object_id", ids[i]));
+        }
+
+    }
+
+    /**
+     * Author
+     * cz
+     * 置顶的Service
+     * 问卷objectId
+     * @param id
+     */
+    @Override
+    @Transactional
+    public void top(Long id) {
+        TQuestionnaire tQuestionnaire = tQuestionnaireDao.selectByIdIsHaveTop(id);
+        if(tQuestionnaire != null){
+            tQuestionnaire.setQuestionnaireIsTop((byte)0);
+            this.update(tQuestionnaire);
+            tQuestionnaireDao.updateTopById(id);
+        }else{
+            tQuestionnaireDao.updateTopById(id);
+        }
+    }
+
+    /**
+     * Author
+     * cz
+     * 置顶的Service
+     * 问卷删除objectId
+     * @param ids
+     */
+    @Override
+    public void del(Long[] ids) {
+
+        for (int i = 0; i < ids.length; i++) {
+            tQuestionnaireDao.deleteByPrimaryKey(ids[i]);
         }
 
     }

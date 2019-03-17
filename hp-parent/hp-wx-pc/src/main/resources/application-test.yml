@@ -55,4 +55,6 @@ renren:
         secret: f4e2e52034348f86b67cde581c0f9eb5[www.renren.io]
         # token有效时长，7天，单位秒
         expire: 604800
-        header: token  
+        header: token
+imageurl: http://localhost:5000
+imageuploadpath: /hpwxpc/hpwx/uploadImages/

@@ -2,9 +2,11 @@ package com.hp.modules.sys.entity;
 
 import com.baomidou.mybatisplus.annotations.TableId;
 import com.baomidou.mybatisplus.annotations.TableName;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.hp.common.validator.group.AddGroup;
 import com.hp.common.validator.group.UpdateGroup;
 import org.hibernate.validator.constraints.NotBlank;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
 
@@ -24,13 +26,13 @@ public class TQuestionnaire {
 
     private Byte deleted;
 
-    @NotBlank(message="是否匿名不能为空", groups = {AddGroup.class, UpdateGroup.class})
+//    @NotBlank(message="是否匿名不能为空", groups = {AddGroup.class, UpdateGroup.class})
     private Byte anonymous;
 
-    @NotBlank(message="是否转发不能为空", groups = {AddGroup.class, UpdateGroup.class})
+//    @NotBlank(message="是否转发不能为空", groups = {AddGroup.class, UpdateGroup.class})
     private Byte forward;
 
-    @NotBlank(message="是否重复作答不能为空", groups = {AddGroup.class, UpdateGroup.class})
+//    @NotBlank(message="是否重复作答不能为空", groups = {AddGroup.class, UpdateGroup.class})
     private Byte repeatedAnswer;
 
     private Short answerCount;
@@ -40,14 +42,89 @@ public class TQuestionnaire {
 
     private String questionnaireDesc;
 
+    //问卷图标图片
     private String icon;
 
+    //问卷图标封面
     private String cover;
 
     //目前不用
     private Byte enable;
 
+    //题目背景图片
     private String backColor;
+
+    private Byte questionnaireStyleStatus;
+
+    private Byte isPublic;
+
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    private Date startTime;
+
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    private Date endTime;
+
+    private Byte questionnaireIsTop;
+
+    private int starNum;
+
+    private int starScore;
+
+    public int getStarNum() {
+        return starNum;
+    }
+
+    public void setStarNum(int starNum) {
+        this.starNum = starNum;
+    }
+
+    public int getStarScore() {
+        return starScore;
+    }
+
+    public void setStarScore(int starScore) {
+        this.starScore = starScore;
+    }
+
+    public Byte getQuestionnaireIsTop() {
+        return questionnaireIsTop;
+    }
+
+    public void setQuestionnaireIsTop(Byte questionnaireIsTop) {
+        this.questionnaireIsTop = questionnaireIsTop;
+    }
+
+    public Date getStartTime() {
+        return startTime;
+    }
+
+    public void setStartTime(Date startTime) {
+        this.startTime = startTime;
+    }
+
+    public Date getEndTime() {
+        return endTime;
+    }
+
+    public void setEndTime(Date endTime) {
+        this.endTime = endTime;
+    }
+
+    public Byte getIsPublic() {
+        return isPublic;
+    }
+
+    public void setIsPublic(Byte isPublic) {
+        this.isPublic = isPublic;
+    }
+
+    public Byte getQuestionnaireStyleStatus() {
+        return questionnaireStyleStatus;
+    }
+
+    public void setQuestionnaireStyleStatus(Byte questionnaireStyleStatus) {
+        this.questionnaireStyleStatus = questionnaireStyleStatus;
+    }
 
     public Long getObjectId() {
         return objectId;

@@ -1,3 +1,4 @@
+
 package com.hp.modules.sys.entity;
 
 import com.baomidou.mybatisplus.annotations.TableId;
@@ -38,38 +39,38 @@ public class TSubject implements Serializable{
 
     private Long subjectAnswer;
 
-    @Transient
-    private String tQuestionnaireName;
+//    @Transient
+//    private String tQuestionnaireName;
 
-    @Transient
-    private Long tQuestionnaireId;
+//    @Transient
+//    private Long tQuestionnaireId;
 
-    @Transient
-    private Byte mustAnswer;
+//    @Transient
+//    private Byte mustAnswer;
 
-    public Byte getMustAnswer() {
-        return mustAnswer;
-    }
+//    public Byte getMustAnswer() {
+//        return mustAnswer;
+//    }
+//
+//    public void setMustAnswer(Byte mustAnswer) {
+//        this.mustAnswer = mustAnswer;
+//    }
 
-    public void setMustAnswer(Byte mustAnswer) {
-        this.mustAnswer = mustAnswer;
-    }
+//    public Long gettQuestionnaireId() {
+//        return tQuestionnaireId;
+//    }
+//
+//    public void settQuestionnaireId(Long tQuestionnaireId) {
+//        this.tQuestionnaireId = tQuestionnaireId;
+//    }
 
-    public Long gettQuestionnaireId() {
-        return tQuestionnaireId;
-    }
-
-    public void settQuestionnaireId(Long tQuestionnaireId) {
-        this.tQuestionnaireId = tQuestionnaireId;
-    }
-
-    public String gettQuestionnaireName() {
-        return tQuestionnaireName;
-    }
-
-    public void settQuestionnaireName(String tQuestionnaireName) {
-        this.tQuestionnaireName = tQuestionnaireName;
-    }
+//    public String gettQuestionnaireName() {
+//        return tQuestionnaireName;
+//    }
+//
+//    public void settQuestionnaireName(String tQuestionnaireName) {
+//        this.tQuestionnaireName = tQuestionnaireName;
+//    }
 
     public Long getObjectId() {
         return objectId;
@@ -142,4 +143,5 @@ public class TSubject implements Serializable{
     public void setSubjectAnswer(Long subjectAnswer) {
         this.subjectAnswer = subjectAnswer;
     }
+ 
 }

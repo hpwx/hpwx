@@ -30,4 +30,8 @@ public interface TQuestionnaireDao extends BaseMapper<TQuestionnaire> {
     List<Map<String,Object>> StatisticsOnTrue(@Param("params") Map<String, Object> params);
 
     List<Map<String,Object>> StatisticsOnAll(@Param("params") Map<String, Object> params);
+
+    TQuestionnaire selectByIdIsHaveTop(Long id);
+
+    void updateTopById(Long id);
 }

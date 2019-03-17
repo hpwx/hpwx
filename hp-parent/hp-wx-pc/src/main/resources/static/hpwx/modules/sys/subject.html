@@ -50,8 +50,7 @@
 			      <!--<input type="text" class="form-control" v-model="role.roleName" placeholder="问卷标题"/>-->
 					<select id="disabledSelect" class="form-control" v-model="questionObj.questionnaire">
 					<option value="-1">请选择</option>
-					<option value="1">滴滴安全问卷</option>
-					<option value="2">美团打车安全问卷</option>
+					<option v-for="item in questionnaireList" :value="item.objectId">{{item.title}}</option>
 					</select>
 			    </div>
 			</div>
@@ -160,7 +159,7 @@
 				<div class="col-sm-2 control-label">多选答案</div>
 				<div class="col-sm-10">
 					<label class="radio-inline" v-if="item != ''" v-for="(item,index) in answerSelect" @click="answerCheckBox(item)">
-						<input type="checkbox" name="is_answer" :value="item.value" v-model="questionObj.checkBoxAnswer"> {{item}}
+						<input type="checkbox" name="is_answer" :value="item.value"> {{item}}
 					</label>
 				</div>
 			</div>
@@ -177,6 +176,8 @@
 				<input type="button" class="btn btn-primary" @click="saveOrUpdate" value="确定"/>
 				&nbsp;&nbsp;<input type="button" class="btn btn-warning" @click="reload" value="返回"/>
 			</div>
+
+			<div @click="getContent">ueditor按钮</div>
 		</form>
 	</div>
 </div>

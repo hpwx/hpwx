@@ -31,32 +31,7 @@
 
         // 服务器统一请求接口路径
         // , serverUrl: URL + "jsp/controller.jsp"
-        , serverUrl: "/hello/ueditor"
-
-
-    //         /* 上传图片配置项 */
-    //     "imageActionName": "hello/test", /* 执行上传图片的action名称 */
-    //     "imageFieldName": "upfile", /* 提交的图片表单名称 */
-    //     "imageMaxSize": 2048000, /* 上传大小限制，单位B */
-    //     "imageAllowFiles": [".png", ".jpg", ".jpeg", ".gif", ".bmp"], /* 上传图片格式显示 */
-    //     "imageCompressEnable": true, /* 是否压缩图片,默认是true */
-    //     "imageCompressBorder": 1600, /* 图片压缩最长边限制 */
-    //     "imageInsertAlign": "none", /* 插入的图片浮动方式 */
-    //     "imageUrlPrefix": "/ueditor/", /* 图片访问路径前缀 */
-    //     "imagePathFormat": "/ueditor/jsp/upload/image/{yyyy}{mm}{dd}/{time}{rand:6}", /* 上传保存路径,可以自定义保存路径和文件名格式 */
-
-    // //...
-
-
-    // /* 列出指定目录下的图片 */
-    //     "imageManagerActionName": "listimage", /* 执行图片管理的action名称 */
-    //     "imageManagerListPath": "/ueditor/jsp/upload/image/", /* 指定要列出图片的目录 */
-    //     "imageManagerListSize": 20, /* 每次列出文件数量 */
-    //     "imageManagerUrlPrefix": "/ueditor/", /* 图片访问路径前缀 */
-    //     "imageManagerInsertAlign": "none", /* 插入的图片浮动方式 */
-    //     "imageManagerAllowFiles": [".png", ".jpg", ".jpeg", ".gif", ".bmp"]/* 列出的文件类型 */
-
-
+        , serverUrl: "/hpwxpc/sys/subject/ueditor"
 
         //工具栏上的所有的功能按钮和下拉框，可以在new编辑器的实例时选择自己需要的重新定义
         , toolbars: [[

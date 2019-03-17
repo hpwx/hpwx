@@ -2,6 +2,7 @@ package com.hp.modules.sys.service;
 
 import com.baomidou.mybatisplus.service.IService;
 import com.hp.common.utils.PageUtils;
+import com.hp.common.utils.R;
 import com.hp.modules.sys.entity.TQuestionnaire;
 import org.apache.ibatis.annotations.Param;
 
@@ -23,5 +24,9 @@ public interface TQuestionnaireService extends IService<TQuestionnaire> {
     PageUtils selectStatistics(Map<String, Object> params);
 
     Map<String,Object> statisticsOnResult(Map<String, Object> params);
+
+    void top(Long id);
+
+    void del(Long[] ids);
 
 }

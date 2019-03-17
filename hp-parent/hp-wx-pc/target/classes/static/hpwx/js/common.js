@@ -65,7 +65,22 @@ function hasPermission(permission) {
         return false;
     }
 }
+/**
+ * 是否去除所有空格
+ * @param str
+ * @param is_global 如果为g或者G去除所有的
+ * @returns
+ */
+String.prototype.trim = function (is_global) {
+    var result;
+    result = this.replace(/(^\s+)|(\s+$)/g,"");
+    if(is_global == "g")
+    {
+        result = result.replace(/\s/g,"");
+    }
+    return result;
 
+};
 //重写alert
 window.alert = function(msg, callback){
 	parent.layer.alert(msg, function(index){

@@ -11,6 +11,8 @@ import com.hp.modules.sys.service.TSubjectService;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.util.ClassUtils;
+import org.springframework.util.ResourceUtils;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.multipart.MultipartFile;
@@ -35,8 +37,6 @@ public class TQuestionnaireController extends AbstractController{
 
     @Value("${spring.tomcat.home}")
     private String tomcat_home;
-
-
 
     /*
      *  查询所有答案统计结果
@@ -64,49 +64,8 @@ public class TQuestionnaireController extends AbstractController{
     @PostMapping("/upload")
     public R upload(MultipartFile file){
 
+        return ImageExtUtils.uploadImage(file);
 
-        Map<String,Object> map = new HashMap<>();
-
-        if (file.isEmpty()) {
-            return R.error("上传文件为空！");
-        }else {
-            //保存时的文件名
-            DateFormat df = new SimpleDateFormat("yyyyMMddHHmmss");
-            Calendar calendar = Calendar.getInstance();
-            String dateName = df.format(calendar.getTime())+file.getOriginalFilename();
-
-            System.out.println(dateName);
-            //保存文件的绝对路径
-            WebApplicationContext webApplicationContext = (WebApplicationContext) SpringContextUtils.applicationContext;
-            ServletContext servletContext = webApplicationContext.getServletContext();
-            String realPath = servletContext.getRealPath("/");
-            String filePath = tomcat_home+"hp-parent\\hp-wx-pc\\src\\main\\resources\\static\\hpwx\\static_images" + File.separator+dateName;
-            System.out.println("文件的绝对路径:"+filePath);
-
-            File newFile = new File(filePath);
-
-            //MultipartFile的方法直接写文件
-            try {
-                //上传文件
-                file.transferTo(newFile);
-
-                //数据库存储的相对路径
-                String projectPath = servletContext.getContextPath();
-                HttpServletRequest request = HttpContextUtils.getHttpServletRequest();
-                String contextpath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+projectPath;
-                String url = contextpath + "/hpwx/static_images/"+dateName;
-                System.out.println("相对路径:"+url);
-                //文件名与文件URL存入数据库表
-                map.put("url",url);
-
-
-                return R.ok(map);
-            } catch (IllegalStateException | IOException e) {
-                e.printStackTrace();
-                return R.error("服务器未响应！");
-            }
-
-        }
     }
 
     /*
@@ -185,6 +144,7 @@ public class TQuestionnaireController extends AbstractController{
         tQuestionnaire.setCreateTime(new Date());
         tQuestionnaire.setCreateUser(getUserId()==null ? null : getUserId().toString());
         tQuestionnaire.setEnable(Constant.YES);
+        tQuestionnaire.setDeleted(Constant.NO);
 
         ValidatorUtils.validateEntity(tQuestionnaire, AddGroup.class);
         //获取用户
@@ -195,7 +155,7 @@ public class TQuestionnaireController extends AbstractController{
         return R.ok();
     }
 
-    @GetMapping("/update")
+    @PostMapping("/update")
     public R update(@RequestBody TQuestionnaire tQuestionnaire){
 
         tQuestionnaire.setCreateTime(new Date());
@@ -217,6 +177,23 @@ public class TQuestionnaireController extends AbstractController{
         //进行逻辑删除
         tQuestionnaireService.deleteByIds(ids);
 
+        return R.ok();
+    }
+
+    @PostMapping("/top")
+    public R top(@RequestBody Long id){
+
+        tQuestionnaireService.top(id);
+
+        return R.ok();
+    }
+
+    @PostMapping("/del")
+    public R del(@RequestBody Long[] ids){
+        if(ids.length == 0){
+            return R.error("id为空");
+        }
+        tQuestionnaireService.del(ids);
         return R.ok();
     }
 
