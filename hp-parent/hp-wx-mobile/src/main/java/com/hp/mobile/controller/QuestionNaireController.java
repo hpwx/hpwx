@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -51,10 +52,9 @@ public class QuestionNaireController {
    public Result getQuestionNaireOver( ) {
    List<  QquestionNaire>  questionnaireInfo = questionNaire.getActiveQuestionNaireInfo( ) ;
      if (questionnaireInfo.size()==0) {
-       return   Result.error( "当前没有问卷活动" );
-       
+       return   Result.error( "当前没有问卷活动" );  
     } 
-  return Result.ok(questionnaireInfo.get(0));
+      return Result.ok(questionnaireInfo.get(0));
   }
 
   
@@ -161,6 +161,25 @@ public class QuestionNaireController {
     List<UserAnswer> list = questionNaire.getQuestionNaireList(openid);
     return Result.ok(list);
   }
+  
+  
+
+  
+  @RequestMapping("/checkQuestioNaire")
+  public Result checkQuestioNaire(@RequestParam Map<String, Object> map) {
+   if (! StringUtils.isEmpty(map.get("questionnareid"))){
+     String questionnareid=  map.get("questionnareid").toString();
+     Map<String,Object>    retMap=    questionNaire.checkQuestionNaireAnswer(questionnareid);
+     
+   if (Boolean.parseBoolean(   retMap.get("isanswer").toString())==false) {
+        return  Result.error(retMap.get("msg").toString());
+      } 
+   } 
+   return   Result.ok();
+  }
+  
+  
+ 
   
   
   

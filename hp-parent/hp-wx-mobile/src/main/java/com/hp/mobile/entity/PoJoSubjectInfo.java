@@ -173,7 +173,14 @@ public class PoJoSubjectInfo {
 
   private  String title;
   
-  
+  public List<String> getGradelist() {
+    return gradelist;
+  }
+
+  public void setGradelist(List<String> gradelist) {
+    this.gradelist = gradelist;
+  }
+  private  List<String>  gradelist;
    
   private  String choicetext;
   

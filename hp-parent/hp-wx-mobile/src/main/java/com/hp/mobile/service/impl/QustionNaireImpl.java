@@ -75,9 +75,9 @@ public class QustionNaireImpl implements IQuestionNaire {
     Map<String, Object> map = new HashMap<>();
     
     QquestionNaire qustionnareinfo=   qustionNaireMapper.selectByPrimaryKey(Long.parseLong(questionnaireid));
-     if ( qustionnareinfo.getAnswerCount()!=null&&  qustionnareinfo.getAnswerpersoncount()!=null) {
+     if ( qustionnareinfo.getAnswerCount()!=null&&   qustionnareinfo.getAnswerCount()!=0 && qustionnareinfo.getAnswerpersoncount()!=null) {
         if (qustionnareinfo.getAnswerpersoncount()>=qustionnareinfo.getAnswerCount()) {
-          throw new  SysException("该问卷作答次数已到 。无法在进行做题！");
+          throw new  SysException( "该问卷作答次数已到 ,无法在进行做题！");
         }
      }
      
@@ -124,6 +124,19 @@ public class QustionNaireImpl implements IQuestionNaire {
     List<Long> subjectlistIds = new ArrayList<>();
     
     for (PoJoSubjectInfo subject : subjectlist) {
+           
+           ArrayList<String>  arr=   new   ArrayList<String>();
+              if (subject.getGradecount()!=null) {
+                for (Integer i = 1; i <=subject.getGradecount(); i++) {
+                  arr.add( i.toString());
+               }
+                
+              }
+             
+            
+             
+      subject.setGradelist(arr);
+      
       subjectlistIds.add(subject.getSubjectid());
 
     }
@@ -223,12 +236,12 @@ public class QustionNaireImpl implements IQuestionNaire {
       if ("1".equals( typeid )  ||   "2".equals( typeid )  ||  "5" .equals( typeid) ) {
                    
         String ansserresultids=   Joiner.on(",").join(choiclist);
-        anserdetail.setAnswerResult(ansserresultids);
+        anserdetail.setAnswerResult(ansserresultids); //  回答结果
         anserdetail.setCorrectResult(subjectinfo.getSubjectAnswer());
       }
       // 3：填空题 4.打分
       if ( "3".equals( typeid )  ||  "4".equals( typeid ) ) {
-        anserdetail.setAnswerResult(answertext);
+        anserdetail.setAnswerResult(answertext);        // 回答结果
         anserdetail.setCorrectResult(subjectinfo.getSubjectAnswer());
       }
       userAnserDetailMapper.insertSelective(anserdetail);
@@ -404,9 +417,30 @@ public class QustionNaireImpl implements IQuestionNaire {
     // TODO Auto-generated method stub
     
      List<QquestionNaire>  list= qustionNaireMapper.selectQquestionNaireByEnable(Byte.parseByte("1"));
-    
        return list; 
+  }
+
+  @Override
+  public Map<String ,Object> checkQuestionNaireAnswer(String questionnaireid) {
+
+    Map<String ,Object>  retmap=new  HashMap<>();
     
+    retmap.put("isanswer", true );
+    retmap.put("msg", null);
+    QquestionNaire qustionnareinfo=   qustionNaireMapper.selectByPrimaryKey(Long.parseLong(questionnaireid));
+    if ( qustionnareinfo.getAnswerCount()!=null&&   qustionnareinfo.getAnswerCount()!=0 && qustionnareinfo.getAnswerpersoncount()!=null) {
+       if (qustionnareinfo.getAnswerpersoncount()>=qustionnareinfo.getAnswerCount()) {
+         retmap.put("isanswer", false);
+         retmap.put("msg", "该问卷做题次数已达到上限！");
+       }
+    }
+    
+    if( qustionnareinfo.getRepeatedAnswer()==null  || qustionnareinfo.getRepeatedAnswer()==0) {
+      retmap.put("isanswer", false);
+      retmap.put("msg", "该问卷不能重复作答！");
+    }
+    
+    return  retmap;
   }
 
 
