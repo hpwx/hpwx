@@ -71,8 +71,8 @@ public class TSubjectServiceImpl extends ServiceImpl<TSubjectDao, TSubject> impl
         for(TSubject tSubject : subjects){
             TQuestionnaireSubject tQuestionnaireSubject = new TQuestionnaireSubject();
             tQuestionnaireSubject.setSubjectId(tSubject.getObjectId());
-            tQuestionnaireSubject.setQuestionnaireId(tSubject.gettQuestionnaireId());
-            tQuestionnaireSubject.setMustAnswer(tSubject.getMustAnswer());
+//            tQuestionnaireSubject.setQuestionnaireId(tSubject.gettQuestionnaireId());
+//            tQuestionnaireSubject.setMustAnswer(tSubject.getMustAnswer());
             tQuestionnaireSubject.setCreateUser(tSubject.getCreateUser());
             tQuestionnaireSubject.setDeleted(Constant.NO);
             list.add(tQuestionnaireSubject);

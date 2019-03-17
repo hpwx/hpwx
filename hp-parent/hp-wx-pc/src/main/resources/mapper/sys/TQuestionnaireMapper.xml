@@ -18,6 +18,11 @@
     <result column="cover" property="cover" jdbcType="VARCHAR" />
     <result column="enable" property="enable" jdbcType="TINYINT" />
     <result column="back_color" property="backColor" jdbcType="VARCHAR" />
+    <result column="is_public" property="isPublic" jdbcType="TINYINT" />
+    <result column="start_time" property="startTime" jdbcType="DATE" />
+    <result column="end_time" property="endTime" jdbcType="DATE" />
+    <result column="star_num" property="starNum" jdbcType="INTEGER" />
+    <result column="star_score" property="starScore" jdbcType="INTEGER" />
   </resultMap>
 
   <select id="StatisticsOnAll"  resultType="map" parameterType="Map" >
@@ -152,13 +157,13 @@ FROM
       anonymous, forward, repeated_answer,
       answer_count, title, questionnaire_desc,
       icon, cover, enable,
-      back_color)
+      back_color,is_public,start_time,end_time,questionnaire_is_top,star_num,star_score)
     values (#{objectId,jdbcType=BIGINT}, #{createTime,jdbcType=DATE}, #{createUser,jdbcType=VARCHAR},
       #{updateTime,jdbcType=DATE}, #{updateUser,jdbcType=VARCHAR}, #{deleted,jdbcType=TINYINT},
       #{anonymous,jdbcType=TINYINT}, #{forward,jdbcType=TINYINT}, #{repeatedAnswer,jdbcType=TINYINT},
       #{answerCount,jdbcType=SMALLINT}, #{title,jdbcType=VARCHAR}, #{questionnaireDesc,jdbcType=VARCHAR},
       #{icon,jdbcType=VARCHAR}, #{cover,jdbcType=VARCHAR}, #{enable,jdbcType=TINYINT},
-      #{backColor,jdbcType=VARCHAR})
+      #{backColor,jdbcType=VARCHAR},#{isPublic,jdbcType=TINYINT},#{startTime,jdbcType=DATE},#{endTime,jdbcType=DATE},#{questionnaireIsTop,jdbcType=TINYINT},#{starNum,jdbcType=INTEGER},#{starScore,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="com.hp.modules.sys.entity.TQuestionnaire" >
     insert into t_questionnaire
@@ -211,6 +216,24 @@ FROM
       <if test="backColor != null" >
         back_color,
       </if>
+        <if test="isPublic != null">
+            is_public,
+        </if>
+        <if test="startTime">
+            start_time
+        </if>
+        <if test="endTime">
+            end_time
+        </if>
+        <if test="questionnaireIsTop">
+            questionnaire_is_top
+        </if>
+        <if test="starNum">
+            star_num
+        </if>
+        <if test="starScore">
+            star_score
+        </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="objectId != null" >
@@ -260,6 +283,24 @@ FROM
       </if>
       <if test="backColor != null" >
         #{backColor,jdbcType=VARCHAR},
+      </if>
+      <if test="isPublic != null">
+        #{isPublic,jdbcType=TINYINT},
+      </if>
+      <if test="startTime">
+        #{startTime,jdbcType=DATE},
+      </if>
+      <if test="endTime">
+        #{endTime,jdbcType=DATE},
+      </if>
+      <if test="questionnaireIsTop">
+        #{questionnaireIsTop,jdbcType=TINYINT},
+      </if>
+      <if test="starNum">
+        #{starNum,jdbcType=INTEGER},
+      </if>
+      <if test="starScore">
+        #{starScore,jdbcType=INTEGER},
       </if>
     </trim>
   </insert>
@@ -334,5 +375,15 @@ FROM
     where object_id = #{objectId,jdbcType=BIGINT}
   </update>
 
+  <select id="selectByIdIsHaveTop" resultMap="BaseResultMap" parameterType="java.lang.Long">
+      SELECT
+        <include refid="Base_Column_List" />
+      from t_questionnaire WHERE object_id != #{objectId,jdbcType=BIGINT} AND questionnaire_is_top = 1
+  </select>
+
+  <update id="updateTopById" parameterType="java.lang.Long">
+    UPDATE t_questionnaire  set questionnaire_is_top = 1
+    WHERE object_id = #{objectId,jdbcType=BIGINT}
+  </update>
 
 </mapper>

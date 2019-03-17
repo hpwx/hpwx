@@ -1,280 +1,252 @@
-$(function () {
-    $("#jqGrid").jqGrid({
-        url: baseURL + 'sys/questionnaire/list',
-        datatype: "json",
-        colModel: [
-            { label: '问卷编号', name: 'objectId', index: "objectId", width: 45, key: true },
-			{ label: '问卷标题', name: 'title', index: "title", width: 45 },
-			{ label: '问卷是否重复作答', name: 'repeatedAnswer', width: 75 ,formatter: function(value, options, row){
-                    return value === 0 ?
-                        '<span class="label label-danger">否</span>' :
-                        '<span class="label label-success">是</span>';
-                }},
-			{ label: '问卷是否转发', name: 'forward', index: "forward", width: 75,formatter: function(value, options, row){
-                    return value === 0 ?
-                        '<span class="label label-danger">否</span>' :
-                        '<span class="label label-success">是</span>';
-                } },
-			{ label: '问卷是否置顶', name: 'top', index: "top", width: 75,formatter: function(value, options, row){
-                    return value === 0 ?
-                        '<span class="label label-danger">否</span>' :
-                        '<span class="label label-success">是</span>';
-                } },
-			{ label: '创建时间', name: 'createTime', index: "create_time", width: 80},
-            { label: '截止时间', name: 'endTime', index: "create_time", width: 80},
-            { label: '操作', name: 'caozuo', index: "caozuo", width: 100,formatter:function(value,options,row){
-                    return value === undefined ?
-                        '<span class="label label-warning tableBtnStyle" id="editBtn">编辑</span> ' +
-                        '<span class="label label-success tableBtnStyle">修改</span> ' +
-                        '<span class="label label-success tableBtnStyle">置顶</span> ' +
-                        '<span class="label label-danger tableBtnStyle">删除</span> ' : ''
-            }
-            }
-        ],
-		viewrecords: true,
-        height: 385,
-        rowNum: 10,
-		rowList : [10,30,50],
-        rownumbers: true, 
-        rownumWidth: 25, 
-        autowidth:true,
-        multiselect: true,
-        pager: "#jqGridPager",
-        jsonReader : {
-            root: "page.list",
-            page: "page.currPage",
-            total: "page.totalPage",
-            records: "page.totalCount"
-        },
-        prmNames : {
-            page:"page", 
-            rows:"limit", 
-            order: "order"
-        },
-        gridComplete:function(){
-        	//隐藏grid底部滚动条
-        	$("#jqGrid").closest(".ui-jqgrid-bdiv").css({ "overflow-x" : "hidden" }); 
-        }
-    });
-    $("#jqGrid").on('click',"#editBtn",function(){
-        alert("sssss")
-    });
-
-    var startTime,endTime;
-
-    layui.use(['upload','laydate'], function(){
-        var $ = layui.jquery
-            ,upload = layui.upload,
-            laydate = layui.laydate
-        ;
-
-        //问卷开始时间
-        laydate.render({
-            elem: '#startTime', //指定元素
-            type:'datetime',
-            format:"yyyy-MM-dd HH:mm:ss",
-            range:"-",
-            zIndex: 99999999,
-            done: function(value, date){
-                console.log(value); //得到日期生成的值，如：2017-08-18
-                startTime = value;
-                console.log(date); //得到日期时间对象：{year: 2017, month: 8, date: 18, hours: 0, minutes: 0, seconds: 0}
-            },
-            change: function(value, date, endDate){
-                startTime = value;
-            console.log(value); //得到日期生成的值，如：2017-08-18
-            console.log(date); //得到日期时间对象：{year: 2017, month: 8, date: 18, hours: 0, minutes: 0, seconds: 0}
-
-        }
-        });
-
-        lay('#endTime').on('click', function(e){
-            if(!startTime){
-                alert("请先选择开始时间");
-                return false;
-            }
-            //问卷截止时间
-            laydate.render({
-                elem: '#endTime', //指定元素
-                type:'datetime',
-                format:"yyyy-MM-dd HH:mm:ss",
-                zIndex: 99999999,
-                show: true,
-                min:startTime,
-                closeStop: '#endTime',
-                done: function(value, date){
-                    endTime = value;
-                    console.log(value); //得到日期生成的值，如：2017-08-18
-                    console.log(date); //得到日期时间对象：{year: 2017, month: 8, date: 18, hours: 0, minutes: 0, seconds: 0}
-                },
-                change: function(value, date, endDate){
-                    endTime = value;
-                    console.log(value); //得到日期生成的值，如：2017-08-18
-                    console.log(date); //得到日期时间对象：{year: 2017, month: 8, date: 18, hours: 0, minutes: 0, seconds: 0}
-                    console.log(endDate); //得结束的日期时间对象，开启范围选择（range: true）才会返回。对象成员同上。
-                }
-            });
-        });
-
-        //问卷背景
-        upload.render({
-            elem: '#backupload',
-            url: baseURL+'sys/questionnaire/upload',
-            before: function(obj){
-                //预读本地文件示例，不支持ie8
-                obj.preview(function(index, file, result){
-                    $('#backuploadpreview').attr('src',result); //图片链接（base64）
-                    var src = $('#backuploadpreview')[0].src;
-                    console.log(src);
-                });
-            },
-            done: function(res){
-                // vm.from.src = res.url;
-                // alert(res.url)
-                // $('#backuploadpreview').attr('src', res.url);
-                //如果上传失败
-                if(res.code > 0){
-                    return layer.msg('上传失败');
-                }
-                //上传成功
-            },
-            error: function(){
-                //演示失败状态，并实现重传
-                var demoText = $('#demoText');
-                demoText.html('<span style="color: #FF5722;">上传失败</span> <a class="layui-btn layui-btn-xs demo-reload">重试</a>');
-                demoText.find('.demo-reload').on('click', function(){
-                    uploadInst.upload();
-                });
-            }
-        });
-        //问卷封面
-        upload.render({
-            elem: '#imgupload',
-            url: baseURL+'sys/questionnaire/upload',
-            before: function(obj){
-                //预读本地文件示例，不支持ie8
-                obj.preview(function(index, file, result){
-                    $('#imguploadpreview').attr('src', result); //图片链接（base64）
-                    var src_img = $('#imguploadpreview')[0].src;
-                });
-            },
-            done: function(res){
-                //如果上传失败
-                if(res.code > 0){
-                    return layer.msg('上传失败');
-                }
-                //上传成功
-            },
-            error: function(){
-                //演示失败状态，并实现重传
-            }
-        });
-
-        //题目背景
-        upload.render({
-            elem: '#questionImgUpload',
-            url: baseURL+'sys/questionnaire/upload',
-            before: function(obj){
-                //预读本地文件示例，不支持ie8
-                obj.preview(function(index, file, result){
-                    $('#imguploadpreview').attr('src',result); //图片链接（base64）
-                    var src = $('#imguploadpreview')[0].src;
-                    console.log(src);
-                });
-            },
-            done: function(res){
-                // vm.from.src = res.url;
-                // alert(res.url)
-                // $('#backuploadpreview').attr('src', res.url);
-                //如果上传失败
-                if(res.code > 0){
-                    return layer.msg('上传失败');
-                }
-                //上传成功
-            },
-            error: function(){
-                //演示失败状态，并实现重传
-                var demoText = $('#demoText');
-                demoText.html('<span style="color: #FF5722;">上传失败</span> <a class="layui-btn layui-btn-xs demo-reload">重试</a>');
-                demoText.find('.demo-reload').on('click', function(){
-                    uploadInst.upload();
-                });
-            }
-        });
-
-        var obj = new Object();
-        obj.title = $('#biaoti').text();
-        obj.content = $('#content').val();
-        obj.names = $('input[name="names"]:checked').val();
-        obj.support = $('input[name="support"]:checked').val();
-        obj.prohibit = $('input[name="prohibit"]:checked').val();
-        obj.src = $('#backuploadpreview')[0].src;
-        obj.src_img = $('#imguploadpreview')[0].src;
-        $('#addConfig').click(function () {
-            layer.open({
-                type: 1,
-                skin: 'layui-layer-molv',
-                title: "新建问卷",
-                area: ['700px', '388px'],
-                shadeClose: false,
-                content: jQuery("#addquest"),
-                btn: ['保存','取消'],
-                btn1: function (index) {
-                    console.log(obj);
-                    $.ajax({
-                        type: "POST",
-                        url: baseURL + "sys/questionnaire/add",
-                        dataType: "json",
-                        contentType: "application/json",
-                        data: JSON.stringify(obj),
-                        success: function(r){
-                            if(r.code == 0){
-                                layer.close(index);
-                                layer.alert('修改成功', function(){
-                                    location.reload();
-                                });
-                            }else{
-                                layer.alert(r.msg);
-                            }
-                        }
-                    });
-                }
-            });
-        })
-
-
-    });
-});
-
-var setting = {
-	data: {
-		simpleData: {
-			enable: true,
-			idKey: "menuId",
-			pIdKey: "parentId",
-			rootPId: -1
-		},
-		key: {
-			url:"nourl"
-		}
-	},
-	check:{
-		enable:true,
-		nocheckInherit:true
-	}
-};
-var ztree;
-	
 var vm = new Vue({
 	el:'#rrapp',
 	data:{
 		q:{
-			roleName: null
+            title: null
 		},
 		showList: true,
 		title:null,
-		role:{}
+		role:{},
+        baseURL:"http://localhost:5000/hpwxpc",
+        questionnaire:{
+            objectId:"",    //问卷id
+            title:"",       //问卷标题
+            answerCount:"",         //问卷数量
+            questionnaireDesc:"", //问卷描述
+            forward:1,  //是否转发,
+            repeatedAnswer:0,   //是否重复答题
+            questionnaireIsTop:0,     //是否置顶
+            questionnaireStyleStatus:0, //题目翻转样式
+            isPublic:1,   //是否公开
+            anonymous:0,  //是否匿名
+            questionnaireTime:"",         //活动时间
+            icon:"",               //问卷图片
+            cover:"",               //问卷封面图片
+            backColor:"",                //题目背景图片,
+            startTime:"",           //活动开始时间
+            endTime:""              //活动结束时间
+        }
 	},
+    mounted: function () {
+        this.$nextTick(function () {
+            layui.use(['upload','laydate','jquery'], function(){
+                var $ = layui.jquery
+                    ,upload = layui.upload,
+                    laydate = layui.laydate
+                ;
+
+                $("#jqGrid").jqGrid({
+                    url: baseURL + 'sys/questionnaire/list',
+                    datatype: "json",
+                    colModel: [
+                        { label: '问卷编号', name: 'objectId', index: "objectId", width: 45, key: true },
+                        { label: '问卷标题', name: 'title', index: "title", width: 45 ,search: true},
+                        { label: '问卷是否重复作答',sortable:false, name: 'repeatedAnswer', width: 75 ,formatter: function(value, options, row){
+                                return value === 0 ?
+                                    '<span class="label label-danger">否</span>' :
+                                    '<span class="label label-success">是</span>';
+                            }},
+                        { label: '问卷是否转发',sortable:false, name: 'forward', index: "forward", width: 75,formatter: function(value, options, row){
+                                return value === 0 ?
+                                    '<span class="label label-danger">否</span>' :
+                                    '<span class="label label-success">是</span>';
+                            } },
+                        { label: '问卷是否置顶',sortable:false, name: 'questionnaireIsTop', index: "questionnaireIsTop", width: 75,formatter: function(value, options, row){
+                                return value === 0 ?
+                                    '<span class="label label-danger">否</span>' :
+                                    '<span class="label label-success">是</span>';
+                            } },
+                        { label: '创建时间', name: 'createTime', index: "create_time", width: 80},
+                        { label: '截止时间', name: 'endTime', index: "create_time", width: 80},
+                        { label: '操作', sortable:false, name: 'caozuo', index: "caozuo", width: 100,formatter:function(value,options,row){
+                                return value === undefined ?
+                                    '<span class="label label-warning tableBtnStyle" id="editBtn">编辑</span> ' +
+                                    '<span class="label label-success tableBtnStyle" id="TopBtn">置顶</span> ' +
+                                    '<span class="label label-danger tableBtnStyle" id="delBtn">删除</span> ' : ''
+                            }
+                        }
+                    ],
+                    viewrecords: true,
+                    height: 385,
+                    rowNum: 10,
+                    rowList : [10,30,50],
+                    rownumbers: true,
+                    rownumWidth: 25,
+                    autowidth:true,
+                    multiselect: true,
+                    pager: "#jqGridPager",
+                    jsonReader : {
+                        root: "page.list",
+                        page: "page.currPage",
+                        total: "page.totalPage",
+                        records: "page.totalCount"
+                    },
+                    prmNames : {
+                        page:"page",
+                        rows:"limit",
+                        order: "order"
+                    },
+                    gridComplete:function(){
+                        //隐藏grid底部滚动条
+                        $("#jqGrid").closest(".ui-jqgrid-bdiv").css({ "overflow-x" : "hidden" });
+                    }
+                });
+                $("#jqGrid").on('click',"#editBtn",function(event){
+                    event.stopPropagation();
+                    vm.update();
+                });
+
+                $("#jqGrid").on("click","#TopBtn",function (event) {
+                    event.stopPropagation();
+                    vm.isTop();
+                });
+
+                $("#jqGrid").on("click","#delBtn",function (event) {
+                    event.stopPropagation();
+                    vm.del();
+                });
+                //问卷开始时间
+                laydate.render({
+                    elem: '#startTime', //指定元素
+                    type:'datetime',
+                    format:"yyyy-MM-dd HH:mm:ss",
+                    range:"~",
+                    zIndex: 99999999,
+                    done: function(value, date){
+                        // console.log(value); //得到日期生成的值，如：2017-08-18
+                        // startTime = value;
+                        $("#startTime").val(value);
+                        // console.log("==========="+startTime);
+                        // console.log(typeof startTime);
+                        // console.log(date); //得到日期时间对象：{year: 2017, month: 8, date: 18, hours: 0, minutes: 0, seconds: 0}
+                    },
+                    change: function(value, date, endDate){
+                        // startTime = value;
+                        // console.log(value); //得到日期生成的值，如：2017-08-18
+                        // console.log(date); //得到日期时间对象：{year: 2017, month: 8, date: 18, hours: 0, minutes: 0, seconds: 0}
+
+                    }
+                });
+
+                lay('#endTime').on('click', function(e){
+                    if(!startTime){
+                        alert("请先选择开始时间");
+                        return false;
+                    }
+                    //问卷截止时间
+                    laydate.render({
+                        elem: '#endTime', //指定元素
+                        type:'datetime',
+                        format:"yyyy-MM-dd HH:mm:ss",
+                        zIndex: 99999999,
+                        show: true,
+                        min:startTime,
+                        closeStop: '#endTime',
+                        done: function(value, date){
+                            endTime = value;
+                            console.log(value); //得到日期生成的值，如：2017-08-18
+                            console.log(date); //得到日期时间对象：{year: 2017, month: 8, date: 18, hours: 0, minutes: 0, seconds: 0}
+                        },
+                        change: function(value, date, endDate){
+                            endTime = value;
+                            console.log(value); //得到日期生成的值，如：2017-08-18
+                            console.log(date); //得到日期时间对象：{year: 2017, month: 8, date: 18, hours: 0, minutes: 0, seconds: 0}
+                            console.log(endDate); //得结束的日期时间对象，开启范围选择（range: true）才会返回。对象成员同上。
+                        }
+                    });
+                });
+
+                //问卷背景
+                upload.render({
+                    elem: '#imgupload',
+                    url: baseURL+'sys/questionnaire/upload',
+                    before: function(obj){
+                        //预读本地文件示例，不支持ie8
+                        obj.preview(function(index, file, result){
+                            $('#imguploadpreview1').attr('src',result); //图片链接（base64）
+                            var src = $('#imguploadpreview1')[0].src;
+                        });
+                    },
+                    done: function(res){
+                        // vm.from.src = res.url;
+                        // alert(res.url)
+                        // $('#backuploadpreview').attr('src', res.url);
+                        //如果上传失败
+                        if(res.code > 0){
+                            return layer.msg('上传失败');
+                        }
+                        $("#imgupload1").val(res.url);
+                        //上传成功
+                    },
+                    error: function(){
+                        //演示失败状态，并实现重传
+                        var demoText = $('#demoText');
+                        demoText.html('<span style="color: #FF5722;">上传失败</span> <a class="layui-btn layui-btn-xs demo-reload">重试</a>');
+                        demoText.find('.demo-reload').on('click', function(){
+                            uploadInst.upload();
+                        });
+                    }
+                });
+                //问卷封面
+                upload.render({
+                    elem: '#backupload',
+                    url: baseURL+'sys/questionnaire/upload',
+                    before: function(obj){
+                        //预读本地文件示例，不支持ie8
+                        obj.preview(function(index, file, result){
+                            $('#imguploadpreview2').attr('src', result); //图片链接（base64）
+                            var src_img = $('#imguploadpreview2')[0].src;
+                        });
+                    },
+                    done: function(res){
+                        //如果上传失败
+                        if(res.code > 0){
+                            return layer.msg('上传失败');
+                        }
+                        $("#imgupload2").val(res.url);
+                        //上传成功
+                    },
+                    error: function(){
+                        //演示失败状态，并实现重传
+                    }
+                });
+
+                //题目背景
+                upload.render({
+                    elem: '#questionImgUpload',
+                    url: baseURL+'sys/questionnaire/upload',
+                    before: function(obj){
+                        //预读本地文件示例，不支持ie8
+                        obj.preview(function(index, file, result){
+                            $('#imguploadpreview3').attr('src',result); //图片链接（base64）
+                            var src = $('#imguploadpreview3')[0].src;
+                        });
+                    },
+                    done: function(res){
+                        // vm.from.src = res.url;
+                        // alert(res.url)
+                        // $('#backuploadpreview').attr('src', res.url);
+                        //如果上传失败
+                        if(res.code > 0){
+                            return layer.msg('上传失败');
+                        }
+                        $("#imgupload3").val(res.url);
+                        //上传成功
+                    },
+                    error: function(){
+                        //演示失败状态，并实现重传
+                        var demoText = $('#demoText');
+                        demoText.html('<span style="color: #FF5722;">上传失败</span> <a class="layui-btn layui-btn-xs demo-reload">重试</a>');
+                        demoText.find('.demo-reload').on('click', function(){
+                            uploadInst.upload();
+                        });
+                    }
+                });
+
+            });
+
+        })
+    },
 	methods: {
 		query: function () {
 			vm.reload();
@@ -283,31 +255,101 @@ var vm = new Vue({
 			// alert(4);
 			vm.showList = false;
 			vm.title = "新增";
-			vm.role = {};
-			vm.getMenuTree(null);
+			vm.questionnaire = {
+                objectId:"",    //问卷id
+                    title:"",       //问卷标题
+                    answerCount:"",         //问卷数量
+                    questionnaireDesc:"", //问卷描述
+                    forward:1,  //是否转发,
+                    repeatedAnswer:0,   //是否重复答题
+                    questionnaireIsTop:0,     //是否置顶
+                    questionnaireStyleStatus:0, //题目翻转样式
+                    isPublic:1,   //是否公开
+                    anonymous:0,  //是否匿名
+                    questionnaireTime:"",         //活动时间
+                    icon:"",               //问卷图片
+                    cover:"",               //问卷封面图片
+                    backColor:"",                //题目背景图片,
+                    startTime:"",           //活动开始时间
+                    endTime:""              //活动结束时间
+            };
+            // imguploadpreview1.src = "";
+            // imguploadpreview2.src = "";
+            // imguploadpreview3.src = "";
 		},
 		update: function () {
 			var roleId = getSelectedRow();
 			if(roleId == null){
 				return ;
 			}
-			
 			vm.showList = false;
             vm.title = "修改";
-            vm.getMenuTree(roleId);
+
+            $.get(baseURL + "sys/questionnaire/info/"+roleId, function(r){
+
+                if(r.code == 0){
+                    var data = r.menu;
+                    console.log(data);
+                    console.log(vm.questionnaire);
+                    for(var k in vm.questionnaire){
+                        for(var key in data){
+                            if(k == key){
+                                vm.questionnaire[k] = data[key];
+                            }
+                        }
+                    }
+                    vm.time = vm.questionnaire.startTime + "~" + vm.questionnaire.endTime;
+                    startTime.value = vm.time;
+                    imguploadpreview1.src = vm.baseURL + vm.questionnaire.icon;
+                    imguploadpreview2.src = vm.baseURL + vm.questionnaire.cover;
+                    imguploadpreview3.src = vm.baseURL + vm.questionnaire.backColor
+                }else{
+
+                    alert(r.msg);
+                }
+
+
+            });
+
+            // vm.getMenuTree(roleId);
 		},
+
+        isTop:function () {
+            var roleId = getSelectedRow();
+            if(roleId == null){
+                return ;
+            }
+            confirm('确定要置顶选中的记录？', function(){
+                $.ajax({
+                    type: "POST",
+                    url: baseURL + "sys/questionnaire/top",
+                    contentType: "application/json",
+                    data: JSON.stringify(roleId),
+                    success: function(r){
+                        if(r.code == 0){
+                            alert('操作成功', function(index){
+                                vm.reload();
+                            });
+                        }else{
+                            alert(r.msg);
+                        }
+                    }
+                });
+            });
+
+        },
 		del: function () {
-			var roleIds = getSelectedRows();
-			if(roleIds == null){
+			var ids = getSelectedRows();
+			if(ids == null){
 				return ;
 			}
 			
 			confirm('确定要删除选中的记录？', function(){
 				$.ajax({
 					type: "POST",
-				    url: baseURL + "sys/questionnaire/delete",
+				    url: baseURL + "sys/questionnaire/del",
                     contentType: "application/json",
-				    data: JSON.stringify(roleIds),
+				    data: JSON.stringify(ids),
 				    success: function(r){
 						if(r.code == 0){
 							alert('操作成功', function(index){
@@ -332,59 +374,48 @@ var vm = new Vue({
     			}
     		});
 		},
-		saveOrUpdate: function () {
-            if(vm.validator()){
-                return ;
+        saveOrUpdateQuestionnaire:function () {
+            this.questionnaire.questionnaireTime = startTime.value;
+            this.questionnaire.icon = imgupload1.value;
+            this.questionnaire.cover = imgupload2.value;
+            this.questionnaire.backColor = imgupload3.value;
+            for(var key in this.questionnaire){
+                if(this.questionnaire[key] && (typeof this.questionnaire[key] == 'string') && key != "questionnaireTime"){
+                    this.questionnaire[key] = this.questionnaire[key].trim("g");
+                }
             }
-
-			//获取选择的菜单
-			var nodes = ztree.getCheckedNodes(true);
-			var menuIdList = new Array();
-			for(var i=0; i<nodes.length; i++) {
-				menuIdList.push(nodes[i].menuId);
-			}
-			vm.role.menuIdList = menuIdList;
-			
-			var url = vm.role.roleId == null ? "sys/role/save" : "sys/role/update";
-			$.ajax({
-				type: "POST",
-			    url: baseURL + url,
+            var arr = this.questionnaire.questionnaireTime.split("~");
+            this.questionnaire.startTime = arr[0];
+            this.questionnaire.endTime = arr[1];
+            var url = (this.questionnaire.objectId == "") ? "sys/questionnaire/add" : "sys/questionnaire/update";
+            $.ajax({
+                type: "POST",
+                url: baseURL + url,
                 contentType: "application/json",
-			    data: JSON.stringify(vm.role),
-			    success: function(r){
-			    	if(r.code === 0){
-						alert('操作成功', function(){
-							vm.reload();
-						});
-					}else{
-						alert(r.msg);
-					}
-				}
-			});
-		},
-		getMenuTree: function(roleId) {
-			//加载菜单树
-			$.get(baseURL + "sys/menu/list", function(r){
-				ztree = $.fn.zTree.init($("#menuTree"), setting, r);
-				//展开所有节点
-				ztree.expandAll(true);
-				
-				if(roleId != null){
-					vm.getRole(roleId);
-				}
-			});
-	    },
+                data: JSON.stringify(this.questionnaire),
+                success: function(r){
+                    if(r.code === 0){
+                        alert('操作成功', function(){
+                            vm.reload();
+                        });
+                    }else{
+                        alert(r.msg);
+                    }
+                }
+            });
+		    console.log(JSON.stringify(this.questionnaire))
+        },
 	    reload: function () {
 	    	vm.showList = true;
 			var page = $("#jqGrid").jqGrid('getGridParam','page');
 			$("#jqGrid").jqGrid('setGridParam',{ 
-                postData:{'roleName': vm.q.roleName},
+                postData:{'title': vm.q.title},
                 page:page
             }).trigger("reloadGrid");
 		},
         validator: function () {
-            if(isBlank(vm.role.roleName)){
-                alert("角色名不能为空");
+            if(isBlank(vm.q.title)){
+                alert("标题不能为空");
                 return true;
             }
         }
