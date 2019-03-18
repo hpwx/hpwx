@@ -28,6 +28,6 @@ public interface TSubjectDao extends BaseMapper<TSubject> {
 
     List<Map<String,Object>> selectAnswersByQID(@Param("objectId") Long objectId);
 
-
     int insertBatch(List<TSubject> userList);
+
 }

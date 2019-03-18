@@ -4,15 +4,14 @@
   <resultMap id="BaseResultMap" type="com.hp.modules.sys.entity.TQuestionnaireSubject" >
     <id column="object_id" property="objectId" jdbcType="BIGINT" />
     <result column="create_user" property="createUser" jdbcType="VARCHAR" />
-    <result column="update_date" property="updateDate" jdbcType="DATE" />
-    <result column="update_user" property="updateUser" jdbcType="VARCHAR" />
     <result column="update_time" property="updateTime" jdbcType="DATE" />
+    <result column="update_user" property="updateUser" jdbcType="VARCHAR" />
     <result column="questionnaire_id" property="questionnaireId" jdbcType="BIGINT" />
     <result column="subject_id" property="subjectId" jdbcType="BIGINT" />
     <result column="must_answer" property="mustAnswer" jdbcType="TINYINT" />
   </resultMap>
   <sql id="Base_Column_List" >
-    object_id, create_user, update_date, update_user, update_time, questionnaire_id, 
+    object_id, create_user, update_time, update_user, questionnaire_id,
     subject_id, must_answer
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
@@ -26,10 +25,10 @@
     where object_id = #{objectId,jdbcType=BIGINT}
   </delete>
   <insert id="insert" parameterType="com.hp.modules.sys.entity.TQuestionnaireSubject" >
-    insert into t_questionnaire_subject (object_id, create_user, update_date, 
+    insert into t_questionnaire_subject (object_id, create_user,
       update_user, update_time, questionnaire_id, 
       subject_id, must_answer)
-    values (#{objectId,jdbcType=BIGINT}, #{createUser,jdbcType=VARCHAR}, #{updateDate,jdbcType=DATE}, 
+    values (#{objectId,jdbcType=BIGINT}, #{createUser,jdbcType=VARCHAR},
       #{updateUser,jdbcType=VARCHAR}, #{updateTime,jdbcType=DATE}, #{questionnaireId,jdbcType=BIGINT}, 
       #{subjectId,jdbcType=BIGINT}, #{mustAnswer,jdbcType=TINYINT})
   </insert>
@@ -42,14 +41,11 @@
       <if test="createUser != null" >
         create_user,
       </if>
-      <if test="updateDate != null" >
-        update_date,
+      <if test="updateTime != null" >
+        update_time,
       </if>
       <if test="updateUser != null" >
         update_user,
-      </if>
-      <if test="updateTime != null" >
-        update_time,
       </if>
       <if test="questionnaireId != null" >
         questionnaire_id,
@@ -68,8 +64,8 @@
       <if test="createUser != null" >
         #{createUser,jdbcType=VARCHAR},
       </if>
-      <if test="updateDate != null" >
-        #{updateDate,jdbcType=DATE},
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=DATE},
       </if>
       <if test="updateUser != null" >
         #{updateUser,jdbcType=VARCHAR},
@@ -94,14 +90,11 @@
       <if test="createUser != null" >
         create_user = #{createUser,jdbcType=VARCHAR},
       </if>
-      <if test="updateDate != null" >
-        update_date = #{updateDate,jdbcType=DATE},
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=DATE},
       </if>
       <if test="updateUser != null" >
         update_user = #{updateUser,jdbcType=VARCHAR},
-      </if>
-      <if test="updateTime != null" >
-        update_time = #{updateTime,jdbcType=DATE},
       </if>
       <if test="questionnaireId != null" >
         questionnaire_id = #{questionnaireId,jdbcType=BIGINT},
@@ -118,9 +111,8 @@
   <update id="updateByPrimaryKey" parameterType="com.hp.modules.sys.entity.TQuestionnaireSubject" >
     update t_questionnaire_subject
     set create_user = #{createUser,jdbcType=VARCHAR},
-      update_date = #{updateDate,jdbcType=DATE},
-      update_user = #{updateUser,jdbcType=VARCHAR},
       update_time = #{updateTime,jdbcType=DATE},
+      update_user = #{updateUser,jdbcType=VARCHAR},
       questionnaire_id = #{questionnaireId,jdbcType=BIGINT},
       subject_id = #{subjectId,jdbcType=BIGINT},
       must_answer = #{mustAnswer,jdbcType=TINYINT}
@@ -139,5 +131,10 @@
       #{item.subjectId,jdbcType=BIGINT}, #{item.mustAnswer,jdbcType=TINYINT}, #{item.mustAnswer,jdbcType=TINYINT})
     </foreach>
   </insert>
-
+<select id="selectQuestionIdBySubjectId" parameterType="java.lang.Long" resultMap="BaseResultMap">
+  SELECT questionnaire_id,must_answer FROM t_questionnaire_subject WHERE subject_id = #{objectId,jdbcType=BIGINT}
+</select>
+<delete id="deleteQuestionnaireBySubjectId" parameterType="java.lang.Long">
+    DELETE FROM t_questionnaire_subject WHERE subject_id = #{objectId,jdbcType=BIGINT}
+</delete>
 </mapper>
