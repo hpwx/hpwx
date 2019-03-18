@@ -30,16 +30,35 @@ public class TSubject implements Serializable{
 
     private Byte deleted;
 
-    @NotBlank(message="是否匿名不能为空", groups = {AddGroup.class, UpdateGroup.class})
+    @NotBlank(message="不能为空", groups = {AddGroup.class, UpdateGroup.class})
     private String name;
 
     @NotNull(message="问题类型不能为空", groups = {AddGroup.class, UpdateGroup.class})
     private Integer typeId;
 
+    private String subjectAnswer;
 
-    private Long subjectAnswer;
+    private Integer gradeCount;
 
-//    @Transient
+    private String everyGradeScore;
+
+    public Integer getGradeCount() {
+        return gradeCount;
+    }
+
+    public void setGradeCount(Integer gradeCount) {
+        this.gradeCount = gradeCount;
+    }
+
+    public String getEveryGradeScore() {
+        return everyGradeScore;
+    }
+
+    public void setEveryGradeScore(String everyGradeScore) {
+        this.everyGradeScore = everyGradeScore;
+    }
+
+    //    @Transient
 //    private String tQuestionnaireName;
 
 //    @Transient
@@ -136,11 +155,11 @@ public class TSubject implements Serializable{
         this.typeId = typeId;
     }
 
-    public Long getSubjectAnswer() {
+    public String getSubjectAnswer() {
         return subjectAnswer;
     }
 
-    public void setSubjectAnswer(Long subjectAnswer) {
+    public void setSubjectAnswer(String subjectAnswer) {
         this.subjectAnswer = subjectAnswer;
     }
  

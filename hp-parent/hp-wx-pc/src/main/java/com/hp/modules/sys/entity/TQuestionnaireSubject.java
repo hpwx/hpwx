@@ -1,3 +1,4 @@
+ 
 package com.hp.modules.sys.entity;
 
 import com.baomidou.mybatisplus.annotations.TableId;
@@ -24,6 +25,14 @@ public class TQuestionnaireSubject {
     private Byte mustAnswer;
 
     private byte deleted ;
+
+    public Date getUpdateTime() {
+        return updateTime;
+    }
+
+    public void setUpdateTime(Date updateTime) {
+        this.updateTime = updateTime;
+    }
 
     public byte getDeleted() {
         return deleted;
@@ -57,14 +66,6 @@ public class TQuestionnaireSubject {
         this.updateUser = updateUser == null ? null : updateUser.trim();
     }
 
-    public Date getUpdateTime() {
-        return updateTime;
-    }
-
-    public void setUpdateTime(Date updateTime) {
-        this.updateTime = updateTime;
-    }
-
     public Long getQuestionnaireId() {
         return questionnaireId;
     }
@@ -88,4 +89,5 @@ public class TQuestionnaireSubject {
     public void setMustAnswer(Byte mustAnswer) {
         this.mustAnswer = mustAnswer;
     }
+ 
 }

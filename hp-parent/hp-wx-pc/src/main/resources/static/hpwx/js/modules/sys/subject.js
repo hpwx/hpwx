@@ -2,7 +2,7 @@ var vm = new Vue({
     el: '#rrapp',
     data: {
         q: {
-            roleName: null
+            name: null
         },
         baseURL: "http://localhost:5000/hpwxpc",
         showList: true,
@@ -27,7 +27,7 @@ var vm = new Vue({
         questionnaireList: [],
         questionObj: {
             type: 1,
-            questionnaire: -1, //问卷id
+            questionnaireId: -1, //问卷id
             questionRadioItems: [''],
             questionCheckboxItems: [''],
             starNum: 5,
@@ -35,7 +35,9 @@ var vm = new Vue({
             isRequired: 1,
             inputAnswer: "", //填空答案
             radioAnswer: "",  //单选答案
-            checkBoxAnswer: [] //多选答案
+            checkBoxAnswer: [], //多选答案
+            subjectName:"",     //问题名称
+            subjectId:""        //问题id
         },
         answerSelect: []
     },
@@ -47,7 +49,18 @@ var vm = new Vue({
                 datatype: "json",
                 colModel: [
                     {label: '题目编号', name: 'objectId', index: "object_id", width: 45, key: true},
-                    {label: '题目名称', name: 'name', index: "name", width: 45},
+                    {label: '题目名称', name: 'name', index: "name", width: 45,formatter:function (value, options, row) {
+                         var content = decodeURIComponent(value);
+                         var newContent= content.replace(/<img [^>]*src=['"]([^'"]+)[^>]*>/gi,function(match,capture){
+                            //capture,返回每个匹配的字符串
+                             console.log(capture);
+                             console.log("-------------------------------")
+                             capture = "img/baidu_jgylogo3.gif";
+                            var newStr='<img src="http://www.baidu.com/'+capture+'" alt="" />';
+                                return newStr;
+                         });
+                        return newContent;
+                    }},
                     {
                         label: '题目类型',
                         name: 'typeId',
@@ -61,7 +74,7 @@ var vm = new Vue({
                             if (value == 3)
                                 return '<span class="label label-success">填空题</span>';
                             if (value == 4)
-                                return '<span class="label label-success">问答题</span>';
+                                return '<span class="label label-success">打分题</span>';
                         }
                     },
                     {label: '创建时间', name: 'createTime', index: "create_time", width: 80}
@@ -92,18 +105,21 @@ var vm = new Vue({
                 }
             });
 
-
             UE.Editor.prototype._bkGetActionUrl = UE.Editor.prototype.getActionUrl;
             UE.Editor.prototype.getActionUrl = function (action) {
                 if (action == 'uploadimage' || action == 'uploadscrawl' || action == 'uploadimage') {
-                    return 'http://localhost:5000/hpwxpc/sys/subject/imgUpload';
+                    return baseURL + '/sys/subject/imgUpload';
                     //'http://localhost:8080/imgUpload';为方法imgUpload的访问地址
                 } else {
                     return this._bkGetActionUrl.call(this, action);
                 }
             };
+
             //富文本编辑器
             var ue = UE.getEditor('editor');
+            ue.ready(function () {
+                ue.setHeight(200);
+            })
 
 
         })
@@ -144,10 +160,9 @@ var vm = new Vue({
             alert(arr.join('\n'))
         },
         setContent: function (isAppendTo) {
-            var arr = [];
-            arr.push("使用editor.setContent('欢迎使用ueditor')方法可以设置编辑器的内容");
-            UE.getEditor('editor').setContent('欢迎使用ueditor', isAppendTo);
-            alert(arr.join("\n"));
+            // var arr = [];
+            // arr.push("使用editor.setContent('欢迎使用ueditor')方法可以设置编辑器的内容");
+            UE.getEditor('editor').setContent(isAppendTo);
         },
         setDisabled: function () {
             UE.getEditor('editor').setDisabled('fullscreen');
@@ -259,6 +274,15 @@ var vm = new Vue({
         },
         answerCheckBox: function (item) {
             console.log(item);
+            var idIndex = this.questionObj.checkBoxAnswer.indexOf(item);
+            if (idIndex != -1) {
+                this.questionObj.checkBoxAnswer.splice(idIndex, 1)
+            } else {
+                this.questionObj.checkBoxAnswer.push(item)
+            }
+            console.log("=============="+idIndex);
+            console.log(this.questionObj.checkBoxAnswer);
+
         },
         addRadioInput: function () {
             this.questionObj.questionRadioItems.push('');
@@ -282,27 +306,48 @@ var vm = new Vue({
             vm.role = {};
         },
         update: function () {
-            var roleId = getSelectedRow();
-            if (roleId == null) {
+            var objectId = getSelectedRow();
+            if (objectId == null) {
                 return;
             }
 
             vm.showList = false;
             vm.title = "修改";
 
+            $.get(baseURL + "sys/subject/info/"+objectId, function(r){
+                if(r.code == 0){
+                    var data = r.subject;
+                    console.log(data);
+                    vm.setContent(decodeURIComponent(data.subjectName));
+                    vm.$nextTick(function () {
+                        for(var k in vm.questionObj){
+                            for(var key in data){
+                                if(k == key){
+                                    vm.questionObj[k] = data[key];
+                                }
+                            }
+                        }
+                    });
+                }else{
+                    alert(r.msg);
+                }
+
+
+            });
+
         },
         del: function () {
-            var roleIds = getSelectedRows();
-            if (roleIds == null) {
+            var ids = getSelectedRows();
+            if (ids == null) {
                 return;
             }
 
             confirm('确定要删除选中的记录？', function () {
                 $.ajax({
                     type: "POST",
-                    url: baseURL + "sys/questionnaire/delete",
+                    url: baseURL + "sys/subject/delete",
                     contentType: "application/json",
-                    data: JSON.stringify(roleIds),
+                    data: JSON.stringify(ids),
                     success: function (r) {
                         if (r.code == 0) {
                             alert('操作成功', function (index) {
@@ -315,37 +360,16 @@ var vm = new Vue({
                 });
             });
         },
-        getRole: function (roleId) {
-            $.get(baseURL + "sys/role/info/" + roleId, function (r) {
-                vm.role = r.role;
-
-                //勾选角色所拥有的菜单
-                var menuIds = vm.role.menuIdList;
-                for (var i = 0; i < menuIds.length; i++) {
-                    var node = ztree.getNodeByParam("menuId", menuIds[i]);
-                    ztree.checkNode(node, true, false);
-                }
-            });
-        },
         saveOrUpdate: function () {
-            if (vm.validator()) {
-                return;
-            }
-
-            //获取选择的菜单
-            var nodes = ztree.getCheckedNodes(true);
-            var menuIdList = new Array();
-            for (var i = 0; i < nodes.length; i++) {
-                menuIdList.push(nodes[i].menuId);
-            }
-            vm.role.menuIdList = menuIdList;
-
-            var url = vm.role.roleId == null ? "sys/role/save" : "sys/role/update";
+            var text = UE.getEditor('editor').getContent();
+            text = text.replace("<p>","").replace("</p>","").trim("");
+            vm.questionObj.subjectName = encodeURIComponent(text);
+            var url = vm.questionObj.subjectId == "" ? "sys/subject/add" : "sys/subject/update";
             $.ajax({
                 type: "POST",
                 url: baseURL + url,
                 contentType: "application/json",
-                data: JSON.stringify(vm.role),
+                data: JSON.stringify(vm.questionObj),
                 success: function (r) {
                     if (r.code === 0) {
                         alert('操作成功', function () {
@@ -361,15 +385,9 @@ var vm = new Vue({
             vm.showList = true;
             var page = $("#jqGrid").jqGrid('getGridParam', 'page');
             $("#jqGrid").jqGrid('setGridParam', {
-                postData: {'roleName': vm.q.roleName},
+                postData: {'name': vm.q.name},
                 page: page
             }).trigger("reloadGrid");
-        },
-        validator: function () {
-            if (isBlank(vm.role.roleName)) {
-                alert("角色名不能为空");
-                return true;
-            }
         }
     }
 });

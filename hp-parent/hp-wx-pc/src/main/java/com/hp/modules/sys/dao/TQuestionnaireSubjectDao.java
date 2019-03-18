@@ -1,3 +1,4 @@
+ 
 package com.hp.modules.sys.dao;
 
 import com.baomidou.mybatisplus.mapper.BaseMapper;
@@ -25,4 +26,8 @@ public interface TQuestionnaireSubjectDao extends BaseMapper<TQuestionnaireSubje
 
     int insertBatch(List<TQuestionnaireSubject> list);
 
+    TQuestionnaireSubject selectQuestionIdBySubjectId(Long objectId);
+
+    void deleteQuestionnaireBySubjectId(Long objectId);
+ 
 }
