@@ -12,7 +12,7 @@
      <result column="answerserialnum" jdbcType="VARCHAR" property="answerSerialNum" />
       <result column="qustion_naire_name" jdbcType="VARCHAR" property="qustionNaireName" />
      
-    
+     
   </resultMap>
   <sql id="Base_Column_List">
     object_id, create_time, userId, questionnaire_id, deleted, openid, subjectids,answerserialnum,qustion_naire_name
@@ -143,4 +143,6 @@
       subjectids = #{subjectids,jdbcType=VARCHAR}
     where object_id = #{objectId,jdbcType=BIGINT}
   </update>
+ 
+
 </mapper>

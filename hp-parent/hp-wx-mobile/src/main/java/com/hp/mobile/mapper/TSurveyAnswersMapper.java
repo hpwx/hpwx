@@ -21,6 +21,12 @@ public interface TSurveyAnswersMapper  {
     int updateByPrimaryKey(TSurveyAnswers record);
     
    List<TSurveyAnswers>  selectListBySubjectId(@Param("subjectid") Long subjectid);
+   
+   List<TSurveyAnswers>  selectListByObjectId(@Param("list") List<String> objectidlist);
+   
+   
+   
+   int  updateByobjectIds(@Param("list")  List<String> list);
     
   
     

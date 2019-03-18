@@ -107,11 +107,11 @@ public class PoJoSubjectInfo {
     this.answercount = answercount;
   }
 
-  public Byte getQuestionnairedesc() {
+  public String getQuestionnairedesc() {
     return questionnairedesc;
   }
 
-  public void setQuestionnairedesc(Byte questionnairedesc) {
+  public void setQuestionnairedesc(String questionnairedesc) {
     this.questionnairedesc = questionnairedesc;
   }
 
@@ -163,7 +163,7 @@ public class PoJoSubjectInfo {
   
   private  String answercount;
   
-  private  Byte questionnairedesc;
+  private  String questionnairedesc;
   
   private   String  icon;
   

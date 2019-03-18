@@ -19,6 +19,9 @@ public class UserAnswer {
 
   private String subjectids;
   
+ 
+   
+
   public String getQustionNaireName() {
     return qustionNaireName;
   }

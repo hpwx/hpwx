@@ -1,11 +1,16 @@
 package com.hp.mobile.service.impl;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
+import org.apache.commons.lang.StringEscapeUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -51,14 +56,12 @@ public class QustionNaireImpl implements IQuestionNaire {
   @Autowired
   private UserAnswerDeatilMapper userAnserDetailMapper;
 
-
   @Autowired
   private PoJoSubjectInfoMapper pojoSubjectMapper;
 
 
   @Autowired
   private TSurveyAnswersMapper surveyAnswersMapper;
-
 
   @Autowired
 
@@ -124,19 +127,14 @@ public class QustionNaireImpl implements IQuestionNaire {
     List<Long> subjectlistIds = new ArrayList<>();
     
     for (PoJoSubjectInfo subject : subjectlist) {
-           
+  
            ArrayList<String>  arr=   new   ArrayList<String>();
               if (subject.getGradecount()!=null) {
                 for (Integer i = 1; i <=subject.getGradecount(); i++) {
                   arr.add( i.toString());
-               }
-                
-              }
-             
-            
-             
+               } 
+              } 
       subject.setGradelist(arr);
-      
       subjectlistIds.add(subject.getSubjectid());
 
     }
@@ -238,6 +236,22 @@ public class QustionNaireImpl implements IQuestionNaire {
         String ansserresultids=   Joiner.on(",").join(choiclist);
         anserdetail.setAnswerResult(ansserresultids); //  回答结果
         anserdetail.setCorrectResult(subjectinfo.getSubjectAnswer());
+        
+        // 修改投票次数
+        surveyAnswersMapper.updateByobjectIds( Arrays.asList(  ansserresultids.split(",")));
+       
+//        
+//        String[]  arr=  subjectinfo.getSubjectAnswer().split(",");
+//        
+//         String rightext="";
+//         String   righttext1="";
+//           for (String v : arr) {
+//             TSurveyAnswers   choice= surveyAnswersMapper.selectByPrimaryKey( Long.parseLong( v));
+//             rightext += choice.getChoiceText();
+//           }
+//           if (  rightext.lastIndexOf(",")!=-1) {
+//             righttext1=   rightext.substring(0, rightext.length() -1);
+//           }  
       }
       // 3：填空题 4.打分
       if ( "3".equals( typeid )  ||  "4".equals( typeid ) ) {
@@ -254,8 +268,6 @@ public class QustionNaireImpl implements IQuestionNaire {
     respmap.put("commitId", commitId);
     return respmap;
   }
-
-
   
 
 
@@ -299,8 +311,8 @@ public class QustionNaireImpl implements IQuestionNaire {
    JSONArray    subjectArrayJson= new JSONArray();
     for (UserAnswerDeatil userAnswerDeatil : anserdetaillist) {
       JSONObject  subjectjson= new JSONObject();
-      JSONArray  choicelistjson= new JSONArray();
-      
+    //  JSONArray  choicelistjson= new JSONArray();
+      List<TSurveyAnswers> choicelist= new ArrayList<TSurveyAnswers>();
         String  subjectype=   userAnswerDeatil.getSubjectType().toString();
         subjectjson.put("subjectid", userAnswerDeatil.getSubjectId());
         subjectjson.put("questionnaireid", userAnswerDeatil.getQuestionnaireId());
@@ -310,16 +322,38 @@ public class QustionNaireImpl implements IQuestionNaire {
         subjectjson.put("correctResult", userAnswerDeatil.getCorrectResult()); // 正確答案結果
          
       // 1：单选题 2：多选题 5. 选择题
-      if (subjectype == "1" || subjectype == "2" || subjectype == "5") {
-       // String[] choicelist =userAnswerDeatil.getAnswerResult().split(",")  ;
-        List<TSurveyAnswers> choicelist=  surveyAnswersMapper.selectListBySubjectId(userAnswerDeatil.getSubjectId());
-        choicelistjson.add(choicelist) ;
+      if ("1".equals(subjectype ) ||   "2".equals(subjectype ) ||  "5".equals(subjectype )) {
+       
+          choicelist=  surveyAnswersMapper.selectListBySubjectId(userAnswerDeatil.getSubjectId());
+         
+          
+           List<String>  arr=   Arrays.asList(userAnswerDeatil.getCorrectResult().split(","));
+           List<TSurveyAnswers>    list= surveyAnswersMapper.selectListByObjectId(arr) ;
+           List<String>  righttextlist=   list.stream().map(TSurveyAnswers::getChoiceText).collect(Collectors.toList());
+           
+           
+           if ( righttextlist.size()==0) {
+             
+             subjectjson.put("rightext", "");
+           }else {
+             subjectjson.put("rightext", String.join(",", righttextlist) );
+           }
+           
+          if (userAnswerDeatil.getAnswerResult().equals(userAnswerDeatil.getCorrectResult())) {
+            subjectjson.put("isright", "正确");
+            
+            
+          }
+          else {
+            subjectjson.put("isright", "错误");
+          }
       }
       else {
+        subjectjson.put("rightext", "");
+        subjectjson.put("isright", "");
         
       }
-      
-      subjectjson.put("choicelist", choicelistjson);
+      subjectjson.put("choicelist", choicelist);
      
       
       subjectArrayJson.add(subjectjson);
@@ -330,6 +364,34 @@ public class QustionNaireImpl implements IQuestionNaire {
     
    
     return resultMap;
+  }
+  
+  
+  private  String    getRightAanser( TSurveyAnswers     surveranswer  ,String  rightAnser) {
+    String  choicetext="";
+      // 单选
+        if (rightAnser.equals(surveranswer.getObjectId().toString())){
+          
+          choicetext=surveranswer.getChoiceText();
+        }else {
+        String[]  arr=  rightAnser.split(",");
+          for (String id : arr) {
+            if ( surveranswer.getObjectId().toString().equals(id)) {
+              choicetext+=   surveranswer.getChoiceText()+","; 
+            }else {
+              
+            }
+          
+        }
+        
+      
+        }
+        if (choicetext.contains(",")) {
+              return     choicetext.substring(0, choicetext.length() -1);
+         
+        }
+     
+    return choicetext;
   }
    
   /***
@@ -356,6 +418,7 @@ public class QustionNaireImpl implements IQuestionNaire {
           item.put("subjectId", sub.getQuestionId());
           lsit.add(item);
         }
+         
         subject.setList(lsit);
       }
     }
