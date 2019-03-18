@@ -139,4 +139,14 @@
       deleted = #{deleted,jdbcType=TINYINT}
     where object_id = #{objectId,jdbcType=BIGINT}
   </update>
+
+  <select id="selectIdByChoiceText" parameterType="java.lang.String" resultType="int">
+    SELECT object_id FROM  t_survey_answers WHERE choice_text = #{text,jdbcType=VARCHAR}
+  </select>
+
+  <select id="selectTSurveyAnswersBySubjectId" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    SELECT
+      <include refid="Base_Column_List" />
+    FROM t_survey_answers WHERE question_id = #{objectId,jdbcType=BIGINT}
+  </select>
 </mapper>

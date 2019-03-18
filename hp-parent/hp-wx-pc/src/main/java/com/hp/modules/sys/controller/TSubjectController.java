@@ -7,16 +7,19 @@ import com.hp.common.utils.R;
 import com.hp.common.validator.ValidatorUtils;
 import com.hp.common.validator.group.AddGroup;
 import com.hp.common.validator.group.UpdateGroup;
+import com.hp.hpenum.SubjectEnum;
 import com.hp.modules.sys.controller.ueditor.PublicMsg;
 import com.hp.modules.sys.controller.ueditor.Ueditor;
 import com.hp.modules.sys.entity.TQuestionnaire;
 import com.hp.modules.sys.entity.TSubject;
 import com.hp.modules.sys.entity.TSurveyAnswers;
+import com.hp.modules.sys.form.SubjectForm;
 import com.hp.modules.sys.service.TQuestionnaireService;
 import com.hp.modules.sys.service.TSubjectService;
 import com.hp.modules.sys.service.TSurveyAnswersService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.ClassUtils;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -26,6 +29,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -66,32 +70,33 @@ public class TSubjectController extends AbstractController{
         return R.ok().put("page", page);
     }
 
-    @GetMapping("/add")
-    public R add(@RequestBody List<TSubject> tSubjects){
+//
+//    @GetMapping("/add")
+//    public R add(@RequestBody List<TSubject> tSubjects){
+//
+//        for(TSubject subject : tSubjects){
+//            ValidatorUtils.validateEntity(subject, AddGroup.class);
+//            subject.setCreateTime(new Date());
+//            subject.setCreateUser(getUserId().toString());
+//            subject.setDeleted(Constant.NO);
+//        }
+//        //获取所有问卷集合
+//        tSubjectService.insertBatch(tSubjects);
+//
+//        return R.ok();
+//    }
 
-        for(TSubject subject : tSubjects){
-            ValidatorUtils.validateEntity(subject, AddGroup.class);
-            subject.setCreateTime(new Date());
-            subject.setCreateUser(getUserId().toString());
-            subject.setDeleted(Constant.NO);
-        }
-        //获取所有问卷集合
-        tSubjectService.insertBatch(tSubjects);
-
-        return R.ok();
-    }
-
-    @GetMapping("/update")
-    public R update(@RequestBody TSubject tSubject){
-
-        ValidatorUtils.validateEntity(tSubject, UpdateGroup.class);
-        //获取用户
-        tSubject.setCreateUser(getUserId().toString());
-        //获取所有问卷集合
-        tSubjectService.update(tSubject);
-
-        return R.ok();
-    }
+//    @GetMapping("/update")
+//    public R update(@RequestBody TSubject tSubject){
+//
+//        ValidatorUtils.validateEntity(tSubject, UpdateGroup.class);
+//        //获取用户
+//        tSubject.setCreateUser(getUserId().toString());
+//        //获取所有问卷集合
+//        tSubjectService.update(tSubject);
+//
+//        return R.ok();
+//    }
 
     //@SysLog("删除问卷")  先不记录日志
     @PostMapping("/delete")
@@ -139,5 +144,61 @@ public class TSubjectController extends AbstractController{
         ueditor.setUrl((String) r.get("url"));
         ueditor.setOriginal(upfile.getOriginalFilename());
         return ueditor;
+    }
+
+    /**
+     * 新增问卷题目接口
+     * @param subjectForm
+     * @return
+     */
+    @PostMapping(value = "/add")
+    public R add(@RequestBody SubjectForm subjectForm){
+
+        if(subjectForm == null){
+            return  R.error("没有传过来的数据哦！");
+        }
+        String userID = getUserId().toString();
+
+        return tSubjectService.insertSubject(subjectForm,userID);
+    }
+
+    /**
+     * 编辑问题 问题id subjectId
+     * @param objectId
+     * @return
+     */
+    @GetMapping(value = "/info/{objectId}")
+    public R add(@PathVariable("objectId") Long objectId){
+        if(objectId == null){
+            return  R.error("没有传过来的数据哦！");
+        }
+        String userID = getUserId().toString();
+        if(StringUtils.isEmpty(userID)){
+            return  R.error("没有登录哦！");
+        }
+
+        SubjectForm subjectForm = tSubjectService.selectSubjectForm(objectId);
+
+        return R.ok().put("subject",subjectForm);
+    }
+
+
+    @PostMapping(value = "/update")
+    public R update(@RequestBody SubjectForm subjectForm){
+
+        if(subjectForm == null){
+            return  R.error("没有传过来的数据哦！");
+        }
+        String userID = getUserId().toString();
+        if(StringUtils.isEmpty(userID)){
+            return  R.error("没有登录哦！");
+        }
+        String subjectId = subjectForm.getSubjectId();
+        if(StringUtils.isEmpty(subjectId)){
+            return  R.error("没有问题id啊");
+        }
+
+        return tSubjectService.updateSubject(subjectForm,userID);
+
     }
 }

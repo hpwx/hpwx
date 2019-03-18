@@ -25,6 +25,14 @@ public class TQuestionnaireSubject {
 
     private byte deleted ;
 
+    public Date getUpdateTime() {
+        return updateTime;
+    }
+
+    public void setUpdateTime(Date updateTime) {
+        this.updateTime = updateTime;
+    }
+
     public byte getDeleted() {
         return deleted;
     }
@@ -55,14 +63,6 @@ public class TQuestionnaireSubject {
 
     public void setUpdateUser(String updateUser) {
         this.updateUser = updateUser == null ? null : updateUser.trim();
-    }
-
-    public Date getUpdateTime() {
-        return updateTime;
-    }
-
-    public void setUpdateTime(Date updateTime) {
-        this.updateTime = updateTime;
     }
 
     public Long getQuestionnaireId() {

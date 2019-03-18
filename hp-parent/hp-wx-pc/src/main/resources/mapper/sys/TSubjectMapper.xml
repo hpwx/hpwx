@@ -11,10 +11,12 @@
     <result column="name" property="name" jdbcType="VARCHAR" />
     <result column="type_id" property="typeId" jdbcType="INTEGER" />
     <result column="subject_answer" property="subjectAnswer" jdbcType="BIGINT" />
+    <result column="grade_count" property="gradeCount" jdbcType="INTEGER" />
+    <result column="every_grade_score" property="everyGradeScore" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
     object_id, create_user, create_time, update_user, update_time, deleted, name, type_id, 
-    subject_answer
+    subject_answer,grade_count,every_grade_score
   </sql>
 
 
@@ -48,14 +50,14 @@
   <insert id="insert" parameterType="com.hp.modules.sys.entity.TSubject" >
     insert into t_subject (object_id, create_user, create_time, 
       update_user, update_time, deleted, 
-      name, type_id, subject_answer
+      name, type_id, subject_answer,grade_count,every_grade_score
       )
     values (#{objectId,jdbcType=BIGINT}, #{createUser,jdbcType=VARCHAR}, #{createTime,jdbcType=DATE}, 
       #{updateUser,jdbcType=VARCHAR}, #{updateTime,jdbcType=DATE}, #{deleted,jdbcType=TINYINT}, 
-      #{name,jdbcType=VARCHAR}, #{typeId,jdbcType=INTEGER}, #{subjectAnswer,jdbcType=BIGINT}
+      #{name,jdbcType=VARCHAR}, #{typeId,jdbcType=INTEGER}, #{subjectAnswer,jdbcType=BIGINT},#{gradeCount,jdbcType=INTEGER},#{everyGradeScore,jdbcType=VARCHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.hp.modules.sys.entity.TSubject" >
+  <insert id="insertSelective" parameterType="com.hp.modules.sys.entity.TSubject" useGeneratedKeys="true" keyProperty="objectId">
     insert into t_subject
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="objectId != null" >
@@ -84,6 +86,12 @@
       </if>
       <if test="subjectAnswer != null" >
         subject_answer,
+      </if>
+      <if test="gradeCount != null" >
+        grade_count,
+      </if>
+      <if test="everyGradeScore != null" >
+        every_grade_score,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
@@ -114,6 +122,12 @@
       <if test="subjectAnswer != null" >
         #{subjectAnswer,jdbcType=BIGINT},
       </if>
+      <if test="gradeCount != null" >
+        #{gradeCount,jdbcType=INTEGER},
+      </if>
+      <if test="everyGradeScore != null" >
+        #{everyGradeScore,jdbcType=VARCHAR},
+      </if>
     </trim>
   </insert>
   <update id="updateByPrimaryKeySelective" parameterType="com.hp.modules.sys.entity.TSubject" >
@@ -143,6 +157,12 @@
       <if test="subjectAnswer != null" >
         subject_answer = #{subjectAnswer,jdbcType=BIGINT},
       </if>
+      <if test="gradeCount != null" >
+        grade_count = #{gradeCount,jdbcType=INTEGER},
+      </if>
+      <if test="everyGradeScore != null" >
+        every_grade_score = #{everyGradeScore,jdbcType=VARCHAR},
+      </if>
     </set>
     where object_id = #{objectId,jdbcType=BIGINT}
   </update>
@@ -155,7 +175,9 @@
       deleted = #{deleted,jdbcType=TINYINT},
       name = #{name,jdbcType=VARCHAR},
       type_id = #{typeId,jdbcType=INTEGER},
-      subject_answer = #{subjectAnswer,jdbcType=BIGINT}
+      subject_answer = #{subjectAnswer,jdbcType=BIGINT},
+      grade_count = #{gradeCount,jdbcType=INTEGER},
+      every_grade_score = #{everyGradeScore,jdbcType=VARCHAR}
     where object_id = #{objectId,jdbcType=BIGINT}
   </update>
 </mapper>

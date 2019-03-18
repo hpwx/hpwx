@@ -2,35 +2,31 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ab7bbee5-4f04-4d5a-af7e-1a719ba351c5" name="Default" comment="dev">
-      <change beforePath="" afterPath="$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/common/utils/ImageExtUtils.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/modules/sys/controller/ueditor/PublicMsg.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/modules/sys/controller/ueditor/Ueditor.java" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change beforePath="$PROJECT_DIR$/hp-parent.iml" afterPath="$PROJECT_DIR$/hp-parent.iml" />
-      <change beforePath="$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/config/ShiroConfig.java" afterPath="$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/config/ShiroConfig.java" />
-      <change beforePath="$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/modules/sys/controller/TQuestionnaireController.java" afterPath="$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/modules/sys/controller/TQuestionnaireController.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/hpenum/SubjectEnum.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/modules/sys/form/SubjectForm.java" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/modules/sys/controller/TSubjectController.java" afterPath="$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/modules/sys/controller/TSubjectController.java" />
-      <change beforePath="$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/modules/sys/dao/TQuestionnaireDao.java" afterPath="$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/modules/sys/dao/TQuestionnaireDao.java" />
-      <change beforePath="$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/modules/sys/entity/TQuestionnaire.java" afterPath="$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/modules/sys/entity/TQuestionnaire.java" />
+      <change beforePath="$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/modules/sys/dao/TQuestionnaireSubjectDao.java" afterPath="$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/modules/sys/dao/TQuestionnaireSubjectDao.java" />
+      <change beforePath="$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/modules/sys/dao/TSubjectDao.java" afterPath="$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/modules/sys/dao/TSubjectDao.java" />
+      <change beforePath="$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/modules/sys/dao/TSurveyAnswersDao.java" afterPath="$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/modules/sys/dao/TSurveyAnswersDao.java" />
+      <change beforePath="$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/modules/sys/entity/TQuestionnaireSubject.java" afterPath="$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/modules/sys/entity/TQuestionnaireSubject.java" />
       <change beforePath="$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/modules/sys/entity/TSubject.java" afterPath="$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/modules/sys/entity/TSubject.java" />
-      <change beforePath="$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/modules/sys/service/TQuestionnaireService.java" afterPath="$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/modules/sys/service/TQuestionnaireService.java" />
-      <change beforePath="$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/modules/sys/service/impl/TQuestionnaireServiceImpl.java" afterPath="$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/modules/sys/service/impl/TQuestionnaireServiceImpl.java" />
+      <change beforePath="$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/modules/sys/service/TSubjectService.java" afterPath="$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/modules/sys/service/TSubjectService.java" />
       <change beforePath="$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/modules/sys/service/impl/TSubjectServiceImpl.java" afterPath="$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/modules/sys/service/impl/TSubjectServiceImpl.java" />
-      <change beforePath="$PROJECT_DIR$/hp-wx-pc/src/main/resources/application-test.yml" afterPath="$PROJECT_DIR$/hp-wx-pc/src/main/resources/application-test.yml" />
-      <change beforePath="$PROJECT_DIR$/hp-wx-pc/src/main/resources/mapper/sys/TQuestionnaireMapper.xml" afterPath="$PROJECT_DIR$/hp-wx-pc/src/main/resources/mapper/sys/TQuestionnaireMapper.xml" />
-      <change beforePath="$PROJECT_DIR$/hp-wx-pc/src/main/resources/static/hpwx/css/main.css" afterPath="$PROJECT_DIR$/hp-wx-pc/src/main/resources/static/hpwx/css/main.css" />
-      <change beforePath="$PROJECT_DIR$/hp-wx-pc/src/main/resources/static/hpwx/js/common.js" afterPath="$PROJECT_DIR$/hp-wx-pc/src/main/resources/static/hpwx/js/common.js" />
-      <change beforePath="$PROJECT_DIR$/hp-wx-pc/src/main/resources/static/hpwx/js/modules/sys/questionnaire.js" afterPath="$PROJECT_DIR$/hp-wx-pc/src/main/resources/static/hpwx/js/modules/sys/questionnaire.js" />
+      <change beforePath="$PROJECT_DIR$/hp-wx-pc/src/main/resources/mapper/sys/TQuestionnaireSubjectMapper.xml" afterPath="$PROJECT_DIR$/hp-wx-pc/src/main/resources/mapper/sys/TQuestionnaireSubjectMapper.xml" />
+      <change beforePath="$PROJECT_DIR$/hp-wx-pc/src/main/resources/mapper/sys/TSubjectMapper.xml" afterPath="$PROJECT_DIR$/hp-wx-pc/src/main/resources/mapper/sys/TSubjectMapper.xml" />
+      <change beforePath="$PROJECT_DIR$/hp-wx-pc/src/main/resources/mapper/sys/TSurveyAnswersMapper.xml" afterPath="$PROJECT_DIR$/hp-wx-pc/src/main/resources/mapper/sys/TSurveyAnswersMapper.xml" />
       <change beforePath="$PROJECT_DIR$/hp-wx-pc/src/main/resources/static/hpwx/js/modules/sys/subject.js" afterPath="$PROJECT_DIR$/hp-wx-pc/src/main/resources/static/hpwx/js/modules/sys/subject.js" />
+      <change beforePath="$PROJECT_DIR$/hp-wx-pc/src/main/resources/static/hpwx/modules/sys/menu.html" afterPath="$PROJECT_DIR$/hp-wx-pc/src/main/resources/static/hpwx/modules/sys/menu.html" />
       <change beforePath="$PROJECT_DIR$/hp-wx-pc/src/main/resources/static/hpwx/modules/sys/questionnaire.html" afterPath="$PROJECT_DIR$/hp-wx-pc/src/main/resources/static/hpwx/modules/sys/questionnaire.html" />
+      <change beforePath="$PROJECT_DIR$/hp-wx-pc/src/main/resources/static/hpwx/modules/sys/questionnaire_statistics.html" afterPath="$PROJECT_DIR$/hp-wx-pc/src/main/resources/static/hpwx/modules/sys/questionnaire_statistics.html" />
+      <change beforePath="$PROJECT_DIR$/hp-wx-pc/src/main/resources/static/hpwx/modules/sys/role.html" afterPath="$PROJECT_DIR$/hp-wx-pc/src/main/resources/static/hpwx/modules/sys/role.html" />
       <change beforePath="$PROJECT_DIR$/hp-wx-pc/src/main/resources/static/hpwx/modules/sys/subject.html" afterPath="$PROJECT_DIR$/hp-wx-pc/src/main/resources/static/hpwx/modules/sys/subject.html" />
-      <change beforePath="$PROJECT_DIR$/hp-wx-pc/src/main/resources/static/hpwx/plugins/ueditor/jsp/config.json" afterPath="$PROJECT_DIR$/hp-wx-pc/src/main/resources/static/hpwx/plugins/ueditor/jsp/config.json" />
-      <change beforePath="$PROJECT_DIR$/hp-wx-pc/src/main/resources/static/hpwx/plugins/ueditor/ueditor.config.js" afterPath="$PROJECT_DIR$/hp-wx-pc/src/main/resources/static/hpwx/plugins/ueditor/ueditor.config.js" />
-      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/config/ShiroConfig.class" afterPath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/config/ShiroConfig.class" />
+      <change beforePath="$PROJECT_DIR$/hp-wx-pc/src/main/resources/static/hpwx/modules/sys/tUser.html" afterPath="$PROJECT_DIR$/hp-wx-pc/src/main/resources/static/hpwx/modules/sys/tUser.html" />
+      <change beforePath="$PROJECT_DIR$/hp-wx-pc/src/main/resources/static/hpwx/modules/sys/user.html" afterPath="$PROJECT_DIR$/hp-wx-pc/src/main/resources/static/hpwx/modules/sys/user.html" />
       <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/static/hpwx/css/main.css" afterPath="$PROJECT_DIR$/hp-wx-pc/target/classes/static/hpwx/css/main.css" />
-      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/static/hpwx/js/common.js" afterPath="$PROJECT_DIR$/hp-wx-pc/target/classes/static/hpwx/js/common.js" />
       <change beforePath="$PROJECT_DIR$/logs/hp-wx-api.log" afterPath="$PROJECT_DIR$/logs/hp-wx-api.log" />
-      <change beforePath="$PROJECT_DIR$/logs/hp-wx-api.log.1" afterPath="$PROJECT_DIR$/logs/hp-wx-api.log.1" />
     </list>
     <ignored path="$PROJECT_DIR$/hp-common-utils/target/" />
     <ignored path="$PROJECT_DIR$/hp-common-db/target/" />
@@ -48,24 +44,98 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="450">
-      <file leaf-file-name="TQuestionnaireController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/modules/sys/controller/TQuestionnaireController.java">
+      <file leaf-file-name="TQuestionnaireServiceImpl.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/modules/sys/service/impl/TQuestionnaireServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="489">
-              <caret line="61" column="12" lean-forward="true" selection-start-line="61" selection-start-column="12" selection-end-line="61" selection-end-column="12" />
+            <state relative-caret-position="216">
+              <caret line="31" column="0" lean-forward="false" selection-start-line="31" selection-start-column="0" selection-end-line="35" selection-end-column="9" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="user.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/hp-wx-pc/src/main/resources/static/hpwx/modules/sys/user.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="135">
+              <caret line="20" column="47" lean-forward="false" selection-start-line="20" selection-start-column="47" selection-end-line="20" selection-end-column="47" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="subject.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/hp-wx-pc/src/main/resources/static/hpwx/modules/sys/subject.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="251">
+              <caret line="38" column="29" lean-forward="false" selection-start-line="38" selection-start-column="29" selection-end-line="38" selection-end-column="29" />
               <folding>
-                <element signature="method#statisticsOnResult#0;class#TQuestionnaireController#0" expanded="false" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#1;n#div#1;n#form#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TSubjectController.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="TSubjectController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/modules/sys/controller/TSubjectController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="103" column="13" lean-forward="true" selection-start-line="103" selection-start-column="13" selection-end-line="103" selection-end-column="13" />
+            <state relative-caret-position="257">
+              <caret line="65" column="44" lean-forward="false" selection-start-line="65" selection-start-column="44" selection-end-line="65" selection-end-column="44" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TSubjectService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/modules/sys/service/TSubjectService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="162">
+              <caret line="16" column="14" lean-forward="false" selection-start-line="16" selection-start-column="14" selection-end-line="16" selection-end-column="14" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TSubjectServiceImpl.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/modules/sys/service/impl/TSubjectServiceImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="135">
+              <caret line="50" column="0" lean-forward="false" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="questionnaire.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/hp-wx-pc/src/main/resources/static/hpwx/modules/sys/questionnaire.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="351">
+              <caret line="37" column="35" lean-forward="false" selection-start-line="37" selection-start-column="35" selection-end-line="37" selection-end-column="35" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="questionnaire_statistics.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/hp-wx-pc/src/main/resources/static/hpwx/modules/sys/questionnaire_statistics.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="405">
+              <caret line="36" column="36" lean-forward="false" selection-start-line="36" selection-start-column="36" selection-end-line="36" selection-end-column="36" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="questionnaire.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/hp-wx-pc/src/main/resources/static/hpwx/js/modules/sys/questionnaire.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="149">
+              <caret line="251" column="21" lean-forward="false" selection-start-line="251" selection-start-column="15" selection-end-line="251" selection-end-column="21" />
+              <folding>
+                <marker date="1552730822917" expanded="true" signature="8617:8632" ph="..." />
+                <marker date="1552730822917" expanded="true" signature="11026:11041" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -73,8 +143,8 @@
       <file leaf-file-name="subject.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/hp-wx-pc/src/main/resources/static/hpwx/js/modules/sys/subject.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="24">
-              <caret line="127" column="33" lean-forward="true" selection-start-line="127" selection-start-column="33" selection-end-line="127" selection-end-column="33" />
+            <state relative-caret-position="-10192">
+              <caret line="3" column="12" lean-forward="false" selection-start-line="3" selection-start-column="12" selection-end-line="3" selection-end-column="12" />
               <folding />
             </state>
           </provider>
@@ -85,43 +155,48 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Enum" />
         <option value="Class" />
       </list>
     </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>is_required</find>
-      <find>questionnaireTime</find>
-      <find>tQuestionnaire</find>
       <find>save</find>
-      <find>start</find>
-      <find>insert</find>
-      <find>getSelectedRow</find>
-      <find>startTime</find>
-      <find>setting</find>
-      <find>getGridParam</find>
-      <find>list</find>
-      <find>reload</find>
-      <find>edit</find>
-      <find>tQuestionnaireDao</find>
-      <find>BaseResultMap</find>
-      <find>update</find>
-      <find>resultMap</find>
-      <find>delete</find>
-      <find>deleteByPrimaryKey</find>
-      <find>del</find>
-      <find>questionObj</find>
-      <find>baseURL</find>
-      <find>getMenuTree</find>
       <find>add</find>
-      <find>tQuestionnaireName</find>
-      <find>tQuestionnaireId</find>
-      <find>must_answer</find>
-      <find>ueditor</find>
-      <find>common</find>
-      <find>uploadimage</find>
+      <find>insertSelective</find>
+      <find>setDeleted</find>
+      <find>insert</find>
+      <find>updateTime</find>
+      <find>update_date</find>
+      <find>updateDate</find>
+      <find>update_time</find>
+      <find>questionnaireId</find>
+      <find>enc</find>
+      <find>editor</find>
+      <find>trim</find>
+      <find>starNum</find>
+      <find>updateByPrimaryKeySelective</find>
+      <find>questionObj</find>
+      <find>resultType</find>
+      <find>selectByPrimaryKey</find>
+      <find>BaseResultMap</find>
+      <find>putAll</find>
+      <find>upd</find>
+      <find>tQuestionnaireDao</find>
+      <find>baseURL</find>
+      <find>info</find>
+      <find>update</find>
+      <find>v-if=&quot;hasPermission('sys:role:save')&quot;</find>
+      <find>del</find>
+      <find>reload</find>
+      <find>query</find>
+      <find>list</find>
     </findStrings>
+    <replaceStrings>
+      <replace>update_time</replace>
+      <replace>updateTime</replace>
+    </replaceStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -143,12 +218,8 @@
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/hp-wx-pc/src/main/resources/static/hpwx/modules/qustionnaire/questioinairelist.html" />
         <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/modules/sys/dao/TQuestionnaireSubjectDao.java" />
-        <option value="$PROJECT_DIR$/hp-wx-pc/src/main/resources/static/hpwx/js/common.js" />
         <option value="$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/config/SwaggerConfig.java" />
-        <option value="$PROJECT_DIR$/hp-wx-pc/src/main/resources/static/hpwx/css/main.css" />
         <option value="$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/common/utils/Query.java" />
-        <option value="$PROJECT_DIR$/hp-wx-pc/src/main/resources/static/hpwx/modules/sys/questionnaire.html" />
         <option value="$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/modules/sys/dao/TQuestionnaireDao.java" />
         <option value="$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/modules/sys/service/TQuestionnaireService.java" />
         <option value="$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/modules/sys/service/impl/TQuestionnaireServiceImpl.java" />
@@ -156,20 +227,38 @@
         <option value="$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/modules/sys/entity/TQuestionnaire.java" />
         <option value="$PROJECT_DIR$/hp-wx-pc/src/main/resources/mapper/sys/TQuestionnaireMapper.xml" />
         <option value="$PROJECT_DIR$/hp-wx-pc/src/main/resources/static/hpwx/plugins/ueditor/jsp/config.json" />
-        <option value="$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/modules/sys/entity/TSubject.java" />
-        <option value="$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/modules/sys/service/impl/TSubjectServiceImpl.java" />
         <option value="$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/modules/sys/controller/UeditorController.java" />
         <option value="$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/modules/sys/controller/ueditor/Ueditor.java" />
         <option value="$PROJECT_DIR$/hp-wx-pc/pom.xml" />
         <option value="$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/config/ShiroConfig.java" />
         <option value="$PROJECT_DIR$/hp-wx-pc/src/main/resources/static/hpwx/plugins/ueditor/ueditor.config.js" />
-        <option value="$PROJECT_DIR$/hp-wx-pc/src/main/resources/static/hpwx/modules/sys/subject.html" />
-        <option value="$PROJECT_DIR$/hp-wx-pc/src/main/resources/static/hpwx/js/modules/sys/subject.js" />
         <option value="$PROJECT_DIR$/hp-wx-pc/src/main/resources/application-test.yml" />
         <option value="$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/common/utils/ImageExtUtils.java" />
         <option value="$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/modules/sys/controller/ueditor/PublicMsg.java" />
+        <option value="$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/hpenum/SubjectEnum.java" />
+        <option value="$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/modules/sys/form/SubjectForm.java" />
+        <option value="$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/modules/sys/dao/TSubjectDao.java" />
         <option value="$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/modules/sys/controller/TQuestionnaireController.java" />
+        <option value="$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/modules/sys/entity/TSubject.java" />
+        <option value="$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/modules/sys/entity/TQuestionnaireSubject.java" />
+        <option value="$PROJECT_DIR$/hp-wx-pc/src/main/resources/static/hpwx/js/common.js" />
+        <option value="$PROJECT_DIR$/hp-wx-pc/src/main/resources/mapper/sys/TSubjectMapper.xml" />
+        <option value="$PROJECT_DIR$/hp-wx-pc/src/main/resources/mapper/sys/TSurveyAnswersMapper.xml" />
+        <option value="$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/modules/sys/dao/TSurveyAnswersDao.java" />
+        <option value="$PROJECT_DIR$/hp-wx-pc/src/main/resources/static/hpwx/css/main.css" />
+        <option value="$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/modules/sys/dao/TQuestionnaireSubjectDao.java" />
+        <option value="$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/modules/sys/service/TSubjectService.java" />
+        <option value="$PROJECT_DIR$/hp-wx-pc/src/main/resources/mapper/sys/TQuestionnaireSubjectMapper.xml" />
         <option value="$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/modules/sys/controller/TSubjectController.java" />
+        <option value="$PROJECT_DIR$/hp-wx-pc/src/main/resources/static/hpwx/modules/sys/questionnaire.html" />
+        <option value="$PROJECT_DIR$/hp-wx-pc/src/main/resources/static/hpwx/modules/sys/menu.html" />
+        <option value="$PROJECT_DIR$/hp-wx-pc/src/main/resources/static/hpwx/modules/sys/questionnaire_statistics.html" />
+        <option value="$PROJECT_DIR$/hp-wx-pc/src/main/resources/static/hpwx/modules/sys/role.html" />
+        <option value="$PROJECT_DIR$/hp-wx-pc/src/main/resources/static/hpwx/modules/sys/tUser.html" />
+        <option value="$PROJECT_DIR$/hp-wx-pc/src/main/resources/static/hpwx/modules/sys/user.html" />
+        <option value="$PROJECT_DIR$/hp-wx-pc/src/main/resources/static/hpwx/js/modules/sys/subject.js" />
+        <option value="$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/modules/sys/service/impl/TSubjectServiceImpl.java" />
+        <option value="$PROJECT_DIR$/hp-wx-pc/src/main/resources/static/hpwx/modules/sys/subject.html" />
       </list>
     </option>
   </component>
@@ -179,11 +268,11 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="351" />
-    <option name="y" value="41" />
-    <option name="width" value="1482" />
-    <option name="height" value="1000" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="433" />
+    <option name="y" value="59" />
+    <option name="width" value="1288" />
+    <option name="height" value="765" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -193,15 +282,123 @@
             <id />
           </State>
           <State>
+            <id>Android &gt; Lint &gt; Correctness</id>
+          </State>
+          <State>
+            <id>Android &gt; Lint &gt; Usability &gt; Icons</id>
+          </State>
+          <State>
+            <id>Android Lint for Kotlin</id>
+          </State>
+          <State>
+            <id>Ant inspections</id>
+          </State>
+          <State>
+            <id>Application Server Specific Inspections</id>
+          </State>
+          <State>
+            <id>Control flow issuesJava</id>
+          </State>
+          <State>
+            <id>Control flow issuesJavaScript</id>
+          </State>
+          <State>
+            <id>Declaration redundancyJava</id>
+          </State>
+          <State>
+            <id>Faces Model</id>
+          </State>
+          <State>
+            <id>General</id>
+          </State>
+          <State>
+            <id>GeneralJavaScript</id>
+          </State>
+          <State>
+            <id>Groovy</id>
+          </State>
+          <State>
+            <id>Hibernate Issues</id>
+          </State>
+          <State>
+            <id>Initialization issuesJava</id>
+          </State>
+          <State>
+            <id>Internationalization issuesJava</id>
+          </State>
+          <State>
+            <id>JBoss Seam issues</id>
+          </State>
+          <State>
+            <id>JPA issues</id>
+          </State>
+          <State>
+            <id>JSON</id>
+          </State>
+          <State>
+            <id>Java</id>
+          </State>
+          <State>
+            <id>Java EE issues</id>
+          </State>
+          <State>
             <id>JavaScript</id>
           </State>
           <State>
             <id>JavaScript validity issuesJavaScript</id>
           </State>
+          <State>
+            <id>Maven</id>
+          </State>
+          <State>
+            <id>Plugin DevKit</id>
+          </State>
+          <State>
+            <id>Probable bugsJava</id>
+          </State>
+          <State>
+            <id>Properties Files</id>
+          </State>
+          <State>
+            <id>RegExp</id>
+          </State>
+          <State>
+            <id>SQL</id>
+          </State>
+          <State>
+            <id>Spring</id>
+          </State>
+          <State>
+            <id>Spring CoreSpring</id>
+          </State>
+          <State>
+            <id>Struts</id>
+          </State>
+          <State>
+            <id>Struts 1Struts</id>
+          </State>
+          <State>
+            <id>TestNGJava</id>
+          </State>
+          <State>
+            <id>UI Form Problems</id>
+          </State>
+          <State>
+            <id>Validity issuesGroovy</id>
+          </State>
+          <State>
+            <id>XML</id>
+          </State>
+          <State>
+            <id>XMLSpring CoreSpring</id>
+          </State>
+          <State>
+            <id>XSLT</id>
+          </State>
         </expanded-state>
         <selected-state>
           <State>
-            <id>JSReferencingArgumentsOutsideOfFunction</id>
+            <id>Duplicates</id>
           </State>
         </selected-state>
       </profile-state>
@@ -277,16 +474,6 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="hp" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="hp-parent" type="b2602c69:ProjectViewProjectNode" />
-              <item name="hp-parent" type="462c0819:PsiDirectoryNode" />
-              <item name="hp-wx-pc" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="hp" type="462c0819:PsiDirectoryNode" />
               <item name="modules" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -318,6 +505,67 @@
               <item name="hp-wx-pc" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="hp" type="462c0819:PsiDirectoryNode" />
+              <item name="modules" type="462c0819:PsiDirectoryNode" />
+              <item name="sys" type="462c0819:PsiDirectoryNode" />
+              <item name="dao" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hp-parent" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hp-parent" type="462c0819:PsiDirectoryNode" />
+              <item name="hp-wx-pc" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="hp" type="462c0819:PsiDirectoryNode" />
+              <item name="modules" type="462c0819:PsiDirectoryNode" />
+              <item name="sys" type="462c0819:PsiDirectoryNode" />
+              <item name="entity" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hp-parent" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hp-parent" type="462c0819:PsiDirectoryNode" />
+              <item name="hp-wx-pc" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="hp" type="462c0819:PsiDirectoryNode" />
+              <item name="modules" type="462c0819:PsiDirectoryNode" />
+              <item name="sys" type="462c0819:PsiDirectoryNode" />
+              <item name="form" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hp-parent" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hp-parent" type="462c0819:PsiDirectoryNode" />
+              <item name="hp-wx-pc" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="hp" type="462c0819:PsiDirectoryNode" />
+              <item name="modules" type="462c0819:PsiDirectoryNode" />
+              <item name="sys" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hp-parent" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hp-parent" type="462c0819:PsiDirectoryNode" />
+              <item name="hp-wx-pc" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="hp" type="462c0819:PsiDirectoryNode" />
+              <item name="modules" type="462c0819:PsiDirectoryNode" />
+              <item name="sys" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+              <item name="impl" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hp-parent" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hp-parent" type="462c0819:PsiDirectoryNode" />
+              <item name="hp-wx-pc" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -343,29 +591,18 @@
               <item name="hp-parent" type="b2602c69:ProjectViewProjectNode" />
               <item name="hp-parent" type="462c0819:PsiDirectoryNode" />
               <item name="hp-wx-pc" type="462c0819:PsiDirectoryNode" />
-              <item name="target" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="hp-parent" type="b2602c69:ProjectViewProjectNode" />
-              <item name="hp-parent" type="462c0819:PsiDirectoryNode" />
-              <item name="hp-wx-pc" type="462c0819:PsiDirectoryNode" />
-              <item name="target" type="462c0819:PsiDirectoryNode" />
-              <item name="classes" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="hp-parent" type="b2602c69:ProjectViewProjectNode" />
-              <item name="hp-parent" type="462c0819:PsiDirectoryNode" />
-              <item name="hp-wx-pc" type="462c0819:PsiDirectoryNode" />
-              <item name="target" type="462c0819:PsiDirectoryNode" />
-              <item name="classes" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="static" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="hp-parent" type="b2602c69:ProjectViewProjectNode" />
               <item name="hp-parent" type="462c0819:PsiDirectoryNode" />
               <item name="hp-wx-pc" type="462c0819:PsiDirectoryNode" />
-              <item name="target" type="462c0819:PsiDirectoryNode" />
-              <item name="classes" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="static" type="462c0819:PsiDirectoryNode" />
               <item name="hpwx" type="462c0819:PsiDirectoryNode" />
             </path>
@@ -373,11 +610,71 @@
               <item name="hp-parent" type="b2602c69:ProjectViewProjectNode" />
               <item name="hp-parent" type="462c0819:PsiDirectoryNode" />
               <item name="hp-wx-pc" type="462c0819:PsiDirectoryNode" />
-              <item name="target" type="462c0819:PsiDirectoryNode" />
-              <item name="classes" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="static" type="462c0819:PsiDirectoryNode" />
               <item name="hpwx" type="462c0819:PsiDirectoryNode" />
-              <item name="uploadImages" type="462c0819:PsiDirectoryNode" />
+              <item name="css" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hp-parent" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hp-parent" type="462c0819:PsiDirectoryNode" />
+              <item name="hp-wx-pc" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="hpwx" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hp-parent" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hp-parent" type="462c0819:PsiDirectoryNode" />
+              <item name="hp-wx-pc" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="hpwx" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="modules" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hp-parent" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hp-parent" type="462c0819:PsiDirectoryNode" />
+              <item name="hp-wx-pc" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="hpwx" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="modules" type="462c0819:PsiDirectoryNode" />
+              <item name="sys" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hp-parent" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hp-parent" type="462c0819:PsiDirectoryNode" />
+              <item name="hp-wx-pc" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="hpwx" type="462c0819:PsiDirectoryNode" />
+              <item name="modules" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hp-parent" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hp-parent" type="462c0819:PsiDirectoryNode" />
+              <item name="hp-wx-pc" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="hpwx" type="462c0819:PsiDirectoryNode" />
+              <item name="modules" type="462c0819:PsiDirectoryNode" />
+              <item name="sys" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="hp-parent" type="b2602c69:ProjectViewProjectNode" />
@@ -408,14 +705,14 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$USER_HOME$/Desktop/ueditor-spring-boot-starter-example-master/ueditor-spring-boot-starter-example-master" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="Errors" />
     <property name="RequestMappingsPanelWidth0" value="75" />
     <property name="RequestMappingsPanelOrder0" value="0" />
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="RequestMappingsPanelOrder1" value="1" />
     <property name="RequestMappingsPanelWidth2" value="75" />
     <property name="RequestMappingsPanelOrder2" value="2" />
-    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://D:/t_project_all/hpwx/hp-parent/hp-wx-pc/src/main/java/com/hp/modules/sys/service/TQuestionnaireService.java&#10;TQuestionSer&#9;PSI&#9;JAVA://com.hp.modules.sys.service.TQuestionnaireService&#10;Ima&#9;PSI&#9;JAVA://com.hp.common.utils.ImageExtUtils" />
+    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://D:/t_project_all/hpwx/hp-parent/hp-wx-pc/src/main/java/com/hp/modules/sys/service/impl/TSubjectServiceImpl.java&#10;com&#9;FILE&#9;file://D:/t_project_all/hpwx/hp-parent/hp-wx-pc/src/main/resources/static/hpwx/js/common.js&#10;TQuestionSer&#9;PSI&#9;JAVA://com.hp.modules.sys.service.TQuestionnaireService&#10;Ima&#9;PSI&#9;JAVA://com.hp.common.utils.ImageExtUtils" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -550,7 +847,7 @@
       <workItem from="1552456441164" duration="22773000" />
       <workItem from="1552530142712" duration="59618000" />
       <workItem from="1552658952808" duration="9880000" />
-      <workItem from="1552724483954" duration="31647000" />
+      <workItem from="1552724483954" duration="80352000" />
     </task>
     <task id="LOCAL-00001" summary="测试">
       <created>1552456525899</created>
@@ -584,10 +881,10 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="125056000" />
+    <option name="totallyTimeSpent" value="173761000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-11" y="-11" width="1942" height="1102" extended-state="7" />
+    <frame x="-11" y="-11" width="1942" height="1102" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -601,16 +898,16 @@
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.43429846" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32962137" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32962137" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32962137" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32962137" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.52115816" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.35529158" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32962137" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.37861916" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32962137" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3461123" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32962137" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -669,7 +966,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="29" />
+      <option name="time" value="40" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -678,398 +975,223 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/modules/sys/service/impl/TQuestionnaireServiceImpl.java">
+    <entry file="file://$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/modules/sys/form/SysLoginForm.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="53">
-          <caret line="99" column="17" lean-forward="false" selection-start-line="99" selection-start-column="17" selection-end-line="99" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/modules/sys/service/TQuestionnaireService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="537">
-          <caret line="27" column="22" lean-forward="false" selection-start-line="27" selection-start-column="22" selection-end-line="27" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hp-wx-pc/src/main/resources/static/hpwx/js/modules/sys/questionnaire.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="7" column="19" lean-forward="false" selection-start-line="7" selection-start-column="19" selection-end-line="7" selection-end-column="19" />
-          <folding>
-            <marker date="1552730822917" expanded="true" signature="8617:8632" ph="..." />
-            <marker date="1552730822917" expanded="true" signature="11026:11041" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hp-wx-pc/src/main/resources/static/hpwx/plugins/ueditor/ueditor.parse.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hp-wx-pc/src/main/resources/static/hpwx/plugins/ueditor/jsp/controller.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="6" column="44" lean-forward="true" selection-start-line="6" selection-start-column="44" selection-end-line="6" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hp-wx-pc/src/main/resources/static/hpwx/plugins/ueditor/jsp/config.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="32" column="0" lean-forward="false" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/cn/songxinqiang/com.baidu.ueditor/1.1.2-offical/com.baidu.ueditor-1.1.2-offical.jar!/com/baidu/ueditor/ActionEnter.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="23" column="11" lean-forward="false" selection-start-line="23" selection-start-column="11" selection-end-line="23" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hp-wx-pc/src/main/resources/mapper/sys/TSubjectMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1782">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1552455058161" expanded="true" signature="1194:1553" ph="SELECT t2.ob... t_questionnaire_subject" />
-            <marker date="1552455058161" expanded="true" signature="1664:1781" ph="select from t_subject" />
-            <marker date="1552455058161" expanded="true" signature="1865:1936" ph="delete from t_subject... " />
-            <marker date="1552455058161" expanded="true" signature="2028:2475" ph="insert into t_subject... " />
-            <marker date="1552455058161" expanded="true" signature="4240:5121" ph="update t_subject... " />
-            <marker date="1552455058161" expanded="true" signature="5225:5679" ph="update t_subject... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/common/utils/Query.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="47" column="11" lean-forward="false" selection-start-line="47" selection-start-column="11" selection-end-line="47" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/config/MybatisPlusConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="158">
-          <caret line="29" column="13" lean-forward="false" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/common/utils/RedisUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="17" column="13" lean-forward="false" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/modules/sys/service/TSubjectService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="15" column="17" lean-forward="false" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/modules/sys/controller/UeditorController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="201">
-          <caret line="18" column="27" lean-forward="true" selection-start-line="18" selection-start-column="27" selection-end-line="18" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/config/KaptchaConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="325">
-          <caret line="18" column="13" lean-forward="false" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hp-wx-pc/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="361">
-          <caret line="50" column="21" lean-forward="true" selection-start-line="50" selection-start-column="21" selection-end-line="50" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/modules/sys/entity/TSubject.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-738">
-          <caret line="50" column="28" lean-forward="false" selection-start-line="50" selection-start-column="28" selection-end-line="50" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/modules/sys/service/impl/TSubjectServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret line="64" column="0" lean-forward="true" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/config/FilterConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="24" column="69" lean-forward="false" selection-start-line="24" selection-start-column="58" selection-end-line="24" selection-end-column="69" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/config/SwaggerConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-84">
-          <caret line="17" column="13" lean-forward="false" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/config/CorsConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="12" column="32" lean-forward="true" selection-start-line="12" selection-start-column="32" selection-end-line="12" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/common/utils/ShiroUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="16" column="13" lean-forward="false" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/common/utils/SpringContextUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="15" column="13" lean-forward="false" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/common/validator/group/Group.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="11" column="17" lean-forward="false" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/modules/sys/entity/TQuestionnaire.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="269">
-          <caret line="70" column="26" lean-forward="false" selection-start-line="70" selection-start-column="26" selection-end-line="70" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/modules/sys/oauth2/TokenGenerator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-138">
-          <caret line="14" column="13" lean-forward="false" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/modules/sys/oauth2/OAuth2Token.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/modules/sys/oauth2/OAuth2Realm.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-567">
+        <state relative-caret-position="153">
           <caret line="24" column="13" lean-forward="false" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/modules/sys/oauth2/OAuth2Filter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="351">
-          <caret line="91" column="34" lean-forward="false" selection-start-line="91" selection-start-column="19" selection-end-line="91" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/modules/sys/entity/TUserAnswerDetail.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/modules/sys/entity/TUserAnswer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/modules/sys/entity/TUser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/modules/sys/entity/TSurveyAnswers.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/common/xss/HTMLFilter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-11295">
-          <caret line="42" column="19" lean-forward="false" selection-start-line="42" selection-start-column="19" selection-end-line="42" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/common/xss/SQLFilter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="99">
-          <caret line="18" column="46" lean-forward="true" selection-start-line="18" selection-start-column="46" selection-end-line="18" selection-end-column="46" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/common/xss/XssFilter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="284">
+        <state relative-caret-position="93">
           <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/config/ShiroConfig.java">
+    <entry file="file://$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/modules/sys/dao/SysUserTokenDao.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret line="68" column="48" lean-forward="true" selection-start-line="68" selection-start-column="48" selection-end-line="68" selection-end-column="48" />
+        <state relative-caret-position="324">
+          <caret line="15" column="17" lean-forward="false" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="17" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/common/utils/R.java">
+    <entry file="file://$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/modules/sys/dao/SysUserRoleDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="17" column="17" lean-forward="false" selection-start-line="17" selection-start-column="17" selection-end-line="17" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/modules/sys/dao/SysUserDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="17" column="17" lean-forward="false" selection-start-line="17" selection-start-column="17" selection-end-line="17" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/modules/sys/dao/SysRoleMenuDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="17" column="17" lean-forward="false" selection-start-line="17" selection-start-column="17" selection-end-line="17" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/modules/sys/dao/TUserAnswerDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="8" column="17" lean-forward="false" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hp-wx-pc/src/main/resources/mapper/sys/TQuestionnaireMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="201">
+          <caret line="51" column="71" lean-forward="false" selection-start-line="51" selection-start-column="71" selection-end-line="51" selection-end-column="71" />
+          <folding>
+            <marker date="1552732268479" expanded="true" signature="1920:3019" ph="select tt3.*... t_survey_answers" />
+            <marker date="1552732268479" expanded="true" signature="1988:2975" ph="select tt1.s... " />
+            <marker date="1552732268479" expanded="true" signature="3107:3692" ph="SELECT t4.ob... t_user_answer_detail" />
+            <marker date="1552732268479" expanded="true" signature="3790:5098" ph="SELECT t.tit... t_questionnaire" />
+            <marker date="1552732268479" expanded="true" signature="5200:5491" ph="SELECT count... t_questionnaire" />
+            <marker date="1552732268479" expanded="true" signature="5629:5873" ph="SELECT t2.ob... t_questionnaire_subject" />
+            <marker date="1552732268479" expanded="true" signature="6219:6341" ph="select from t_questionnaire" />
+            <marker date="1552732268479" expanded="true" signature="6425:6502" ph="delete from t_questionnaire... " />
+            <marker date="1552732268479" expanded="true" signature="6600:7620" ph="insert into t_questionnaire... " />
+            <marker date="1552732268479" expanded="true" signature="11407:13001" ph="update t_questionnaire... " />
+            <marker date="1552732268479" expanded="true" signature="13111:13920" ph="update t_questionnaire... " />
+            <marker date="1552732268479" expanded="true" signature="14033:14187" ph="SELECT from t_questionnaire" />
+            <marker date="1552732268479" expanded="true" signature="14266:14368" ph="UPDATE t_questionnaire... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/com/baomidou/mybatis-plus-support/2.1.9/mybatis-plus-support-2.1.9.jar!/com/baomidou/mybatisplus/mapper/BaseMapper.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="158">
+          <caret line="14" column="32" lean-forward="true" selection-start-line="14" selection-start-column="32" selection-end-line="14" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/modules/sys/entity/TQuestionnaireSubject.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="15" column="30" lean-forward="false" selection-start-line="15" selection-start-column="30" selection-end-line="15" selection-end-column="30" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#534#535#0" expanded="false" />
+            <element signature="e#567#568#0" expanded="false" />
+            <element signature="e#617#618#0" expanded="false" />
+            <element signature="e#661#662#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-aop/4.3.9.RELEASE/spring-aop-4.3.9.RELEASE.jar!/org/springframework/aop/framework/CglibAopProxy.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="293">
+          <caret line="522" column="0" lean-forward="false" selection-start-line="522" selection-start-column="0" selection-end-line="522" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-core/4.3.9.RELEASE/spring-core-4.3.9.RELEASE.jar!/org/springframework/cglib/proxy/MethodProxy.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="239">
+          <caret line="106" column="0" lean-forward="false" selection-start-line="106" selection-start-column="0" selection-end-line="106" selection-end-column="0" />
+          <folding>
+            <marker date="1552455315101" expanded="false" signature="0:104" ph="/.../" />
+            <marker date="1552455315101" expanded="false" signature="155:629" ph="..." />
+            <marker date="1552455315101" expanded="true" signature="972:1209" ph="{...}" />
+            <marker date="1552455315101" expanded="true" signature="1235:1910" ph="{...}" />
+            <marker date="1552455315101" expanded="true" signature="1987:2257" ph="{...}" />
+            <marker date="1552455315101" expanded="true" signature="2285:2292" ph="{}" />
+            <marker date="1552455315101" expanded="false" signature="2329:2340" ph=" { " />
+            <marker date="1552455315101" expanded="false" signature="2357:2363" ph=" }" />
+            <marker date="1552455315101" expanded="false" signature="2397:2408" ph=" { " />
+            <marker date="1552455315101" expanded="false" signature="2435:2441" ph=" }" />
+            <marker date="1552455315101" expanded="true" signature="2474:2540" ph="{...}" />
+            <marker date="1552455315101" expanded="true" signature="2571:2637" ph="{...}" />
+            <marker date="1552455315101" expanded="true" signature="2673:2739" ph="{...}" />
+            <marker date="1552455315101" expanded="true" signature="2803:3367" ph="{...}" />
+            <marker date="1552455315101" expanded="true" signature="3438:3951" ph="{...}" />
+            <marker date="1552455315101" expanded="true" signature="4027:4296" ph="{...}" />
+            <marker date="1552455315101" expanded="true" signature="4334:4924" ph="{...}" />
+            <marker date="1552455315101" expanded="true" signature="4519:4918" ph="{...}" />
+            <marker date="1552455315101" expanded="true" signature="4965:5093" ph="{...}" />
+            <marker date="1552455315101" expanded="true" signature="5076:5087" ph="{}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-tx/4.3.9.RELEASE/spring-tx-4.3.9.RELEASE.jar!/org/springframework/transaction/interceptor/TransactionAspectSupport.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="185">
-          <caret line="44" column="22" lean-forward="true" selection-start-line="44" selection-start-column="22" selection-end-line="44" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hp-wx-pc/target/classes/static/hpwx/uploadImages/20190317120815timg.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hp-wx-pc/target/classes/static/hpwx/uploadImages/20190317120512s3在线浏览.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/modules/sys/controller/ueditor/PublicMsg.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="351">
-          <caret line="16" column="48" lean-forward="true" selection-start-line="16" selection-start-column="48" selection-end-line="16" selection-end-column="48" />
+          <caret line="150" column="0" lean-forward="false" selection-start-line="150" selection-start-column="0" selection-end-line="150" selection-end-column="0" />
           <folding>
-            <element signature="e#242#243#0" expanded="true" />
-            <element signature="e#287#288#0" expanded="true" />
+            <marker date="1551166898091" expanded="false" signature="0:104" ph="/.../" />
+            <marker date="1551166898091" expanded="false" signature="167:1278" ph="..." />
+            <marker date="1551166898091" expanded="true" signature="2064:2071" ph="{}" />
+            <marker date="1551166898091" expanded="true" signature="2190:2283" ph="{...}" />
+            <marker date="1551166898091" expanded="true" signature="2378:2705" ph="{...}" />
+            <marker date="1551166898091" expanded="true" signature="2788:2865" ph="{...}" />
+            <marker date="1551166898091" expanded="false" signature="2925:2936" ph=" { " />
+            <marker date="1551166898091" expanded="false" signature="2975:2981" ph=" }" />
+            <marker date="1551166898091" expanded="true" signature="3068:3129" ph="{...}" />
+            <marker date="1551166898091" expanded="false" signature="3192:3203" ph=" { " />
+            <marker date="1551166898091" expanded="false" signature="3234:3240" ph=" }" />
+            <marker date="1551166898091" expanded="true" signature="3317:3514" ph="{...}" />
+            <marker date="1551166898091" expanded="true" signature="3621:3740" ph="{...}" />
+            <marker date="1551166898091" expanded="true" signature="3843:3920" ph="{...}" />
+            <marker date="1551166898091" expanded="false" signature="3991:4002" ph=" { " />
+            <marker date="1551166898091" expanded="false" signature="4041:4047" ph=" }" />
+            <marker date="1551166898091" expanded="false" signature="4104:4115" ph=" { " />
+            <marker date="1551166898091" expanded="false" signature="4146:4152" ph=" }" />
+            <marker date="1551166898091" expanded="false" signature="4202:4213" ph=" { " />
+            <marker date="1551166898091" expanded="false" signature="4237:4243" ph=" }" />
+            <marker date="1551166898091" expanded="true" signature="4282:4819" ph="{...}" />
+            <marker date="1551166898091" expanded="true" signature="4982:7734" ph="{...}" />
+            <marker date="1551166898091" expanded="false" signature="5511:5624" ph="doInTransaction(status) → {" />
+            <marker date="1551166898091" expanded="false" signature="6725:6748" ph="}" />
+            <marker date="1551166898091" expanded="true" signature="7786:7872" ph="{...}" />
+            <marker date="1551166898091" expanded="true" signature="7972:9226" ph="{...}" />
+            <marker date="1551166898091" expanded="true" signature="9322:9758" ph="{...}" />
+            <marker date="1551166898091" expanded="true" signature="9866:10382" ph="{...}" />
+            <marker date="1551166898091" expanded="false" signature="10462:10473" ph=" { " />
+            <marker date="1551166898091" expanded="false" signature="10485:10491" ph=" }" />
+            <marker date="1551166898091" expanded="true" signature="10675:11513" ph="{...}" />
+            <marker date="1551166898091" expanded="true" signature="10845:10972" ph="{...}" />
+            <marker date="1551166898091" expanded="false" signature="10886:10909" ph=" { " />
+            <marker date="1551166898091" expanded="false" signature="10940:10958" ph=" }" />
+            <marker date="1551166898091" expanded="true" signature="11711:12364" ph="{...}" />
+            <marker date="1551166898091" expanded="true" signature="12466:12797" ph="{...}" />
+            <marker date="1551166898091" expanded="true" signature="12914:14737" ph="{...}" />
+            <marker date="1551166898091" expanded="true" signature="14830:14925" ph="{...}" />
+            <marker date="1551166898091" expanded="true" signature="15002:15205" ph="{...}" />
+            <marker date="1551166898091" expanded="false" signature="15064:15079" ph=" { " />
+            <marker date="1551166898091" expanded="false" signature="15096:15106" ph=" }" />
+            <marker date="1551166898091" expanded="false" signature="15140:15155" ph=" { " />
+            <marker date="1551166898091" expanded="false" signature="15189:15199" ph=" }" />
+            <marker date="1551166898091" expanded="true" signature="15248:15497" ph="{...}" />
+            <marker date="1551166898091" expanded="false" signature="15345:15360" ph=" { " />
+            <marker date="1551166898091" expanded="false" signature="15387:15397" ph=" }" />
+            <marker date="1551166898091" expanded="false" signature="15444:15459" ph=" { " />
+            <marker date="1551166898091" expanded="false" signature="15481:15491" ph=" }" />
+            <marker date="1551166898091" expanded="true" signature="15542:15606" ph="{...}" />
+            <marker date="1551166898091" expanded="true" signature="15650:17533" ph="{...}" />
+            <marker date="1551166898091" expanded="true" signature="16124:16323" ph="{...}" />
+            <marker date="1551166898091" expanded="false" signature="16390:16405" ph=" { " />
+            <marker date="1551166898091" expanded="false" signature="16436:16446" ph=" }" />
+            <marker date="1551166898091" expanded="false" signature="16509:16524" ph=" { " />
+            <marker date="1551166898091" expanded="false" signature="16557:16567" ph=" }" />
+            <marker date="1551166898091" expanded="false" signature="16619:16634" ph=" { " />
+            <marker date="1551166898091" expanded="false" signature="16670:16680" ph=" }" />
+            <marker date="1551166898091" expanded="false" signature="16748:16763" ph=" { " />
+            <marker date="1551166898091" expanded="false" signature="16795:16805" ph=" }" />
+            <marker date="1551166898091" expanded="false" signature="16862:16877" ph=" { " />
+            <marker date="1551166898091" expanded="false" signature="16907:16917" ph=" }" />
+            <marker date="1551166898091" expanded="false" signature="16958:16973" ph=" { " />
+            <marker date="1551166898091" expanded="false" signature="17011:17021" ph=" }" />
+            <marker date="1551166898091" expanded="true" signature="17059:17274" ph="{...}" />
+            <marker date="1551166898091" expanded="true" signature="17324:17424" ph="{...}" />
+            <marker date="1551166898091" expanded="false" signature="17458:17473" ph=" { " />
+            <marker date="1551166898091" expanded="false" signature="17517:17527" ph=" }" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/hp-wx-pc/src/main/resources/static/hpwx/plugins/ueditor/ueditor.config.js">
+    <entry file="file://$PROJECT_DIR$/hp-wx-pc/src/main/resources/static/hpwx/js/common.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
-          <caret line="33" column="29" lean-forward="false" selection-start-line="33" selection-start-column="23" selection-end-line="33" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/modules/sys/controller/ueditor/Ueditor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="26" column="16" lean-forward="false" selection-start-line="26" selection-start-column="16" selection-end-line="26" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/common/utils/ImageExtUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="19" column="41" lean-forward="false" selection-start-line="19" selection-start-column="26" selection-end-line="19" selection-end-column="41" />
-          <folding>
-            <element signature="e#652#653#0" expanded="true" />
-            <element signature="e#715#716#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hp-wx-pc/src/main/resources/application.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="7" column="25" lean-forward="false" selection-start-line="7" selection-start-column="25" selection-end-line="7" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hp-wx-pc/src/main/resources/application-test.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="645">
-          <caret line="50" column="8" lean-forward="false" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hp-wx-pc/src/main/resources/static/hpwx/modules/sys/subject.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="594">
-          <caret line="178" column="0" lean-forward="false" selection-start-line="178" selection-start-column="0" selection-end-line="178" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hp-wx-pc/src/main/resources/static/hpwx/js/modules/sys/subject.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="24">
-          <caret line="127" column="33" lean-forward="true" selection-start-line="127" selection-start-column="33" selection-end-line="127" selection-end-column="33" />
+        <state relative-caret-position="235">
+          <caret line="77" column="5" lean-forward="true" selection-start-line="77" selection-start-column="5" selection-end-line="77" selection-end-column="5" />
           <folding />
         </state>
       </provider>
@@ -1082,21 +1204,328 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/hp-wx-pc/src/main/resources/logback-spring.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hp-wx-pc/src/main/resources/application-test.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="273">
+          <caret line="37" column="21" lean-forward="false" selection-start-line="37" selection-start-column="21" selection-end-line="37" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/commons-lang/commons-lang/2.6/commons-lang-2.6.jar!/org/apache/commons/lang/StringUtils.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="31" column="18" lean-forward="false" selection-start-line="31" selection-start-column="12" selection-end-line="31" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/modules/sys/entity/TSubject.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="429">
+          <caret line="152" column="41" lean-forward="false" selection-start-line="152" selection-start-column="41" selection-end-line="152" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/modules/sys/form/SubjectForm.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="81">
+          <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="40" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/common/utils/R.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="283">
+          <caret line="40" column="17" lean-forward="true" selection-start-line="40" selection-start-column="17" selection-end-line="40" selection-end-column="17" />
+          <folding>
+            <element signature="e#913#914#0" expanded="false" />
+            <element signature="e#934#935#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/modules/sys/dao/TSurveyAnswersDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hp-wx-pc/src/main/resources/mapper/sys/TSurveyAnswersMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="251">
+          <caret line="148" column="34" lean-forward="false" selection-start-line="148" selection-start-column="34" selection-end-line="148" selection-end-column="34" />
+          <folding>
+            <marker date="1552897115957" expanded="true" signature="1215:1339" ph="select from t_survey_answers" />
+            <marker date="1552897115957" expanded="true" signature="1423:1501" ph="delete from t_survey_answers... " />
+            <marker date="1552897115957" expanded="true" signature="1599:2055" ph="insert into t_survey_answers... " />
+            <marker date="1552897115957" expanded="true" signature="3843:4734" ph="update t_survey_answers... " />
+            <marker date="1552897115957" expanded="true" signature="4844:5307" ph="update t_survey_answers... " />
+            <marker date="1552897115957" expanded="true" signature="5412:5496" ph="SELECT objec... t_survey_answers" />
+            <marker date="1552897115957" expanded="true" signature="5619:5742" ph="SELECT FROM t_survey_answers" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/modules/sys/controller/TQuestionnaireController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="489">
-          <caret line="61" column="12" lean-forward="true" selection-start-line="61" selection-start-column="12" selection-end-line="61" selection-end-column="12" />
+        <state relative-caret-position="122">
+          <caret line="117" column="0" lean-forward="false" selection-start-line="117" selection-start-column="0" selection-end-line="117" selection-end-column="0" />
           <folding>
             <element signature="method#statisticsOnResult#0;class#TQuestionnaireController#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/hp-wx-pc/src/main/resources/static/hpwx/css/main.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="134" column="24" lean-forward="false" selection-start-line="134" selection-start-column="24" selection-end-line="134" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/modules/sys/dao/TSubjectDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="164">
+          <caret line="16" column="8" lean-forward="false" selection-start-line="16" selection-start-column="8" selection-end-line="16" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/modules/sys/dao/TQuestionnaireDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="13" column="28" lean-forward="true" selection-start-line="13" selection-start-column="28" selection-end-line="13" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hp-wx-pc/src/main/resources/mapper/sys/TSubjectMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3226">
+          <caret line="39" column="32" lean-forward="false" selection-start-line="39" selection-start-column="14" selection-end-line="39" selection-end-column="32" />
+          <folding>
+            <marker date="1552894523640" expanded="true" signature="1389:1748" ph="SELECT t2.ob... t_questionnaire_subject" />
+            <marker date="1552894523640" expanded="true" signature="1859:1976" ph="select from t_subject" />
+            <marker date="1552894523640" expanded="true" signature="2060:2131" ph="delete from t_subject... " />
+            <marker date="1552894523640" expanded="true" signature="2223:2767" ph="insert into t_subject... " />
+            <marker date="1552894523640" expanded="true" signature="4921:6026" ph="update t_subject... " />
+            <marker date="1552894523640" expanded="true" signature="6130:6699" ph="update t_subject... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hp-wx-pc/src/main/resources/mapper/sys/TQuestionnaireSubjectMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="261">
+          <caret line="136" column="42" lean-forward="false" selection-start-line="136" selection-start-column="12" selection-end-line="136" selection-end-column="42" />
+          <folding>
+            <marker date="1552907232727" expanded="true" signature="1093:1224" ph="select from t_questionnaire_subject" />
+            <marker date="1552907232727" expanded="true" signature="1308:1393" ph="delete from t_questionnaire_subject... " />
+            <marker date="1552907232727" expanded="true" signature="1498:1713" ph="insert into t_questionnaire_subject... " />
+            <marker date="1552907232727" expanded="true" signature="1498:1885" ph="insert into t_questionnaire_subject... " />
+            <marker date="1552907232727" expanded="true" signature="3515:4248" ph="update t_questionnaire_subject... " />
+            <marker date="1552907232727" expanded="true" signature="4365:4761" ph="update t_questionnaire_subject... " />
+            <marker date="1552907232727" expanded="true" signature="5557:5668" ph="SELECT quest... t_questionnaire_subject" />
+            <marker date="1552907232727" expanded="true" signature="5759:5841" ph="DELETE FROM t_questionnaire_subject... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/com/baomidou/mybatis-plus-support/2.1.9/mybatis-plus-support-2.1.9.jar!/com/baomidou/mybatisplus/service/impl/ServiceImpl.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="270" column="19" lean-forward="false" selection-start-line="270" selection-start-column="19" selection-end-line="270" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/modules/sys/dao/TQuestionnaireSubjectDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="486">
+          <caret line="25" column="19" lean-forward="false" selection-start-line="25" selection-start-column="8" selection-end-line="25" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hp-wx-pc/src/main/resources/static/hpwx/modules/sys/menu.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="32" column="27" lean-forward="false" selection-start-line="32" selection-start-column="27" selection-end-line="32" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hp-wx-pc/src/main/resources/static/hpwx/modules/sys/log.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-418">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hp-wx-pc/src/main/resources/static/hpwx/modules/sys/role.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="36" column="36" lean-forward="false" selection-start-line="36" selection-start-column="36" selection-end-line="36" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hp-wx-pc/src/main/resources/static/hpwx/modules/sys/tUser.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="36" column="36" lean-forward="false" selection-start-line="36" selection-start-column="36" selection-end-line="36" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hp-wx-pc/src/main/resources/static/hpwx/modules/sys/user.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="20" column="47" lean-forward="false" selection-start-line="20" selection-start-column="47" selection-end-line="20" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/4.3.9.RELEASE/spring-web-4.3.9.RELEASE.jar!/org/springframework/web/method/support/InvocableHandlerMethod.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="269">
+          <caret line="59" column="0" lean-forward="false" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/4.3.9.RELEASE/spring-webmvc-4.3.9.RELEASE.jar!/org/springframework/web/servlet/mvc/method/annotation/RequestMappingHandlerAdapter.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="134">
+          <caret line="465" column="0" lean-forward="false" selection-start-line="465" selection-start-column="0" selection-end-line="465" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/4.3.9.RELEASE/spring-webmvc-4.3.9.RELEASE.jar!/org/springframework/web/servlet/mvc/method/AbstractHandlerMethodAdapter.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="158">
+          <caret line="37" column="0" lean-forward="false" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/4.3.9.RELEASE/spring-webmvc-4.3.9.RELEASE.jar!/org/springframework/web/servlet/FrameworkServlet.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="134">
+          <caret line="415" column="0" lean-forward="false" selection-start-line="415" selection-start-column="0" selection-end-line="415" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/4.3.9.RELEASE/spring-webmvc-4.3.9.RELEASE.jar!/org/springframework/web/servlet/DispatcherServlet.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="296">
+          <caret line="411" column="0" lean-forward="false" selection-start-line="411" selection-start-column="0" selection-end-line="411" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/4.3.9.RELEASE/spring-webmvc-4.3.9.RELEASE.jar!/org/springframework/web/servlet/mvc/method/annotation/ServletInvocableHandlerMethod.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="134">
+          <caret line="66" column="0" lean-forward="false" selection-start-line="66" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hp-wx-pc/src/main/resources/static/hpwx/js/modules/sys/questionnaire.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="149">
+          <caret line="251" column="21" lean-forward="false" selection-start-line="251" selection-start-column="15" selection-end-line="251" selection-end-column="21" />
+          <folding>
+            <marker date="1552730822917" expanded="true" signature="8617:8632" ph="..." />
+            <marker date="1552730822917" expanded="true" signature="11026:11041" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/modules/sys/service/impl/TQuestionnaireServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="31" column="0" lean-forward="false" selection-start-line="31" selection-start-column="0" selection-end-line="35" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hp-wx-pc/src/main/resources/static/hpwx/js/modules/sys/subject.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-10192">
+          <caret line="3" column="12" lean-forward="false" selection-start-line="3" selection-start-column="12" selection-end-line="3" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/modules/sys/controller/TSubjectController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="103" column="13" lean-forward="true" selection-start-line="103" selection-start-column="13" selection-end-line="103" selection-end-column="13" />
+        <state relative-caret-position="257">
+          <caret line="65" column="44" lean-forward="false" selection-start-line="65" selection-start-column="44" selection-end-line="65" selection-end-column="44" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/modules/sys/service/TSubjectService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="16" column="14" lean-forward="false" selection-start-line="16" selection-start-column="14" selection-end-line="16" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/modules/sys/service/impl/TSubjectServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="50" column="0" lean-forward="false" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hp-wx-pc/src/main/resources/static/hpwx/modules/sys/questionnaire_statistics.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="36" column="36" lean-forward="false" selection-start-line="36" selection-start-column="36" selection-end-line="36" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hp-wx-pc/src/main/resources/static/hpwx/modules/sys/questionnaire.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="351">
+          <caret line="37" column="35" lean-forward="false" selection-start-line="37" selection-start-column="35" selection-end-line="37" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hp-wx-pc/src/main/resources/static/hpwx/modules/sys/subject.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="251">
+          <caret line="38" column="29" lean-forward="false" selection-start-line="38" selection-start-column="29" selection-end-line="38" selection-end-column="29" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#1;n#form#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

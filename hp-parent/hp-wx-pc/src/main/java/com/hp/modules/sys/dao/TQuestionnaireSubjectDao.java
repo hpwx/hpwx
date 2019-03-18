@@ -25,4 +25,7 @@ public interface TQuestionnaireSubjectDao extends BaseMapper<TQuestionnaireSubje
 
     int insertBatch(List<TQuestionnaireSubject> list);
 
+    TQuestionnaireSubject selectQuestionIdBySubjectId(Long objectId);
+
+    void deleteQuestionnaireBySubjectId(Long objectId);
 }
