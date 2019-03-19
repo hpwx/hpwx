@@ -56,4 +56,10 @@ renren:
         expire: 604800
         header: token
 imageurl: https://www.queriestech.com
-imageuploadpath: /hpimage/
+imageuploadpath: data/html/hpimage/
+uploadpath: /data/html/hpimage/
+aws:
+  s3: 
+   region: cn-north-1
+   Bucket: hpi-cn-local-business-css-wechat
+   Prefix: css-wechat-520-activity/itg/

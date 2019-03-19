@@ -62,9 +62,11 @@ public class TQuestionnaireController extends AbstractController{
     * 问卷文章上传
     * */
     @PostMapping("/upload")
-    public R upload(MultipartFile file){
+    public R upload(MultipartFile file) throws Exception{
 
-        return ImageExtUtils.uploadImage(file);
+//        return ImageExtUtils.uploadImage(file);
+      
+         return ImagesWriterAndReader.uploadImage(file);
 
     }
 

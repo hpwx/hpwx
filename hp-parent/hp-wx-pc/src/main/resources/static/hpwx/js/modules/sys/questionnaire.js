@@ -7,7 +7,7 @@ var vm = new Vue({
 		showList: true,
 		title:null,
 		role:{},
-        baseURL:"http://localhost:5000/hpwxpc",
+        baseURL:baseURL,
         questionnaire:{
             objectId:"",    //问卷id
             title:"",       //问卷标题
