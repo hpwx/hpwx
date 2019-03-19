@@ -1,10 +1,8 @@
 
 package com.hp.modules.sys.controller;
 
-import com.hp.common.utils.Constant;
-import com.hp.common.utils.ImageExtUtils;
-import com.hp.common.utils.PageUtils;
-import com.hp.common.utils.R;
+import com.baomidou.mybatisplus.plugins.Page;
+import com.hp.common.utils.*;
 import com.hp.common.validator.ValidatorUtils;
 import com.hp.common.validator.group.AddGroup;
 import com.hp.common.validator.group.UpdateGroup;
@@ -64,11 +62,14 @@ public class TSubjectController extends AbstractController{
     public R list(@RequestParam Map<String, Object> params){
 
         //获取所有问卷集合
-        PageUtils page = tSubjectService.getAll(params);
+        if(params.containsKey("name") || params.containsKey("questionnaireId")){
+            Page<TSubject> page = tSubjectService.getSubjectByQuestionnaireId(params,new Query<TSubject>(params).getPage());
+            return R.ok().put("page", new PageUtils(page));
+        }else{
+            PageUtils page = tSubjectService.getAll(params);
+            return R.ok().put("page", page);
+        }
 
-
-
-        return R.ok().put("page", page);
     }
 
 //

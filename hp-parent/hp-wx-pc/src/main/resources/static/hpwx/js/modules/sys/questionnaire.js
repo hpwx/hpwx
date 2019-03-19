@@ -19,16 +19,21 @@ var vm = new Vue({
             questionnaireStyleStatus:0, //题目翻转样式
             isPublic:1,   //是否公开
             anonymous:0,  //是否匿名
+            endIsShow:0, //尾页是否显示
+            coverIsShow:1, //封面是否显示
+            enable:0,   //问卷是否启用  0否1是
             questionnaireTime:"",         //活动时间
             icon:"",               //问卷图片
             cover:"",               //问卷封面图片
             backColor:"",                //题目背景图片,
+            endImage:"",            //尾页图片
             startTime:"",           //活动开始时间
             endTime:""              //活动结束时间
         }
 	},
     mounted: function () {
         this.$nextTick(function () {
+            console.log(vm.questionnaire.enable);
             layui.use(['upload','laydate','jquery'], function(){
                 var $ = layui.jquery
                     ,upload = layui.upload,
@@ -243,6 +248,38 @@ var vm = new Vue({
                     }
                 });
 
+                //尾页图片
+                upload.render({
+                    elem: '#endImgUpload',
+                    url: baseURL+'sys/questionnaire/upload',
+                    before: function(obj){
+                        //预读本地文件示例，不支持ie8
+                        obj.preview(function(index, file, result){
+                            $('#imguploadpreview4').attr('src',result); //图片链接（base64）
+                            var src = $('#imguploadpreview4')[0].src;
+                        });
+                    },
+                    done: function(res){
+                        // vm.from.src = res.url;
+                        // alert(res.url)
+                        // $('#backuploadpreview').attr('src', res.url);
+                        //如果上传失败
+                        if(res.code > 0){
+                            return layer.msg('上传失败');
+                        }
+                        $("#imgupload4").val(res.url);
+                        //上传成功
+                    },
+                    error: function(){
+                        //演示失败状态，并实现重传
+                        var demoText = $('#demoText');
+                        demoText.html('<span style="color: #FF5722;">上传失败</span> <a class="layui-btn layui-btn-xs demo-reload">重试</a>');
+                        demoText.find('.demo-reload').on('click', function(){
+                            uploadInst.upload();
+                        });
+                    }
+                });
+
             });
 
         })
@@ -302,7 +339,8 @@ var vm = new Vue({
                     startTime.value = vm.time;
                     imguploadpreview1.src = vm.baseURL + vm.questionnaire.icon;
                     imguploadpreview2.src = vm.baseURL + vm.questionnaire.cover;
-                    imguploadpreview3.src = vm.baseURL + vm.questionnaire.backColor
+                    imguploadpreview3.src = vm.baseURL + vm.questionnaire.backColor;
+                    imguploadpreview4.src = vm.baseURL + vm.questionnaire.endImage;
                 }else{
 
                     alert(r.msg);
@@ -379,6 +417,7 @@ var vm = new Vue({
             this.questionnaire.icon = imgupload1.value;
             this.questionnaire.cover = imgupload2.value;
             this.questionnaire.backColor = imgupload3.value;
+            this.questionnaire.endImage = imgupload4.value;
             for(var key in this.questionnaire){
                 if(this.questionnaire[key] && (typeof this.questionnaire[key] == 'string') && key != "questionnaireTime"){
                     this.questionnaire[key] = this.questionnaire[key].trim("g");

@@ -48,7 +48,7 @@ public class TQuestionnaire {
     //问卷图标封面
     private String cover;
 
-    //目前不用
+    //问卷是否启用
     private Byte enable;
 
     //题目背景图片
@@ -57,6 +57,12 @@ public class TQuestionnaire {
     private Byte questionnaireStyleStatus;
 
     private Byte isPublic;
+
+    private Byte endIsShow;
+
+    private Byte coverIsShow;
+
+    private String endImage;
 
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date startTime;
@@ -69,6 +75,30 @@ public class TQuestionnaire {
     private int starNum;
 
     private int starScore;
+
+    public Byte getEndIsShow() {
+        return endIsShow;
+    }
+
+    public void setEndIsShow(Byte endIsShow) {
+        this.endIsShow = endIsShow;
+    }
+
+    public Byte getCoverIsShow() {
+        return coverIsShow;
+    }
+
+    public void setCoverIsShow(Byte coverIsShow) {
+        this.coverIsShow = coverIsShow;
+    }
+
+    public String getEndImage() {
+        return endImage;
+    }
+
+    public void setEndImage(String endImage) {
+        this.endImage = endImage;
+    }
 
     public int getStarNum() {
         return starNum;

@@ -44,22 +44,17 @@ public class TSubjectServiceImpl extends ServiceImpl<TSubjectDao, TSubject> impl
     @Autowired
     private TQuestionnaireDao tQuestionnaireDao;
 
+
+    @Override
+    public Page<TSubject> getSubjectByQuestionnaireId(Map<String,Object> map,Page<TSubject> page) {
+
+        return page.setRecords(tSubjectDao.selectSubjectListByQuestionnaireId(map,page));
+    }
+
     @Override
     public PageUtils getAll(Map<String, Object> params) {
-        Page<TSubject> page = null;
 
-        if(params.containsKey("name")){
-
-            try {
-                String name = URLEncoder.encode(params.get("name").toString(), "utf-8");
-                page = this.selectPage(new Query<TSubject>(params).getPage(), new EntityWrapper<TSubject>().like(params.containsKey("name"),"name",name , SqlLike.RIGHT));
-            } catch (UnsupportedEncodingException e) {
-                e.printStackTrace();
-            }
-
-        }else{
-            page = this.selectPage(new Query<TSubject>(params).getPage(), new EntityWrapper<TSubject>());
-        }
+        Page<TSubject>  page = this.selectPage(new Query<TSubject>(params).getPage(), new EntityWrapper<TSubject>());
 
         return new PageUtils(page);
     }
