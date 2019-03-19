@@ -23,6 +23,9 @@
     <result column="end_time" property="endTime" jdbcType="DATE" />
     <result column="star_num" property="starNum" jdbcType="INTEGER" />
     <result column="star_score" property="starScore" jdbcType="INTEGER" />
+    <result column="end_image" property="endImage" jdbcType="VARCHAR" />
+    <result column="end_is_show" property="endIsShow" jdbcType="TINYINT" />
+    <result column="cover_is_show" property="coverIsShow" jdbcType="TINYINT" />
   </resultMap>
 
   <select id="StatisticsOnAll"  resultType="map" parameterType="Map" >
@@ -139,7 +142,7 @@ FROM
   <sql id="Base_Column_List" >
     object_id, create_time, create_user, update_time, update_user, deleted, anonymous,
     forward, repeated_answer, answer_count, title, questionnaire_desc, icon, cover, enable,
-    back_color
+    back_color,is_public,start_time,end_time,star_num,star_score,end_image,end_is_show,cover_is_show
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
     select
@@ -157,13 +160,14 @@ FROM
       anonymous, forward, repeated_answer,
       answer_count, title, questionnaire_desc,
       icon, cover, enable,
-      back_color,is_public,start_time,end_time,questionnaire_is_top,star_num,star_score)
+      back_color,is_public,start_time,end_time,questionnaire_is_top,star_num,star_score,end_image,end_is_show,cover_is_show)
     values (#{objectId,jdbcType=BIGINT}, #{createTime,jdbcType=DATE}, #{createUser,jdbcType=VARCHAR},
       #{updateTime,jdbcType=DATE}, #{updateUser,jdbcType=VARCHAR}, #{deleted,jdbcType=TINYINT},
       #{anonymous,jdbcType=TINYINT}, #{forward,jdbcType=TINYINT}, #{repeatedAnswer,jdbcType=TINYINT},
       #{answerCount,jdbcType=SMALLINT}, #{title,jdbcType=VARCHAR}, #{questionnaireDesc,jdbcType=VARCHAR},
       #{icon,jdbcType=VARCHAR}, #{cover,jdbcType=VARCHAR}, #{enable,jdbcType=TINYINT},
-      #{backColor,jdbcType=VARCHAR},#{isPublic,jdbcType=TINYINT},#{startTime,jdbcType=DATE},#{endTime,jdbcType=DATE},#{questionnaireIsTop,jdbcType=TINYINT},#{starNum,jdbcType=INTEGER},#{starScore,jdbcType=INTEGER})
+      #{backColor,jdbcType=VARCHAR},#{isPublic,jdbcType=TINYINT},#{startTime,jdbcType=DATE},#{endTime,jdbcType=DATE},#{questionnaireIsTop,jdbcType=TINYINT},
+      #{starNum,jdbcType=INTEGER},#{starScore,jdbcType=INTEGER},#{endImage,jdbcType=VARCHAR},#{endIsShow,jdbcType=TINYINT},#{coverIsShow,jdbcType=TINYINT})
   </insert>
   <insert id="insertSelective" parameterType="com.hp.modules.sys.entity.TQuestionnaire" >
     insert into t_questionnaire
@@ -219,21 +223,30 @@ FROM
         <if test="isPublic != null">
             is_public,
         </if>
-        <if test="startTime">
+        <if test="startTime !=null">
             start_time
         </if>
-        <if test="endTime">
+        <if test="endTime != null">
             end_time
         </if>
-        <if test="questionnaireIsTop">
+        <if test="questionnaireIsTop != null">
             questionnaire_is_top
         </if>
-        <if test="starNum">
+        <if test="starNum != null">
             star_num
         </if>
-        <if test="starScore">
+        <if test="starScore != null">
             star_score
         </if>
+      <if test="endImage != null ">
+        end_image
+      </if>
+      <if test="endIsShow != null">
+        end_is_show
+      </if>
+      <if test="coverIsShow != null">
+        cover_is_show
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="objectId != null" >
@@ -287,20 +300,29 @@ FROM
       <if test="isPublic != null">
         #{isPublic,jdbcType=TINYINT},
       </if>
-      <if test="startTime">
+      <if test="startTime != null">
         #{startTime,jdbcType=DATE},
       </if>
-      <if test="endTime">
+      <if test="endTime != null">
         #{endTime,jdbcType=DATE},
       </if>
-      <if test="questionnaireIsTop">
+      <if test="questionnaireIsTop != null">
         #{questionnaireIsTop,jdbcType=TINYINT},
       </if>
-      <if test="starNum">
+      <if test="starNum != null">
         #{starNum,jdbcType=INTEGER},
       </if>
-      <if test="starScore">
+      <if test="starScore != null">
         #{starScore,jdbcType=INTEGER},
+      </if>
+      <if test="endImage != null">
+        #{endImage,jdbcType=VARCHAR},
+      </if>
+      <if test="endIsShow != null">
+        #{endIsShow,jdbcType=TINYINT},
+      </if>
+      <if test="coverIsShow != null">
+        #{coverIsShow,jdbcType=TINYINT},
       </if>
     </trim>
   </insert>
@@ -352,6 +374,33 @@ FROM
       <if test="backColor != null" >
         back_color = #{backColor,jdbcType=VARCHAR},
       </if>
+      <if test="isPublic != null">
+        is_public = #{isPublic,jdbcType=TINYINT},
+      </if>
+      <if test="startTime !=null">
+        start_time=#{startTime,jdbcType=DATE},
+      </if>
+      <if test="endTime != null">
+        end_time=#{endTime,jdbcType=DATE},
+      </if>
+      <if test="questionnaireIsTop != null">
+        questionnaire_is_top=#{questionnaireIsTop,jdbcType=TINYINT},
+      </if>
+      <if test="starNum != null">
+        star_num=#{starNum,jdbcType=INTEGER},
+      </if>
+      <if test="starScore != null">
+        star_score=#{starScore,jdbcType=INTEGER},
+      </if>
+      <if test="endImage != null ">
+        end_image=#{endImage,jdbcType=VARCHAR},
+      </if>
+      <if test="endIsShow != null">
+        end_is_show=#{endIsShow,jdbcType=TINYINT},
+      </if>
+      <if test="coverIsShow != null">
+        cover_is_show=#{coverIsShow,jdbcType=TINYINT}
+      </if>
     </set>
     where object_id = #{objectId,jdbcType=BIGINT}
   </update>
@@ -371,7 +420,16 @@ FROM
       icon = #{icon,jdbcType=VARCHAR},
       cover = #{cover,jdbcType=VARCHAR},
       enable = #{enable,jdbcType=TINYINT},
-      back_color = #{backColor,jdbcType=VARCHAR}
+      back_color = #{backColor,jdbcType=VARCHAR},
+      is_public = #{isPublic,jdbcType=TINYINT},
+      start_time=#{startTime,jdbcType=DATE},
+      end_time=#{endTime,jdbcType=DATE},
+      questionnaire_is_top=#{questionnaireIsTop,jdbcType=TINYINT},
+      star_num=#{starNum,jdbcType=INTEGER},
+      star_score=#{starScore,jdbcType=INTEGER},
+      end_image=#{endImage,jdbcType=VARCHAR},
+      end_is_show=#{endIsShow,jdbcType=TINYINT},
+      cover_is_show=#{coverIsShow,jdbcType=TINYINT}
     where object_id = #{objectId,jdbcType=BIGINT}
   </update>
 

@@ -1,5 +1,6 @@
 package com.hp.modules.sys.service;
 
+import com.baomidou.mybatisplus.plugins.Page;
 import com.baomidou.mybatisplus.service.IService;
 import com.hp.common.utils.PageUtils;
 import com.hp.common.utils.R;
@@ -33,4 +34,6 @@ public interface TSubjectService extends IService<TSubject> {
     SubjectForm selectSubjectForm(Long id);
 
     R updateSubject(SubjectForm subjectForm,String userId);
+
+    Page<TSubject> getSubjectByQuestionnaireId(Map<String,Object> map,Page<TSubject> page);
 }

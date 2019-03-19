@@ -130,6 +130,49 @@
 				</div>
 			</div>
 
+
+
+			<div class="form-group">
+				<div class="col-sm-2 control-label">问卷是否启用</div>
+				<div class="col-sm-10">
+					<!--<input type="text" class="form-control" v-model="role.remark" placeholder="是否匿名"/>-->
+					<label class="radio-inline">
+						<input type="radio" name="is_enable"  value="0"  v-model="questionnaire.enable"> 不启用
+					</label>
+					<label class="radio-inline">
+						<input type="radio" name="is_enable"  value="1" v-model="questionnaire.enable"> 启用
+					</label>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<div class="col-sm-2 control-label">尾页是否显示</div>
+				<div class="col-sm-10">
+					<!--<input type="text" class="form-control" v-model="role.remark" placeholder="是否匿名"/>-->
+					<label class="radio-inline">
+						<input type="radio" name="is_end_show"  value="0"  v-model="questionnaire.endIsShow"> 不显示
+					</label>
+					<label class="radio-inline">
+						<input type="radio" name="is_end_show"  value="1" v-model="questionnaire.endIsShow"> 显示
+					</label>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<div class="col-sm-2 control-label">封面是否显示</div>
+				<div class="col-sm-10">
+					<!--<input type="text" class="form-control" v-model="role.remark" placeholder="是否匿名"/>-->
+					<label class="radio-inline">
+						<input type="radio" name="is_cover_show"  value="0"  v-model="questionnaire.coverIsShow"> 不显示
+					</label>
+					<label class="radio-inline">
+						<input type="radio" name="is_cover_show"  value="1" v-model="questionnaire.coverIsShow"> 显示
+					</label>
+				</div>
+			</div>
+
+
+
 			<div class="form-group">
 				<div class="col-sm-2 control-label">是否公开</div>
 				<div class="col-sm-10">
@@ -159,6 +202,8 @@
 					</label>
 			    </div>
 			</div>
+
+
 
 			<div class="form-group">
 				<div class="col-sm-2 control-label">问卷图片</div>
@@ -205,6 +250,20 @@
 						</div>
 					</div>
 					<input type="hidden" id="imgupload3">
+				</div>
+			</div>
+
+			<div class="form-group">
+				<div class="col-sm-2 control-label">尾页图片</div>
+				<div class="col-sm-10">
+					<div class="layui-upload">
+						<!-- <button type="button" class="layui-btn" >上传图片</button> -->
+						<div class="layui-upload-list" id="endImgUpload">
+							<i class="layui-icon layui-icon-add-1"></i>
+							<img class="layui-upload-img" id="imguploadpreview4">
+						</div>
+					</div>
+					<input type="hidden" id="imgupload4">
 				</div>
 			</div>
 

@@ -180,4 +180,20 @@
       every_grade_score = #{everyGradeScore,jdbcType=VARCHAR}
     where object_id = #{objectId,jdbcType=BIGINT}
   </update>
+
+    <select id="selectSubjectListByQuestionnaireId"   resultMap="BaseResultMap">
+         SELECT
+        <include refid="Base_Column_List" />
+          FROM t_subject WHERE object_id in(
+	              SELECT subject_id FROM t_questionnaire_subject qs
+          <where>
+              <if test="name != null and name !='' ">
+                  and name LIKE '${name}%'
+              </if>
+              <if test=" questionnaireId !=null and questionnaireId != -1 ">
+                  and questionnaire_id = #{questionnaireId}
+              </if>
+          </where>
+        )
+    </select>
 </mapper>
