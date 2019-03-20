@@ -50,3 +50,8 @@ renren:
         header: token
 imageurl: http://localhost:5000
 imageuploadpath: /hpwxpc/hpwx/uploadImages/
+aws:
+    s3:
+    region: cn-north-1
+    Bucket: hpi-cn-local-business-css-wechat
+    Prefix: css-wechat-520-activity/itg/

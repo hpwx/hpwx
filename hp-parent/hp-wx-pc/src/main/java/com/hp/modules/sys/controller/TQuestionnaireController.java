@@ -64,8 +64,8 @@ public class TQuestionnaireController extends AbstractController{
     @PostMapping("/upload")
     public R upload(MultipartFile file){
 
-        return ImageExtUtils.uploadImage(file);
-
+//        return ImageExtUtils.uploadImage(file);
+        return ImagesWriterAndReader.uploadAwsImage(file);
     }
 
     /*

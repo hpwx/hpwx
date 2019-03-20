@@ -87,6 +87,11 @@
 			<version>${mybatisplus.spring.boot.version}</version>
 		</dependency>
 		<dependency>
+			<artifactId>aws-java-sdk-s3</artifactId>
+			<groupId>com.amazonaws</groupId>
+			<version>1.11.519</version>
+		</dependency>
+		<dependency>
 			<groupId>com.baomidou</groupId>
 			<artifactId>mybatis-plus</artifactId>
 			<version>${mybatisplus.version}</version>
