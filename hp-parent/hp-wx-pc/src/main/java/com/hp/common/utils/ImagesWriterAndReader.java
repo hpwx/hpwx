@@ -112,6 +112,7 @@ public class ImagesWriterAndReader {
             if(!checkSuffix(file.getOriginalFilename())){
                 return R.error("图片格式不正确");
             }
+            LOG.info("========== 开始上传======" );
             AmazonS3URI  s3url =new AmazonS3URI("s3://hpi-cn-local-business-css-wechat/css-wechat-520-activity/itg/images/");
             String imageurl= null;
             try {
