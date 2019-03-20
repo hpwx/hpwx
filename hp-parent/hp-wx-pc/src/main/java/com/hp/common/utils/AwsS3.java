@@ -26,8 +26,8 @@ public class AwsS3 {
 
   private Logger log = LoggerFactory.getLogger(AwsS3.class);
 
-  @Value("${aws.s3.region:}")
-  private String region;
+//  @Value("${aws.s3.region}")
+  private String region="cn-north-1";
 
   @Value("${aws.s3.credentials.type:none}")
   private String type;

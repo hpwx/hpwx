@@ -91,6 +91,24 @@
 			<groupId>com.amazonaws</groupId>
 			<version>1.11.519</version>
 		</dependency>
+		
+		<dependency>
+			<artifactId>aws-java-sdk-core</artifactId>
+			<groupId>com.amazonaws</groupId>
+			<version>1.11.519</version>
+		</dependency>
+		<dependency>
+			<artifactId>aws-java-sdk-kms</artifactId>
+			<groupId>com.amazonaws</groupId>
+			<version>1.11.519</version>
+		</dependency>
+		<dependency>
+			<artifactId>jmespath-java</artifactId>
+			<groupId>com.amazonaws</groupId>
+			<version>1.11.519</version>
+		</dependency>
+		
+		
 		<dependency>
 			<groupId>com.baomidou</groupId>
 			<artifactId>mybatis-plus</artifactId>

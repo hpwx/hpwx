@@ -68,12 +68,6 @@ renren:
         # token有效时长，7天，单位秒
         expire: 604800
         header: token
-logging:
-    level:
-        com.hp: DEBUG
-    file: ./logs/hp-wx-api.log
-    root: INFO
-
 
 # 微信认证信息
 auth :
