@@ -2,139 +2,150 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ab7bbee5-4f04-4d5a-af7e-1a719ba351c5" name="Default" comment="dev">
-      <change afterPath="$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/common/utils/AwsS3.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/common/utils/ImagesWriterAndReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hp-wx-mobile/.classpath" beforeDir="false" afterPath="$PROJECT_DIR$/hp-wx-mobile/.classpath" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hp-wx-pc/hp-wx-pc.iml" beforeDir="false" afterPath="$PROJECT_DIR$/hp-wx-pc/hp-wx-pc.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hp-wx-pc/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/hp-wx-pc/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hp-wx-pc/src/main/resources/application-test.yml" beforeDir="false" afterPath="$PROJECT_DIR$/hp-wx-pc/src/main/resources/application-test.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/hp-wx-pc/target/classes/META-INF/MANIFEST.MF" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hp-wx-pc/11.txt" beforeDir="false" afterPath="$PROJECT_DIR$/hp-wx-pc/11.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/META-INF/maven/com.hp/hp-wx-pc/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/hp-wx-pc/target/classes/META-INF/maven/com.hp/hp-wx-pc/pom.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/common/annotation/SysLog.class" beforeDir="false" afterPath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/common/annotation/SysLog.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/common/aspect/RedisAspect.class" beforeDir="false" afterPath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/common/aspect/RedisAspect.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/common/aspect/SysLogAspect.class" beforeDir="false" afterPath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/common/aspect/SysLogAspect.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/common/exception/RRException.class" beforeDir="false" afterPath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/common/exception/RRException.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/common/exception/RRExceptionHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/common/exception/RRExceptionHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/common/utils/ConfigConstant.class" beforeDir="false" afterPath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/common/utils/ConfigConstant.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/common/utils/Constant$CloudService.class" beforeDir="false" afterPath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/common/utils/Constant$CloudService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/common/utils/Constant$MenuType.class" beforeDir="false" afterPath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/common/utils/Constant$MenuType.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/common/utils/Constant$ScheduleStatus.class" beforeDir="false" afterPath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/common/utils/Constant$ScheduleStatus.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/common/utils/Constant.class" beforeDir="false" afterPath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/common/utils/Constant.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/common/utils/DateUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/common/utils/DateUtils.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/common/utils/HttpContextUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/common/utils/HttpContextUtils.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/common/utils/IPUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/common/utils/IPUtils.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/common/utils/MapUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/common/utils/MapUtils.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/common/utils/PageUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/common/utils/PageUtils.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/common/utils/Query.class" beforeDir="false" afterPath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/common/utils/Query.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/common/utils/R.class" beforeDir="false" afterPath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/common/utils/R.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/common/utils/RedisKeys.class" beforeDir="false" afterPath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/common/utils/RedisKeys.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/common/utils/RedisUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/common/utils/RedisUtils.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/common/utils/ShiroUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/common/utils/ShiroUtils.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/common/utils/SpringContextUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/common/utils/SpringContextUtils.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/common/validator/Assert.class" beforeDir="false" afterPath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/common/validator/Assert.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/common/validator/ValidatorUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/common/validator/ValidatorUtils.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/common/validator/group/AddGroup.class" beforeDir="false" afterPath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/common/validator/group/AddGroup.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/common/validator/group/AliyunGroup.class" beforeDir="false" afterPath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/common/validator/group/AliyunGroup.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/common/validator/group/Group.class" beforeDir="false" afterPath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/common/validator/group/Group.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/common/validator/group/QcloudGroup.class" beforeDir="false" afterPath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/common/validator/group/QcloudGroup.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/common/validator/group/QiniuGroup.class" beforeDir="false" afterPath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/common/validator/group/QiniuGroup.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/common/validator/group/UpdateGroup.class" beforeDir="false" afterPath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/common/validator/group/UpdateGroup.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/common/xss/HTMLFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/common/xss/HTMLFilter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/common/xss/SQLFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/common/xss/SQLFilter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/common/xss/XssFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/common/xss/XssFilter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/common/xss/XssHttpServletRequestWrapper$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/common/xss/XssHttpServletRequestWrapper$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/common/xss/XssHttpServletRequestWrapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/common/xss/XssHttpServletRequestWrapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/config/CorsConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/config/CorsConfig.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/config/FilterConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/config/FilterConfig.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/config/KaptchaConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/config/KaptchaConfig.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/config/MybatisPlusConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/config/MybatisPlusConfig.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/config/RedisConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/config/RedisConfig.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/config/ShiroConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/config/ShiroConfig.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/config/SwaggerConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/config/SwaggerConfig.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/datasources/DataSourceNames.class" beforeDir="false" afterPath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/datasources/DataSourceNames.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/datasources/DynamicDataSource.class" beforeDir="false" afterPath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/datasources/DynamicDataSource.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/datasources/DynamicDataSourceConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/datasources/DynamicDataSourceConfig.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/datasources/annotation/DataSource.class" beforeDir="false" afterPath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/datasources/annotation/DataSource.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/datasources/aspect/DataSourceAspect.class" beforeDir="false" afterPath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/datasources/aspect/DataSourceAspect.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/app/annotation/Login.class" beforeDir="false" afterPath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/app/annotation/Login.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/app/annotation/LoginUser.class" beforeDir="false" afterPath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/app/annotation/LoginUser.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/app/config/WebMvcConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/app/config/WebMvcConfig.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/app/controller/AppLoginController.class" beforeDir="false" afterPath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/app/controller/AppLoginController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/app/controller/AppRegisterController.class" beforeDir="false" afterPath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/app/controller/AppRegisterController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/app/controller/AppTestController.class" beforeDir="false" afterPath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/app/controller/AppTestController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/app/dao/UserDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/app/dao/UserDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/app/entity/UserEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/app/entity/UserEntity.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/app/form/LoginForm.class" beforeDir="false" afterPath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/app/form/LoginForm.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/app/form/RegisterForm.class" beforeDir="false" afterPath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/app/form/RegisterForm.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/app/interceptor/AuthorizationInterceptor.class" beforeDir="false" afterPath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/app/interceptor/AuthorizationInterceptor.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/app/resolver/LoginUserHandlerMethodArgumentResolver.class" beforeDir="false" afterPath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/app/resolver/LoginUserHandlerMethodArgumentResolver.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/app/service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/app/service/UserService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/app/service/impl/UserServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/app/service/impl/UserServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/app/utils/JwtUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/app/utils/JwtUtils.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/oss/cloud/AliyunCloudStorageService.class" beforeDir="false" afterPath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/oss/cloud/AliyunCloudStorageService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/oss/cloud/CloudStorageConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/oss/cloud/CloudStorageConfig.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/oss/cloud/CloudStorageService.class" beforeDir="false" afterPath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/oss/cloud/CloudStorageService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/oss/cloud/OSSFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/oss/cloud/OSSFactory.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/oss/cloud/QcloudCloudStorageService.class" beforeDir="false" afterPath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/oss/cloud/QcloudCloudStorageService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/oss/cloud/QiniuCloudStorageService.class" beforeDir="false" afterPath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/oss/cloud/QiniuCloudStorageService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/oss/controller/SysOssController.class" beforeDir="false" afterPath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/oss/controller/SysOssController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/oss/dao/SysOssDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/oss/dao/SysOssDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/oss/entity/SysOssEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/oss/entity/SysOssEntity.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/oss/service/SysOssService.class" beforeDir="false" afterPath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/oss/service/SysOssService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/oss/service/impl/SysOssServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/oss/service/impl/SysOssServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/sys/controller/AbstractController.class" beforeDir="false" afterPath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/sys/controller/AbstractController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/sys/controller/SysConfigController.class" beforeDir="false" afterPath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/sys/controller/SysConfigController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/sys/controller/SysLogController.class" beforeDir="false" afterPath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/sys/controller/SysLogController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/sys/controller/SysLoginController.class" beforeDir="false" afterPath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/sys/controller/SysLoginController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/sys/controller/SysMenuController.class" beforeDir="false" afterPath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/sys/controller/SysMenuController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/sys/controller/SysRoleController.class" beforeDir="false" afterPath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/sys/controller/SysRoleController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/sys/controller/SysUserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/sys/controller/SysUserController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/sys/dao/SysCaptchaDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/sys/dao/SysCaptchaDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/sys/dao/SysConfigDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/sys/dao/SysConfigDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/sys/dao/SysLogDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/sys/dao/SysLogDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/sys/dao/SysMenuDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/sys/dao/SysMenuDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/sys/dao/SysRoleDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/sys/dao/SysRoleDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/sys/dao/SysRoleMenuDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/sys/dao/SysRoleMenuDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/sys/dao/SysUserDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/sys/dao/SysUserDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/sys/dao/SysUserRoleDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/sys/dao/SysUserRoleDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/sys/dao/SysUserTokenDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/sys/dao/SysUserTokenDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/sys/entity/SysCaptchaEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/sys/entity/SysCaptchaEntity.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/sys/entity/SysConfigEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/sys/entity/SysConfigEntity.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/sys/entity/SysLogEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/sys/entity/SysLogEntity.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/sys/entity/SysMenuEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/sys/entity/SysMenuEntity.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/sys/entity/SysRoleEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/sys/entity/SysRoleEntity.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/sys/entity/SysRoleMenuEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/sys/entity/SysRoleMenuEntity.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/sys/entity/SysUserEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/sys/entity/SysUserEntity.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/sys/entity/SysUserRoleEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/sys/entity/SysUserRoleEntity.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/sys/entity/SysUserTokenEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/sys/entity/SysUserTokenEntity.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/sys/form/PasswordForm.class" beforeDir="false" afterPath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/sys/form/PasswordForm.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/sys/form/SysLoginForm.class" beforeDir="false" afterPath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/sys/form/SysLoginForm.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/sys/oauth2/OAuth2Filter.class" beforeDir="false" afterPath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/sys/oauth2/OAuth2Filter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/sys/oauth2/OAuth2Realm.class" beforeDir="false" afterPath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/sys/oauth2/OAuth2Realm.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/sys/oauth2/OAuth2Token.class" beforeDir="false" afterPath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/sys/oauth2/OAuth2Token.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/sys/oauth2/TokenGenerator.class" beforeDir="false" afterPath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/sys/oauth2/TokenGenerator.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/sys/redis/SysConfigRedis.class" beforeDir="false" afterPath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/sys/redis/SysConfigRedis.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/sys/service/ShiroService.class" beforeDir="false" afterPath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/sys/service/ShiroService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/sys/service/SysCaptchaService.class" beforeDir="false" afterPath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/sys/service/SysCaptchaService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/sys/service/SysConfigService.class" beforeDir="false" afterPath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/sys/service/SysConfigService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/sys/service/SysLogService.class" beforeDir="false" afterPath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/sys/service/SysLogService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/sys/service/SysMenuService.class" beforeDir="false" afterPath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/sys/service/SysMenuService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/sys/service/SysRoleMenuService.class" beforeDir="false" afterPath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/sys/service/SysRoleMenuService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/sys/service/SysRoleService.class" beforeDir="false" afterPath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/sys/service/SysRoleService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/sys/service/SysUserRoleService.class" beforeDir="false" afterPath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/sys/service/SysUserRoleService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/sys/service/SysUserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/sys/service/SysUserService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/sys/service/SysUserTokenService.class" beforeDir="false" afterPath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/sys/service/SysUserTokenService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/sys/service/impl/ShiroServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/sys/service/impl/ShiroServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/sys/service/impl/SysCaptchaServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/sys/service/impl/SysCaptchaServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/sys/service/impl/SysConfigServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/sys/service/impl/SysConfigServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/sys/service/impl/SysLogServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/sys/service/impl/SysLogServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/sys/service/impl/SysMenuServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/sys/service/impl/SysMenuServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/sys/service/impl/SysRoleMenuServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/sys/service/impl/SysRoleMenuServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/sys/service/impl/SysRoleServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/sys/service/impl/SysRoleServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/sys/service/impl/SysUserRoleServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/sys/service/impl/SysUserRoleServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/sys/service/impl/SysUserServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/sys/service/impl/SysUserServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/sys/service/impl/SysUserTokenServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/sys/service/impl/SysUserTokenServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/application-dev.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/application.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/banner.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/common/annotation/SysLog.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/common/aspect/RedisAspect.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/common/aspect/SysLogAspect.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/common/exception/RRException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/common/exception/RRExceptionHandler.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/common/utils/ConfigConstant.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/common/utils/Constant$CloudService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/common/utils/Constant$MenuType.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/common/utils/Constant$ScheduleStatus.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/common/utils/Constant.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/common/utils/DateUtils.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/common/utils/HttpContextUtils.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/common/utils/IPUtils.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/common/utils/MapUtils.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/common/utils/PageUtils.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/common/utils/Query.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/common/utils/R.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/common/utils/RedisKeys.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/common/utils/RedisUtils.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/common/utils/ShiroUtils.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/common/utils/SpringContextUtils.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/common/validator/Assert.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/common/validator/ValidatorUtils.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/common/validator/group/AddGroup.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/common/validator/group/AliyunGroup.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/common/validator/group/Group.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/common/validator/group/QcloudGroup.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/common/validator/group/QiniuGroup.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/common/validator/group/UpdateGroup.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/common/xss/HTMLFilter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/common/xss/SQLFilter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/common/xss/XssFilter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/common/xss/XssHttpServletRequestWrapper$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/common/xss/XssHttpServletRequestWrapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/config/CorsConfig.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/config/FilterConfig.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/config/KaptchaConfig.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/config/MybatisPlusConfig.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/config/RedisConfig.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/config/ShiroConfig.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/config/SwaggerConfig.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/datasources/DataSourceNames.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/datasources/DynamicDataSource.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/datasources/DynamicDataSourceConfig.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/datasources/annotation/DataSource.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/datasources/aspect/DataSourceAspect.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/app/annotation/Login.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/app/annotation/LoginUser.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/app/config/WebMvcConfig.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/app/controller/AppLoginController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/app/controller/AppRegisterController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/app/controller/AppTestController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/app/dao/UserDao.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/app/entity/UserEntity.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/app/form/LoginForm.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/app/form/RegisterForm.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/app/interceptor/AuthorizationInterceptor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/app/resolver/LoginUserHandlerMethodArgumentResolver.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/app/service/UserService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/app/service/impl/UserServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/app/utils/JwtUtils.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/oss/cloud/AliyunCloudStorageService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/oss/cloud/CloudStorageConfig.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/oss/cloud/CloudStorageService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/oss/cloud/OSSFactory.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/oss/cloud/QcloudCloudStorageService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/oss/cloud/QiniuCloudStorageService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/oss/controller/SysOssController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/oss/dao/SysOssDao.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/oss/entity/SysOssEntity.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/oss/service/SysOssService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/oss/service/impl/SysOssServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/sys/controller/AbstractController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/sys/controller/SysConfigController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/sys/controller/SysLogController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/sys/controller/SysLoginController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/sys/controller/SysMenuController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/sys/controller/SysRoleController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/sys/controller/SysUserController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/sys/dao/SysCaptchaDao.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/sys/dao/SysConfigDao.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/sys/dao/SysLogDao.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/sys/dao/SysMenuDao.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/sys/dao/SysRoleDao.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/sys/dao/SysRoleMenuDao.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/sys/dao/SysUserDao.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/sys/dao/SysUserRoleDao.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/sys/dao/SysUserTokenDao.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/sys/entity/SysCaptchaEntity.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/sys/entity/SysConfigEntity.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/sys/entity/SysLogEntity.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/sys/entity/SysMenuEntity.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/sys/entity/SysRoleEntity.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/sys/entity/SysRoleMenuEntity.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/sys/entity/SysUserEntity.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/sys/entity/SysUserRoleEntity.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/sys/entity/SysUserTokenEntity.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/sys/form/PasswordForm.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/sys/form/SysLoginForm.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/sys/oauth2/OAuth2Filter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/sys/oauth2/OAuth2Realm.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/sys/oauth2/OAuth2Token.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/sys/oauth2/TokenGenerator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/sys/redis/SysConfigRedis.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/sys/service/ShiroService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/sys/service/SysCaptchaService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/sys/service/SysConfigService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/sys/service/SysLogService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/sys/service/SysMenuService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/sys/service/SysRoleMenuService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/sys/service/SysRoleService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/sys/service/SysUserRoleService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/sys/service/SysUserService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/sys/service/SysUserTokenService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/sys/service/impl/ShiroServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/sys/service/impl/SysCaptchaServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/sys/service/impl/SysConfigServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/sys/service/impl/SysLogServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/sys/service/impl/SysMenuServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/sys/service/impl/SysRoleMenuServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/sys/service/impl/SysRoleServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/sys/service/impl/SysUserRoleServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/sys/service/impl/SysUserServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/com/hp/modules/sys/service/impl/SysUserTokenServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/logback-spring.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/mapper/app/UserDao.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/mapper/job/ScheduleJobDao.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/mapper/job/ScheduleJobLogDao.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/mapper/oss/SysOssDao.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/mapper/sys/SysConfigDao.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/mapper/sys/SysLogDao.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/mapper/sys/SysMenuDao.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/mapper/sys/SysRoleDao.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/mapper/sys/SysRoleMenuDao.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/mapper/sys/SysUserDao.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/mapper/sys/SysUserRoleDao.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/mapper/sys/SysUserTokenDao.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/logs/hp-wx-api.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/hp-wx-api.log" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/hp-common-utils/target/" />
@@ -153,15 +164,22 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="450">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/hp-wx-pc/src/main/resources/static/hpwx/js/modules/sys/questionnaire.js">
+        <entry file="file://$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/modules/sys/controller/TQuestionnaireController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="247">
-              <caret line="13" column="42" selection-start-line="13" selection-start-column="42" selection-end-line="13" selection-end-column="42" />
+            <state relative-caret-position="174">
+              <caret line="93" lean-forward="true" selection-start-line="93" selection-end-line="93" />
               <folding>
-                <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+                <element signature="method#statisticsOnResult#0;class#TQuestionnaireController#0" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/hp-wx-pc/target/classes/META-INF/maven/com.hp/hp-wx-pc/pom.properties">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="114">
+              <caret line="6" selection-start-line="6" selection-end-line="6" />
             </state>
           </provider>
         </entry>
@@ -193,7 +211,7 @@
         <entry file="file://$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/common/utils/AwsS3.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="184">
-              <caret line="24" column="20" lean-forward="true" selection-start-line="24" selection-start-column="20" selection-end-line="24" selection-end-column="20" />
+              <caret line="24" column="20" selection-start-line="24" selection-start-column="20" selection-end-line="24" selection-end-column="20" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -205,7 +223,7 @@
         <entry file="file://$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/common/utils/ImageExtUtils.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="287">
-              <caret line="42" lean-forward="true" selection-start-line="42" selection-end-line="42" />
+              <caret line="42" selection-start-line="42" selection-end-line="42" />
               <folding>
                 <element signature="method#uploadImage#0;class#ImageExtUtils#0" />
               </folding>
@@ -213,11 +231,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/common/utils/ImagesWriterAndReader.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="152">
-              <caret line="113" column="13" lean-forward="true" selection-start-line="113" selection-start-column="13" selection-end-line="113" selection-end-column="13" />
+            <state relative-caret-position="228">
+              <caret line="119" column="36" selection-start-line="119" selection-start-column="36" selection-end-line="119" selection-end-column="36" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1023#1024#0" expanded="true" />
@@ -238,22 +256,7 @@
         <entry file="file://$PROJECT_DIR$/hp-wx-pc/src/main/resources/application-test.yml">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="216">
-              <caret line="45" column="14" lean-forward="true" selection-start-line="45" selection-start-column="14" selection-end-line="45" selection-end-column="14" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/modules/sys/service/impl/TSubjectServiceImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="475">
-              <caret line="51" selection-start-line="51" selection-end-line="51" />
-              <folding>
-                <element signature="e#2406#2407#0" expanded="true" />
-                <element signature="e#2464#2465#0" expanded="true" />
-                <element signature="e#2542#2543#0" expanded="true" />
-                <element signature="e#2605#2606#0" expanded="true" />
-              </folding>
+              <caret line="45" column="14" selection-start-line="45" selection-start-column="14" selection-end-line="45" selection-end-column="14" />
             </state>
           </provider>
         </entry>
@@ -320,7 +323,6 @@
         <option value="$PROJECT_DIR$/hp-wx-pc/src/main/resources/aaa.txt" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/hp-wx-pc/src/main/resources/static/hpwx/modules/qustionnaire/questioinairelist.html" />
-        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/config/SwaggerConfig.java" />
         <option value="$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/modules/sys/dao/TQuestionnaireDao.java" />
         <option value="$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/modules/sys/service/TQuestionnaireService.java" />
@@ -356,14 +358,16 @@
         <option value="$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/modules/sys/controller/TSubjectController.java" />
         <option value="$PROJECT_DIR$/hp-wx-pc/src/main/resources/mapper/sys/TQuestionnaireMapper.xml" />
         <option value="$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/modules/sys/entity/TQuestionnaire.java" />
-        <option value="$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/modules/sys/controller/TQuestionnaireController.java" />
         <option value="$PROJECT_DIR$/hp-wx-pc/src/main/resources/static/hpwx/modules/sys/questionnaire.html" />
         <option value="$PROJECT_DIR$/hp-wx-pc/src/main/resources/static/hpwx/js/modules/sys/questionnaire.js" />
         <option value="$PROJECT_DIR$/hp-wx-pc/pom.xml" />
         <option value="$PROJECT_DIR$/hp-wx-pc/src/main/resources/application-test.yml" />
         <option value="$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/common/utils/ImageExtUtils.java" />
         <option value="$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/common/utils/AwsS3.java" />
+        <option value="$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/modules/sys/controller/TQuestionnaireController.java" />
         <option value="$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/common/utils/ImagesWriterAndReader.java" />
+        <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/hp-wx-pc/target/classes/META-INF/maven/com.hp/hp-wx-pc/pom.properties" />
       </list>
     </option>
   </component>
@@ -601,6 +605,18 @@
               <item name="hp-wx-pc" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="hp" type="462c0819:PsiDirectoryNode" />
+              <item name="modules" type="462c0819:PsiDirectoryNode" />
+              <item name="sys" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hp-parent" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hp-parent" type="462c0819:PsiDirectoryNode" />
+              <item name="hp-wx-pc" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -686,6 +702,57 @@
               <item name="hpwx" type="462c0819:PsiDirectoryNode" />
               <item name="modules" type="462c0819:PsiDirectoryNode" />
               <item name="sys" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hp-parent" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hp-parent" type="462c0819:PsiDirectoryNode" />
+              <item name="hp-wx-pc" type="462c0819:PsiDirectoryNode" />
+              <item name="target" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hp-parent" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hp-parent" type="462c0819:PsiDirectoryNode" />
+              <item name="hp-wx-pc" type="462c0819:PsiDirectoryNode" />
+              <item name="target" type="462c0819:PsiDirectoryNode" />
+              <item name="classes" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hp-parent" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hp-parent" type="462c0819:PsiDirectoryNode" />
+              <item name="hp-wx-pc" type="462c0819:PsiDirectoryNode" />
+              <item name="target" type="462c0819:PsiDirectoryNode" />
+              <item name="classes" type="462c0819:PsiDirectoryNode" />
+              <item name="META-INF" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hp-parent" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hp-parent" type="462c0819:PsiDirectoryNode" />
+              <item name="hp-wx-pc" type="462c0819:PsiDirectoryNode" />
+              <item name="target" type="462c0819:PsiDirectoryNode" />
+              <item name="classes" type="462c0819:PsiDirectoryNode" />
+              <item name="META-INF" type="462c0819:PsiDirectoryNode" />
+              <item name="maven" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hp-parent" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hp-parent" type="462c0819:PsiDirectoryNode" />
+              <item name="hp-wx-pc" type="462c0819:PsiDirectoryNode" />
+              <item name="target" type="462c0819:PsiDirectoryNode" />
+              <item name="classes" type="462c0819:PsiDirectoryNode" />
+              <item name="META-INF" type="462c0819:PsiDirectoryNode" />
+              <item name="maven" type="462c0819:PsiDirectoryNode" />
+              <item name="com.hp" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hp-parent" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hp-parent" type="462c0819:PsiDirectoryNode" />
+              <item name="hp-wx-pc" type="462c0819:PsiDirectoryNode" />
+              <item name="target" type="462c0819:PsiDirectoryNode" />
+              <item name="classes" type="462c0819:PsiDirectoryNode" />
+              <item name="META-INF" type="462c0819:PsiDirectoryNode" />
+              <item name="maven" type="462c0819:PsiDirectoryNode" />
+              <item name="com.hp" type="462c0819:PsiDirectoryNode" />
+              <item name="hp-wx-pc" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -703,7 +770,7 @@
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://D:/t_project_all/hpwx/hp-parent/hp-wx-pc/src/main/java/com/hp/modules/sys/service/impl/TSubjectServiceImpl.java&#10;com&#9;FILE&#9;file://D:/t_project_all/hpwx/hp-parent/hp-wx-pc/src/main/resources/static/hpwx/js/common.js&#10;TQuestionSer&#9;PSI&#9;JAVA://com.hp.modules.sys.service.TQuestionnaireService&#10;Ima&#9;PSI&#9;JAVA://com.hp.common.utils.ImageExtUtils" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553053177156" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553053518399" />
     <property name="last_opened_file_path" value="$USER_HOME$/Desktop/ueditor-spring-boot-starter-example-master/ueditor-spring-boot-starter-example-master" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="settings.editor.selected.configurable" value="Errors" />
@@ -796,7 +863,7 @@
       <workItem from="1552530142712" duration="59618000" />
       <workItem from="1552658952808" duration="9880000" />
       <workItem from="1552724483954" duration="103008000" />
-      <workItem from="1553051582973" duration="1366000" />
+      <workItem from="1553051582973" duration="2006000" />
     </task>
     <task id="LOCAL-00001" summary="测试">
       <created>1552456525899</created>
@@ -830,7 +897,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="197783000" />
+    <option name="totallyTimeSpent" value="198423000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -842,8 +909,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1295" height="735" extended-state="6" />
-    <editor active="true" />
+    <frame x="-7" y="-7" width="1295" height="735" extended-state="7" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.28455943" />
       <window_info id="Structure" order="1" weight="0.25" />
@@ -930,22 +996,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/hp-wx-pc/src/main/resources/static/hpwx/css/main.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="134" column="24" selection-start-line="134" selection-start-column="24" selection-end-line="134" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/modules/sys/dao/TQuestionnaireDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="13" column="28" lean-forward="true" selection-start-line="13" selection-start-column="28" selection-end-line="13" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/hp-wx-pc/src/main/resources/mapper/sys/TQuestionnaireSubjectMapper.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="261">
@@ -1208,16 +1258,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/modules/sys/controller/TQuestionnaireController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="627">
-          <caret line="66" column="47" selection-start-line="66" selection-start-column="47" selection-end-line="66" selection-end-column="47" />
-          <folding>
-            <element signature="method#statisticsOnResult#0;class#TQuestionnaireController#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/hp-wx-pc/src/main/resources/static/hpwx/modules/sys/subject.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2907">
@@ -1319,14 +1359,14 @@
     <entry file="file://$PROJECT_DIR$/hp-wx-pc/src/main/resources/application-test.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="216">
-          <caret line="45" column="14" lean-forward="true" selection-start-line="45" selection-start-column="14" selection-end-line="45" selection-end-column="14" />
+          <caret line="45" column="14" selection-start-line="45" selection-start-column="14" selection-end-line="45" selection-end-column="14" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/common/utils/ImageExtUtils.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="287">
-          <caret line="42" lean-forward="true" selection-start-line="42" selection-end-line="42" />
+          <caret line="42" selection-start-line="42" selection-end-line="42" />
           <folding>
             <element signature="method#uploadImage#0;class#ImageExtUtils#0" />
           </folding>
@@ -1336,7 +1376,7 @@
     <entry file="file://$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/common/utils/AwsS3.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="184">
-          <caret line="24" column="20" lean-forward="true" selection-start-line="24" selection-start-column="20" selection-end-line="24" selection-end-column="20" />
+          <caret line="24" column="20" selection-start-line="24" selection-start-column="20" selection-end-line="24" selection-end-column="20" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1345,8 +1385,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/common/utils/ImagesWriterAndReader.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="113" column="13" lean-forward="true" selection-start-line="113" selection-start-column="13" selection-end-line="113" selection-end-column="13" />
+        <state relative-caret-position="228">
+          <caret line="119" column="36" selection-start-line="119" selection-start-column="36" selection-end-line="119" selection-end-column="36" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1023#1024#0" expanded="true" />
@@ -1354,6 +1394,30 @@
             <element signature="e#1137#1138#0" expanded="true" />
             <element signature="e#1199#1200#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="15" column="5" lean-forward="true" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/modules/sys/controller/TQuestionnaireController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="174">
+          <caret line="93" lean-forward="true" selection-start-line="93" selection-end-line="93" />
+          <folding>
+            <element signature="method#statisticsOnResult#0;class#TQuestionnaireController#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hp-wx-pc/target/classes/META-INF/maven/com.hp/hp-wx-pc/pom.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="6" selection-start-line="6" selection-end-line="6" />
         </state>
       </provider>
     </entry>
