@@ -26,12 +26,20 @@
      <result column="is_public" jdbcType="TINYINT" property="ispublic" />
        <result column="questionnaire_style_status" jdbcType="TINYINT" property="questionnairestylestatus" />
      
-  
+     
+     <result column="cover_is_show" jdbcType="TINYINT" property="coverisshow" />
+     
+     <result column="end_is_show" jdbcType="TINYINT" property="endisshow" />
+     <result column="end_image" jdbcType="VARCHAR" property="endimage" />
+     <result column="end_image_desc" jdbcType="VARCHAR" property="endimagedesc" />
+     
+     
   </resultMap>
   <sql id="Base_Column_List">
     object_id, create_time, create_user, update_time, update_user, deleted, anonymous, 
     forward, repeated_answer, answer_count, title, questionnaire_desc, icon, cover, enable, 
-    back_color,is_public, start_time,end_time,is_public,answer_person_count,questionnaire_style_status
+    back_color,is_public, start_time,end_time,is_public,answer_person_count,questionnaire_style_status,
+    end_is_show,end_image,end_image_desc,cover_is_show
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
     select 

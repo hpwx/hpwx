@@ -3,221 +3,262 @@ package com.hp.mobile.entity;
 import java.util.Date;
 
 public class QquestionNaire {
-    private Long objectId;
+  private Long objectId;
 
-    private Date createTime;
+  private Date createTime;
 
-    private String createUser;
+  private String createUser;
 
-    private Date updateTime;
+  private Date updateTime;
 
-    private String updateUser;
+  private String updateUser;
 
-    private Byte deleted;
+  private Byte deleted;
 
-    private Byte anonymous;
+  private Byte anonymous;
 
-    private Byte forward;
+  private Byte forward;
 
-    private Byte repeatedAnswer;
+  private Byte repeatedAnswer;
 
-    private Short answerCount;
+  private Short answerCount;
 
-    private String title;
+  private String title;
 
-    private String questionnaireDesc;
+  private String questionnaireDesc;
 
-    private String icon;
+  private String icon;
 
-    private String cover;
+  private String cover;
 
-    private Byte enable;
+  private Byte enable;
 
-    private String backColor;
-    
-    private   Byte questionnairestylestatus;
-    
-    public Byte getQuestionnairestylestatus() {
-      return questionnairestylestatus;
-    }
+  private String backColor;
 
-    public void setQuestionnairestylestatus(Byte questionnairestylestatus) {
-      this.questionnairestylestatus = questionnairestylestatus;
-    }
+  private Byte questionnairestylestatus;
+  private Byte endisshow;
+  private String endimage;
+  private String endimagedesc;
 
-    public Short getAnswerpersoncount() {
-      return answerpersoncount;
-    }
+  private Byte coverisshow;
 
-    public void setAnswerpersoncount(Short answerpersoncount) {
-      this.answerpersoncount = answerpersoncount;
-    }
 
-    private Short  answerpersoncount;
-    
-    public Long getIsPubic() {
-      return isPubic;
-    }
+  public Byte getCoverisshow() {
+    return coverisshow;
+  }
 
-    public void setIsPubic(Long isPubic) {
-      this.isPubic = isPubic;
-    }
+  public void setCoverisshow(Byte coverisshow) {
+    this.coverisshow = coverisshow;
+  }
 
-    private  Long  ispublic;
-    
-    public Long getIspublic() {
-      return isPubic;
-    }
+  public Byte getEndisshow() {
+    return endisshow;
+  }
 
-    public void setIspublic(Long ispublic) {
-      this.isPubic = ispublic;
-    }
+  public void setEndisshow(Byte endisshow) {
+    this.endisshow = endisshow;
+  }
 
-    public Date getStartTime() {
-      return startTime;
-    }
 
-    public void setStartTime(Date startTime) {
-      this.startTime = startTime;
-    }
+  public String getEndimage() {
+    return endimage;
+  }
 
-    public Date getEndTime() {
-      return endTime;
-    }
+  public void setEndimage(String endimage) {
+    this.endimage = endimage;
+  }
 
-    public void setEndTime(Date endTime) {
-      this.endTime = endTime;
-    }
+  public String getEndimagedesc() {
+    return endimagedesc;
+  }
 
-    private  Long   isPubic;
-    private  Date   startTime;
-    private  Date   endTime;
+  public void setEndimagedesc(String endimagedesc) {
+    this.endimagedesc = endimagedesc;
+  }
 
-    public Long getObjectId() {
-        return objectId;
-    }
 
-    public void setObjectId(Long objectId) {
-        this.objectId = objectId;
-    }
 
-    public Date getCreateTime() {
-        return createTime;
-    }
+  public Byte getQuestionnairestylestatus() {
+    return questionnairestylestatus;
+  }
 
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
-    }
+  public void setQuestionnairestylestatus(Byte questionnairestylestatus) {
+    this.questionnairestylestatus = questionnairestylestatus;
+  }
 
-    public String getCreateUser() {
-        return createUser;
-    }
+  public Short getAnswerpersoncount() {
+    return answerpersoncount;
+  }
 
-    public void setCreateUser(String createUser) {
-        this.createUser = createUser == null ? null : createUser.trim();
-    }
+  public void setAnswerpersoncount(Short answerpersoncount) {
+    this.answerpersoncount = answerpersoncount;
+  }
 
-    public Date getUpdateTime() {
-        return updateTime;
-    }
+  private Short answerpersoncount;
 
-    public void setUpdateTime(Date updateTime) {
-        this.updateTime = updateTime;
-    }
+  public Long getIsPubic() {
+    return isPubic;
+  }
 
-    public String getUpdateUser() {
-        return updateUser;
-    }
+  public void setIsPubic(Long isPubic) {
+    this.isPubic = isPubic;
+  }
 
-    public void setUpdateUser(String updateUser) {
-        this.updateUser = updateUser == null ? null : updateUser.trim();
-    }
+  private Long ispublic;
 
-    public Byte getDeleted() {
-        return deleted;
-    }
+  public Long getIspublic() {
+    return isPubic;
+  }
 
-    public void setDeleted(Byte deleted) {
-        this.deleted = deleted;
-    }
+  public void setIspublic(Long ispublic) {
+    this.isPubic = ispublic;
+  }
 
-    public Byte getAnonymous() {
-        return anonymous;
-    }
+  public Date getStartTime() {
+    return startTime;
+  }
 
-    public void setAnonymous(Byte anonymous) {
-        this.anonymous = anonymous;
-    }
+  public void setStartTime(Date startTime) {
+    this.startTime = startTime;
+  }
 
-    public Byte getForward() {
-        return forward;
-    }
+  public Date getEndTime() {
+    return endTime;
+  }
 
-    public void setForward(Byte forward) {
-        this.forward = forward;
-    }
+  public void setEndTime(Date endTime) {
+    this.endTime = endTime;
+  }
 
-    public Byte getRepeatedAnswer() {
-        return repeatedAnswer;
-    }
+  private Long isPubic;
+  private Date startTime;
+  private Date endTime;
 
-    public void setRepeatedAnswer(Byte repeatedAnswer) {
-        this.repeatedAnswer = repeatedAnswer;
-    }
+  public Long getObjectId() {
+    return objectId;
+  }
 
-    public Short getAnswerCount() {
-        return answerCount;
-    }
+  public void setObjectId(Long objectId) {
+    this.objectId = objectId;
+  }
 
-    public void setAnswerCount(Short answerCount) {
-        this.answerCount = answerCount;
-    }
+  public Date getCreateTime() {
+    return createTime;
+  }
 
-    public String getTitle() {
-        return title;
-    }
+  public void setCreateTime(Date createTime) {
+    this.createTime = createTime;
+  }
 
-    public void setTitle(String title) {
-        this.title = title == null ? null : title.trim();
-    }
+  public String getCreateUser() {
+    return createUser;
+  }
 
-    public String getQuestionnaireDesc() {
-        return questionnaireDesc;
-    }
+  public void setCreateUser(String createUser) {
+    this.createUser = createUser == null ? null : createUser.trim();
+  }
 
-    public void setQuestionnaireDesc(String questionnaireDesc) {
-        this.questionnaireDesc = questionnaireDesc == null ? null : questionnaireDesc.trim();
-    }
+  public Date getUpdateTime() {
+    return updateTime;
+  }
 
-    public String getIcon() {
-        return icon;
-    }
+  public void setUpdateTime(Date updateTime) {
+    this.updateTime = updateTime;
+  }
 
-    public void setIcon(String icon) {
-        this.icon = icon == null ? null : icon.trim();
-    }
+  public String getUpdateUser() {
+    return updateUser;
+  }
 
-    public String getCover() {
-        return cover;
-    }
+  public void setUpdateUser(String updateUser) {
+    this.updateUser = updateUser == null ? null : updateUser.trim();
+  }
 
-    public void setCover(String cover) {
-        this.cover = cover == null ? null : cover.trim();
-    }
+  public Byte getDeleted() {
+    return deleted;
+  }
 
-    public Byte getEnable() {
-        return enable;
-    }
+  public void setDeleted(Byte deleted) {
+    this.deleted = deleted;
+  }
 
-    public void setEnable(Byte enable) {
-        this.enable = enable;
-    }
+  public Byte getAnonymous() {
+    return anonymous;
+  }
 
-    public String getBackColor() {
-        return backColor;
-    }
+  public void setAnonymous(Byte anonymous) {
+    this.anonymous = anonymous;
+  }
 
-    public void setBackColor(String backColor) {
-        this.backColor = backColor == null ? null : backColor.trim();
-    }
+  public Byte getForward() {
+    return forward;
+  }
+
+  public void setForward(Byte forward) {
+    this.forward = forward;
+  }
+
+  public Byte getRepeatedAnswer() {
+    return repeatedAnswer;
+  }
+
+  public void setRepeatedAnswer(Byte repeatedAnswer) {
+    this.repeatedAnswer = repeatedAnswer;
+  }
+
+  public Short getAnswerCount() {
+    return answerCount;
+  }
+
+  public void setAnswerCount(Short answerCount) {
+    this.answerCount = answerCount;
+  }
+
+  public String getTitle() {
+    return title;
+  }
+
+  public void setTitle(String title) {
+    this.title = title == null ? null : title.trim();
+  }
+
+  public String getQuestionnaireDesc() {
+    return questionnaireDesc;
+  }
+
+  public void setQuestionnaireDesc(String questionnaireDesc) {
+    this.questionnaireDesc = questionnaireDesc == null ? null : questionnaireDesc.trim();
+  }
+
+  public String getIcon() {
+    return icon;
+  }
+
+  public void setIcon(String icon) {
+    this.icon = icon == null ? null : icon.trim();
+  }
+
+  public String getCover() {
+    return cover;
+  }
+
+  public void setCover(String cover) {
+    this.cover = cover == null ? null : cover.trim();
+  }
+
+  public Byte getEnable() {
+    return enable;
+  }
+
+  public void setEnable(Byte enable) {
+    this.enable = enable;
+  }
+
+  public String getBackColor() {
+    return backColor;
+  }
+
+  public void setBackColor(String backColor) {
+    this.backColor = backColor == null ? null : backColor.trim();
+  }
 }

@@ -27,7 +27,10 @@ spring:
       max-wait: 3000
       max-idle: 10
       min-idle: 5
- 
+logging:
+    level:
+        com.hp: DEBUG
+    root: INFO
 wx:
   appId: wx0e938c00ca8232a9
   secret: 667f391fe45f6b97d3c206f83f3a3958 
