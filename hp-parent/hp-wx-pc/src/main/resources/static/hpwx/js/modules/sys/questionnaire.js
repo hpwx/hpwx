@@ -82,7 +82,7 @@ var vm = new Vue({
                                             '<span class="label label-danger tableBtnStyle" id="delBtn">删除</span> ' : ''
                                     }
                                 }else if(row.enable == 0){
-                                    if(row.questionnaireIsTop == 0){
+                                    if(row.questionnaireIsTop == 1){
                                         return value === undefined ?
                                             '<span class="label label-warning tableBtnStyle" id="editBtn">编辑</span> ' +
                                             '<span class="label label-success tableBtnStyle" id="DownBtn">取消置顶</span> ' +

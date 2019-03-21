@@ -363,6 +363,14 @@ var vm = new Vue({
         },
         saveOrUpdate: function () {
             var text = UE.getEditor('editor').getContent();
+            if(text == "" || text == null){
+                alert("请添加题目标题");
+                return;
+            }
+            if(vm.questionObj.type == 1 && vm.questionObj.radioAnswer.length == 0){
+                alert("亲，至少得有个选择的答案吧!");
+                return;
+            }
             text = text.replace("<p>","").replace("</p>","").trim("");
             vm.questionObj.subjectName = encodeURIComponent(text);
             var url = vm.questionObj.subjectId == "" ? "sys/subject/add" : "sys/subject/update";
