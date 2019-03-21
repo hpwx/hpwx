@@ -11,7 +11,7 @@ spring:
                 password: Quanhe_2018
             second:  #数据源2
                  url: jdbc:mysql://120.27.147.104:3306/wx?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8??useSSL=false
-                 username: root                         
+                 username: root
                  password: Quanhe_2018
             initial-size: 10
             max-active: 100
@@ -39,8 +39,11 @@ spring:
                     config:
                         multi-statement-allow: true
 
-                        
- # APP模块，是通过jwt认证的，如果要使用APP模块，则需要修改【加密秘钥】       
+logging:
+    level:
+        com.hp: DEBUG
+    root: INFO
+ # APP模块，是通过jwt认证的，如果要使用APP模块，则需要修改【加密秘钥】
 renren:
     jwt:
         # 加密秘钥

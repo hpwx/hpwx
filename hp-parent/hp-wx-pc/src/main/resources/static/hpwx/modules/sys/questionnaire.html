@@ -62,11 +62,20 @@
 				</div>
 			</div>
 			<div class="form-group">
-			   	<div class="col-sm-2 control-label">问卷描述</div>
+			   	<div class="col-sm-2 control-label">封面描述</div>
 			   	<div class="col-sm-10">
 			      <!--<input type="text" class="form-control" v-model="role.remark" placeholder="问卷描述"/>-->
 					<textarea name="description" class="form-control" v-model="questionnaire.questionnaireDesc" rows="3"></textarea>
 			    </div>
+			</div>
+
+
+			<div class="form-group">
+				<div class="col-sm-2 control-label">尾页描述</div>
+				<div class="col-sm-10">
+					<!--<input type="text" class="form-control" v-model="role.remark" placeholder="问卷描述"/>-->
+					<textarea name="description2" class="form-control" v-model="questionnaire.endImageDesc" rows="3"></textarea>
+				</div>
 			</div>
 
 			<div class="form-group">
@@ -130,30 +139,31 @@
 				</div>
 			</div>
 
-
-
 			<div class="form-group">
 				<div class="col-sm-2 control-label">问卷是否启用</div>
 				<div class="col-sm-10">
-					<!--<input type="text" class="form-control" v-model="role.remark" placeholder="是否匿名"/>-->
+					<!--<input type="text" class="form-control" v-model="role.remark" placeholder="是否重复答题"/>-->
+
 					<label class="radio-inline">
-						<input type="radio" name="is_enable"  value="0"  v-model="questionnaire.enable"> 不启用
+						<input type="radio" name="enable"  value="0" v-model="questionnaire.enable"> 不支持
 					</label>
 					<label class="radio-inline">
-						<input type="radio" name="is_enable"  value="1" v-model="questionnaire.enable"> 启用
+						<input type="radio" name="enable"  value="1" v-model="questionnaire.enable"> 支持
 					</label>
+
 				</div>
 			</div>
+
 
 			<div class="form-group">
 				<div class="col-sm-2 control-label">尾页是否显示</div>
 				<div class="col-sm-10">
 					<!--<input type="text" class="form-control" v-model="role.remark" placeholder="是否匿名"/>-->
 					<label class="radio-inline">
-						<input type="radio" name="is_end_show"  value="0"  v-model="questionnaire.endIsShow"> 不显示
+						<input type="radio" name="end_show"  value="0"  v-model="questionnaire.endIsShow"> 不显示
 					</label>
 					<label class="radio-inline">
-						<input type="radio" name="is_end_show"  value="1" v-model="questionnaire.endIsShow"> 显示
+						<input type="radio" name="end_show"  value="1" v-model="questionnaire.endIsShow"> 显示
 					</label>
 				</div>
 			</div>
@@ -163,10 +173,10 @@
 				<div class="col-sm-10">
 					<!--<input type="text" class="form-control" v-model="role.remark" placeholder="是否匿名"/>-->
 					<label class="radio-inline">
-						<input type="radio" name="is_cover_show"  value="0"  v-model="questionnaire.coverIsShow"> 不显示
+						<input type="radio" name="cover_show"  value="0"  v-model="questionnaire.coverIsShow"> 不显示
 					</label>
 					<label class="radio-inline">
-						<input type="radio" name="is_cover_show"  value="1" v-model="questionnaire.coverIsShow"> 显示
+						<input type="radio" name="cover_show"  value="1" v-model="questionnaire.coverIsShow"> 显示
 					</label>
 				</div>
 			</div>

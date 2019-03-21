@@ -233,7 +233,8 @@ var vm = new Vue({
         getQuestionnire: function () {
             $.get(baseURL + "sys/questionnaire/list/", function (r) {
                 if (r.code == 0) {
-                    vm.questionnaireList = r.page.list
+                    r.page.list.push({"title":"请选择","objectId":-1});
+                    vm.questionnaireList = r.page.list;
                 } else {
 
                     alert(r.msg);
@@ -383,9 +384,13 @@ var vm = new Vue({
         },
         reload: function () {
             vm.showList = true;
+            var obj = {};
+            if(!((vm.q.name) == null && (vm.questionObj.questionnaireId == -1))){
+                obj = {'name':encodeURIComponent(vm.q.name) ,"questionnaireId":vm.questionObj.questionnaireId}
+            }
             var page = $("#jqGrid").jqGrid('getGridParam', 'page');
             $("#jqGrid").jqGrid('setGridParam', {
-                postData: {'name':encodeURIComponent(vm.q.name) ,"questionnaireId":vm.questionObj.questionnaireId},
+                postData: obj,
                 page: page
             }).trigger("reloadGrid");
         }

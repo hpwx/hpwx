@@ -76,6 +76,16 @@ public class TQuestionnaire {
 
     private int starScore;
 
+    private String endImageDesc;
+
+    public String getEndImageDesc() {
+        return endImageDesc;
+    }
+
+    public void setEndImageDesc(String endImageDesc) {
+        this.endImageDesc = endImageDesc;
+    }
+
     public Byte getEndIsShow() {
         return endIsShow;
     }

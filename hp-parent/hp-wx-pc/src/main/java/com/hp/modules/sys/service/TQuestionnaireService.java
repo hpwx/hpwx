@@ -27,6 +27,10 @@ public interface TQuestionnaireService extends IService<TQuestionnaire> {
 
     void top(Long id);
 
+    void down(Long id);
+
     void del(Long[] ids);
+
+    void updateQuestionEnable(Map<String,Object> map);
 
 }

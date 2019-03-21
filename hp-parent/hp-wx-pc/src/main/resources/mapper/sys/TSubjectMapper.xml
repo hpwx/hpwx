@@ -184,16 +184,24 @@
     <select id="selectSubjectListByQuestionnaireId"   resultMap="BaseResultMap">
          SELECT
         <include refid="Base_Column_List" />
-          FROM t_subject WHERE object_id in(
-	              SELECT subject_id FROM t_questionnaire_subject qs
+          FROM t_subject
           <where>
-              <if test="name != null and name !='' ">
-                  and name LIKE '${name}%'
-              </if>
-              <if test=" questionnaireId !=null and questionnaireId != -1 ">
+            <if test=" questionnaireId != null and questionnaireId !=-1 ">
+              object_id
+              in(
+              SELECT subject_id FROM t_questionnaire_subject qs
+              <trim prefix="where" prefixOverrides="and">
+                <if test=" questionnaireId != null and questionnaireId !=-1 ">
                   and questionnaire_id = #{questionnaireId}
-              </if>
+                </if>
+              </trim>
+              )
+            </if>
+            <if test="name != 'null'">
+              and name LIKE '${name}%'
+            </if>
           </where>
-        )
+
+
     </select>
 </mapper>

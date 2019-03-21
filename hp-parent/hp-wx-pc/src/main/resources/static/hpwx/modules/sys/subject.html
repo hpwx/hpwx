@@ -34,7 +34,6 @@
 				<div class="col-sm-3">
 					<!--<input type="text" class="form-control" v-model="role.roleName" placeholder="问卷标题"/>-->
 					<select id="subject" class="form-control" v-model="questionObj.questionnaireId">
-						<option value="-1">请选择</option>
 						<option v-for="item in questionnaireList" :value="item.objectId">{{item.title}}</option>
 					</select>
 				</div>

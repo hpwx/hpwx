@@ -26,6 +26,8 @@
     <result column="end_image" property="endImage" jdbcType="VARCHAR" />
     <result column="end_is_show" property="endIsShow" jdbcType="TINYINT" />
     <result column="cover_is_show" property="coverIsShow" jdbcType="TINYINT" />
+    <result column="end_image_desc" property="endImageDesc" jdbcType="VARCHAR" />
+    <result column="questionnaire_is_top" property="questionnaireIsTop" jdbcType="VARCHAR" />
   </resultMap>
 
   <select id="StatisticsOnAll"  resultType="map" parameterType="Map" >
@@ -141,8 +143,8 @@ FROM
 
   <sql id="Base_Column_List" >
     object_id, create_time, create_user, update_time, update_user, deleted, anonymous,
-    forward, repeated_answer, answer_count, title, questionnaire_desc, icon, cover, enable,
-    back_color,is_public,start_time,end_time,star_num,star_score,end_image,end_is_show,cover_is_show
+    forward, repeated_answer, answer_count, title, questionnaire_desc, icon, cover, enable,questionnaire_is_top
+    back_color,is_public,start_time,end_time,star_num,star_score,end_image,end_is_show,cover_is_show,end_image_desc
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
     select
@@ -160,14 +162,14 @@ FROM
       anonymous, forward, repeated_answer,
       answer_count, title, questionnaire_desc,
       icon, cover, enable,
-      back_color,is_public,start_time,end_time,questionnaire_is_top,star_num,star_score,end_image,end_is_show,cover_is_show)
+      back_color,is_public,start_time,end_time,questionnaire_is_top,star_num,star_score,end_image,end_is_show,cover_is_show,end_image_desc)
     values (#{objectId,jdbcType=BIGINT}, #{createTime,jdbcType=DATE}, #{createUser,jdbcType=VARCHAR},
       #{updateTime,jdbcType=DATE}, #{updateUser,jdbcType=VARCHAR}, #{deleted,jdbcType=TINYINT},
       #{anonymous,jdbcType=TINYINT}, #{forward,jdbcType=TINYINT}, #{repeatedAnswer,jdbcType=TINYINT},
       #{answerCount,jdbcType=SMALLINT}, #{title,jdbcType=VARCHAR}, #{questionnaireDesc,jdbcType=VARCHAR},
       #{icon,jdbcType=VARCHAR}, #{cover,jdbcType=VARCHAR}, #{enable,jdbcType=TINYINT},
       #{backColor,jdbcType=VARCHAR},#{isPublic,jdbcType=TINYINT},#{startTime,jdbcType=DATE},#{endTime,jdbcType=DATE},#{questionnaireIsTop,jdbcType=TINYINT},
-      #{starNum,jdbcType=INTEGER},#{starScore,jdbcType=INTEGER},#{endImage,jdbcType=VARCHAR},#{endIsShow,jdbcType=TINYINT},#{coverIsShow,jdbcType=TINYINT})
+      #{starNum,jdbcType=INTEGER},#{starScore,jdbcType=INTEGER},#{endImage,jdbcType=VARCHAR},#{endIsShow,jdbcType=TINYINT},#{coverIsShow,jdbcType=TINYINT},#{endImageDesc,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.hp.modules.sys.entity.TQuestionnaire" >
     insert into t_questionnaire
@@ -247,6 +249,9 @@ FROM
       <if test="coverIsShow != null">
         cover_is_show
       </if>
+      <if test="endImageDesc != null">
+        end_image_desc
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="objectId != null" >
@@ -323,6 +328,9 @@ FROM
       </if>
       <if test="coverIsShow != null">
         #{coverIsShow,jdbcType=TINYINT},
+      </if>
+      <if test="endImageDesc != null">
+        #{endImageDesc,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -401,6 +409,9 @@ FROM
       <if test="coverIsShow != null">
         cover_is_show=#{coverIsShow,jdbcType=TINYINT}
       </if>
+      <if test="endImageDesc != null">
+        end_image_desc=#{endImageDesc,jdbcType=VARCHAR}
+      </if>
     </set>
     where object_id = #{objectId,jdbcType=BIGINT}
   </update>
@@ -429,7 +440,8 @@ FROM
       star_score=#{starScore,jdbcType=INTEGER},
       end_image=#{endImage,jdbcType=VARCHAR},
       end_is_show=#{endIsShow,jdbcType=TINYINT},
-      cover_is_show=#{coverIsShow,jdbcType=TINYINT}
+      cover_is_show=#{coverIsShow,jdbcType=TINYINT},
+      end_image_desc=#{endImageDesc,jdbcType=VARCHAR}
     where object_id = #{objectId,jdbcType=BIGINT}
   </update>
 
@@ -444,4 +456,13 @@ FROM
     WHERE object_id = #{objectId,jdbcType=BIGINT}
   </update>
 
+  <update id="updateEnableById">
+    UPDATE t_questionnaire  set enable = #{enable}
+    WHERE object_id = #{questionnaireId,jdbcType=BIGINT}
+  </update>
+
+  <update id="updateDownById" parameterType="java.lang.Long">
+    UPDATE t_questionnaire  set questionnaire_is_top = 0
+    WHERE object_id = #{objectId,jdbcType=BIGINT}
+  </update>
 </mapper>

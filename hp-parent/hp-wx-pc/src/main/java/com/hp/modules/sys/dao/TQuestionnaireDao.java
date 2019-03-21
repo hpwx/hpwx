@@ -34,4 +34,8 @@ public interface TQuestionnaireDao extends BaseMapper<TQuestionnaire> {
     TQuestionnaire selectByIdIsHaveTop(Long id);
 
     void updateTopById(Long id);
+
+    void updateEnableById(Map<String,Object> map);
+
+    void updateDownById(Long id);
 }
