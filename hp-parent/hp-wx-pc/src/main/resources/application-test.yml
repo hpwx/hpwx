@@ -58,3 +58,5 @@ aws:
     region: cn-north-1
     Bucket: hpi-cn-local-business-css-wechat
     Prefix: css-wechat-520-activity/itg/
+#user  key
+userKey: dnfdnafja2342424@#$%&gsg

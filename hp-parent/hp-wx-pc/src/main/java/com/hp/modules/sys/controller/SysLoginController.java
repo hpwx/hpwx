@@ -1,8 +1,11 @@
 package com.hp.modules.sys.controller;
 
+import com.hp.common.utils.EncryptUtil;
+import com.hp.modules.app.utils.JwtUtils;
 import org.apache.commons.io.IOUtils;
 import org.apache.shiro.crypto.hash.Sha256Hash;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -18,6 +21,8 @@ import com.hp.modules.sys.service.SysUserTokenService;
 import javax.imageio.ImageIO;
 import javax.servlet.ServletException;
 import javax.servlet.ServletOutputStream;
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
@@ -39,6 +44,9 @@ public class SysLoginController extends AbstractController {
 	@Autowired
 	private SysCaptchaService sysCaptchaService;
 
+	@Value("${userKey}")
+	private String userKey;
+
 	/**
 	 * 验证码
 	 */
@@ -59,7 +67,7 @@ public class SysLoginController extends AbstractController {
 	 * 登录
 	 */
 	@PostMapping("/sys/login")
-	public Map<String, Object> login(@RequestBody SysLoginForm form)throws IOException {
+	public Map<String, Object> login(@RequestBody SysLoginForm form,HttpServletResponse response)throws IOException {
 		boolean captcha = sysCaptchaService.validate(form.getUuid(), form.getCaptcha());
 		if(!captcha){
 			return R.error("验证码不正确");
@@ -77,6 +85,17 @@ public class SysLoginController extends AbstractController {
 		if(user.getStatus() == 0){
 			return R.error("账号已被锁定,请联系管理员");
 		}
+		EncryptUtil encryptUtil = EncryptUtil.getInstance();
+
+		String encrypt = encryptUtil.DESencode(user.getUserId().toString(), userKey);
+
+		Cookie cookie = new Cookie("userId", encrypt);
+
+		cookie.setPath("/");
+
+		cookie.setMaxAge(60 * 60 * 24);
+
+		response.addCookie(cookie);
 
 		//生成token，并保存到数据库
 		R r = sysUserTokenService.createToken(user.getUserId());
