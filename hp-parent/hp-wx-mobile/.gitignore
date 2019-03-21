@@ -1,1 +1,9 @@
-/target/
+.settings
+.project
+target
+.classpath
+*.gitignore
+pom.properites
+*.gitignore
+*.properties
+
