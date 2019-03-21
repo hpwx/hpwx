@@ -5,6 +5,7 @@ import com.hp.modules.sys.entity.TQuestionnaire;
 import com.hp.modules.sys.entity.TSurveyAnswers;
 import org.apache.commons.lang.StringUtils;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -22,7 +23,7 @@ public interface TSurveyAnswersDao extends BaseMapper<TSurveyAnswers> {
 
     int updateByPrimaryKey(TSurveyAnswers record);
 
-    int selectIdByChoiceText(String text);
+    int selectIdByChoiceText(@Param("text") String text,@Param("subjectId") Long subjectId);
 
     List<TSurveyAnswers> selectTSurveyAnswersBySubjectId(Long objectId);
 }

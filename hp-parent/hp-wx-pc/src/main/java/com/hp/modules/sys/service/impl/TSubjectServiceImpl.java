@@ -151,7 +151,7 @@ public class TSubjectServiceImpl extends ServiceImpl<TSubjectDao, TSubject> impl
                 tSurveyAnswersDao.insert(tSurveyAnswers);
             }
             // 4 select出正确答案id
-            int answerId = tSurveyAnswersDao.selectIdByChoiceText(subjectForm.getRadioAnswer());
+            int answerId = tSurveyAnswersDao.selectIdByChoiceText(subjectForm.getRadioAnswer(),subjectId);
 
             // 5 更新正确答案id到subject表
             tSubject.setObjectId(subjectId);
@@ -180,7 +180,7 @@ public class TSubjectServiceImpl extends ServiceImpl<TSubjectDao, TSubject> impl
             StringBuilder sb = new StringBuilder();
             for (int i = 0; i < subjectForm.getCheckBoxAnswer().length; i++) {
                 // 4 select出正确答案id，用逗号拼接起来
-                int id = tSurveyAnswersDao.selectIdByChoiceText(subjectForm.getCheckBoxAnswer()[i]);
+                int id = tSurveyAnswersDao.selectIdByChoiceText(subjectForm.getCheckBoxAnswer()[i],subjectId);
                 sb.append(id).append(",");
             }
             //多选题答案拼接

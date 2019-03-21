@@ -140,8 +140,8 @@
     where object_id = #{objectId,jdbcType=BIGINT}
   </update>
 
-  <select id="selectIdByChoiceText" parameterType="java.lang.String" resultType="int">
-    SELECT object_id FROM  t_survey_answers WHERE choice_text = #{text,jdbcType=VARCHAR}
+  <select id="selectIdByChoiceText" resultType="int">
+    SELECT object_id FROM  t_survey_answers WHERE choice_text = #{text} and  question_id = #{subjectId}
   </select>
 
   <select id="selectTSurveyAnswersBySubjectId" parameterType="java.lang.Long" resultMap="BaseResultMap">

@@ -87,7 +87,7 @@ public class SysLoginController extends AbstractController {
 		}
 		EncryptUtil encryptUtil = EncryptUtil.getInstance();
 
-		String encrypt = encryptUtil.DESencode(user.getUserId().toString(), userKey);
+		String encrypt = encryptUtil.AESencode(user.getUserId().toString(), userKey);
 
 		Cookie cookie = new Cookie("userInfo", encrypt);
 
