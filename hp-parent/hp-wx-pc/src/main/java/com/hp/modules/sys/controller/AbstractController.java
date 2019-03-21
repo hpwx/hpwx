@@ -40,7 +40,7 @@ public abstract class AbstractController {
 		Cookie[] cookies = request.getCookies();
 		String userId = null;
 		for (Cookie cookie:cookies) {
-			if(cookie.getName().equals("userId")){
+			if(cookie.getName().equals("userInfo")){
 				userId = cookie.getValue();
 			}
 		}

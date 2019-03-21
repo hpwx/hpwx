@@ -2,15 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ab7bbee5-4f04-4d5a-af7e-1a719ba351c5" name="Default" comment="dev">
-      <change afterPath="$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/common/utils/EncryptUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/modules/sys/controller/AbstractController.java" beforeDir="false" afterPath="$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/modules/sys/controller/AbstractController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/modules/sys/controller/SysLoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/modules/sys/controller/SysLoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hp-wx-pc/src/main/resources/application-test.yml" beforeDir="false" afterPath="$PROJECT_DIR$/hp-wx-pc/src/main/resources/application-test.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hp-wx-pc/src/main/resources/static/hpwx/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/hp-wx-pc/src/main/resources/static/hpwx/css/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hp-wx-pc/src/main/resources/static/hpwx/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/hp-wx-pc/src/main/resources/static/hpwx/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/static/hpwx/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/hp-wx-pc/target/classes/static/hpwx/css/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hp-wx-pc/target/classes/static/hpwx/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/hp-wx-pc/target/classes/static/hpwx/index.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/hp-common-utils/target/" />
     <ignored path="$PROJECT_DIR$/hp-common-db/target/" />
@@ -44,8 +37,26 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/modules/sys/controller/SysLoginController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="287">
-              <caret line="89" column="85" lean-forward="true" selection-start-line="89" selection-start-column="85" selection-end-line="89" selection-end-column="85" />
+            <state relative-caret-position="146">
+              <caret line="91" column="44" selection-start-line="91" selection-start-column="36" selection-end-line="91" selection-end-column="44" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/modules/sys/service/SysUserTokenService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="184">
+              <caret line="13" column="17" selection-start-line="13" selection-start-column="17" selection-end-line="13" selection-end-column="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/modules/sys/service/impl/SysUserTokenServiceImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="380">
+              <caret line="62" column="38" selection-start-line="62" selection-start-column="38" selection-end-line="62" selection-end-column="38" />
             </state>
           </provider>
         </entry>
@@ -54,7 +65,7 @@
         <entry file="file://$PROJECT_DIR$/hp-wx-pc/src/main/resources/application.yml">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="406">
-              <caret line="79" lean-forward="true" selection-start-line="79" selection-end-line="79" />
+              <caret line="79" selection-start-line="79" selection-end-line="79" />
             </state>
           </provider>
         </entry>
@@ -62,8 +73,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/hp-wx-pc/src/main/resources/application-test.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="463">
-              <caret line="61" column="7" selection-start-line="61" selection-end-line="61" selection-end-column="7" />
+            <state relative-caret-position="-31">
+              <caret line="49" column="48" selection-start-line="49" selection-start-column="16" selection-end-line="49" selection-end-column="48" />
             </state>
           </provider>
         </entry>
@@ -72,7 +83,7 @@
         <entry file="file://$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/common/utils/EncryptUtil.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-720">
-              <caret line="215" column="20" lean-forward="true" selection-start-line="215" selection-start-column="20" selection-end-line="215" selection-end-column="20" />
+              <caret line="215" column="20" selection-start-line="215" selection-start-column="20" selection-end-line="215" selection-end-column="20" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#4082#4083#0" expanded="true" />
@@ -107,30 +118,12 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/modules/sys/controller/AbstractController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="59">
-              <caret line="31" column="66" lean-forward="true" selection-start-line="31" selection-start-column="66" selection-end-line="31" selection-end-column="66" />
+            <state relative-caret-position="21">
+              <caret line="42" column="52" lean-forward="true" selection-start-line="42" selection-start-column="52" selection-end-line="42" selection-end-column="52" />
               <folding>
                 <element signature="e#441#442#0" expanded="true" />
                 <element signature="e#512#513#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/common/utils/SpringContextUtils.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="78">
-              <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/common/utils/ShiroUtils.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="389">
-              <caret line="49" column="33" selection-start-line="49" selection-start-column="22" selection-end-line="49" selection-end-column="33" />
             </state>
           </provider>
         </entry>
@@ -157,7 +150,7 @@
         <entry file="file://$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/config/CorsConfig.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="114">
-              <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+              <caret line="8" selection-start-line="8" selection-end-line="8" />
             </state>
           </provider>
         </entry>
@@ -651,7 +644,7 @@
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://D:/t_project_all/hpwx/hp-parent/hp-wx-pc/src/main/java/com/hp/modules/sys/service/impl/TSubjectServiceImpl.java&#10;com&#9;FILE&#9;file://D:/t_project_all/hpwx/hp-parent/hp-wx-pc/src/main/resources/static/hpwx/js/common.js&#10;TQuestionSer&#9;PSI&#9;JAVA://com.hp.modules.sys.service.TQuestionnaireService&#10;Ima&#9;PSI&#9;JAVA://com.hp.common.utils.ImageExtUtils" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553159891784" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553163279108" />
     <property name="last_opened_file_path" value="D:/t_project_all/hpwx/hp-parent" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="settings.editor.selected.configurable" value="Errors" />
@@ -747,7 +740,7 @@
       <workItem from="1552530142712" duration="59618000" />
       <workItem from="1552658952808" duration="9880000" />
       <workItem from="1552724483954" duration="103008000" />
-      <workItem from="1553051582973" duration="45937000" />
+      <workItem from="1553051582973" duration="49318000" />
     </task>
     <task id="LOCAL-00001" summary="测试">
       <created>1552456525899</created>
@@ -781,7 +774,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="242354000" />
+    <option name="totallyTimeSpent" value="245735000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -811,7 +804,7 @@
       <window_info anchor="bottom" id="MyBatis Sql Log" weight="0.42951906" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32962137" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.4096186" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.4096186" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.43283582" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -881,13 +874,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$MAVEN_REPOSITORY$/ch/qos/logback/logback-classic/1.1.11/logback-classic-1.1.11.jar!/ch/qos/logback/classic/filter/ThresholdFilter.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="109">
-          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/hp-wx-pc/src/main/resources/application-uta.yml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -1168,13 +1154,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/modules/sys/service/SysUserTokenService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="292">
-          <caret line="19" column="17" selection-start-line="19" selection-start-column="6" selection-end-line="19" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/common/utils/RedisUtils.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-416">
@@ -1227,7 +1206,7 @@
     <entry file="file://$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/config/CorsConfig.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="114">
-          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+          <caret line="8" selection-start-line="8" selection-end-line="8" />
         </state>
       </provider>
     </entry>
@@ -1245,21 +1224,14 @@
     <entry file="file://$PROJECT_DIR$/hp-wx-pc/src/main/resources/application.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="406">
-          <caret line="79" lean-forward="true" selection-start-line="79" selection-end-line="79" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hp-wx-pc/src/main/resources/application-test.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="463">
-          <caret line="61" column="7" selection-start-line="61" selection-end-line="61" selection-end-column="7" />
+          <caret line="79" selection-start-line="79" selection-end-line="79" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/common/utils/EncryptUtil.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-720">
-          <caret line="215" column="20" lean-forward="true" selection-start-line="215" selection-start-column="20" selection-end-line="215" selection-end-column="20" />
+          <caret line="215" column="20" selection-start-line="215" selection-start-column="20" selection-end-line="215" selection-end-column="20" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#4082#4083#0" expanded="true" />
@@ -1290,17 +1262,38 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/modules/sys/service/SysUserTokenService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="13" column="17" selection-start-line="13" selection-start-column="17" selection-end-line="13" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/modules/sys/service/impl/SysUserTokenServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="62" column="38" selection-start-line="62" selection-start-column="38" selection-end-line="62" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hp-wx-pc/src/main/resources/application-test.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-31">
+          <caret line="49" column="48" selection-start-line="49" selection-start-column="16" selection-end-line="49" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/modules/sys/controller/SysLoginController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="287">
-          <caret line="89" column="85" lean-forward="true" selection-start-line="89" selection-start-column="85" selection-end-line="89" selection-end-column="85" />
+        <state relative-caret-position="146">
+          <caret line="91" column="44" selection-start-line="91" selection-start-column="36" selection-end-line="91" selection-end-column="44" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/hp-wx-pc/src/main/java/com/hp/modules/sys/controller/AbstractController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="59">
-          <caret line="31" column="66" lean-forward="true" selection-start-line="31" selection-start-column="66" selection-end-line="31" selection-end-column="66" />
+        <state relative-caret-position="21">
+          <caret line="42" column="52" lean-forward="true" selection-start-line="42" selection-start-column="52" selection-end-line="42" selection-end-column="52" />
           <folding>
             <element signature="e#441#442#0" expanded="true" />
             <element signature="e#512#513#0" expanded="true" />

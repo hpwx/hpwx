@@ -89,7 +89,7 @@ public class SysLoginController extends AbstractController {
 
 		String encrypt = encryptUtil.DESencode(user.getUserId().toString(), userKey);
 
-		Cookie cookie = new Cookie("userId", encrypt);
+		Cookie cookie = new Cookie("userInfo", encrypt);
 
 		cookie.setPath("/");
 
