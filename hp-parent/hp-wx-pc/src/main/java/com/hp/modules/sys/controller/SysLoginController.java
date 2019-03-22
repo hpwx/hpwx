@@ -85,11 +85,11 @@ public class SysLoginController extends AbstractController {
 		if(user.getStatus() == 0){
 			return R.error("账号已被锁定,请联系管理员");
 		}
-		EncryptUtil encryptUtil = EncryptUtil.getInstance();
+//		EncryptUtil encryptUtil = EncryptUtil.getInstance();
+//
+//		String encrypt = encryptUtil.AESencode(user.getUserId().toString(), userKey);
 
-		String encrypt = encryptUtil.AESencode(user.getUserId().toString(), userKey);
-
-		Cookie cookie = new Cookie("userInfo", encrypt);
+		Cookie cookie = new Cookie("userInfo", user.getUserId().toString());
 
 		cookie.setPath("/");
 

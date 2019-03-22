@@ -44,12 +44,12 @@ public abstract class AbstractController {
 				userId = cookie.getValue();
 			}
 		}
-		String user = EncryptUtil.getInstance().AESdecode(userId, userKey);
-		if(user == null){
+//		String user = EncryptUtil.getInstance().AESdecode(userId, userKey);
+//		if(user == null){
+//
+//		}
+		System.out.println("==================================================="+userId);
 
-		}
-		System.out.println("==================================================="+user);
-
-		return Long.valueOf(user);
+		return Long.valueOf(userId);
 	}
 }

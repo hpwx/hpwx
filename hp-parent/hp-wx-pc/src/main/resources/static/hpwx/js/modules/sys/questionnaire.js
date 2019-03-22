@@ -390,10 +390,10 @@ var vm = new Vue({
                         vm.time = "";
                     }
                     startTime.value = vm.time;
-                    imguploadpreview1.src = vm.baseURL + vm.questionnaire.icon;
-                    imguploadpreview2.src = vm.baseURL + vm.questionnaire.cover;
-                    imguploadpreview3.src = vm.baseURL + vm.questionnaire.backColor;
-                    imguploadpreview4.src = vm.baseURL + vm.questionnaire.endImage;
+                    imguploadpreview1.src = vm.questionnaire.icon;
+                    imguploadpreview2.src = vm.questionnaire.cover;
+                    imguploadpreview3.src = vm.questionnaire.backColor;
+                    imguploadpreview4.src = vm.questionnaire.endImage;
                 }else{
 
                     alert(r.msg);

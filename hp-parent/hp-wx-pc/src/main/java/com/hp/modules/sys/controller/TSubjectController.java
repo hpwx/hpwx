@@ -108,8 +108,10 @@ public class TSubjectController extends AbstractController {
      * */
     @PostMapping("/upload")
     public R upload(MultipartFile file) {
+    	
+    	return ImagesWriterAndReader.uploadAwsImage(file);
 
-        return ImageExtUtils.uploadImage(file);
+//        return ImageExtUtils.uploadImage(file);
 
     }
 
