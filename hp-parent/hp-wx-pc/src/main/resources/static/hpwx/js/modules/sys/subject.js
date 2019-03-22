@@ -4,7 +4,7 @@ var vm = new Vue({
         q: {
             name: null
         },
-        baseURL: "http://localhost:5000/hpwxpc",
+        baseURL: baseURL,
         showList: true,
         title: null,
         role: {},
@@ -254,6 +254,7 @@ var vm = new Vue({
             this.questionObj.isRequired = item.value;
         },
         questionTypeCheck: function (item) {
+
             console.log(item.value);
             this.starShowFlag = false;
             this.answerSelect = [];
