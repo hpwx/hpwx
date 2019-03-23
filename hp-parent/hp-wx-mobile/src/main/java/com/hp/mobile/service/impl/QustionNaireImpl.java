@@ -318,7 +318,10 @@ public class QustionNaireImpl implements IQuestionNaire {
     resultMap.put("count", questionnairre.getAnswerCount()); // 表示 问卷允许做题次数
     resultMap.put("description", questionnairre.getQuestionnaireDesc()); // 文件描述
 
-
+    resultMap.put("endIsShow", questionnairre.getEndisshow());
+    resultMap.put("endimage", questionnairre.getEndimage());
+    resultMap.put("enddesc", questionnairre.getEndimagedesc());
+    resultMap.put("isshare", questionnairre.getIsPubic());
     Integer errortsubjectcount = 0;
     Integer rightsubjectcount = 0;
 
@@ -332,14 +335,26 @@ public class QustionNaireImpl implements IQuestionNaire {
       subjectjson.put("questionnaireid", userAnswerDeatil.getQuestionnaireId());
       subjectjson.put("name", userAnswerDeatil.getSubjectName());
       subjectjson.put("typeid", subjectype);
+
+
       subjectjson.put("answerResult", userAnswerDeatil.getAnswerResult()); // 回答的結果 非填空題 存儲的是 Id
       subjectjson.put("correctResult", userAnswerDeatil.getCorrectResult()); // 正確答案結果
 
+      ArrayList<String> gradelist = new ArrayList<String>();
+
+      if ("4".equals(subjectype)) {
+        if (userAnswerDeatil.getAnswerResult() != null) {
+          for (Integer i = 1; i <= Integer.valueOf(userAnswerDeatil.getAnswerResult()); i++) {
+            gradelist.add(i.toString());
+          }
+        }
+
+      }
+      subjectjson.put("gradelist", gradelist);
       // 1：单选题 2：多选题 5. 选择题
       if ("1".equals(subjectype) || "2".equals(subjectype) || "5".equals(subjectype)) {
 
         choicelist = surveyAnswersMapper.selectListBySubjectId(userAnswerDeatil.getSubjectId());
-
 
         List<String> arr = Arrays.asList(userAnswerDeatil.getCorrectResult().split(","));
         List<TSurveyAnswers> list = surveyAnswersMapper.selectListByObjectId(arr);
@@ -433,7 +448,6 @@ public class QustionNaireImpl implements IQuestionNaire {
           item.put("subjectId", sub.getQuestionId());
           lsit.add(item);
         }
-
         subject.setList(lsit);
       }
     }
