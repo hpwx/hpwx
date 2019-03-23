@@ -3,7 +3,7 @@
 <mapper namespace="com.hp.mobile.mapper.UserAnswerMapper">
   <resultMap id="BaseResultMap" type="com.hp.mobile.entity.UserAnswer">
     <id column="object_id" jdbcType="BIGINT" property="objectId" />
-    <result column="create_time" jdbcType="DATE" property="createTime" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
     <result column="userId" jdbcType="BIGINT" property="userid" />
     <result column="questionnaire_id" jdbcType="BIGINT" property="questionnaireId" />
     <result column="deleted" jdbcType="TINYINT" property="deleted" />
@@ -11,8 +11,6 @@
     <result column="subjectids" jdbcType="VARCHAR" property="subjectids" />
      <result column="answerserialnum" jdbcType="VARCHAR" property="answerSerialNum" />
       <result column="qustion_naire_name" jdbcType="VARCHAR" property="qustionNaireName" />
-     
-     
   </resultMap>
   <sql id="Base_Column_List">
     object_id, create_time, userId, questionnaire_id, deleted, openid, subjectids,answerserialnum,qustion_naire_name
@@ -35,7 +33,7 @@
     select 
     <include refid="Base_Column_List" />
     from t_user_answer
-    where openid = #{openid}    order by   create_time  desc     
+    where openid = #{openid}    order by   object_id  desc     
   </select>
   
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
@@ -46,7 +44,7 @@
     insert into t_user_answer (object_id, create_time, userId, 
       questionnaire_id, deleted, openid, 
       subjectids)
-    values (#{objectId,jdbcType=BIGINT}, #{createTime,jdbcType=DATE}, #{userid,jdbcType=BIGINT}, 
+    values (#{objectId,jdbcType=BIGINT}, #{createTime,jdbcType=TIMESTAMP}, #{userid,jdbcType=BIGINT}, 
       #{questionnaireId,jdbcType=BIGINT}, #{deleted,jdbcType=TINYINT}, #{openid,jdbcType=VARCHAR}, 
       #{subjectids,jdbcType=VARCHAR})
   </insert>
@@ -84,7 +82,7 @@
         #{objectId,jdbcType=BIGINT},
       </if>
       <if test="createTime != null">
-        #{createTime,jdbcType=DATE},
+        #{createTime,jdbcType=TIMESTAMP},
       </if>
       <if test="userid != null">
         #{userid,jdbcType=BIGINT},
@@ -113,7 +111,7 @@
     update t_user_answer
     <set>
       <if test="createTime != null">
-        create_time = #{createTime,jdbcType=DATE},
+        create_time = #{createTime,jdbcType=TIMESTAMP},
       </if>
       <if test="userid != null">
         userId = #{userid,jdbcType=BIGINT},
@@ -135,7 +133,7 @@
   </update>
   <update id="updateByPrimaryKey" parameterType="com.hp.mobile.entity.UserAnswer">
     update t_user_answer
-    set create_time = #{createTime,jdbcType=DATE},
+    set create_time = #{createTime,jdbcType=TIMESTAMP},
       userId = #{userid,jdbcType=BIGINT},
       questionnaire_id = #{questionnaireId,jdbcType=BIGINT},
       deleted = #{deleted,jdbcType=TINYINT},

@@ -7,7 +7,8 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -36,6 +37,10 @@ import com.ym.ms.exception.SysException;
 @Service
 @Transactional
 public class QustionNaireImpl implements IQuestionNaire {
+
+
+
+  private final Logger LOG = LoggerFactory.getLogger(QustionNaireImpl.class);
   @Autowired
   private IuserService userSerice;
 
@@ -351,26 +356,36 @@ public class QustionNaireImpl implements IQuestionNaire {
 
       }
       subjectjson.put("gradelist", gradelist);
+
+
+      subjectjson.put("rightext", "");
+      subjectjson.put("isright", "");
       // 1：单选题 2：多选题 5. 选择题
       if ("1".equals(subjectype) || "2".equals(subjectype) || "5".equals(subjectype)) {
 
         choicelist = surveyAnswersMapper.selectListBySubjectId(userAnswerDeatil.getSubjectId());
 
+        LOG.info("  正确答案  ：选项IDs ：" + userAnswerDeatil.getCorrectResult());
+
         List<String> arr = Arrays.asList(userAnswerDeatil.getCorrectResult().split(","));
         List<TSurveyAnswers> list = surveyAnswersMapper.selectListByObjectId(arr);
-        List<String> righttextlist =
-            list.stream().map(TSurveyAnswers::getChoiceText).collect(Collectors.toList());
 
+        List<String> righttextlist = new ArrayList<String>();
 
+        for (TSurveyAnswers tsa : list) {
+          LOG.info("正确答案选项文本 ：============" + tsa.getChoiceText());
+          righttextlist.add(tsa.getChoiceText());
+        }
         if (righttextlist.size() == 0) {
-
-          subjectjson.put("rightext", "");
+          subjectjson.put("rightext", ""); // 正确答案
         } else {
+          LOG.info("题目    " + userAnswerDeatil.getSubjectName() + "  正确答案    ：============"
+              + String.join(",", righttextlist));
           subjectjson.put("rightext", String.join(",", righttextlist));
         }
 
         if (userAnswerDeatil.getAnswerResult().equals(userAnswerDeatil.getCorrectResult())) {
-          subjectjson.put("isright", "正确");
+          subjectjson.put("isright", "正确"); // 正确答案
           rightsubjectcount++;
 
         } else {
@@ -378,8 +393,7 @@ public class QustionNaireImpl implements IQuestionNaire {
           errortsubjectcount++;
         }
       } else {
-        subjectjson.put("rightext", "");
-        subjectjson.put("isright", "");
+
 
       }
       subjectjson.put("choicelist", choicelist);
