@@ -74,6 +74,10 @@ public class QustionNaireImpl implements IQuestionNaire {
 
     QquestionNaire qustionnareinfo =
         qustionNaireMapper.selectByPrimaryKey(Long.parseLong(questionnaireid));
+
+    if (qustionnareinfo == null) {
+      throw new SysException("该问卷已下线！");
+    }
     if (qustionnareinfo.getAnswerCount() != null && qustionnareinfo.getAnswerCount() != 0
         && qustionnareinfo.getAnswerpersoncount() != null) {
       if (qustionnareinfo.getAnswerpersoncount() >= qustionnareinfo.getAnswerCount()) {
@@ -115,10 +119,12 @@ public class QustionNaireImpl implements IQuestionNaire {
       obj1.put("isrepeatanswer", isrepeatanswer);
     }
 
+
+
     List<PoJoSubjectInfo> subjectlist =
         pojoSubjectMapper.getSubjectList(Long.parseLong(questionnaireid));
 
-    if (subjectlist == null) {
+    if (subjectlist == null || subjectlist.isEmpty()) {
       throw new SysException(CodeMsgEnum.ERROR.getCode(), "题目不存在！");
     }
     List<Long> subjectlistIds = new ArrayList<>();
@@ -181,6 +187,7 @@ public class QustionNaireImpl implements IQuestionNaire {
 
     QquestionNaire questionnaireinfo =
         qustionNaireMapper.selectByPrimaryKey(Long.parseLong(questionnairid));
+
     // 提交的題目信息
     String jsonsubjectlist = JSONObject.toJSONString(map.get("subjectlist"));
     JSONArray jsonarray = JSONArray.parseArray(jsonsubjectlist);
@@ -262,15 +269,6 @@ public class QustionNaireImpl implements IQuestionNaire {
 
 
 
-    // commitId:159
-    // endIsShow:0
-    // endimage:"/hpwxpc/hpwx/uploadImages/20190320140619S3上传.png"
-    // ispbulic:1
-    // isshare:1
-    // questionnaireId:"9"
-    // questionnaireName:"中国男女比例"
-
-
     respmap.put("endIsShow", questionnaireinfo.getEndisshow());
     respmap.put("endimage", questionnaireinfo.getEndimage());
     respmap.put("enddesc", questionnaireinfo.getEndimagedesc());
@@ -321,6 +319,9 @@ public class QustionNaireImpl implements IQuestionNaire {
     resultMap.put("description", questionnairre.getQuestionnaireDesc()); // 文件描述
 
 
+    Integer errortsubjectcount = 0;
+    Integer rightsubjectcount = 0;
+
     JSONArray subjectArrayJson = new JSONArray();
     for (UserAnswerDeatil userAnswerDeatil : anserdetaillist) {
       JSONObject subjectjson = new JSONObject();
@@ -355,10 +356,11 @@ public class QustionNaireImpl implements IQuestionNaire {
 
         if (userAnswerDeatil.getAnswerResult().equals(userAnswerDeatil.getCorrectResult())) {
           subjectjson.put("isright", "正确");
-
+          rightsubjectcount++;
 
         } else {
           subjectjson.put("isright", "错误");
+          errortsubjectcount++;
         }
       } else {
         subjectjson.put("rightext", "");
@@ -373,7 +375,8 @@ public class QustionNaireImpl implements IQuestionNaire {
 
     resultMap.put("subjectlist", subjectArrayJson);
 
-
+    resultMap.put("rightsubjectcount", rightsubjectcount);
+    resultMap.put("errortsubjectcount", errortsubjectcount);
 
     return resultMap;
   }
@@ -497,12 +500,12 @@ public class QustionNaireImpl implements IQuestionNaire {
   }
 
   @Override
-  public Map<String, Object> checkQuestionNaireAnswer(String questionnaireid) {
+  public Map<String, Object> checkQuestionNaireAnswer(String questionnaireid, String openid) {
 
     Map<String, Object> retmap = new HashMap<>();
 
     retmap.put("isanswer", true);
-    retmap.put("msg", null);
+    retmap.put("msg", "");
     QquestionNaire qustionnareinfo =
         qustionNaireMapper.selectByPrimaryKey(Long.parseLong(questionnaireid));
     if (qustionnareinfo.getAnswerCount() != null && qustionnareinfo.getAnswerCount() != 0
@@ -512,12 +515,14 @@ public class QustionNaireImpl implements IQuestionNaire {
         retmap.put("msg", "该问卷做题次数已达到上限！");
       }
     }
-
+    // 不是重复答
     if (qustionnareinfo.getRepeatedAnswer() == null || qustionnareinfo.getRepeatedAnswer() == 0) {
-      retmap.put("isanswer", false);
-      retmap.put("msg", "该问卷不能重复作答！");
+      List<UserAnswer> useranserlist = userAnswerMapper.getAnserQuestionNaireListByeOpenid(openid);
+      if (useranserlist.size() > 0) {
+        retmap.put("isanswer", false);
+        retmap.put("msg", "该问卷不能重复作答！");
+      }
     }
-
     return retmap;
   }
 

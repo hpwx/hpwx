@@ -228,6 +228,10 @@
       <if test="backColor != null">
         back_color = #{backColor,jdbcType=VARCHAR},
       </if>
+      <if test="answerpersoncount != null">
+        answer_person_count= #{answerpersoncount,jdbcType=SMALLINT},
+      </if>
+      
     </set>
     where object_id = #{objectId,jdbcType=BIGINT}
   </update>
@@ -242,12 +246,15 @@
       forward = #{forward,jdbcType=TINYINT},
       repeated_answer = #{repeatedAnswer,jdbcType=TINYINT},
       answer_count = #{answerCount,jdbcType=SMALLINT},
+      
       title = #{title,jdbcType=VARCHAR},
       questionnaire_desc = #{questionnaireDesc,jdbcType=VARCHAR},
       icon = #{icon,jdbcType=VARCHAR},
       cover = #{cover,jdbcType=VARCHAR},
       enable = #{enable,jdbcType=TINYINT},
-      back_color = #{backColor,jdbcType=VARCHAR}
+      back_color = #{backColor,jdbcType=VARCHAR},
+      
+      answer_person_count= #{answerpersoncount,jdbcType=SMALLINT},
     where object_id = #{objectId,jdbcType=BIGINT}
   </update>
 

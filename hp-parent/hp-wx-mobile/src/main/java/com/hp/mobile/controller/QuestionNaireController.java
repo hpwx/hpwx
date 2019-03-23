@@ -7,7 +7,6 @@ import javax.servlet.http.HttpServletResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -16,9 +15,13 @@ import org.springframework.web.bind.annotation.RestController;
 import com.alibaba.fastjson.JSON;
 import com.hp.mobile.entity.QquestionNaire;
 import com.hp.mobile.entity.UserAnswer;
+import com.hp.mobile.mapper.QquestionNaireMapper;
 import com.hp.mobile.service.IQuestionNaire;
 import com.hp.mobile.utils.WxApiUtils;
 import com.ym.ms.entity.Result;
+import com.ym.ms.exception.CodeMsgEnum;
+import com.ym.ms.exception.SysException;
+import com.ym.ms.paging.ListPageUtil;
 
 @RestController
 @RequestMapping("/questionnaire")
@@ -26,6 +29,8 @@ import com.ym.ms.entity.Result;
 
 public class QuestionNaireController {
 
+  @Autowired
+  QquestionNaireMapper questionnaireMapper;
 
 
   private final Logger LOG = LoggerFactory.getLogger(QuestionNaireController.class);
@@ -154,7 +159,10 @@ public class QuestionNaireController {
     LOG.info(" 获取请求 getAnserQuestioNaireList 接收参数：" + JSON.toJSONString(map));
 
     String openid = map.get("openid").toString();
+    Integer count = Integer.valueOf(map.get("count").toString());
     List<UserAnswer> list = questionNaire.getQuestionNaireList(openid);
+
+    list = new ListPageUtil<UserAnswer>(list, count, 10).getPagedList();
     return Result.ok(list);
   }
 
@@ -162,17 +170,28 @@ public class QuestionNaireController {
 
   @RequestMapping("/checkQuestioNaire")
   public Result checkQuestioNaire(@RequestParam Map<String, Object> map) {
-    if (!StringUtils.isEmpty(map.get("questionnareid"))) {
-      String questionnareid = map.get("questionnareid").toString();
-      Map<String, Object> retMap = questionNaire.checkQuestionNaireAnswer(questionnareid);
 
-      if (Boolean.parseBoolean(retMap.get("isanswer").toString()) == false) {
-        return Result.error(retMap.get("msg").toString());
-      }
-    }
-    return Result.ok();
+    String questionnareid = map.get("questionnareid").toString();
+    String openid = map.get("openid").toString();
+
+    Map<String, Object> retMap = questionNaire.checkQuestionNaireAnswer(questionnareid, openid);
+    return Result.ok(retMap);
+
   }
 
+  @RequestMapping("/isExsitsQuestioNaire")
+  public Result isExsitsQuestioNaire(@RequestParam Map<String, Object> map) {
 
+    String questionnareid = map.get("questionnareid").toString();
+    QquestionNaire questionnairre =
+        questionnaireMapper.selectByPrimaryKey(Long.parseLong(questionnareid));
+
+    if (questionnairre == null) {
+
+      throw new SysException(CodeMsgEnum.ERROR.getCode(), "问卷信息不存在！");
+    }
+    return Result.ok();
+
+  }
 
 }
