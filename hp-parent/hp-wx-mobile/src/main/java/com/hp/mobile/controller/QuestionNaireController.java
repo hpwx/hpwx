@@ -154,19 +154,16 @@ public class QuestionNaireController {
    */
   @RequestMapping("/getAnserQuestioNaireList")
   public Result getSubjectList(@RequestParam Map<String, Object> map) {
-
-
     LOG.info(" 获取请求 getAnserQuestioNaireList 接收参数：" + JSON.toJSONString(map));
-
     String openid = map.get("openid").toString();
     Integer count = Integer.valueOf(map.get("count").toString());
     List<UserAnswer> list = questionNaire.getQuestionNaireList(openid);
+    if (!list.isEmpty()) {
+      list = new ListPageUtil<UserAnswer>(list, count, 10).getPagedList();
+    }
 
-    list = new ListPageUtil<UserAnswer>(list, count, 10).getPagedList();
     return Result.ok(list);
   }
-
-
 
   @RequestMapping("/checkQuestioNaire")
   public Result checkQuestioNaire(@RequestParam Map<String, Object> map) {

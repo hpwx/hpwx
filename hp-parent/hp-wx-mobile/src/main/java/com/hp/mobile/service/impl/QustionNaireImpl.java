@@ -69,6 +69,10 @@ public class QustionNaireImpl implements IQuestionNaire {
 
   UserAnswerMapper userAnswerMapper;
 
+
+
+  private Object syslock = new Object();
+
   /***
    * 获取题目列表
    * 
@@ -81,7 +85,11 @@ public class QustionNaireImpl implements IQuestionNaire {
         qustionNaireMapper.selectByPrimaryKey(Long.parseLong(questionnaireid));
 
     if (qustionnareinfo == null) {
+
+
       throw new SysException("该问卷已下线！");
+
+
     }
     if (qustionnareinfo.getAnswerCount() != null && qustionnareinfo.getAnswerCount() != 0
         && qustionnareinfo.getAnswerpersoncount() != null) {
@@ -193,10 +201,41 @@ public class QustionNaireImpl implements IQuestionNaire {
     QquestionNaire questionnaireinfo =
         qustionNaireMapper.selectByPrimaryKey(Long.parseLong(questionnairid));
 
+
+
+    List<UserAnswer> useranserlist = userAnswerMapper.getAnserQuestionNaireListByeOpenid(openid);
+
+    if (questionnaireinfo.getRepeatedAnswer() == 0 && useranserlist.size() >= 1) {
+
+      LOG.info("===================重复答题判断.........");
+      throw new SysException(CodeMsgEnum.ERROR.getCode(), "该问卷不能重复作答！");
+
+
+    }
+
+
+    synchronized (syslock) {
+
+      if (questionnaireinfo.getAnswerCount() != null) {
+
+        Short personcount = questionnaireinfo.getAnswerpersoncount() == null ? 0
+            : questionnaireinfo.getAnswerpersoncount();
+        if (personcount >= questionnaireinfo.getAnswerCount()) {
+          throw new SysException(CodeMsgEnum.ERROR.getCode(), "该问卷回答次数以达到上限！");
+        }
+        personcount++;
+        questionnaireinfo.setAnswerpersoncount(personcount);
+        LOG.info("=================== 答题上限盘点=========.........");
+        qustionNaireMapper.updateByPrimaryKeySelective(questionnaireinfo);
+      }
+
+    }
+
+
+
     // 提交的題目信息
     String jsonsubjectlist = JSONObject.toJSONString(map.get("subjectlist"));
     JSONArray jsonarray = JSONArray.parseArray(jsonsubjectlist);
-
 
     // JSONArray JSONArray = JSON.parseArray(map.get("subjectlist").toString());
     UserAnswer useranser = new UserAnswer();
@@ -349,6 +388,8 @@ public class QustionNaireImpl implements IQuestionNaire {
 
       if ("4".equals(subjectype)) {
         if (userAnswerDeatil.getAnswerResult() != null) {
+
+          LOG.info("====打分 个数============：" + userAnswerDeatil.getAnswerResult());
           for (Integer i = 1; i <= Integer.valueOf(userAnswerDeatil.getAnswerResult()); i++) {
             gradelist.add(i.toString());
           }
@@ -368,8 +409,10 @@ public class QustionNaireImpl implements IQuestionNaire {
         LOG.info("  正确答案  ：选项IDs ：" + userAnswerDeatil.getCorrectResult());
 
         List<String> arr = Arrays.asList(userAnswerDeatil.getCorrectResult().split(","));
-        List<TSurveyAnswers> list = surveyAnswersMapper.selectListByObjectId(arr);
 
+        List<TSurveyAnswers> list = surveyAnswersMapper.selectListCorretAnaser(arr);
+
+        LOG.info("   获取选项文本 个数  ：" + list.size());
         List<String> righttextlist = new ArrayList<String>();
 
         for (TSurveyAnswers tsa : list) {
@@ -536,13 +579,30 @@ public class QustionNaireImpl implements IQuestionNaire {
     retmap.put("msg", "");
     QquestionNaire qustionnareinfo =
         qustionNaireMapper.selectByPrimaryKey(Long.parseLong(questionnaireid));
-    if (qustionnareinfo.getAnswerCount() != null && qustionnareinfo.getAnswerCount() != 0
-        && qustionnareinfo.getAnswerpersoncount() != null) {
-      if (qustionnareinfo.getAnswerpersoncount() >= qustionnareinfo.getAnswerCount()) {
+
+    LOG.info("校验接口接口： 问卷ID " + questionnaireid + "  -===== 问卷允许作答次数："
+        + qustionnareinfo.getAnswerCount());
+    if (qustionnareinfo.getAnswerCount() != null) {
+      Short personcount = qustionnareinfo.getAnswerpersoncount() == null ? 0
+          : qustionnareinfo.getAnswerpersoncount();
+
+      LOG.info("问卷已作答个数 ：======   " + personcount);
+
+      if (personcount >= qustionnareinfo.getAnswerCount()) {
         retmap.put("isanswer", false);
         retmap.put("msg", "该问卷做题次数已达到上限！");
+
+        LOG.info("已达到 上限.................");
       }
     }
+
+    // if (qustionnareinfo.getAnswerCount() != null && qustionnareinfo.getAnswerCount() != 0
+    // && qustionnareinfo.getAnswerpersoncount() != null) {
+    // if (qustionnareinfo.getAnswerpersoncount() >= qustionnareinfo.getAnswerCount()) {
+    // retmap.put("isanswer", false);
+    // retmap.put("msg", "该问卷做题次数已达到上限！");
+    // }
+    // }
     // 不是重复答
     if (qustionnareinfo.getRepeatedAnswer() == null || qustionnareinfo.getRepeatedAnswer() == 0) {
       List<UserAnswer> useranserlist = userAnswerMapper.getAnserQuestionNaireListByeOpenid(openid);
@@ -551,6 +611,9 @@ public class QustionNaireImpl implements IQuestionNaire {
         retmap.put("msg", "该问卷不能重复作答！");
       }
     }
+
+
+
     return retmap;
   }
 

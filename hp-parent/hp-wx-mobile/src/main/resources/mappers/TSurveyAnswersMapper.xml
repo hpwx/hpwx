@@ -50,7 +50,15 @@
     </foreach>
   </select>
     
-   
+    <select id="selectListCorretAnaser" resultMap="BaseResultMap"   >
+    select 
+    <include refid="Base_Column_List" />
+    from t_survey_answers
+    where object_id   in  
+    <foreach collection="list" index="index" item="item" open="(" close=")" separator=",">
+       #{item}
+    </foreach>
+  </select>
    
    
    
