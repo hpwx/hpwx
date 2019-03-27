@@ -27,7 +27,13 @@ T.p = url;
 //登录token
 var token = localStorage.getItem("token");
 if(token == 'null'){
-    parent.location.href = 'login.html';
+	
+	console.info('重定向。。。。。');
+    //parent.location.href = baseURL+'hpwx/login.html';
+	console.info ('登录页：'+  baseURL+'hpwx/login.html');
+	window.location.href = baseURL+'hpwx/login.html';
+	
+	
 }
 
 //jquery全局配置
@@ -43,7 +49,14 @@ $.ajaxSetup({
     complete: function(xhr) {
         //token过期，则跳转到登录页面
         if(xhr.responseJSON == null || xhr.responseJSON.code == 401){
-            parent.location.href = 'login.html';
+        	
+//            parent.location.href = 'login.html';
+        	
+        	console.info('重定向3333。。。。。');
+            //parent.location.href = baseURL+'hpwx/login.html';
+        	
+        	console.info ('登录页：'+  baseURL+'hpwx/login.html');
+        	window.location.href = baseURL+'hpwx/login.html';
         }
     }
 });

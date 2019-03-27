@@ -11,10 +11,11 @@
     <result column="name" jdbcType="VARCHAR" property="name" />
     <result column="type_id" jdbcType="INTEGER" property="typeId" />
     <result column="subject_answer" jdbcType="VARCHAR" property="subjectAnswer" />
+    <result column="name_image" jdbcType="VARCHAR" property="nameimage" />
   </resultMap>
   <sql id="Base_Column_List">
     object_id, create_user, create_time, update_user, update_time, deleted, name, type_id, 
-    subject_answer
+    subject_answer,name_image
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
     select 

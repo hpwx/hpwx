@@ -3,133 +3,143 @@ package com.hp.mobile.entity;
 import java.util.Date;
 
 public class UserAnswerDeatil {
-    private Long objectId;
+  private Long objectId;
 
-    private Long tUserAnswerId;
+  private Long tUserAnswerId;
 
-    private Long subjectId;
+  private Long subjectId;
 
-    private String subjectName;
+  private String subjectName;
 
-    private String answerResult;
+  private String answerResult;
 
-    private Integer answerScore;
+  private Integer answerScore;
 
-    private String correctResult;
+  private String correctResult;
 
-    private Integer subjectType;
+  private Integer subjectType;
 
-    private Date answerTime;
+  private Date answerTime;
 
-    private String questionnaireName;
+  private String questionnaireName;
 
-    private Long questionnaireId;
+  private Long questionnaireId;
 
-    private String openId;
-    
-    public String getSerialnum() {
-      return serialnum;
-    }
+  private String openId;
 
-    public void setSerialnum(String serialnum) {
-      this.serialnum = serialnum;
-    }
+  private String subjectnameimage;
 
-    private String serialnum;
+  public String getSubjectnameimage() {
+    return subjectnameimage;
+  }
 
-    public Long getObjectId() {
-        return objectId;
-    }
+  public void setSubjectnameimage(String subjectnameimage) {
+    this.subjectnameimage = subjectnameimage;
+  }
 
-    public void setObjectId(Long objectId) {
-        this.objectId = objectId;
-    }
+  public String getSerialnum() {
+    return serialnum;
+  }
 
-    public Long gettUserAnswerId() {
-        return tUserAnswerId;
-    }
+  public void setSerialnum(String serialnum) {
+    this.serialnum = serialnum;
+  }
 
-    public void settUserAnswerId(Long tUserAnswerId) {
-        this.tUserAnswerId = tUserAnswerId;
-    }
+  private String serialnum;
 
-    public Long getSubjectId() {
-        return subjectId;
-    }
+  public Long getObjectId() {
+    return objectId;
+  }
 
-    public void setSubjectId(Long subjectId) {
-        this.subjectId = subjectId;
-    }
+  public void setObjectId(Long objectId) {
+    this.objectId = objectId;
+  }
 
-    public String getSubjectName() {
-        return subjectName;
-    }
+  public Long gettUserAnswerId() {
+    return tUserAnswerId;
+  }
 
-    public void setSubjectName(String subjectName) {
-        this.subjectName = subjectName == null ? null : subjectName.trim();
-    }
+  public void settUserAnswerId(Long tUserAnswerId) {
+    this.tUserAnswerId = tUserAnswerId;
+  }
 
-    public String getAnswerResult() {
-        return answerResult;
-    }
+  public Long getSubjectId() {
+    return subjectId;
+  }
 
-    public void setAnswerResult(String answerResult) {
-        this.answerResult = answerResult == null ? null : answerResult.trim();
-    }
+  public void setSubjectId(Long subjectId) {
+    this.subjectId = subjectId;
+  }
 
-    public Integer getAnswerScore() {
-        return answerScore;
-    }
+  public String getSubjectName() {
+    return subjectName;
+  }
 
-    public void setAnswerScore(Integer answerScore) {
-        this.answerScore = answerScore;
-    }
+  public void setSubjectName(String subjectName) {
+    this.subjectName = subjectName == null ? null : subjectName.trim();
+  }
 
-    public String getCorrectResult() {
-        return correctResult;
-    }
+  public String getAnswerResult() {
+    return answerResult;
+  }
 
-    public void setCorrectResult(String correctResult) {
-        this.correctResult = correctResult == null ? null : correctResult.trim();
-    }
+  public void setAnswerResult(String answerResult) {
+    this.answerResult = answerResult == null ? null : answerResult.trim();
+  }
 
-    public Integer getSubjectType() {
-        return subjectType;
-    }
+  public Integer getAnswerScore() {
+    return answerScore;
+  }
 
-    public void setSubjectType(Integer subjectType) {
-        this.subjectType = subjectType;
-    }
+  public void setAnswerScore(Integer answerScore) {
+    this.answerScore = answerScore;
+  }
 
-    public Date getAnswerTime() {
-        return answerTime;
-    }
+  public String getCorrectResult() {
+    return correctResult;
+  }
 
-    public void setAnswerTime(Date answerTime) {
-        this.answerTime = answerTime;
-    }
+  public void setCorrectResult(String correctResult) {
+    this.correctResult = correctResult == null ? null : correctResult.trim();
+  }
 
-    public String getQuestionnaireName() {
-        return questionnaireName;
-    }
+  public Integer getSubjectType() {
+    return subjectType;
+  }
 
-    public void setQuestionnaireName(String questionnaireName) {
-        this.questionnaireName = questionnaireName == null ? null : questionnaireName.trim();
-    }
+  public void setSubjectType(Integer subjectType) {
+    this.subjectType = subjectType;
+  }
 
-    public Long getQuestionnaireId() {
-        return questionnaireId;
-    }
+  public Date getAnswerTime() {
+    return answerTime;
+  }
 
-    public void setQuestionnaireId(Long questionnaireId) {
-        this.questionnaireId = questionnaireId;
-    }
+  public void setAnswerTime(Date answerTime) {
+    this.answerTime = answerTime;
+  }
 
-    public String getOpenId() {
-        return openId;
-    }
+  public String getQuestionnaireName() {
+    return questionnaireName;
+  }
 
-    public void setOpenId(String openId) {
-        this.openId = openId == null ? null : openId.trim();
-    }
+  public void setQuestionnaireName(String questionnaireName) {
+    this.questionnaireName = questionnaireName == null ? null : questionnaireName.trim();
+  }
+
+  public Long getQuestionnaireId() {
+    return questionnaireId;
+  }
+
+  public void setQuestionnaireId(Long questionnaireId) {
+    this.questionnaireId = questionnaireId;
+  }
+
+  public String getOpenId() {
+    return openId;
+  }
+
+  public void setOpenId(String openId) {
+    this.openId = openId == null ? null : openId.trim();
+  }
 }

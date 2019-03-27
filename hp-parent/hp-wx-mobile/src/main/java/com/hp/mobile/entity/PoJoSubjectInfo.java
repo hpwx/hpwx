@@ -20,6 +20,7 @@ public class PoJoSubjectInfo {
   public void setQuestionnaireid(Long questionnaireid) {
     this.questionnaireid = questionnaireid;
   }
+
   public String getTitle() {
     return title;
   }
@@ -27,6 +28,7 @@ public class PoJoSubjectInfo {
   public void setTitle(String title) {
     this.title = title;
   }
+
   public String getBackcolor() {
     return backcolor;
   }
@@ -131,7 +133,7 @@ public class PoJoSubjectInfo {
     this.cover = cover;
   }
 
-  
+
   public String getChoicetext() {
     return choicetext;
   }
@@ -139,40 +141,96 @@ public class PoJoSubjectInfo {
   public void setChoicetext(String choicetext) {
     this.choicetext = choicetext;
   }
-  private  Long subjectid;
-  private  Long questionnaireid;
- 
-  private  String backcolor;
-  private  Long ispublic;
-  private  String name;
-  private  Byte typeid;
 
-  
-   // 正确答案结果  ID　　关联  surviveanser 表
-  private  String  subjectanswer;
-  
+  private Long subjectid;
+  private Long questionnaireid;
+
+  private String backcolor;
+  private Long ispublic;
+  private String name;
+  private Byte typeid;
+
+
+  // 正确答案结果 ID 关联 surviveanser 表
+  private String subjectanswer;
+
   // 是否 必答
   private Byte mustanswer;
-  
+
   // 是否匿名
-  private  Byte anonymous;
+  private Byte anonymous;
   // 是否抓发
   private Byte forward;
-  
+
   private Byte repeatedanswer;
-  
-  private  String answercount;
-  
-  private  String questionnairedesc;
-  
-  private   String  icon;
-  
-  private   String  cover;
-  
+
+  private String answercount;
+
+  private String questionnairedesc;
+
+  private String icon;
+
+  private String cover;
 
 
-  private  String title;
-  
+
+  private String title;
+
+  private String openid;
+
+  private String nick;
+
+  private Integer starnum;
+
+  public Integer getStarnum() {
+    return starnum;
+  }
+
+  public void setStarnum(Integer starnum) {
+    this.starnum = starnum;
+  }
+
+  public String getNick() {
+    return nick;
+  }
+
+  public void setNick(String nick) {
+    this.nick = nick;
+  }
+
+
+
+  public String getOpenid() {
+    return openid;
+  }
+
+  public void setOpenid(String openid) {
+    this.openid = openid;
+  }
+
+
+
+  public String getNameimage() {
+    return nameimage;
+  }
+
+  public void setNameimage(String nameimage) {
+    this.nameimage = nameimage;
+  }
+
+  private String nameimage;
+
+
+  public Integer getTotalpoll() {
+    return totalpoll;
+  }
+
+  public void setTotalpoll(Integer totalpoll) {
+    this.totalpoll = totalpoll;
+  }
+
+  private Integer totalpoll;
+
   public List<String> getGradelist() {
     return gradelist;
   }
@@ -180,10 +238,11 @@ public class PoJoSubjectInfo {
   public void setGradelist(List<String> gradelist) {
     this.gradelist = gradelist;
   }
-  private  List<String>  gradelist;
-   
-  private  String choicetext;
-  
+
+  private List<String> gradelist;
+
+  private String choicetext;
+
   public Integer getGradecount() {
     return gradecount;
   }
@@ -199,9 +258,10 @@ public class PoJoSubjectInfo {
   public void setEverygradescore(String everygradescore) {
     this.everygradescore = everygradescore;
   }
-  private  Integer   gradecount;
-  private  String    everygradescore;
-  
+
+  private Integer gradecount;
+  private String everygradescore;
+
   public List<Map<String, Object>> getList() {
     return list;
   }
@@ -209,9 +269,9 @@ public class PoJoSubjectInfo {
   public void setList(List<Map<String, Object>> list) {
     this.list = list;
   }
-  
-  private   Map<String,Object>    resultinfo ;
- 
+
+  private Map<String, Object> resultinfo;
+
   public Map<String, Object> getResultinfo() {
     return resultinfo;
   }
@@ -219,12 +279,19 @@ public class PoJoSubjectInfo {
   public void setResultinfo(Map<String, Object> resultinfo) {
     this.resultinfo = resultinfo;
   }
-  private  List<Map<String,Object>> list;
-  
-  
-   
-  
-  
- 
-  
+
+  private List<Map<String, Object>> list;
+
+  public List<Map<String, Object>> getChocelist() {
+    return chocelist;
+  }
+
+  public void setChocelist(List<Map<String, Object>> chocelist) {
+    this.chocelist = chocelist;
+  }
+
+  private List<Map<String, Object>> chocelist;
+
+
+
 }

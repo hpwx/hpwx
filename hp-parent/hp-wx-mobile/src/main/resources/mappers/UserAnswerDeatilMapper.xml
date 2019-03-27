@@ -6,6 +6,8 @@
     <result column="t_user_answer_id" jdbcType="BIGINT" property="tUserAnswerId" />
     <result column="subject_id" jdbcType="BIGINT" property="subjectId" />
     <result column="subject_name" jdbcType="VARCHAR" property="subjectName" />
+       <result column="subject_name_image" jdbcType="VARCHAR" property="subjectnameimage" />
+    
     <result column="answer_result" jdbcType="VARCHAR" property="answerResult" />
     <result column="answer_score" jdbcType="INTEGER" property="answerScore" />
     <result column="correct_result" jdbcType="VARCHAR" property="correctResult" />
@@ -20,7 +22,7 @@
   <sql id="Base_Column_List">
     object_id, t_user_answer_id, subject_id, subject_name, answer_result, answer_score, 
     correct_result, subject_type, answer_time, questionnaire_name, questionnaire_id, 
-    open_id,serialnum
+    open_id,serialnum,subject_name_image
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
     select 
@@ -47,13 +49,13 @@
     insert into t_user_answer_detail (object_id, t_user_answer_id, subject_id, 
       subject_name, answer_result, answer_score, 
       correct_result, subject_type, answer_time, 
-      questionnaire_name, questionnaire_id, open_id
+      questionnaire_name, questionnaire_id, open_id,subject_name_image
       )
     values (#{objectId,jdbcType=BIGINT}, #{tUserAnswerId,jdbcType=BIGINT}, #{subjectId,jdbcType=BIGINT}, 
       #{subjectName,jdbcType=VARCHAR}, #{answerResult,jdbcType=VARCHAR}, #{answerScore,jdbcType=INTEGER}, 
       #{correctResult,jdbcType=VARCHAR}, #{subjectType,jdbcType=TINYINT}, #{answerTime,jdbcType=DATE}, 
       #{questionnaireName,jdbcType=VARCHAR}, #{questionnaireId,jdbcType=BIGINT}, #{openId,jdbcType=VARCHAR}
-      )
+     ,#{subjectnameimage,jdbcType=VARCHAR} )
   </insert>
   <insert id="insertSelective" parameterType="com.hp.mobile.entity.UserAnswerDeatil">
     insert into t_user_answer_detail
@@ -94,6 +96,10 @@
       <if test="openId != null">
         open_id,
       </if>
+        <if test="subjectnameimage != null">
+        subject_name_image,
+      </if>
+      
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="objectId != null">
@@ -131,6 +137,9 @@
       </if>
       <if test="openId != null">
         #{openId,jdbcType=VARCHAR},
+      </if>
+       <if test="subjectnameimage != null">
+       #{subjectnameimage,jdbcType=VARCHAR}, 
       </if>
     </trim>
   </insert>
@@ -170,6 +179,8 @@
       <if test="openId != null">
         open_id = #{openId,jdbcType=VARCHAR},
       </if>
+      
+     subject_name_image = #{subjectnameimage,jdbcType=VARCHAR}, 
     </set>
     where object_id = #{objectId,jdbcType=BIGINT}
   </update>
@@ -185,7 +196,8 @@
       answer_time = #{answerTime,jdbcType=DATE},
       questionnaire_name = #{questionnaireName,jdbcType=VARCHAR},
       questionnaire_id = #{questionnaireId,jdbcType=BIGINT},
-      open_id = #{openId,jdbcType=VARCHAR}
+      open_id = #{openId,jdbcType=VARCHAR},
+      subject_name_image= #{subjectnameimage,jdbcType=VARCHAR}
     where object_id = #{objectId,jdbcType=BIGINT}
   </update>
 </mapper>

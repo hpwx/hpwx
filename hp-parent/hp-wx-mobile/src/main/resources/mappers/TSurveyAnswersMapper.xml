@@ -186,7 +186,7 @@
    <update id="updateByobjectIds"   >
     update t_survey_answers
     set  
-      poll =poll+1 
+      poll= poll+1 
     where object_id  in 
     <foreach collection="list"  item="item" open="("  close=")" separator=",">
          #{item}

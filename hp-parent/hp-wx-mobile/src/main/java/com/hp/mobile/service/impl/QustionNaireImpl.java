@@ -251,34 +251,38 @@ public class QustionNaireImpl implements IQuestionNaire {
       String subjectid = curentobj.get("subjectid").toString();
       String typeid = curentobj.get("typeid").toString();
       String subjectname = curentobj.get("subjectname").toString();
+      String nameImage =
+          curentobj.get("nameimage") == null ? "" : curentobj.get("nameimage").toString();
 
       // 回答问答题结果 填空題 、打分題結果
       String answertext = StringUtils.isEmpty(curentobj.get("answertext")) ? ""
           : curentobj.get("answertext").toString();
 
       // 1：单选题 2：多选题 3：填空题 4.打分 5. 选择题
-
-
       List<Object> choiclist = (List<Object>) curentobj.get("choicelist");
       // JSONArray choiclist = JSON.parseArray(curentobj.get("choicelist").toString());
-
 
       // String chocestring= curentobj.get("choicelist").toString();
 
       Subject subjectinfo = subjectMapper.selectByPrimaryKey(Long.valueOf(subjectid));
 
+      // String nameimage = subjectinfo.getNameimage();
 
+      LOG.info("题目图片：==============" + nameImage);
       UserAnswerDeatil anserdetail = new UserAnswerDeatil();
       anserdetail.setOpenId(openid);
       anserdetail.setQuestionnaireId(Long.parseLong(questionnairid));
       anserdetail.setSubjectId(Long.parseLong(subjectid));
       anserdetail.setSubjectType(Integer.parseInt(typeid));
-
+      // anserdetail.setSubjectnameimage(nameimage);
       anserdetail.setSerialnum(null);
       anserdetail.settUserAnswerId(Long.parseLong(commitId.toString()));
       anserdetail.setQuestionnaireName(questionnairName);
       anserdetail.setSubjectName(subjectname);
+      anserdetail.setSubjectnameimage(nameImage);
       anserdetail.setAnswerTime(new Date());
+
+
 
       // 1：单选题 2：多选题 5. 选择题
       if ("1".equals(typeid) || "2".equals(typeid) || "5".equals(typeid)) {
@@ -286,6 +290,9 @@ public class QustionNaireImpl implements IQuestionNaire {
         String ansserresultids = Joiner.on(",").join(choiclist);
         anserdetail.setAnswerResult(ansserresultids); // 回答结果
         anserdetail.setCorrectResult(subjectinfo.getSubjectAnswer());
+
+        LOG.info("选项 IDS：================" + ansserresultids);
+        LOG.info("选项  list ：================" + Arrays.asList(ansserresultids.split(",")));
 
         // 修改投票次数
         surveyAnswersMapper.updateByobjectIds(Arrays.asList(ansserresultids.split(",")));
@@ -379,7 +386,7 @@ public class QustionNaireImpl implements IQuestionNaire {
       subjectjson.put("questionnaireid", userAnswerDeatil.getQuestionnaireId());
       subjectjson.put("name", userAnswerDeatil.getSubjectName());
       subjectjson.put("typeid", subjectype);
-
+      subjectjson.put("nameimage", userAnswerDeatil.getSubjectnameimage());
 
       subjectjson.put("answerResult", userAnswerDeatil.getAnswerResult()); // 回答的結果 非填空題 存儲的是 Id
       subjectjson.put("correctResult", userAnswerDeatil.getCorrectResult()); // 正確答案結果

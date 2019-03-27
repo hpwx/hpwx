@@ -4,106 +4,115 @@ import java.util.Date;
 import java.util.List;
 
 public class Subject {
-    private Long objectId;
+  private Long objectId;
 
-    private String createUser;
+  private String createUser;
 
-    private Date createTime;
+  private Date createTime;
 
-    private String updateUser;
+  private String updateUser;
 
-    private Date updateTime;
+  private Date updateTime;
 
-    private Byte deleted;
+  private Byte deleted;
 
-    private String name;
+  private String name;
 
-    private Integer typeId;
+  private Integer typeId;
 
-    private String subjectAnswer;
-    
-    
-   
+  private String subjectAnswer;
 
-    private  List<TSurveyAnswers> surveyanswerlist;
-    
-    public List<TSurveyAnswers> getSurveyanswerlist() {
-      return surveyanswerlist;
-    }
+  public String getNameimage() {
+    return nameimage;
+  }
 
-    public void setSurveyanswerlist(List<TSurveyAnswers> surveyanswerlist) {
-      this.surveyanswerlist = surveyanswerlist;
-    }
+  public void setNameimage(String nameimage) {
+    this.nameimage = nameimage;
+  }
 
-    public Long getObjectId() {
-        return objectId;
-    }
+  private String nameimage;
 
-    public void setObjectId(Long objectId) {
-        this.objectId = objectId;
-    }
 
-    public String getCreateUser() {
-        return createUser;
-    }
 
-    public void setCreateUser(String createUser) {
-        this.createUser = createUser == null ? null : createUser.trim();
-    }
+  private List<TSurveyAnswers> surveyanswerlist;
 
-    public Date getCreateTime() {
-        return createTime;
-    }
+  public List<TSurveyAnswers> getSurveyanswerlist() {
+    return surveyanswerlist;
+  }
 
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
-    }
+  public void setSurveyanswerlist(List<TSurveyAnswers> surveyanswerlist) {
+    this.surveyanswerlist = surveyanswerlist;
+  }
 
-    public String getUpdateUser() {
-        return updateUser;
-    }
+  public Long getObjectId() {
+    return objectId;
+  }
 
-    public void setUpdateUser(String updateUser) {
-        this.updateUser = updateUser == null ? null : updateUser.trim();
-    }
+  public void setObjectId(Long objectId) {
+    this.objectId = objectId;
+  }
 
-    public Date getUpdateTime() {
-        return updateTime;
-    }
+  public String getCreateUser() {
+    return createUser;
+  }
 
-    public void setUpdateTime(Date updateTime) {
-        this.updateTime = updateTime;
-    }
+  public void setCreateUser(String createUser) {
+    this.createUser = createUser == null ? null : createUser.trim();
+  }
 
-    public Byte getDeleted() {
-        return deleted;
-    }
+  public Date getCreateTime() {
+    return createTime;
+  }
 
-    public void setDeleted(Byte deleted) {
-        this.deleted = deleted;
-    }
+  public void setCreateTime(Date createTime) {
+    this.createTime = createTime;
+  }
 
-    public String getName() {
-        return name;
-    }
+  public String getUpdateUser() {
+    return updateUser;
+  }
 
-    public void setName(String name) {
-        this.name = name == null ? null : name.trim();
-    }
+  public void setUpdateUser(String updateUser) {
+    this.updateUser = updateUser == null ? null : updateUser.trim();
+  }
 
-    public Integer getTypeId() {
-        return typeId;
-    }
+  public Date getUpdateTime() {
+    return updateTime;
+  }
 
-    public void setTypeId(Integer typeId) {
-        this.typeId = typeId;
-    }
+  public void setUpdateTime(Date updateTime) {
+    this.updateTime = updateTime;
+  }
 
-    public String getSubjectAnswer() {
-        return subjectAnswer;
-    }
+  public Byte getDeleted() {
+    return deleted;
+  }
 
-    public void setSubjectAnswer(String subjectAnswer) {
-        this.subjectAnswer = subjectAnswer;
-    }
+  public void setDeleted(Byte deleted) {
+    this.deleted = deleted;
+  }
+
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name == null ? null : name.trim();
+  }
+
+  public Integer getTypeId() {
+    return typeId;
+  }
+
+  public void setTypeId(Integer typeId) {
+    this.typeId = typeId;
+  }
+
+  public String getSubjectAnswer() {
+    return subjectAnswer;
+  }
+
+  public void setSubjectAnswer(String subjectAnswer) {
+    this.subjectAnswer = subjectAnswer;
+  }
 }
