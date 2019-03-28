@@ -182,6 +182,16 @@ public class PoJoSubjectInfo {
 
   private Integer starnum;
 
+  private String answerresut;
+
+  public String getAnswerresut() {
+    return answerresut;
+  }
+
+  public void setAnswerresut(String answerresut) {
+    this.answerresut = answerresut;
+  }
+
   public Integer getStarnum() {
     return starnum;
   }
@@ -292,6 +302,14 @@ public class PoJoSubjectInfo {
 
   private List<Map<String, Object>> chocelist;
 
+  private List<PollStarInfo> polllist;
 
+  public List<PollStarInfo> getPolllist() {
+    return polllist;
+  }
+
+  public void setPolllist(List<PollStarInfo> polllist) {
+    this.polllist = polllist;
+  }
 
 }

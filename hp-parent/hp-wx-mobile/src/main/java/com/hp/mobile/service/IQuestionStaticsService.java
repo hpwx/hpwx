@@ -14,7 +14,7 @@ public interface IQuestionStaticsService {
   List<PoJoSubjectInfo> getMultipSubjectStatics(String questionNaireId, String typeid,
       PagerEO<?> pe);
 
-  void getScoreSubjectStatics(String questionNaireId, String typeid);
+  List<PoJoSubjectInfo> getScoreSubjectStatics(String questionNaireId, String typeid);
 
   List<PoJoSubjectInfo> getCompletionSubjectStatics(String questionNaireId, String typeid);
 }

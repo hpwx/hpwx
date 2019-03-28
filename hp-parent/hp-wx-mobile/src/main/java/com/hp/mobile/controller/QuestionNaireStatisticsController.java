@@ -103,10 +103,27 @@ public class QuestionNaireStatisticsController {
    *
    */
 
-  @RequestMapping(value = "getScoreQuestionStatics", method = RequestMethod.POST)
-  public void getScoreQuestionStatistics(@RequestParam Map<String, Object> map) {
+  @RequestMapping(value = "getStarQuestionStatics", method = RequestMethod.POST)
+  public Result getScoreQuestionStatistics(@RequestParam Map<String, Object> map) {
 
+    String questionNaireId = null;
+    String typeid = null;
 
+    if (StringUtils.isEmpty(map)) {
+      return Result.error(CodeMsgEnum.ERROR.getCode(), "map  为 null");
+    }
+
+    if (StringUtils.isEmpty(map.get("questionNaireId"))) {
+      return Result.error(CodeMsgEnum.ERROR.getCode(), "questionNaireId  为 null");
+    }
+    if (StringUtils.isEmpty(map.get("typeid"))) {
+      return Result.error(CodeMsgEnum.ERROR.getCode(), "typeid  为 null");
+    }
+    typeid = map.get("typeid").toString();
+    questionNaireId = map.get("questionNaireId").toString();
+    List<PoJoSubjectInfo> list = staticsServie.getScoreSubjectStatics(questionNaireId, typeid);
+    PageUtils page = PageUtils.page(list);
+    return Result.keyValueOk("page", page);
   }
 
   /**

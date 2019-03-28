@@ -8,9 +8,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.github.pagehelper.PageHelper;
 import com.hp.mobile.entity.PoJoSubjectInfo;
+import com.hp.mobile.entity.PollStarInfo;
 import com.hp.mobile.entity.TSurveyAnswers;
 import com.hp.mobile.mapper.PoJoSubjectInfoMapper;
 import com.hp.mobile.mapper.TSurveyAnswersMapper;
+import com.hp.mobile.mapper.UserAnswerDeatilMapper;
 import com.hp.mobile.service.IQuestionStaticsService;
 import com.ym.ms.paging.PagerEO;
 
@@ -26,6 +28,9 @@ public class QuestionStaticsServiceImpl implements IQuestionStaticsService {
   @Autowired
   TSurveyAnswersMapper ChoceAnsersMapper;
 
+
+  @Autowired
+  UserAnswerDeatilMapper userAnserDetailMapper;
 
   /**
    * 单选统计
@@ -82,15 +87,31 @@ public class QuestionStaticsServiceImpl implements IQuestionStaticsService {
    * 打分题
    */
   @Override
-  public void getScoreSubjectStatics(String questionNaireId, String typeid) {
+  public List<PoJoSubjectInfo> getScoreSubjectStatics(String questionNaireId, String typeid) {
 
     List<PoJoSubjectInfo> subjectlist = subjectinfoMapper
         .getSubjectListForScoreStatics(Long.parseLong(questionNaireId), Integer.valueOf(typeid));
 
     for (PoJoSubjectInfo subjectinfo : subjectlist) {
-      subjectinfo.getAnswercount();
+      Integer totalPoll = userAnserDetailMapper.getToalPoll(questionNaireId,
+          subjectinfo.getSubjectid().toString(), typeid);
+      Integer starcount = subjectinfo.getGradecount();
+      Long subjectId = subjectinfo.getSubjectid();
+      // 星星个数
 
+      List<PollStarInfo> pollstarInfo = new ArrayList<>();
+
+      for (int i = starcount; i >= 1; i--) {
+        PollStarInfo p = new PollStarInfo();
+        p.setStarnum(i);// 星星数
+        Integer starnumpoll = userAnserDetailMapper.getPollByStarNum(String.valueOf(i), subjectId);
+        p.setPoll(starnumpoll); // 投票 数量
+        p.setTotalpoll(totalPoll); // 投票总数
+        pollstarInfo.add(p);
+      }
+      subjectinfo.setPolllist(pollstarInfo);
     }
+    return subjectlist;
   }
 
 

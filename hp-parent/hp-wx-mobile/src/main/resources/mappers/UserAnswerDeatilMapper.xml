@@ -18,6 +18,8 @@
     <result column="open_id" jdbcType="VARCHAR" property="openId" />
     <result column="serialnum" jdbcType="VARCHAR" property="serialnum" />
     
+    
+    
   </resultMap>
   <sql id="Base_Column_List">
     object_id, t_user_answer_id, subject_id, subject_name, answer_result, answer_score, 
@@ -39,6 +41,33 @@
     from t_user_answer_detail
     where open_id = #{openid} and t_user_answer_id =#{commitid}    order by  subject_type
   </select>
+ 
+
+  <!-- 统计 总投票数 -->
+  <select id="getToalPoll" 
+   resultType="java.lang.Integer">
+   	 SELECT   count(*)  
+	FROM    `t_user_answer_detail`  where 
+			    subject_type=#{subjecttype}
+			  and   questionnaire_id= #{questionnareId}
+			  and    subject_id= #{subjectId} 		 
+  </select>
+  
+  
+  <select id="getPollByStarNum"    
+   resultType="java.lang.Integer">
+   
+ 
+   SELECT answer_result ,
+    count(*)              
+		FROM `t_user_answer_detail`  where 
+       	subject_type=4  and answer_result=#{starNum} 
+       	  and    subject_id=#{subjectId}     
+group by  answer_result  	 
+		 
+  </select>
+  
+    
  
  
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
