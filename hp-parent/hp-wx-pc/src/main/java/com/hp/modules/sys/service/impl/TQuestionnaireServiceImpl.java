@@ -82,15 +82,18 @@ public class TQuestionnaireServiceImpl extends ServiceImpl<TQuestionnaireDao, TQ
     @Override
     @Transactional
     public void top(Long id) {
+
+        tQuestionnaireDao.updateTopById(id);
+
         //查看是否有置顶的
-        TQuestionnaire tQuestionnaire = tQuestionnaireDao.selectByIdIsHaveTop(id);
-        if(tQuestionnaire != null){
-            tQuestionnaire.setQuestionnaireIsTop((byte)0);
-            this.update(tQuestionnaire);
-            tQuestionnaireDao.updateTopById(id);
-        }else{
-            tQuestionnaireDao.updateTopById(id);
-        }
+//        TQuestionnaire tQuestionnaire = tQuestionnaireDao.selectByIdIsHaveTop(id);
+//        if(tQuestionnaire != null){
+//            tQuestionnaire.setQuestionnaireIsTop((byte)0);
+//            this.update(tQuestionnaire);
+//            tQuestionnaireDao.updateTopById(id);
+//        }else{
+//            tQuestionnaireDao.updateTopById(id);
+//        }
     }
 
     @Override
@@ -145,5 +148,10 @@ public class TQuestionnaireServiceImpl extends ServiceImpl<TQuestionnaireDao, TQ
     public void updateQuestionEnable(Map<String, Object> map) {
 
         tQuestionnaireDao.updateEnableById(map);
+    }
+
+    @Override
+    public void cancelEnableById(Long id) {
+        tQuestionnaireDao.cancelEnableById(id);
     }
 }

@@ -40,12 +40,15 @@
     </div>
     
     <div v-show="!showList" class="panel panel-default">
-		<div class="panel-heading">{{title}}</div>
+		<div class="panel-heading">
+			{{title}}
+			<span class="closeBtn" @click="reload">关闭</span>
+		</div>
 		<form class="form-horizontal">
 			<div class="form-group">
-			   	<div class="col-sm-2 control-label">问卷标题</div>
+			   	<div class="col-sm-2 control-label"><i class="redIcon">*</i>问卷标题</div>
 			   	<div class="col-sm-10">
-			      <input type="text" class="form-control" v-model="questionnaire.title" placeholder="问卷标题"/>
+			      <input type="text" class="form-control" maxlength="50" v-model="questionnaire.title" placeholder="问卷标题"/>
 
 					<!--<select id="disabledSelect" class="form-control">-->
 					<!--<option value="">请选择</option>-->
@@ -56,13 +59,13 @@
 			</div>
 
 			<div class="form-group">
-				<div class="col-sm-2 control-label">问卷调查数量</div>
+				<div class="col-sm-2 control-label"><i class="redIcon">*</i>问卷调查数量</div>
 				<div class="col-sm-10">
-					<input type="tel" class="form-control" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')" v-model="questionnaire.answerCount" />
+					<input type="tel" class="form-control" maxlength="4" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')" v-model="questionnaire.answerCount" />
 				</div>
 			</div>
 			<div class="form-group">
-			   	<div class="col-sm-2 control-label">封面描述</div>
+			   	<div class="col-sm-2 control-label"><i class="redIcon">*</i>封面描述</div>
 			   	<div class="col-sm-10">
 			      <!--<input type="text" class="form-control" v-model="role.remark" placeholder="问卷描述"/>-->
 					<textarea name="description" class="form-control" v-model="questionnaire.questionnaireDesc" rows="3"></textarea>
@@ -71,7 +74,7 @@
 
 
 			<div class="form-group">
-				<div class="col-sm-2 control-label">尾页描述</div>
+				<div class="col-sm-2 control-label"><i class="redIcon">*</i>尾页描述</div>
 				<div class="col-sm-10">
 					<!--<input type="text" class="form-control" v-model="role.remark" placeholder="问卷描述"/>-->
 					<textarea name="description2" class="form-control" v-model="questionnaire.endImageDesc" rows="3"></textarea>
@@ -83,10 +86,10 @@
 			   	<div class="col-sm-10">
 			      <!--<input type="text" class="form-control" v-model="role.remark" placeholder="是否转发"/>-->
 				<label class="radio-inline">
-					<input type="radio" name="IsForward" value="0" v-model="questionnaire.forward"> 转发
+					<input type="radio" name="IsForward" value="0" v-model="questionnaire.forward"> 不转发
 				</label>
 				<label class="radio-inline">
-					<input type="radio" name="IsForward" value="1" v-model="questionnaire.forward"> 不转发
+					<input type="radio" name="IsForward" value="1" v-model="questionnaire.forward"> 转发
 				</label>
 			    </div>
 			</div>
@@ -139,20 +142,20 @@
 				</div>
 			</div>
 
-			<div class="form-group">
-				<div class="col-sm-2 control-label">问卷是否启用</div>
-				<div class="col-sm-10">
-					<!--<input type="text" class="form-control" v-model="role.remark" placeholder="是否重复答题"/>-->
+			<!--<div class="form-group">-->
+				<!--<div class="col-sm-2 control-label">问卷是否启用</div>-->
+				<!--<div class="col-sm-10">-->
+					<!--&lt;!&ndash;<input type="text" class="form-control" v-model="role.remark" placeholder="是否重复答题"/>&ndash;&gt;-->
 
-					<label class="radio-inline">
-						<input type="radio" name="enable"  value="0" v-model="questionnaire.enable"> 不启用
-					</label>
-					<label class="radio-inline">
-						<input type="radio" name="enable"  value="1" v-model="questionnaire.enable"> 启用
-					</label>
+					<!--<label class="radio-inline">-->
+						<!--<input type="radio" name="enable"  value="0" v-model="questionnaire.enable"> 不启用-->
+					<!--</label>-->
+					<!--<label class="radio-inline">-->
+						<!--<input type="radio" name="enable"  value="1" v-model="questionnaire.enable"> 启用-->
+					<!--</label>-->
 
-				</div>
-			</div>
+				<!--</div>-->
+			<!--</div>-->
 
 
 			<div class="form-group">
@@ -216,7 +219,7 @@
 
 
 			<div class="form-group">
-				<div class="col-sm-2 control-label">问卷图片</div>
+				<div class="col-sm-2 control-label"><i class="redIcon">*</i>问卷图片</div>
 				<div class="col-sm-10">
 					<!--<input type="text" class="form-control" v-model="role.remark" placeholder="问卷图片"/>-->
 
@@ -226,6 +229,8 @@
 						<div class="layui-upload-list" id="imgupload">
 							<i class="layui-icon layui-icon-add-1"></i>
 							<img class="layui-upload-img" id="imguploadpreview1">
+							<img class="layui-upload-img" id="editImguploadpreview1">
+
 					</div>
 					</div>
 					<input type="hidden" id="imgupload1">
@@ -234,7 +239,7 @@
 			</div>
 
 			<div class="form-group">
-				<div class="col-sm-2 control-label">问卷封面设置</div>
+				<div class="col-sm-2 control-label"><i class="redIcon">*</i>问卷封面设置</div>
 				<div class="col-sm-10">
 					<!--<input type="text" class="form-control" v-model="role.remark" placeholder="问卷封面设置"/>-->
 
@@ -243,6 +248,7 @@
 						<div class="layui-upload-list" id="backupload">
 							<i class="layui-icon layui-icon-add-1"></i>
 							<img class="layui-upload-img" id="imguploadpreview2">
+							<img class="layui-upload-img" id="editImguploadpreview2">
 						</div>
 					</div>
 					<input type="hidden" id="imgupload2">
@@ -257,6 +263,7 @@
 						<div class="layui-upload-list" id="questionImgUpload">
 							<i class="layui-icon layui-icon-add-1"></i>
 							<img class="layui-upload-img" id="imguploadpreview3">
+							<img class="layui-upload-img" id="editImguploadpreview3">
 						</div>
 					</div>
 					<input type="hidden" id="imgupload3">
@@ -271,6 +278,7 @@
 						<div class="layui-upload-list" id="endImgUpload">
 							<i class="layui-icon layui-icon-add-1"></i>
 							<img class="layui-upload-img" id="imguploadpreview4">
+							<img class="layui-upload-img" id="editImguploadpreview4">
 						</div>
 					</div>
 					<input type="hidden" id="imgupload4">
@@ -280,7 +288,7 @@
 			<div class="form-group">
 				<div class="col-sm-2 control-label">活动时间</div>
 				<div class="col-sm-10">
-					<input type="text" class="layui-input" id="startTime" readonly="readonly">
+					<input type="text" class="layui-input" v-model="questionnaire.questionnaireTime" id="startTime" readonly="readonly">
 				</div>
 			</div>
 

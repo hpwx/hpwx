@@ -1,62 +1,9 @@
-$(function () {
-    $("#jqGrid").jqGrid({
-        url: baseURL + 'sys/questionnaire/statistics',
-        datatype: "json",
-        colModel: [			
-			{ label: '标题', name: 'title', index: "title", width: 45, key: true },
-			{ label: '是否截止', name: 'isEnd', width: 75 },
-			{ label: '题目数量', name: 'subjectCounts', index:"subjectCounts", width: 100 },
-            { label: '用户数量', name: 'userCounts',index:"userCounts", width: 100 },
-            { label: '回答次数', name: 'answerCount', width: 100 },
-			{ label: '创建时间', name: 'createTime', index: "create_time", width: 80},
-            { label: '截止时间', name: 'endTime', index: "end_Time", width: 80}
-        ],
-		viewrecords: true,
-        height: 385,
-        rowNum: 10,
-		rowList : [10,30,50],
-        rownumbers: true, 
-        rownumWidth: 25, 
-        autowidth:true,
-        multiselect: true,
-        pager: "#jqGridPager",
-        jsonReader : {
-            root: "page.list",
-            page: "page.currPage",
-            total: "page.totalPage",
-            records: "page.totalCount"
-        },
-        prmNames : {
-            page:"page", 
-            rows:"limit", 
-            order: "order"
-        },
-        gridComplete:function(){
-        	//隐藏grid底部滚动条
-        	$("#jqGrid").closest(".ui-jqgrid-bdiv").css({ "overflow-x" : "hidden" }); 
-        }
-    });
-});
-
-var setting = {
-	data: {
-		simpleData: {
-			enable: true,
-			idKey: "menuId",
-			pIdKey: "parentId",
-			rootPId: -1
-		},
-		key: {
-			url:"nourl"
-		}
+var star = Vue.component("star",{
+	props:{
+		starNum:Number
 	},
-	check:{
-		enable:true,
-		nocheckInherit:true
-	}
-};
-var ztree;
-	
+    template: "#el"
+});
 var vm = new Vue({
 	el:'#rrapp',
 	data:{
@@ -65,9 +12,164 @@ var vm = new Vue({
 		},
 		showList: true,
 		title:null,
-		role:{}
+		role:{},
+        questionnaireList:[],
+        singleQuestion:[],
+        moreQuestion:[],
+        completionQuestion:[],
+        starQuestion:[],
+		arrEnglish:[
+			"A","B","C","D","E","F","G","H","I","J","K",
+			"M","L","N","O","P","Q","R","S",
+			"T","U","V","W","X","Y","Z"
+		],
+        questionObj:{
+            questionnaireId:-1
+		},
+		test:[
+			{id:"",title:"你一天不用手机你难受吗?",list:[
+					{
+						starNum:5,poll:200,totalPoll:1500
+					},{
+                        starNum:4,poll:300,totalPoll:1500
+                    },{
+                        starNum:3,poll:200,totalPoll:1500
+                    },{
+                        starNum:2,poll:400,totalPoll:1500
+                    },{
+                        starNum:1,poll:200,totalPoll:1500
+                    }
+			]},
+            {id:"",title:"你对林志玲打几分?",list:[
+                    {
+                        starNum:5,poll:200,totalPoll:1500
+                    },{
+                        starNum:4,poll:300,totalPoll:1500
+                    },{
+                        starNum:3,poll:200,totalPoll:1500
+                    },{
+                        starNum:2,poll:400,totalPoll:1500
+                    },{
+                        starNum:1,poll:200,totalPoll:1500
+                    }
+                ]},
+		]
+	},
+    components:{
+		star:star
+	},
+	created:function(){
+        this.getQuestionnire();
+	},
+    filters: {
+        //保留2位小数点过滤器 不四舍五入
+        number:function(value) {
+        	console.log(value);
+            var realVal;
+        	if(Number.isNaN(value)){
+                realVal = 0.00;
+                return  realVal;
+            }
+            var toFixedNum = Number(value).toFixed(3);
+            realVal = toFixedNum.substring(0, toFixedNum.toString().length - 1);
+            return realVal;
+        }
+    },
+    mounted:function(){
+		this.$nextTick(function(){
+            layui.use(['form','element'], function(){
+                var form = layui.form,
+                    element = layui.element;
+                form.render();
+                element.on('tab(filter)', function(data){
+                    // console.log(this); //当前Tab标题所在的原始DOM元素
+                    console.log(data.index); //得到当前Tab的所在下标
+                    // console.log(data.elem); //得到当前的Tab大容器
+					if(data.index == 1){
+						vm.getMutipQuestionStatics();
+					}else if(data.index == 2){
+						vm.getCompletionQuestion();
+					}else if(data.index == 3){
+						vm.getStarQuestion();
+                    }
+                });
+
+
+            });
+		})
+
 	},
 	methods: {
+        questionnaireSelect:function(){
+
+            $.get(baseURL + "questionnaireStatistics/getSingleQuestionStatics?questionNaireId="+this.questionObj.questionnaireId+"&typeid=1", function (r) {
+                if (r.code == 0000) {
+                    console.log("我是单选题");
+                	console.log(r.page.list);
+					vm.singleQuestion = r.page.list;
+                } else {
+                    alert(r.msg);
+                }
+            });
+
+        	console.log(this.questionObj.questionnaireId);
+		},
+        getMutipQuestionStatics:function(){
+
+            $.get(baseURL + "questionnaireStatistics/getMutipQuestionStatics?questionNaireId="+this.questionObj.questionnaireId+"&typeid=2", function (r) {
+                if (r.code == 0000) {
+                    console.log("我是多选题");
+                    console.log(r.page.list);
+					vm.moreQuestion = r.page.list;
+                } else {
+
+                    alert(r.msg);
+                }
+            });
+
+            console.log(this.questionObj.questionnaireId);
+        },
+        getCompletionQuestion:function(){
+
+            $.get(baseURL + "questionnaireStatistics/getCompletionQuestionStatics?questionNaireId="+this.questionObj.questionnaireId+"&typeid=3", function (r) {
+                if (r.code == 0000) {
+                    console.log("我是填空题");
+                    console.log(r.page.list);
+                    vm.completionQuestion = r.page.list
+                } else {
+
+                    alert(r.msg);
+                }
+            });
+
+            console.log(this.questionObj.questionnaireId);
+        },
+        getStarQuestion:function(){
+
+            $.get(baseURL + "questionnaireStatistics/getStarQuestionStatics?questionNaireId="+this.questionObj.questionnaireId+"&typeid=4", function (r) {
+                if (r.code == 0000) {
+                    console.log("我是打分题");
+                    console.log(r.page.list);
+                    vm.starQuestion = r.page.list;
+                } else {
+
+                    alert(r.msg);
+                }
+            });
+
+            console.log(this.questionObj.questionnaireId);
+        },
+        getQuestionnire: function () {
+            $.get(baseURL + "sys/questionnaire/list/", function (r) {
+                if (r.code == 0) {
+                    r.page.list.push({"title":"请选择","objectId":-1});
+                    vm.questionnaireList = r.page.list;
+                } else {
+
+                    alert(r.msg);
+                }
+            });
+        },
 		query: function () {
 			vm.reload();
 		},

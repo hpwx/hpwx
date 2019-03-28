@@ -26,6 +26,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 @Service("tSubjectService")
@@ -121,10 +123,19 @@ public class TSubjectServiceImpl extends ServiceImpl<TSubjectDao, TSubject> impl
         // 1 把题目的标题和类型type插入subject 返回主键
         TSubject tSubject = new TSubject();
         tSubject.setCreateUser(userId);
-        tSubject.setCreateTime(new Date());
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        Date date = null;
+        try {
+            date = sdf.parse(sdf.format(new Date()));
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        tSubject.setCreateTime(date);
         tSubject.setName(subjectForm.getSubjectName());
+        tSubject.setNameImage(subjectForm.getNameImage());
         tSubject.setDeleted(Constant.NO);
         tSubject.setTypeId(subjectForm.getType());
+        tSubject.setMustAnswer(subjectForm.getIsRequired());
         tSubjectDao.insertSelective(tSubject);
         //1问题id  subjectId
         Long subjectId = tSubject.getObjectId();
@@ -194,10 +205,10 @@ public class TSubjectServiceImpl extends ServiceImpl<TSubjectDao, TSubject> impl
             // 填空题
             // 3 更新正确答案插入到subject表
             tSubject.setObjectId(subjectId);
-            if(org.apache.commons.lang.StringUtils.isBlank(subjectForm.getInputAnswer())){
-                return R.error("填空题答案不能为空");
-            }
-            tSubject.setSubjectAnswer(subjectForm.getInputAnswer());
+//            if(org.apache.commons.lang.StringUtils.isBlank(subjectForm.getInputAnswer())){
+//                return R.error("填空题答案不能为空");
+//            }
+//            tSubject.setSubjectAnswer(subjectForm.getInputAnswer());
             tSubjectDao.updateByPrimaryKeySelective(tSubject);
         }else if(subjectForm.getType() == SubjectEnum.SUBJECT_STAR.getCode()){
             // 打分题
@@ -231,6 +242,8 @@ public class TSubjectServiceImpl extends ServiceImpl<TSubjectDao, TSubject> impl
         subjectForm.setType(tSubject.getTypeId());
 
         subjectForm.setSubjectId(tSubject.getObjectId().toString());
+
+        subjectForm.setNameImage(tSubject.getNameImage());
 
         TQuestionnaireSubject tQuestionnaireSubject = tQuestionnaireSubjectDao.selectQuestionIdBySubjectId(id);
 
@@ -297,7 +310,7 @@ public class TSubjectServiceImpl extends ServiceImpl<TSubjectDao, TSubject> impl
 
         tSubjectDao.deleteByPrimaryKey(Long.valueOf(subjectId));
 
-//        tQuestionnaireSubjectDao.deleteQuestionnaireBySubjectId(Long.valueOf(subjectId));
+        tQuestionnaireSubjectDao.deleteQuestionnaireBySubjectId(Long.valueOf(subjectId));
 
         return insertSubject(subjectForm, userId);
     }

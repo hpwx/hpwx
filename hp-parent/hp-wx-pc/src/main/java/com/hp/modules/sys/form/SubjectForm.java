@@ -40,6 +40,16 @@ public class SubjectForm {
 
     private String subjectId;
 
+    private String nameImage;
+
+    public String getNameImage() {
+        return nameImage;
+    }
+
+    public void setNameImage(String nameImage) {
+        this.nameImage = nameImage;
+    }
+
     public int getType() {
         return type;
     }

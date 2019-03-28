@@ -162,7 +162,6 @@ public class TQuestionnaireController extends AbstractController {
 
         tQuestionnaire.setCreateTime(new Date());
         tQuestionnaire.setCreateUser(getUserId() == null ? null : getUserId().toString());
-        tQuestionnaire.setEnable(Constant.YES);
 
         ValidatorUtils.validateEntity(tQuestionnaire, UpdateGroup.class);
         //获取用户
@@ -226,10 +225,14 @@ public class TQuestionnaireController extends AbstractController {
         Map<String, Object> m = new HashMap<String, Object>();
         m.put("questionnaireId", questionnaire);
         if (QuestionnaireEnum.UP.getMsg().equals(type.toLowerCase())) {
+            //先取消别的启用选项
+            tQuestionnaireService.cancelEnableById(questionnaire);
             m.put("enable", 1);
+
         } else if (QuestionnaireEnum.DOWN.getMsg().equals(type.toLowerCase())) {
             m.put("enable", 0);
         }
+
         tQuestionnaireService.updateQuestionEnable(m);
 
         return R.ok();

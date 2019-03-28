@@ -26,4 +26,6 @@ public interface TSurveyAnswersDao extends BaseMapper<TSurveyAnswers> {
     int selectIdByChoiceText(@Param("text") String text,@Param("subjectId") Long subjectId);
 
     List<TSurveyAnswers> selectTSurveyAnswersBySubjectId(Long objectId);
+
+    List<TSurveyAnswers> selectListBySubjectId(@Param("subjectid") Long subjectid);
 }

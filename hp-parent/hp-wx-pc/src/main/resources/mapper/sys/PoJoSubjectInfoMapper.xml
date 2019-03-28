@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hp.modules.sys.dao.PoJoSubjectInfoDao" >
+  <resultMap id="BaseResultMap" type="com.hp.modules.sys.entity.PoJoSubjectInfo" >
+    <id column="subjectid" property="subjectid" jdbcType="BIGINT" />
+    <result column="questionnaire_id" property="questionnaireid" jdbcType="BIGINT" />
+    <result column="title" property="title" jdbcType="VARCHAR" />
+    <result column="back_color" property="backcolor" jdbcType="VARCHAR" />
+    <result column="is_public" property="ispublic" jdbcType="TINYINT" />
+     <result column="name" property="name" jdbcType="VARCHAR" />
+     <result column="type_id" property="typeid" jdbcType="BIGINT" />
+    <result column="subject_answer" property="subjectanswer" jdbcType="VARCHAR" />
+    <result column="must_answer" property="mustanswer" jdbcType="BIGINT" />
+    <result column="anonymous" property="anonymous" jdbcType="BIGINT" />
+    <result column="forward" property="forward" jdbcType="BIGINT" />
+    <result column="repeated_answer" property="repeatedanswer" jdbcType="BIGINT" />
+    <result column="answer_count" property="answercount" jdbcType="BIGINT" />
+    <result column="questionnaire_desc" property="questionnairedesc" jdbcType="VARCHAR" />
+    <result column="forward" property="forward" jdbcType="BIGINT" />
+    <result column="icon" property="icon" jdbcType="VARCHAR" />
+    <result column="cover" property="cover" jdbcType="VARCHAR" />
+    
+      <result column="grade_count" property="gradecount" jdbcType="INTEGER" />
+      <result column="every_grade_score" property="everygradescore" jdbcType="VARCHAR" />
+     <result column="name_image" property="nameimage" jdbcType="VARCHAR" />
+    
+  </resultMap>
+     <resultMap id="choceitem" type="com.hp.modules.sys.entity.TSurveyAnswers" >
+     <result column="object_id" property="objectId" jdbcType="BIGINT" />
+    <result column="question_id" property="questionId" jdbcType="BIGINT" />
+    <result column="choice_text" property="choiceText" jdbcType="VARCHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="type_id" property="typeid" jdbcType="BIGINT" />
+  </resultMap>
+  
+  
+  
+  
+  <resultMap id="staticResultMap" type="com.hp.modules.sys.entity.PoJoSubjectInfo" >
+    <id column="subjectid" property="subjectid" jdbcType="BIGINT" />
+    <result column="questionnaire_id" property="questionnaireid" jdbcType="BIGINT" />
+    <result column="title" property="title" jdbcType="VARCHAR" />
+    <result column="back_color" property="backcolor" jdbcType="VARCHAR" />
+    <result column="is_public" property="ispublic" jdbcType="TINYINT" />
+     <result column="name" property="name" jdbcType="VARCHAR" />
+     <result column="type_id" property="typeid" jdbcType="BIGINT" />
+    <result column="subject_answer" property="subjectanswer" jdbcType="VARCHAR" />
+    <result column="must_answer" property="mustanswer" jdbcType="BIGINT" />
+    <result column="anonymous" property="anonymous" jdbcType="BIGINT" />
+    <result column="forward" property="forward" jdbcType="BIGINT" />
+    <result column="repeated_answer" property="repeatedanswer" jdbcType="BIGINT" />
+    <result column="answer_count" property="answercount" jdbcType="BIGINT" />
+    <result column="questionnaire_desc" property="questionnairedesc" jdbcType="VARCHAR" />
+    <result column="forward" property="forward" jdbcType="BIGINT" />
+    <result column="icon" property="icon" jdbcType="VARCHAR" />
+    <result column="cover" property="cover" jdbcType="VARCHAR" />
+    
+      <result column="grade_count" property="gradecount" jdbcType="INTEGER" />
+      <result column="every_grade_score" property="everygradescore" jdbcType="VARCHAR" />
+     <result column="name_image" property="nameimage" jdbcType="VARCHAR" />
+    
+     <result column="open_id" property="openid" jdbcType="VARCHAR" />
+        <result column="nick" property="nick" jdbcType="VARCHAR" />
+        
+   
+      <result column="answer_result" property="answerresut" jdbcType="VARCHAR" />
+  </resultMap>
+  
+  <select id="getSubjectList" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select
+       	t_questionnaire_subject.subject_id    subjectid,
+				t_questionnaire_subject.questionnaire_id ,
+				t_questionnaire.title,
+				t_questionnaire.back_color,
+				t_questionnaire.is_public,
+       			t_subject.`name`,
+       		    t_subject.name_image, 
+				t_subject.type_id,
+				t_subject.subject_answer,
+				t_subject.grade_count,
+				t_subject.every_grade_score,
+			    t_questionnaire_subject.must_answer,
+			    t_questionnaire.anonymous ,
+			    t_questionnaire.forward,
+			    t_questionnaire.repeated_answer,
+			    t_questionnaire.answer_count,
+			    t_questionnaire.questionnaire_desc,
+			    t_questionnaire.icon,
+			    t_questionnaire.cover
+       
+       from   t_questionnaire_subject, t_questionnaire  ,t_subject     where 
+       t_questionnaire_subject.questionnaire_id=t_questionnaire.object_id 
+       and   t_questionnaire_subject.subject_id=t_subject.object_id  
+         and  t_questionnaire_subject.questionnaire_id=#{questionnaireid,jdbcType=BIGINT}
+  </select>
+   
+   
+   
+   <!-- 单选、多线、填空 sql  -->
+ 
+    <select id="getSubjectListByQustionNaireIdAndSubjectType" resultMap="staticResultMap"   >
+    select  A1.*,A2.nick,A2.open_id ,A2.answer_result from (    select
+       	t_questionnaire_subject.subject_id    subjectid,
+				t_questionnaire_subject.questionnaire_id ,
+				t_questionnaire.title,
+				t_questionnaire.back_color,
+				t_questionnaire.is_public,
+       			t_subject.`name`,
+       			t_subject.name_image, 
+				t_subject.type_id,
+				t_subject.subject_answer,
+				t_subject.grade_count,
+				t_subject.every_grade_score,
+			    t_questionnaire_subject.must_answer,
+			    t_questionnaire.anonymous ,
+			    t_questionnaire.forward,
+			    t_questionnaire.repeated_answer,
+			    t_questionnaire.answer_count,
+			    t_questionnaire.questionnaire_desc,
+			    t_questionnaire.icon,
+			    t_questionnaire.cover
+       from   t_questionnaire_subject, t_questionnaire  ,t_subject  where 
+       
+       t_questionnaire_subject.questionnaire_id=t_questionnaire.object_id 
+       and   t_questionnaire_subject.subject_id=t_subject.object_id  
+         and  t_questionnaire_subject.questionnaire_id=#{questionnaireid}
+         and   t_subject.type_id=#{typeid}
+         ) A1 
+	     left
+			join 
+			  ( select   t_user. open_id,t_user.nick ,t_user_answer_detail.subject_id,
+			  t_user_answer_detail.answer_result
+			         from t_user_answer_detail ,
+			         t_user where t_user_answer_detail.open_id= t_user.open_id  
+ ) A2  on A2.subject_id=A1.subjectid
+  </select>
+   
+   
+   <!-- 打分的题目 -->
+   
+     <select id="getSubjectListForScoreStatics" resultMap="staticResultMap"   >
+    select  A1.*,A2.nick,A2.open_id  ,A2.answer_result  from (    select
+       	t_questionnaire_subject.subject_id   subjectid,
+				t_questionnaire_subject.questionnaire_id,
+				t_questionnaire.title,
+				t_questionnaire.back_color,
+				t_questionnaire.is_public, 
+				t_questionnaire.star_num,
+       			t_subject.`name`,
+       			t_subject.name_image, 
+				t_subject.type_id,
+				t_subject.subject_answer,
+				t_subject.grade_count,
+				t_subject.every_grade_score,
+			    t_questionnaire_subject.must_answer,
+			    t_questionnaire.anonymous ,
+			    t_questionnaire.forward,
+			    t_questionnaire.repeated_answer,
+			    t_questionnaire.answer_count,
+			    t_questionnaire.questionnaire_desc,
+			    t_questionnaire.icon,
+			    t_questionnaire.cover
+       from   t_questionnaire_subject, t_questionnaire  ,t_subject  where 
+       
+       t_questionnaire_subject.questionnaire_id=t_questionnaire.object_id 
+       and   t_questionnaire_subject.subject_id=t_subject.object_id  
+         and  t_questionnaire_subject.questionnaire_id=#{questionnaireid}
+         and   t_subject.type_id=#{typeid}
+         ) A1 
+	     left
+			join 
+			  ( select   t_user. open_id,
+			  t_user.nick ,
+			  t_user_answer_detail.subject_id,
+			  t_user_answer_detail.answer_result
+			         from t_user_answer_detail ,
+			         t_user where t_user_answer_detail.open_id= t_user.open_id  
+ ) A2  on A2.subject_id=A1.subjectid
+  </select>
+   
+   
+  <select id="getAllChoiceitemBySubjectIds" resultMap="choceitem"   >
+   			select
+   			     t_survey_answers.object_id ,
+       			 t_survey_answers.question_id,
+       			 t_survey_answers.choice_text,
+       			 t_subject.`name`,
+				 t_subject.type_id,
+				 t_subject.subject_answer
+              from   t_survey_answers, t_subject      where 
+              t_survey_answers.question_id = t_subject.object_id 
+               and     t_survey_answers.question_id  
+               
+                     in  <foreach collection="list" index="index" item="subjectid" open="("
+       					 separator="," close=")">
+                		  #{subjectid}
+                </foreach>
+                 order by  t_subject.type_id
+        
+  </select>
+  
+    
+    
+     
+   
+  
+</mapper>

@@ -9,64 +9,132 @@
 <link rel="stylesheet" href="../../css/font-awesome.min.css">
 <link rel="stylesheet" href="../../plugins/jqgrid/ui.jqgrid-bootstrap.css">
 <link rel="stylesheet" href="../../plugins/ztree/css/metroStyle/metroStyle.css">
+<link rel="stylesheet" href="../../plugins/layui-v2.4.5/layui/css/layui.css">
 <link rel="stylesheet" href="../../css/main.css">
 <script src="../../libs/jquery.min.js"></script>
 <script src="../../plugins/layer/layer.js"></script>
 <script src="../../libs/bootstrap.min.js"></script>
+<script src="../../plugins/layui-v2.4.5/layui/layui.js"></script>
 <script src="../../libs/vue.min.js"></script>
 <script src="../../plugins/jqgrid/grid.locale-cn.js"></script>
 <script src="../../plugins/jqgrid/jquery.jqGrid.min.js"></script>
 <script src="../../plugins/ztree/jquery.ztree.all.min.js"></script>
 	<script src="../../js/baseURL.js"></script>
 <script src="../../js/common.js"></script>
+	<style>
+		.layui-form-label{
+			width: 88px;
+		}
+		.layui-form-item .layui-input-inline{
+			width: 250px;
+		}
+		.form-group{
+			margin-bottom: 20px;
+		}
+		.layui-rate{
+			padding: 0;
+		}
+	</style>
 </head>
 <body>
 <div id="rrapp" v-cloak>
-	<div v-show="showList">
-		<div class="grid-btn">
-			<div class="form-group col-sm-2">
-				<input type="text" class="form-control" v-model="q.roleName" @keyup.enter="query" placeholder="角色名称">
+	<form class="form-horizontal">
+		<div class="form-group">
+			<div class="col-sm-2 control-label"><i class="redIcon">*</i>问卷列表</div>
+			<div class="col-sm-6">
+				<select id="subject" class="form-control" @change="questionnaireSelect" v-model="questionObj.questionnaireId">
+					<option v-for="item in questionnaireList" :value="item.objectId">{{item.title}}</option>
+				</select>
 			</div>
-			<a class="btn btn-default" @click="query">查询</a>
-			<!--v-if="hasPermission('sys:role:save')"-->
-			<a  class="btn btn-primary" @click="add"><i class="fa fa-plus"></i>&nbsp;新增</a>
-			<a  class="btn btn-primary" @click="update"><i class="fa fa-pencil-square-o"></i>&nbsp;修改</a>
-			<a  class="btn btn-primary" @click="del"><i class="fa fa-trash-o"></i>&nbsp;删除</a>
+			<!--<div class="col-sm-2"><a class="btn btn-default" @click="query">查询</a></div>-->
 		</div>
-	    <table id="jqGrid"></table>
-	    <div id="jqGridPager"></div>
-    </div>
-    
-    <div v-show="!showList" class="panel panel-default">
-		<div class="panel-heading">{{title}}</div>
-		<form class="form-horizontal">
-			<div class="form-group">
-			   	<div class="col-sm-2 control-label">角色名称</div>
-			   	<div class="col-sm-10">
-			      <input type="text" class="form-control" v-model="role.roleName" placeholder="角色名称"/>
-			    </div>
+	</form>
+	<div class="layui-tab layui-tab-brief" lay-filter="filter">
+		<ul class="layui-tab-title">
+			<li class="layui-this">单选题统计</li>
+			<li>多选题统计</li>
+			<li>填空题统计</li>
+			<li>打分题统计</li>
+		</ul>
+		<div class="layui-tab-content">
+
+			<!--单选题-->
+			<div class="layui-tab-item layui-show">
+
+				<div class="layui-card" v-for="(item,index2) in singleQuestion">
+					<div class="layui-card-header questionTitle">{{item.name}}</div>
+					<div class="layui-card-body">
+						<ul class="questionList">
+							<li class="typeTitle" ><span class="left">选择题{{index2+1}}</span><span class="right">投票人数/百分比</span></li>
+							<li class="questionItem" v-for="(list,index) in item.chocelist"><span class="left">{{arrEnglish[index]}}、{{list.choicetext}}</span><span class="right">{{(list.poll == null) ? 0 : list.poll}}票 {{((list.poll /  item.totalpoll) * 100) == NaN ? 0 : ((list.poll /  item.totalpoll) * 100)| number}}%</span></li>
+						</ul>
+					</div>
+				</div>
+
 			</div>
-			<div class="form-group">
-			   	<div class="col-sm-2 control-label">备注</div>
-			   	<div class="col-sm-10">
-			      <input type="text" class="form-control" v-model="role.remark" placeholder="备注"/>
-			    </div>
+
+			<!--多选题-->
+			<div class="layui-tab-item">
+
+				<div class="layui-card" v-for="(item,index2) in moreQuestion">
+					<div class="layui-card-header questionTitle">{{item.name}}</div>
+					<div class="layui-card-body">
+						<ul class="questionList">
+							<li class="typeTitle"><span class="left">选择题{{index2+1}}</span><span class="right">投票人数/百分比</span></li>
+							<li class="questionItem" v-for="(list,index) in item.chocelist">
+								<span class="left">{{arrEnglish[index]}}、{{list.choicetext}}</span><span class="right">{{(list.poll == null) ? 0 : list.poll}}票 {{((list.poll /  item.totalpoll) * 100) == NaN ? 0 : ((list.poll /  item.totalpoll) * 100)| number}}%</span>
+							</li>
+						</ul>
+					</div>
+				</div>
+
 			</div>
-			<div class="form-group">
-			   	<div class="col-sm-2 control-label">授权</div>
-			   	<div class="col-sm-10">
-			      <ul id="menuTree" class="ztree"></ul>
-			    </div>
+			<div class="layui-tab-item">
+
+				<div class="bs-example" data-example-id="condensed-table">
+					<table class="table table-condensed table-hover">
+						<thead>
+						<tr>
+							<th>昵称</th>
+							<th>问题名称</th>
+							<th>回答结果</th>
+						</tr>
+						</thead>
+						<tbody>
+						<tr v-for="item in completionQuestion">
+							<th scope="row">{{item.nick}}</th>
+							<td>{{item.name}}</td>
+							<td>{{(item.subjectanswer == null) ? "没有答案": item.subjectanswer }}</td>
+						</tr>
+						</tbody>
+					</table>
+				</div>
 			</div>
-			<div class="form-group">
-				<div class="col-sm-2 control-label"></div> 
-				<input type="button" class="btn btn-primary" @click="saveOrUpdate" value="确定"/>
-				&nbsp;&nbsp;<input type="button" class="btn btn-warning" @click="reload" value="返回"/>
+
+			<div class="layui-tab-item">
+				<div class="layui-card" v-for="(item,index2) in starQuestion">
+					<div class="layui-card-header questionTitle">{{item.name}}</div>
+					<div class="layui-card-body">
+						<ul class="questionList">
+							<li class="typeTitle"><span class="left">选项题{{index2+1}}</span><span class="right">投票人数/百分比</span></li>
+							<li class="questionItem" v-for="list in item.polllist">
+								<span class="left"><star :star-num=list.starnum></star></span>
+								<span class="right"><span class="poll">{{(list.poll == null) ? 0 : list.poll}}票</span>{{((list.poll /  item.totalpoll) * 100) == NaN ? 0 : ((list.poll /  item.totalpoll) * 100)| number}}%</span>
+							</li>
+						</ul>
+					</div>
+				</div>
+
 			</div>
-		</form>
+
+		</div>
 	</div>
 </div>
-   
+<script id="el" type="text/html">
+	<div style="display: inline-block">
+		<span class="star" v-for="item in starNum"></span>
+	</div>
+</script>
 <script src="../../js/modules/sys/questionnaire_statistics.js"></script>
 </body>
 </html>

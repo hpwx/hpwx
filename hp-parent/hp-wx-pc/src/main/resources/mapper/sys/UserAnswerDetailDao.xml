@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hp.modules.sys.dao.UserAnswerDetailDao">
+  <resultMap id="BaseResultMap" type="com.hp.modules.sys.entity.UserAnswerDetail">
+    <id column="object_id" jdbcType="BIGINT" property="objectId" />
+    <result column="t_user_answer_id" jdbcType="BIGINT" property="tUserAnswerId" />
+    <result column="subject_id" jdbcType="BIGINT" property="subjectId" />
+    <result column="subject_name" jdbcType="VARCHAR" property="subjectName" />
+       <result column="subject_name_image" jdbcType="VARCHAR" property="subjectnameimage" />
+    
+    <result column="answer_result" jdbcType="VARCHAR" property="answerResult" />
+    <result column="answer_score" jdbcType="INTEGER" property="answerScore" />
+    <result column="correct_result" jdbcType="VARCHAR" property="correctResult" />
+    <result column="subject_type" jdbcType="INTEGER"      property="subjectType" />
+    <result column="answer_time" jdbcType="DATE" property="answerTime" />
+    <result column="questionnaire_name" jdbcType="VARCHAR" property="questionnaireName" />
+    <result column="questionnaire_id" jdbcType="BIGINT" property="questionnaireId" />
+    <result column="open_id" jdbcType="VARCHAR" property="openId" />
+    <result column="serialnum" jdbcType="VARCHAR" property="serialnum" />
+    
+    
+    
+  </resultMap>
+  <sql id="Base_Column_List">
+    object_id, t_user_answer_id, subject_id, subject_name, answer_result, answer_score, 
+    correct_result, subject_type, answer_time, questionnaire_name, questionnaire_id, 
+    open_id,serialnum,subject_name_image
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_user_answer_detail
+    where object_id = #{objectId,jdbcType=BIGINT}
+  </select>
+ 
+ 
+ 
+ <select id="getAnserSubjectList"  resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_user_answer_detail
+    where open_id = #{openid} and t_user_answer_id =#{commitid}    order by  subject_type
+  </select>
+ 
+
+  <!-- 统计 总投票数 -->
+  <select id="getToalPoll" 
+   resultType="java.lang.Integer">
+   	 SELECT   count(*)  
+	FROM    `t_user_answer_detail`  where 
+			    subject_type=#{subjecttype}
+			  and   questionnaire_id= #{questionnareId}
+			  and    subject_id= #{subjectId} 		 
+  </select>
+  
+  
+  <select id="getPollByStarNum"    
+   resultType="java.lang.Integer">
+   
+ 
+   SELECT answer_result ,
+    count(*)              
+		FROM `t_user_answer_detail`  where 
+       	subject_type=4  and answer_result=#{starNum} 
+       	  and    subject_id=#{subjectId}     
+group by  answer_result  	 
+		 
+  </select>
+  
+    
+ 
+ 
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from t_user_answer_detail
+    where object_id = #{objectId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.hp.modules.sys.entity.UserAnswerDetail">
+    insert into t_user_answer_detail (object_id, t_user_answer_id, subject_id, 
+      subject_name, answer_result, answer_score, 
+      correct_result, subject_type, answer_time, 
+      questionnaire_name, questionnaire_id, open_id,subject_name_image
+      )
+    values (#{objectId,jdbcType=BIGINT}, #{tUserAnswerId,jdbcType=BIGINT}, #{subjectId,jdbcType=BIGINT}, 
+      #{subjectName,jdbcType=VARCHAR}, #{answerResult,jdbcType=VARCHAR}, #{answerScore,jdbcType=INTEGER}, 
+      #{correctResult,jdbcType=VARCHAR}, #{subjectType,jdbcType=TINYINT}, #{answerTime,jdbcType=DATE}, 
+      #{questionnaireName,jdbcType=VARCHAR}, #{questionnaireId,jdbcType=BIGINT}, #{openId,jdbcType=VARCHAR}
+     ,#{subjectnameimage,jdbcType=VARCHAR} )
+  </insert>
+  <insert id="insertSelective" parameterType="com.hp.modules.sys.entity.UserAnswerDetail">
+    insert into t_user_answer_detail
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="objectId != null">
+        object_id,
+      </if>
+      <if test="tUserAnswerId != null">
+        t_user_answer_id,
+      </if>
+      <if test="subjectId != null">
+        subject_id,
+      </if>
+      <if test="subjectName != null">
+        subject_name,
+      </if>
+      <if test="answerResult != null">
+        answer_result,
+      </if>
+      <if test="answerScore != null">
+        answer_score,
+      </if>
+      <if test="correctResult != null">
+        correct_result,
+      </if>
+      <if test="subjectType != null">
+        subject_type,
+      </if>
+      <if test="answerTime != null">
+        answer_time,
+      </if>
+      <if test="questionnaireName != null">
+        questionnaire_name,
+      </if>
+      <if test="questionnaireId != null">
+        questionnaire_id,
+      </if>
+      <if test="openId != null">
+        open_id,
+      </if>
+        <if test="subjectnameimage != null">
+        subject_name_image,
+      </if>
+      
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="objectId != null">
+        #{objectId,jdbcType=BIGINT},
+      </if>
+      <if test="tUserAnswerId != null">
+        #{tUserAnswerId,jdbcType=BIGINT},
+      </if>
+      <if test="subjectId != null">
+        #{subjectId,jdbcType=BIGINT},
+      </if>
+      <if test="subjectName != null">
+        #{subjectName,jdbcType=VARCHAR},
+      </if>
+      <if test="answerResult != null">
+        #{answerResult,jdbcType=VARCHAR},
+      </if>
+      <if test="answerScore != null">
+        #{answerScore,jdbcType=INTEGER},
+      </if>
+      <if test="correctResult != null">
+        #{correctResult,jdbcType=VARCHAR},
+      </if>
+      <if test="subjectType != null">
+        #{subjectType,jdbcType=TINYINT},
+      </if>
+      <if test="answerTime != null">
+        #{answerTime,jdbcType=DATE},
+      </if>
+      <if test="questionnaireName != null">
+        #{questionnaireName,jdbcType=VARCHAR},
+      </if>
+      <if test="questionnaireId != null">
+        #{questionnaireId,jdbcType=BIGINT},
+      </if>
+      <if test="openId != null">
+        #{openId,jdbcType=VARCHAR},
+      </if>
+       <if test="subjectnameimage != null">
+       #{subjectnameimage,jdbcType=VARCHAR}, 
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.hp.modules.sys.entity.UserAnswerDetail">
+    update t_user_answer_detail
+    <set>
+      <if test="tUserAnswerId != null">
+        t_user_answer_id = #{tUserAnswerId,jdbcType=BIGINT},
+      </if>
+      <if test="subjectId != null">
+        subject_id = #{subjectId,jdbcType=BIGINT},
+      </if>
+      <if test="subjectName != null">
+        subject_name = #{subjectName,jdbcType=VARCHAR},
+      </if>
+      <if test="answerResult != null">
+        answer_result = #{answerResult,jdbcType=VARCHAR},
+      </if>
+      <if test="answerScore != null">
+        answer_score = #{answerScore,jdbcType=INTEGER},
+      </if>
+      <if test="correctResult != null">
+        correct_result = #{correctResult,jdbcType=VARCHAR},
+      </if>
+      <if test="subjectType != null">
+        subject_type = #{subjectType,jdbcType=TINYINT},
+      </if>
+      <if test="answerTime != null">
+        answer_time = #{answerTime,jdbcType=DATE},
+      </if>
+      <if test="questionnaireName != null">
+        questionnaire_name = #{questionnaireName,jdbcType=VARCHAR},
+      </if>
+      <if test="questionnaireId != null">
+        questionnaire_id = #{questionnaireId,jdbcType=BIGINT},
+      </if>
+      <if test="openId != null">
+        open_id = #{openId,jdbcType=VARCHAR},
+      </if>
+      
+     subject_name_image = #{subjectnameimage,jdbcType=VARCHAR}, 
+    </set>
+    where object_id = #{objectId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.hp.modules.sys.entity.UserAnswerDetail">
+    update t_user_answer_detail
+    set t_user_answer_id = #{tUserAnswerId,jdbcType=BIGINT},
+      subject_id = #{subjectId,jdbcType=BIGINT},
+      subject_name = #{subjectName,jdbcType=VARCHAR},
+      answer_result = #{answerResult,jdbcType=VARCHAR},
+      answer_score = #{answerScore,jdbcType=INTEGER},
+      correct_result = #{correctResult,jdbcType=VARCHAR},
+      subject_type = #{subjectType,jdbcType=TINYINT},
+      answer_time = #{answerTime,jdbcType=DATE},
+      questionnaire_name = #{questionnaireName,jdbcType=VARCHAR},
+      questionnaire_id = #{questionnaireId,jdbcType=BIGINT},
+      open_id = #{openId,jdbcType=VARCHAR},
+      subject_name_image= #{subjectnameimage,jdbcType=VARCHAR}
+    where object_id = #{objectId,jdbcType=BIGINT}
+  </update>
+</mapper>

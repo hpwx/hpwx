@@ -22,7 +22,7 @@ public class PagerEO<T> implements Serializable {
 	private int rows = 10;
 	
 	//当前每页记录数（jqgrid)
-	//private int limit = 10;
+	private int limit = 10;
 	
 	//总条数
 	private long total;
@@ -71,13 +71,13 @@ public class PagerEO<T> implements Serializable {
 		this.rows = rows;
 	}
 
-//	public int getLimit() {
-//		return limit;
-//	}
-//
-//	public void setLimit(int limit) {
-//		this.limit = limit;
-//	}
+	public int getLimit() {
+		return limit;
+	}
+
+	public void setLimit(int limit) {
+		this.limit = limit;
+	}
 
 	public long getTotal() {
 		return total;
