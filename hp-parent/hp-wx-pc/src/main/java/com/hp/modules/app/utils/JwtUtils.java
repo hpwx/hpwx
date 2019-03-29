@@ -22,7 +22,7 @@ public class JwtUtils {
     private Logger logger = LoggerFactory.getLogger(getClass());
 
     private String secret;
-    private long expire = 2000000;
+    private long expire;
     private String header;
 
     /**

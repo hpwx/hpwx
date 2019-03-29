@@ -7,7 +7,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import org.apache.tomcat.util.buf.StringUtils;
-import org.aspectj.apache.bcel.classfile.Code;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -67,13 +66,12 @@ public class QustionNaireImpl implements IQuestionNaire {
   UserAnswerMapper userAnswerMapper;
 
 
-  
-   
+
   @Override
-      /***
-       * 获取题目列表
-       * 
-       */
+  /***
+   * 获取题目列表
+   * 
+   */
   public Map<String, Object> getUserQustionNarie(String openId) {
 
     Map<String, Object> map = new HashMap<>();
@@ -146,11 +144,12 @@ public class QustionNaireImpl implements IQuestionNaire {
 
       @Override
       public int compare(PoJoSubjectInfo o1, PoJoSubjectInfo o2) {
-        
+
         return o1.getTypeid().compareTo(o2.getTypeid());
-      }});
-    
-    
+      }
+    });
+
+
     obj2.put("subjectlist", subjectlist);
     obj1.putAll(obj2);
     obj1.putAll(obj2);
@@ -179,8 +178,8 @@ public class QustionNaireImpl implements IQuestionNaire {
 
   @Override
   public Map<String, Object> commitSubject(Map<String, Object> map) {
- 
-    
+
+
     Map<String, Object> respmap = new HashMap<String, Object>();
     String openid = map.get("openid").toString();
     String questionnairid = map.get("questionnairid").toString();
@@ -192,7 +191,7 @@ public class QustionNaireImpl implements IQuestionNaire {
     useranser.setQuestionnaireId(Long.parseLong(questionnairid));
     useranser.setQustionNaireName(questionnairName);
     useranser.setCreateTime(new Date());
-    Integer  commitId = userAnswerMapper.insertSelective(useranser);
+    Integer commitId = userAnswerMapper.insertSelective(useranser);
 
     for (int i = 0; i < JSONArray.size(); i++) {
 
@@ -209,7 +208,6 @@ public class QustionNaireImpl implements IQuestionNaire {
       JSONArray choiclist = JSON.parseArray(curentobj.get("choicelist").toString());
 
       Subject subjectinfo = subjectMapper.selectByPrimaryKey(Long.valueOf(subjectid));
-
 
       UserAnswerDeatil anserdetail = new UserAnswerDeatil();
       anserdetail.setOpenId(openid);
@@ -239,15 +237,22 @@ public class QustionNaireImpl implements IQuestionNaire {
       }
       userAnserDetailMapper.insertSelective(anserdetail);
     }
-    respmap.put("questionnaireId",questionnairid);
+
+    QquestionNaire questionnareinfo =
+        qustionNaireMapper.selectByPrimaryKey(Long.parseLong(questionnairid));
+
+    respmap.put("questionnaireId", questionnairid);
     respmap.put("questionnaireName", questionnairName);
     respmap.put("commitId", commitId);
- 
+
+    respmap.put("endIsShow", questionnareinfo.getEndisshow());
+    respmap.put("endimage", questionnareinfo.getEndimage());
+    respmap.put("ispbulic", questionnareinfo.getIsPubic());
+    respmap.put("isshare", questionnareinfo.getEndisshow());
+
     return respmap;
   }
 
-
-  
 
 
   /**
@@ -255,74 +260,75 @@ public class QustionNaireImpl implements IQuestionNaire {
    */
 
   @Override
-  public  Map<String, Object> findSubjectResult(Map<String, Object> map) {
+  public Map<String, Object> findSubjectResult(Map<String, Object> map) {
     Map<String, Object> resultMap = new HashMap<>();
-   // JSONObject subjectobject = new JSONObject();
+    // JSONObject subjectobject = new JSONObject();
 
     String openid = map.get("openid").toString();
     String questionnairId = map.get("questionnaireid").toString();
-    String commitId = map.get("commitId").toString();   // 对应  T_useranser 表的   objectId
+    String commitId = map.get("commitId").toString(); // 对应 T_useranser 表的 objectId
     QquestionNaire questionnairre =
         qustionNaireMapper.selectByPrimaryKey(Long.parseLong(questionnairId));
 
-    List<UserAnswerDeatil>  anserdetaillist= userAnserDetailMapper.getAnserSubjectList(openid ,commitId);
-     
-    
-    if (questionnairre==null) {
-      
-      throw new SysException(CodeMsgEnum.ERROR.getCode() ,"问卷信息不存在！");
+    List<UserAnswerDeatil> anserdetaillist =
+        userAnserDetailMapper.getAnserSubjectList(openid, commitId);
+
+
+    if (questionnairre == null) {
+
+      throw new SysException(CodeMsgEnum.ERROR.getCode(), "问卷信息不存在！");
     }
-   resultMap.put("backimg", questionnairre.getBackColor());
-   resultMap.put("titile", questionnairre.getTitle());
-   resultMap.put("fengmian", questionnairre.getCover());
-   resultMap.put("isanonymouns", questionnairre.getAnonymous());
-   resultMap.put("isforward", questionnairre.getForward());
-   resultMap.put("ispublic", questionnairre.getIspublic());
-   resultMap.put("starttime", questionnairre.getStartTime());
-   resultMap.put("enddate", questionnairre.getEnable());
-   resultMap.put("icon", questionnairre.getIcon());
-   resultMap.put("isrepeatanswer", questionnairre.getRepeatedAnswer());
-   resultMap.put("count",  questionnairre.getAnswerCount()); // 表示 问卷允许做题次数
-   resultMap.put("description", questionnairre.getQuestionnaireDesc());
-    
-   
-   
-   JSONArray    subjectArrayJson= new JSONArray();
+    resultMap.put("backimg", questionnairre.getBackColor());
+    resultMap.put("titile", questionnairre.getTitle());
+    resultMap.put("fengmian", questionnairre.getCover());
+    resultMap.put("isanonymouns", questionnairre.getAnonymous());
+    resultMap.put("isforward", questionnairre.getForward());
+    resultMap.put("ispublic", questionnairre.getIspublic());
+    resultMap.put("starttime", questionnairre.getStartTime());
+    resultMap.put("enddate", questionnairre.getEnable());
+    resultMap.put("icon", questionnairre.getIcon());
+    resultMap.put("isrepeatanswer", questionnairre.getRepeatedAnswer());
+    resultMap.put("count", questionnairre.getAnswerCount()); // 表示 问卷允许做题次数
+    resultMap.put("description", questionnairre.getQuestionnaireDesc()); // 问卷的描述
+
+
+
+    JSONArray subjectArrayJson = new JSONArray();
     for (UserAnswerDeatil userAnswerDeatil : anserdetaillist) {
-      JSONObject  subjectjson= new JSONObject();
-      JSONArray  choicelistjson= new JSONArray();
-      
-        String  subjectype=   userAnswerDeatil.getSubjectType().toString();
-        subjectjson.put("subjectid", userAnswerDeatil.getSubjectId());
-        subjectjson.put("questionnaireid", userAnswerDeatil.getQuestionnaireId());
-        subjectjson.put("name", userAnswerDeatil.getSubjectName());
-        subjectjson.put("typeid", subjectype);
-        subjectjson.put("answerResult",userAnswerDeatil.getAnswerResult() ); // 回答的結果    非填空題    存儲的是 Id 
-        subjectjson.put("correctResult", userAnswerDeatil.getCorrectResult()); // 正確答案結果
-         
+      JSONObject subjectjson = new JSONObject();
+      JSONArray choicelistjson = new JSONArray();
+
+      String subjectype = userAnswerDeatil.getSubjectType().toString();
+      subjectjson.put("subjectid", userAnswerDeatil.getSubjectId());
+      subjectjson.put("questionnaireid", userAnswerDeatil.getQuestionnaireId());
+      subjectjson.put("name", userAnswerDeatil.getSubjectName());
+      subjectjson.put("typeid", subjectype);
+      subjectjson.put("answerResult", userAnswerDeatil.getAnswerResult()); // 回答的結果 非填空題 存儲的是 Id
+      subjectjson.put("correctResult", userAnswerDeatil.getCorrectResult()); // 正確答案結果
+
       // 1：单选题 2：多选题 5. 选择题
       if (subjectype == "1" || subjectype == "2" || subjectype == "5") {
-       // String[] choicelist =userAnswerDeatil.getAnswerResult().split(",")  ;
-        List<TSurveyAnswers> choicelist=  surveyAnswersMapper.selectListBySubjectId(userAnswerDeatil.getSubjectId());
-        choicelistjson.add(choicelist) ;
+        // String[] choicelist =userAnswerDeatil.getAnswerResult().split(",") ;
+        List<TSurveyAnswers> choicelist =
+            surveyAnswersMapper.selectListBySubjectId(userAnswerDeatil.getSubjectId());
+        choicelistjson.add(choicelist);
+      } else {
+
       }
-      else {
-        
-      }
-      
+
       subjectjson.put("choicelist", choicelistjson);
-     
-      
+
+
       subjectArrayJson.add(subjectjson);
     }
-    
+
     resultMap.put("subjectlist", subjectArrayJson);
-     
-    
-   
+
+
+
     return resultMap;
   }
-   
+
   /***
    * 
    * 获取 用户 做过的问卷问卷列表
@@ -333,7 +339,7 @@ public class QustionNaireImpl implements IQuestionNaire {
     return list;
 
   }
-  
+
   private void setChoiceItems(List<PoJoSubjectInfo> subjectlist, List<TSurveyAnswers> answerlist) {
 
     for (PoJoSubjectInfo subject : subjectlist) {
@@ -363,7 +369,7 @@ public class QustionNaireImpl implements IQuestionNaire {
     return items;
   }
 
- 
+
   private List<PoJoSubjectInfo> getAnserSubjectList(UserAnswerDeatil useranserdetail,
       List<PoJoSubjectInfo> subjectlist, List<TSurveyAnswers> items) {
 

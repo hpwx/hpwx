@@ -1,17 +1,13 @@
 package com.hp.modules.sys.controller;
 
-import com.hp.common.utils.EncryptUtil;
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
 import org.apache.shiro.SecurityUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import com.hp.modules.sys.entity.SysUserEntity;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
-
-import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServletRequest;
+import com.hp.modules.sys.entity.SysUserEntity;
 
 /**
  * Controller公共组件
@@ -23,33 +19,37 @@ import javax.servlet.http.HttpServletRequest;
 @Component
 public abstract class AbstractController {
 
-	@Autowired
-	HttpServletRequest request; //这里可以获取到request
+  @Autowired
+  HttpServletRequest request; // 这里可以获取到request
 
-	@Value("${userKey}")
-	private String userKey;
+  // @Value("${userKey}")
+  private String userKey = "dnfdnafja2342424bb";
 
-	protected Logger logger = LoggerFactory.getLogger(getClass());
-	
-	protected SysUserEntity getUser() {
-		return (SysUserEntity) SecurityUtils.getSubject().getPrincipal();
-	}
+  protected Logger logger = LoggerFactory.getLogger(getClass());
 
-	protected Long getUserId() {
-//		return getUser().getUserId();
-		Cookie[] cookies = request.getCookies();
-		String userId = null;
-		for (Cookie cookie:cookies) {
-			if(cookie.getName().equals("userInfo")){
-				userId = cookie.getValue();
-			}
-		}
-//		String user = EncryptUtil.getInstance().AESdecode(userId, userKey);
-//		if(user == null){
-//
-//		}
-		System.out.println("==================================================="+userId);
 
-		return Long.valueOf(userId);
-	}
+  protected SysUserEntity getUser() {
+    return (SysUserEntity) SecurityUtils.getSubject().getPrincipal();
+  }
+
+
+  protected Long getUserId() {
+    // return getUser().getUserId();
+    Cookie[] cookies = request.getCookies();
+    String userId = null;
+
+    for (Cookie cookie : cookies) {
+
+
+      if (cookie.getName().equals("userInfo")) {
+
+        System.out.println("========获取cokie getValue" + cookie.getValue());
+        userId = cookie.getValue();
+      }
+    }
+    System.out.println("========获取 userKey=====： " + userKey);
+    // String user = EncryptUtil.getInstance().AESdecode(userId, userKey);
+    System.out.println("========获取 user=====： " + userId);
+    return Long.valueOf(userId);
+  }
 }

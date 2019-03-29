@@ -7,12 +7,10 @@ var vm = new Vue({
         baseURL: baseURL,
         showList: true,
         title: null,
-        EditFalse:false,
-        EditCheckBox:[],
         role: {},
         isRequiredRadioList: [
-            {"value": 0, "text": "否", "checked": true},
-            {"value": 1, "text": "是", "checked": false}
+            {"value": 1, "text": "是", "checked": true},
+            {"value": 2, "text": "否", "checked": false}
         ],
         radioList: [
             {"value": 1, "text": "单选", "checked": true},
@@ -41,69 +39,28 @@ var vm = new Vue({
             subjectName:"",     //问题名称
             subjectId:""        //问题id
         },
-        answerSelect: [],
-        checkboxSelect: []
-
+        answerSelect: []
     },
     mounted: function () {
         this.getQuestionnire();
         this.$nextTick(function () {
-
-        layui.use(['upload', 'laydate', 'jquery'], function () {
-            var $ = layui.jquery
-                , upload = layui.upload,
-                laydate = layui.laydate;
-
-            //题目图片
-            upload.render({
-                elem: '#imgupload',
-                url: baseURL + 'sys/questionnaire/upload',
-                before: function (obj) {
-                    //预读本地文件示例，不支持ie8
-                    obj.preview(function (index, file, result) {
-                        $("#editImguploadpreview1").hide();
-                        $('#imguploadpreview1').attr('src', result).show(); //图片链接（base64）
-                        var src = $('#imguploadpreview1')[0].src;
-                    });
-                },
-                done: function (res) {
-                    // vm.from.src = res.url;
-                    // alert(res.url)
-                    // $('#backuploadpreview').attr('src', res.url);
-                    //如果上传失败
-                    if (res.code > 0) {
-                        return layer.msg('上传失败');
-                    }
-                    $("#imgupload1").val(res.url);
-                    //上传成功
-                },
-                error: function () {
-                    //演示失败状态，并实现重传
-                    var demoText = $('#demoText');
-                    demoText.html('<span style="color: #FF5722;">上传失败</span> <a class="layui-btn layui-btn-xs demo-reload">重试</a>');
-                    demoText.find('.demo-reload').on('click', function () {
-                        uploadInst.upload();
-                    });
-                }
-            });
-
             $("#jqGrid").jqGrid({
                 url: baseURL + 'sys/subject/list',
                 datatype: "json",
                 colModel: [
                     {label: '题目编号', name: 'objectId', index: "object_id", width: 45, key: true},
                     {label: '题目名称', name: 'name', index: "name", width: 45,formatter:function (value, options, row) {
-                            var content = decodeURIComponent(value);
-                            var newContent= content.replace(/<img [^>]*src=['"]([^'"]+)[^>]*>/gi,function(match,capture){
-                                //capture,返回每个匹配的字符串
-                                //  console.log(capture);
-                                console.log("-------------------------------")
-                                // capture = "img/baidu_jgylogo3.gif";
-                                var newStr='<img src="'+capture+'" alt="" style="width:200px;height: auto" />';
+                         var content = decodeURIComponent(value);
+                         var newContent= content.replace(/<img [^>]*src=['"]([^'"]+)[^>]*>/gi,function(match,capture){
+                            //capture,返回每个匹配的字符串
+                             console.log(capture);
+                             console.log("-------------------------------")
+                             capture = "img/baidu_jgylogo3.gif";
+                            var newStr='<img src="http://www.baidu.com/'+capture+'" alt="" />';
                                 return newStr;
-                            });
-                            return newContent;
-                        }},
+                         });
+                        return newContent;
+                    }},
                     {
                         label: '题目类型',
                         name: 'typeId',
@@ -148,7 +105,7 @@ var vm = new Vue({
                 }
             });
 
-/*            UE.Editor.prototype._bkGetActionUrl = UE.Editor.prototype.getActionUrl;
+            UE.Editor.prototype._bkGetActionUrl = UE.Editor.prototype.getActionUrl;
             UE.Editor.prototype.getActionUrl = function (action) {
                 if (action == 'uploadimage' || action == 'uploadscrawl' || action == 'uploadimage') {
                     return baseURL + '/sys/subject/imgUpload';
@@ -159,22 +116,16 @@ var vm = new Vue({
             };
 
             //富文本编辑器
-            var ue = UE.getEditor('editor',{
-                initialFrameWidth :800,//设置编辑器宽度
-                initialFrameHeight:250,//设置编辑器高度
-                scaleEnabled:true//设置不自动调整高度
-            });
+            var ue = UE.getEditor('editor');
             ue.ready(function () {
                 ue.setHeight(200);
-            })*/
+            })
 
-        });
 
         })
     },
     methods: {
-
-/*        isFocus: function (e) {
+        isFocus: function (e) {
             alert(UE.getEditor('editor').isFocus());
             UE.dom.domUtils.preventDefault(e)
         },
@@ -276,8 +227,8 @@ var vm = new Vue({
 
         clearLocalData: function () {
             UE.getEditor('editor').execCommand("clearlocaldata");
-            // alert("已清空草稿箱")
-        },*/
+            alert("已清空草稿箱")
+        },
 
         getQuestionnire: function () {
             $.get(baseURL + "sys/questionnaire/list/", function (r) {
@@ -288,7 +239,10 @@ var vm = new Vue({
 
                     alert(r.msg);
                 }
+
             });
+
+
         },
         query: function () {
             vm.reload();
@@ -322,210 +276,56 @@ var vm = new Vue({
         },
         answerCheckBox: function (item) {
             console.log(item);
-            console.log(vm.checkboxSelect);
-            for(var i = 0;i<vm.checkboxSelect.length;i++){
-                if(vm.checkboxSelect[i].item == item.item){
-                    vm.checkboxSelect[i].state = item.state;
-                }
+            var idIndex = this.questionObj.checkBoxAnswer.indexOf(item);
+            if (idIndex != -1) {
+                this.questionObj.checkBoxAnswer.splice(idIndex, 1)
+            } else {
+                this.questionObj.checkBoxAnswer.push(item)
             }
-        },
-        checkboxBlur: function(){
-            if(vm.isRepeat(vm.questionObj.questionCheckboxItems)){
-                alert("亲，多选题不能有重复答案吧!");
-                return;
-            }else{
-                vm.checkboxSelect = [];
-                for(var i = 0;i<this.questionObj.questionCheckboxItems.length;i++){
-                    if(this.questionObj.questionCheckboxItems[i] != ""){
-                        var obj = {};
-                        obj.item = this.questionObj.questionCheckboxItems[i];
-                        obj.state = false;
-                        vm.checkboxSelect.push(obj);
-                    }
-                }
-            }
-        },
-        editCheckBox: function (item) {
-            console.log("==================editCheckBox===================");
-            console.log(item.state);
-            console.log("==================editCheckBox===================");
-            console.log(vm.EditCheckBox);
+            console.log("=============="+idIndex);
+            console.log(this.questionObj.checkBoxAnswer);
+
         },
         addRadioInput: function () {
             this.questionObj.questionRadioItems.push('');
             this.answerSelect = this.questionObj.questionRadioItems;
         },
         addCheckboxInput: function () {
-            if(vm.isRepeat(vm.questionObj.questionCheckboxItems)){
-                alert("亲，多选题不能有重复答案吧!");
-                return;
-            }else{
-                vm.checkboxSelect = [];
-                this.questionObj.questionCheckboxItems.push('');
-                for(var i = 0;i<this.questionObj.questionCheckboxItems.length;i++){
-                    if(this.questionObj.questionCheckboxItems[i] != ""){
-                        var obj = {};
-                        obj.item = this.questionObj.questionCheckboxItems[i];
-                        obj.state = false;
-                        vm.checkboxSelect.push(obj);
-                    }
-                }
-            }
+            this.questionObj.questionCheckboxItems.push('');
         },
         delRadioInput: function () {
             this.answerSelect = this.questionObj.questionRadioItems.splice(this.questionObj.questionRadioItems.length - 1, 1);
             this.answerSelect = this.questionObj.questionRadioItems;
         },
         delCheckboxInput: function () {
-
-            var delItem = this.questionObj.questionCheckboxItems.splice(this.questionObj.questionCheckboxItems.length - 1, 1);
-
-            for(var i = 0;i<vm.checkboxSelect.length;i++){
-                if(vm.checkboxSelect[i].item == delItem){
-                    vm.checkboxSelect.splice(i,i)
-                }
-            }
+            this.answerSelect = this.questionObj.questionCheckboxItems.splice(this.questionObj.questionCheckboxItems.length - 1, 1);
+            this.answerSelect = this.questionObj.questionCheckboxItems;
         },
         add: function () {
             // alert(4);
             vm.showList = false;
-            vm.EditFalse = false;
             vm.title = "新增";
             vm.role = {};
-            vm.radioValue=1;
-                vm.radioRequiredValue= 1;
-                vm.showChooseFlag = true;
-                vm.radioAndCheckBoxFlag = true;
-                vm.starShowFlag = false;
-                vm.questionObj = {
-                    type: 1,
-                    questionnaireId: -1, //问卷id
-                    questionRadioItems: [''],
-                    questionCheckboxItems: [''],
-                    starNum: 5,
-                    starScore: 1,
-                    isRequired: 1,
-                    inputAnswer: "", //填空答案
-                    radioAnswer: "",  //单选答案
-                    checkBoxAnswer: [], //多选答案
-                    subjectName:"",     //问题名称
-                    subjectId:""        //问题id
-            };
-            vm.answerSelect = [];
-            // vm.EditCheckBox = [];
-            vm.checkboxSelect = [];
-
-            imguploadpreview1.style.display = "block";
-            editImguploadpreview1.style.display = "none";
-
-            // vm.setContent("");
         },
         update: function () {
             var objectId = getSelectedRow();
             if (objectId == null) {
                 return;
             }
-            vm.showList = false;
-            vm.title = "新增";
-            vm.role = {};
-            vm.radioValue=1;
-            vm.radioRequiredValue= 1;
-            vm.showChooseFlag = true;
-            vm.radioAndCheckBoxFlag = true;
-            vm.starShowFlag = false;
-            vm.questionObj = {
-                type: 1,
-                questionnaireId: -1, //问卷id
-                questionRadioItems: [''],
-                questionCheckboxItems: [''],
-                starNum: 5,
-                starScore: 5,
-                isRequired: 1,
-                inputAnswer: "", //填空答案
-                radioAnswer: "",  //单选答案
-                checkBoxAnswer: [], //多选答案
-                subjectName:"",     //问题名称
-                subjectId:"",        //问题id
-                nameImage:""         //题目图片
-            };
-            vm.answerSelect = [];
-            vm.EditCheckBox = [];
+
             vm.showList = false;
             vm.title = "修改";
 
             $.get(baseURL + "sys/subject/info/"+objectId, function(r){
                 if(r.code == 0){
                     var data = r.subject;
-                    console.log("============题目===========")
                     console.log(data);
-                    console.log("=============%%%%%==============")
-                    vm.questionObj.isRequired = data.mustAnswer;
-                    imgupload1.value = data.nameImage;
-                    if(data.type == 3){
-                        vm.radioAndCheckBoxFlag = false;
-                    }else if(data.type == 4){
-                        vm.radioAndCheckBoxFlag = false;
-                        vm.starShowFlag = true;
-                    }else if(data.type == 1){
-                        vm.showChooseFlag = true;
-                        vm.radioAndCheckBoxFlag = true;
-                        vm.answerSelect = vm.questionObj.questionRadioItems;
-                    }else if(data.type == 2){
-                        vm.showChooseFlag = false;
-                        vm.radioAndCheckBoxFlag = true;
-                        vm.answerSelect = vm.questionObj.questionCheckboxItems;
-
-                    }
-                    vm.radioValue = data.type;
-
-                    // vm.setContent(decodeURIComponent(data.subjectName));
-                    imguploadpreview1.style.display = "none";
-                    editImguploadpreview1.style.display = "block";
-                    vm.questionObj.subjectName = data.subjectName;
-                    vm.questionObj.nameImage = data.nameImage;
-                    editImguploadpreview1.src = vm.questionObj.nameImage;
-
-
+                    vm.setContent(decodeURIComponent(data.subjectName));
                     vm.$nextTick(function () {
                         for(var k in vm.questionObj){
                             for(var key in data){
                                 if(k == key){
-                                    if(key == "type" && (data[key] == 1)){
-                                        vm.questionObj.questionCheckboxItems = data.questionCheckboxItems = [''];
-                                        vm.questionObj.checkBoxAnswer = data.checkBoxAnswer = [];
-                                        vm.answerSelect = data.questionRadioItems;
-                                        vm.questionObj.type = data.type;
-                                        vm.questionObj.inputAnswer = data.inputAnswer;
-                                    }else if(key == "type" && (data[key] == 3 || data[key] == 4)){
-                                        vm.questionObj.checkBoxAnswer = data.checkBoxAnswer = [];
-                                        vm.questionObj.inputAnswer = data.inputAnswer = "";
-                                        vm.questionObj.questionCheckboxItems = data.questionCheckboxItems = [''];
-                                        vm.questionObj.questionRadioItems = data.questionRadioItems = [''];
-                                        vm.questionObj.type = data.type;
-                                    }else if(key == "type" && (data[key] == 2)){
-                                        vm.questionObj.inputAnswer = data.inputAnswer = "";
-                                        vm.questionObj.questionRadioItems = data.questionRadioItems = [''];
-                                        vm.checkboxSelect = [];
-                                        for(var j = 0;j < data.questionCheckboxItems.length;j++){
-                                            var obj = {};
-                                            obj.item = data.questionCheckboxItems[j];
-                                            obj.state = false;
-                                            vm.checkboxSelect.push(obj);
-                                        }
-                                        for(var i = 0;i<data.checkBoxAnswer.length;i++){
-                                            for(var j = 0;j < vm.checkboxSelect.length;j++){
-                                               if(data.checkBoxAnswer[i] == vm.checkboxSelect[j].item){
-                                                   vm.checkboxSelect[j].state = true;
-                                               }
-                                            }
-                                        }
-                                        console.log("==================");
-                                        vm.questionObj.type = data.type;
-                                    }else{
-                                        if(k != "checkBoxAnswer"){
-                                            vm.questionObj[k] = data[key];
-                                        }
-                                    }
+                                    vm.questionObj[k] = data[key];
                                 }
                             }
                         }
@@ -533,7 +333,10 @@ var vm = new Vue({
                 }else{
                     alert(r.msg);
                 }
+
+
             });
+
         },
         del: function () {
             var ids = getSelectedRows();
@@ -559,97 +362,18 @@ var vm = new Vue({
                 });
             });
         },
-        isRepeat: function(arr){
-        var hash = {};
-        for(var i in arr) {
-            if(hash[arr[i]])
-                return true;
-            hash[arr[i]] = true;
-
-        }
-        return false;
-        },
-        getByteLen: function (val) {
-            var len = 0;
-            for (var i = 0; i < val.length; i++) {
-                if (val[i].match(/[^\x00-\xff]/ig) != null) //全角
-                    len += 1;
-                else
-                    len += 1;
-            }
-            return len;
-        },
         saveOrUpdate: function () {
-            // var text = UE.getEditor('editor').getContent();
-            if(vm.questionObj.subjectName == "" || vm.questionObj.subjectName == null){
+            var text = UE.getEditor('editor').getContent();
+            if(text == "" || text == null){
                 alert("请添加题目标题");
                 return;
             }
-            if(vm.getByteLen(vm.questionObj.subjectName) > 100){
-                alert("题目标题字数超过100");
-                return;
-            }
-            if(vm.questionObj.type == 4){
-                if(!vm.questionObj.starNum){
-                    alert("星星的数量填个呗！");
-                    return;
-                }
-                if(vm.questionObj.starNum > 5){
-                    alert("星星的数量太多啦！");
-                    return;
-                }
-                if(vm.questionObj.starNum <= 0){
-                    alert("星星个数不能小于1！");
-                    return;
-                }
-                if(!vm.questionObj.starScore){
-                    alert("星值填个呗！");
-                    return;
-                }
-
-            }
-            if(vm.questionObj.type == 1 && vm.isRepeat(vm.questionObj.questionRadioItems)){
-                alert("亲，单选题不能有重复答案吧!");
-                return;
-            }
-            if(vm.questionObj.type == 1 && vm.questionObj.radioAnswer == ""){
+            if(vm.questionObj.type == 1 && vm.questionObj.radioAnswer.length == 0){
                 alert("亲，至少得有个选择的答案吧!");
                 return;
             }
-            if(vm.questionObj.type == 2){
-                if(vm.checkboxSelect.length == 0){
-                    alert("亲，至少得有个选择的答案吧!");
-                    return;
-                }
-                if(vm.isRepeat(vm.questionObj.questionCheckboxItems)){
-                    alert("亲，不能有重复答案吧!");
-                    return;
-                }
-                for(var i = 0;i<vm.questionObj.questionCheckboxItems.length;i++){
-                    if(vm.questionObj.questionCheckboxItems[i]==''||vm.questionObj.questionCheckboxItems[i]==null||typeof(vm.questionObj.questionCheckboxItems[i])==undefined){
-                        vm.questionObj.questionCheckboxItems.splice(i,1);
-                        i=i-1;
-                    }
-                }
-                var count = false;
-                for(var i = 0;i<vm.checkboxSelect.length;i++){
-                    if(vm.checkboxSelect[i].state){
-                        count = true;
-                        vm.questionObj.checkBoxAnswer.push(vm.checkboxSelect[i].item)
-                    }
-                }
-                if(!count){
-                    alert("亲，至少得有个选择的答案吧!");
-                    return;
-                }
-            }
-
-            // text = text.replace("<p>","").replace("</p>","").trim("");
-
-            // vm.questionObj.subjectName = encodeURIComponent(text);
-
-            vm.questionObj.nameImage = imgupload1.value;
-
+            text = text.replace("<p>","").replace("</p>","").trim("");
+            vm.questionObj.subjectName = encodeURIComponent(text);
             var url = vm.questionObj.subjectId == "" ? "sys/subject/add" : "sys/subject/update";
             $.ajax({
                 type: "POST",

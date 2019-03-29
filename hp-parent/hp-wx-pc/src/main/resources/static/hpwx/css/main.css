@@ -19,11 +19,7 @@ html { overflow-x:hidden; overflow-y: auto}
     color: #444;
     border-top: 1px solid #eee;
 }
-.redIcon{
-    color: #e4393c;
-    margin-right: 3px;
-    font-size: 14px;
-}
+
 [v-cloak] {
   display: none;
 }
@@ -140,55 +136,3 @@ tbody > tr > th {font-weight: normal; }
     /*display: table-cell;*/
     /*vertical-align: middle;*/
 /*}*/
-.layui-card .questionTitle{
-    color: #666;
-    font-weight: 600;
-    font-size: 18px;
-}
-.questionList .typeTitle{
-    color: #666;
-    font-weight: 600;
-    font-size: 16px;
-    padding-left: 8px;
-    position: relative;
-    margin-bottom: 15px;
-}
-.questionList .typeTitle .right{
-    position: absolute;
-    right: 34px;
-}
-.questionList .questionItem{
-    height: 36px;
-    line-height: 28px;
-    padding: 4px 10px;
-    border-bottom: 1px solid #ccc;
-    position: relative;
-}
-.questionList .questionItem .right{
-    position: absolute;
-    right: 40px;
-}
-.questionList .questionItem .right .poll{
-    margin-right: 20px;
-}
-
-.questionList .active{
-    background-color: #c5c5c5;
-}
-.form-horizontal .control-label{
-    text-align: left;
-}
-.star{
-    display: inline-block;
-    background: url("../images/star.png") no-repeat center center;
-    width: 32px;
-    height: 32px;
-}
-.panel-heading{
-    position: relative;
-}
-.closeBtn{
-    position: absolute;
-    right: 20px;
-    cursor: pointer;
-}

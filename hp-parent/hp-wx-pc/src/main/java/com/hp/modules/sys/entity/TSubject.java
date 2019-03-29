@@ -41,30 +41,6 @@ public class TSubject implements Serializable{
 
     private String everyGradeScore;
 
-    private Byte mustAnswer;
-
-    private String nameImage;
-
-    public String getNameImage() {
-        return nameImage;
-    }
-
-    public void setNameImage(String nameImage) {
-        this.nameImage = nameImage;
-    }
-
-    public static long getSerialVersionUID() {
-        return serialVersionUID;
-    }
-
-    public Byte getMustAnswer() {
-        return mustAnswer;
-    }
-
-    public void setMustAnswer(Byte mustAnswer) {
-        this.mustAnswer = mustAnswer;
-    }
-
     public Integer getGradeCount() {
         return gradeCount;
     }

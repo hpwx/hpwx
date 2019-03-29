@@ -4,21 +4,19 @@
   <resultMap id="BaseResultMap" type="com.hp.modules.sys.entity.TSubject" >
     <id column="object_id" property="objectId" jdbcType="BIGINT" />
     <result column="create_user" property="createUser" jdbcType="VARCHAR" />
-    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_time" property="createTime" jdbcType="DATE" />
     <result column="update_user" property="updateUser" jdbcType="VARCHAR" />
-    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="update_time" property="updateTime" jdbcType="DATE" />
     <result column="deleted" property="deleted" jdbcType="TINYINT" />
     <result column="name" property="name" jdbcType="VARCHAR" />
     <result column="type_id" property="typeId" jdbcType="INTEGER" />
     <result column="subject_answer" property="subjectAnswer" jdbcType="BIGINT" />
     <result column="grade_count" property="gradeCount" jdbcType="INTEGER" />
     <result column="every_grade_score" property="everyGradeScore" jdbcType="VARCHAR" />
-    <result column="must_answer" property="mustAnswer" jdbcType="TINYINT" />
-    <result column="name_image" property="nameImage" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
     object_id, create_user, create_time, update_user, update_time, deleted, name, type_id, 
-    subject_answer,grade_count,every_grade_score,must_answer,name_image
+    subject_answer,grade_count,every_grade_score
   </sql>
 
 
@@ -52,12 +50,11 @@
   <insert id="insert" parameterType="com.hp.modules.sys.entity.TSubject" >
     insert into t_subject (object_id, create_user, create_time, 
       update_user, update_time, deleted, 
-      name, type_id, subject_answer,grade_count,every_grade_score,must_answer,name_image
+      name, type_id, subject_answer,grade_count,every_grade_score
       )
-    values (#{objectId,jdbcType=BIGINT}, #{createUser,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP},
-      #{updateUser,jdbcType=VARCHAR}, #{updateTime,jdbcType=TIMESTAMP}, #{deleted,jdbcType=TINYINT},
-      #{name,jdbcType=VARCHAR}, #{typeId,jdbcType=INTEGER}, #{subjectAnswer,jdbcType=BIGINT},#{gradeCount,jdbcType=INTEGER},#{everyGradeScore,jdbcType=VARCHAR},
-      #{mustAnswer,jdbcType=TINYINT},#{nameImage,jdbcType=VARCHAR}
+    values (#{objectId,jdbcType=BIGINT}, #{createUser,jdbcType=VARCHAR}, #{createTime,jdbcType=DATE}, 
+      #{updateUser,jdbcType=VARCHAR}, #{updateTime,jdbcType=DATE}, #{deleted,jdbcType=TINYINT}, 
+      #{name,jdbcType=VARCHAR}, #{typeId,jdbcType=INTEGER}, #{subjectAnswer,jdbcType=BIGINT},#{gradeCount,jdbcType=INTEGER},#{everyGradeScore,jdbcType=VARCHAR}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.hp.modules.sys.entity.TSubject" useGeneratedKeys="true" keyProperty="objectId">
@@ -96,12 +93,6 @@
       <if test="everyGradeScore != null" >
         every_grade_score,
       </if>
-      <if test="mustAnswer != null" >
-        must_answer,
-      </if>
-      <if test="nameImage != null" >
-        name_image,
-      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="objectId != null" >
@@ -111,13 +102,13 @@
         #{createUser,jdbcType=VARCHAR},
       </if>
       <if test="createTime != null" >
-        #{createTime,jdbcType=TIMESTAMP},
+        #{createTime,jdbcType=DATE},
       </if>
       <if test="updateUser != null" >
         #{updateUser,jdbcType=VARCHAR},
       </if>
       <if test="updateTime != null" >
-        #{updateTime,jdbcType=TIMESTAMP},
+        #{updateTime,jdbcType=DATE},
       </if>
       <if test="deleted != null" >
         #{deleted,jdbcType=TINYINT},
@@ -137,12 +128,6 @@
       <if test="everyGradeScore != null" >
         #{everyGradeScore,jdbcType=VARCHAR},
       </if>
-      <if test="mustAnswer != null" >
-        #{mustAnswer,jdbcType=TINYINT},
-      </if>
-      <if test="nameImage != null" >
-        #{nameImage,jdbcType=VARCHAR},
-      </if>
     </trim>
   </insert>
   <update id="updateByPrimaryKeySelective" parameterType="com.hp.modules.sys.entity.TSubject" >
@@ -152,13 +137,13 @@
         create_user = #{createUser,jdbcType=VARCHAR},
       </if>
       <if test="createTime != null" >
-        create_time = #{createTime,jdbcType=TIMESTAMP},
+        create_time = #{createTime,jdbcType=DATE},
       </if>
       <if test="updateUser != null" >
         update_user = #{updateUser,jdbcType=VARCHAR},
       </if>
       <if test="updateTime != null" >
-        update_time = #{updateTime,jdbcType=TIMESTAMP},
+        update_time = #{updateTime,jdbcType=DATE},
       </if>
       <if test="deleted != null" >
         deleted = #{deleted,jdbcType=TINYINT},
@@ -178,12 +163,6 @@
       <if test="everyGradeScore != null" >
         every_grade_score = #{everyGradeScore,jdbcType=VARCHAR},
       </if>
-      <if test="mustAnswer != null" >
-        must_answer = #{mustAnswer,jdbcType=TINYINT},
-      </if>
-      <if test="nameImage != null" >
-        name_image = #{nameImage,jdbcType=VARCHAR},
-      </if>
     </set>
     where object_id = #{objectId,jdbcType=BIGINT}
   </update>
@@ -199,8 +178,6 @@
       subject_answer = #{subjectAnswer,jdbcType=BIGINT},
       grade_count = #{gradeCount,jdbcType=INTEGER},
       every_grade_score = #{everyGradeScore,jdbcType=VARCHAR}
-      must_answer = #{mustAnswer,jdbcType=TINYINT}
-      name_image = #{nameImage,jdbcType=VARCHAR}
     where object_id = #{objectId,jdbcType=BIGINT}
   </update>
 

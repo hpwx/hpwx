@@ -33,7 +33,4 @@ public interface TQuestionnaireService extends IService<TQuestionnaire> {
 
     void updateQuestionEnable(Map<String,Object> map);
 
-    void cancelEnableById(Long id);
-
-
 }

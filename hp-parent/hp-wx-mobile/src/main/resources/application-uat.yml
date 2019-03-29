@@ -1,10 +1,4 @@
-server:
-    tomcat:
-        uri-encoding: UTF-8
-        max-threads: 1000
-        min-spare-threads: 30
-    context-path: /hpwxmobile  #  根路径
-    port: 8002    # 8002 spring:
+spring:
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
     driver-class-name: com.mysql.jdbc.Driver

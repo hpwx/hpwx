@@ -48,6 +48,8 @@ public class AppLoginController {
 
         //生成token
         String token = jwtUtils.generateToken(userId);
+        
+        
 
         Map<String, Object> map = new HashMap<>();
         map.put("token", token);

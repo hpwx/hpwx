@@ -149,12 +149,4 @@
       <include refid="Base_Column_List" />
     FROM t_survey_answers WHERE question_id = #{objectId,jdbcType=BIGINT}
   </select>
-
-  <select id="selectListBySubjectId" resultMap="BaseResultMap"   >
-    select
-    <include refid="Base_Column_List" />
-    from t_survey_answers
-    where question_id = #{subjectid}
-  </select>
-
 </mapper>

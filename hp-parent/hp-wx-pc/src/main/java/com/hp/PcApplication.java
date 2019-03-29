@@ -9,7 +9,6 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.support.SpringBootServletInitializer;
 import org.springframework.context.annotation.Import;
 import com.hp.datasources.DynamicDataSourceConfig;
-import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 
 @SpringBootApplication(exclude = {DataSourceAutoConfiguration.class})
@@ -20,11 +19,13 @@ public class PcApplication extends SpringBootServletInitializer {
 
   public static void main(String[] args) {
     SpringApplication.run(PcApplication.class, args);
+
     Log.info("微信后台服务已启动......");
   }
 
   @Override
   protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+
     return application.sources(PcApplication.class);
   }
 
