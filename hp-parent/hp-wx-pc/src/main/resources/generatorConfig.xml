@@ -30,7 +30,7 @@
         </sqlMapGenerator>
         <!-- 生成DAO的包名和位置-->
         <javaClientGenerator type="XMLMAPPER" targetPackage="com.hp.modules.sys.dao" targetProject="hp-wx-pc/src/main/java">
-            <property name="t_user_answer_detailenableSubPackages" value="true"/>
+            <property name="enableSubPackages" value="true"/>
         </javaClientGenerator>
         <!-- 要生成的表 tableName是数据库中的表名或视图名 domainObjectName是实体类名-->
        <!--  
@@ -39,7 +39,7 @@
     <table tableName="t_questionnaire_subject" domainObjectName="QquestionNaireSubject" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
     <table tableName="t_subject" domainObjectName="Subject" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
   -->
-    <table tableName="t_user_answer_detail" domainObjectName="UserAnswerDeatil" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
+    <table tableName="t_activity" domainObjectName="Activity"   enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false" ></table>
    
     </context>
 </generatorConfiguration>

@@ -18,9 +18,7 @@
     object_id, create_user, create_time, update_user, update_time, deleted, name, type_id, 
     subject_answer,grade_count,every_grade_score
   </sql>
-
-
-
+ 
   <select id="selectAnswersByQID" resultType="map" parameterType="java.lang.Long" >
     SELECT
       t2.object_id objectId,

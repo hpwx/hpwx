@@ -20,15 +20,14 @@ import com.amazonaws.services.s3.model.CannedAccessControlList;
 import com.amazonaws.services.s3.model.GetObjectRequest;
 import com.amazonaws.services.s3.model.PutObjectRequest;
 import com.amazonaws.services.s3.model.S3Object;
- 
 
 @Component
 public class AwsS3 {
 
   private Logger log = LoggerFactory.getLogger(AwsS3.class);
 
-  @Value("${aws.s3.region}")
-  private String region;
+  // @Value("${aws.s3.region}")
+  private String region = "cn-north-1";
 
   @Value("${aws.s3.credentials.type:none}")
   private String type;
@@ -142,10 +141,9 @@ public class AwsS3 {
     // 生成公用的url
     URL url = amazonS3.getUrl(amazonS3URI.getBucket(), amazonS3URI.getKey());
     if (url == null) {
-     return  null;
+      return null;
     }
     return url.toString();
   }
 
 }
-
