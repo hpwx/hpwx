@@ -5,6 +5,8 @@ import java.util.Map;
 import com.baomidou.mybatisplus.service.IService;
 import com.hp.common.utils.PageUtils;
 import com.hp.modules.sys.entity.Activity;
+import com.ym.ms.paging.PagerEO;
+
 
 public interface IActivityService extends IService<Activity> {
 
@@ -18,7 +20,7 @@ public interface IActivityService extends IService<Activity> {
 
   void deleteBatch(Long[] ids);
 
-  PageUtils getActivityByCondition(Map<String, Object> map);
+  PageUtils getActivityByCondition(Map<String, Object> map, PagerEO<?> pe);
 
 
   Activity getActivityByObjectId(Long objectId);

@@ -187,4 +187,10 @@
 		backimage = #{backimage,jdbcType=VARCHAR}
 		where object_id = #{objectId,jdbcType=BIGINT}
 	</update>
+	
+	<update id="updateByStatus">
+		update t_activity status=#{status}
+  where status=#{status}
+	</update>
+	
 </mapper>

@@ -15,7 +15,8 @@ var vm = new Vue({
             backimage:"",     // 背景图
             activeTime:"",
             startTime:"",     //活动开始时间
-            endTime:""      //活动结束时间
+            endTime:"" ,     //活动结束时间
+            time:''
         }
 	},
     mounted: function () {
@@ -224,10 +225,8 @@ var vm = new Vue({
 		},
 		update: function() {
 
-            debugger;
             var id = getSelectedRow();
             
-            debugger;
 			if(id == null){
 				return ;
 			}
@@ -239,7 +238,9 @@ var vm = new Vue({
                     vm.activityinfo.name=r.data.name;
                    vm .activityinfo.context=r.data.context;
                    vm.activityinfo.status=r.data.status;
-                   vm.activityinfo.activedate = r.data.startTime + "~" + r.data.endTime;
+                //   vm.activityinfo.time=r.data.startTime + "~" + r.data.endTime;
+                console.log(activedate);
+                   activedate.value= r.data.startTime + " ~ " + r.data.endTime;
                  //  vm.activityinfo.activedate.value = vm.time;
                   imguploadpreview1.src= r.data.backimage; 
                 }else{
@@ -383,9 +384,9 @@ var vm = new Vue({
         // 取消上传  
         canelUpload:function(){
            
-        alert('cancel upload!');
+ 
         $('#imguploadpreview1').removeAttr('src');
-        $('#imguploadpreview1').attr('src','');//图片链接（base64）
+         //  $('#imguploadpreview1').attr('src','');//图片链接（base64）
         },
 	    reload: function () {
 	    	vm.showList = true;

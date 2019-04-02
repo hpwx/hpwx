@@ -16,6 +16,8 @@ import com.hp.common.utils.PageUtils;
 import com.hp.common.utils.R;
 import com.hp.modules.sys.entity.Activity;
 import com.hp.modules.sys.service.IActivityService;
+import com.ym.ms.paging.PagerEO;
+
 
 
 @RestController
@@ -52,9 +54,9 @@ public class ActivityController {
    *
    */
   @RequestMapping("/getActivityList")
-  public R getActivityList(@RequestParam Map<String, Object> map) {
+  public R getActivityList(@RequestParam Map<String, Object> map, PagerEO<?> pe) {
 
-    PageUtils page = activityService.getActivityByCondition(map);
+    PageUtils page = activityService.getActivityByCondition(map, pe);
     return R.ok().put("page", page);
 
   }
